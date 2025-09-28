@@ -36,12 +36,14 @@ The latest version changes the block models to full XML support with the capabil
 subroutines. A major enhancement has been the integration of TCL scripting capability where TCL scripts control the blocks in a block diagram and can change parameters and retrieve results from the blocks after a simulation completes.
 
 The principal authors for the enhancements to BLOSIM are Professor Sasan Ardalan formerly with the Dept. of Electrical and Computer Engineering, North Carolina State Univertsity, Raleigh, NC and Jim Faber, Ph.D. 
+
+ <h3>Original IEEE Papers by Messerschmitt on BLOSIM</h3>
+    <p>David G. Messerschmitt, &quot;<a href="Blosim/MesserschmittJSAC.pdf">A Tool for Structured Functional Simulation</a>&quot;, <em>IEEE Journal on Selected Areas in Communications</em>, Vol. SAC-2, NO.1, January 1984, pp.137-147<img src="images/pdf.gif" width="22" height="21"><a href="Blosim/MesserschmittJSAC.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
+    <p>David G. Messerschmitt, &quot;<a href="Blosim/messerschmittBuffers.pdf">Structured Interconnection of Simulation Programs</a>&quot;,1984 <em>IEEE GlobeComm</em>. pp. 808-811 <img src="images/pdf.gif" width="22" height="21"><a href="Blosim/messerschmittBuffers.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
+
 <h2>Capsim&reg; TMK Licensing</h2>
 The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of blocks and a subroutine DSP library is licensed under the GNU Lesser General Public License. Tools used to develop blocks including many Perl scripts are covered by the GNU General Public License. These tools are separate from the Capsim&reg; TMK library. The intention is to provide all of the source code of the Capsim&reg; kernel, blocks and subroutine libraries as open source code with freedom to modify and enhance the code. The GNU Lesser General Public License is intended to allow the linking in of blocks developed by the community without having to expose the code for the linked blocks. However, we encourage all developers to publish the code for their blocks and subroutines. All modifications and enhancements to the Kernel, any of the supplied blocks and subroutines with the Capsim&reg;TMK distribution must be published if distributed. Any distribution of the created Capsim&reg; executable must include a statement showing links to the original Capsim&reg;TMK source code.
 
-  <h3>Original IEEE Papers by Messerschmitt on BLOSIM</h3>
-    <p>David G. Messerschmitt, &quot;<a href="Blosim/MesserschmittJSAC.pdf">A Tool for Structured Functional Simulation</a>&quot;, <em>IEEE Journal on Selected Areas in Communications</em>, Vol. SAC-2, NO.1, January 1984, pp.137-147<img src="images/pdf.gif" width="22" height="21"><a href="Blosim/MesserschmittJSAC.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
-    <p>David G. Messerschmitt, &quot;<a href="Blosim/messerschmittBuffers.pdf">Structured Interconnection of Simulation Programs</a>&quot;,1984 <em>IEEE GlobeComm</em>. pp. 808-811 <img src="images/pdf.gif" width="22" height="21"><a href="Blosim/messerschmittBuffers.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
     
 
 <h2>Capsim&reg;TMK Capability Improvements over Blosim </h2>
