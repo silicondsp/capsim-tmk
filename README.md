@@ -13,6 +13,8 @@ Capsim&reg; with its flexible buffer connection management can handle mixed sync
 
 <h2>Capsim&reg; Blocks </h2>
 The new model for block C code generation is illustrated below, Blocks are written in embedded C code in XML and transformed to C code and incorporated into Capsim&reg;. The XML code is transformed using XSLT (Extensible Stylesheet Language for Transformation) to C code and HTML for documentation. Tools are provided that automatically do the conversion from XML to C code when adding models to Capsim&reg;.
+
+<img src="images/capsim_block_xml.jpg"   alt="Block XML" title="" />
 <h1>Documentation</h1>   
 </div>
  <ol type="1">
