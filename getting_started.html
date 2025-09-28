@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Tue, 23 Sep 2025 02:48:21 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Getting Started CapsimTMK</title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    
+    
+  </head>
+  <body>   
+  <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+
+  <h1>Capsim Hierarchical Block Diagram Modeling and Simulation Program</h1>
+  
+<h2>Contents</h2>
+ <ol type="1">
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#getting_started">Getting Started</a></li>
+    <li><a href="#building">Building Capsim Text Mode Executable</a></li>
+    <li><a href="#running">Running Capsim</a></li>
+    <li><a href="#fsk">Example FSK Modulation</a></li>
+    <li><a href="#adding_blocks">Adding Blocks (Models) to Capsim</a></li>
+</ol> 
+<div id="documentation">
+<h1>Documentation</h1>   
+</div>
+ <ol type="1">
+    <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="" title="" /></a></li>
+    <li><a href="images/processcubed..html">Example Block</a> for Adding Blocks to Capsim (processcubed.s)</li>
+<li><a href="https://www.ccdsp.org/IIPPlot/index.html">IIPPlot</a> Interactive Java Plotting Package</li>
+<li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
+</ol>   
+<div id="getting_started">
+<h1>CapsimTMK Getting Started</h1>
+</div >
+<p>In the following the UNIX prompt is '%'. Do not type it when running the commands shown. It also indicates that this a command line command in Linux </p>
+ 
+<p>Example topologies are included in the APPLICATIONS directory. 
+Each application has a README file. </p>
+
+<p>Define the environment variable CAPSIM to point to the directory where CapsimTMK resides.
+For example if you place CapsimTMK in the directory:</p>  
+   
+
+       <p style="margin-left: 50px;">/usr/local/CapsimTMK </p>
+     
+     
+<p>Then define $CAPSIM as: </p>
+
+
+  <p style="margin-left: 50px;">%export CAPSIM=/usr/local/CapsimTMK</p>    
+<p>If you change directories to your CapsimTMK installation you can use the command:</p>
+  <p style="margin-left: 50px;">%pwd</p>
+<p>to get the path, then set the $CAPSIM environment variable with this path.</p>
+ 
+ <div id="building">      
+<h2>Building CapsimTMK</h2>  
+  </div>
+<p>Create a working directory called WORK. Make sure it is NOT in the $CAPSIM directory.</p>
+  <p style="margin-left: 50px;">%mkdir WORK</p>
+<p>You can just type:</p>
+  <p style="margin-left: 50px;">%cd</p>
+<p>to get to your HOME directory. Double check with the command</p> 
+  <p style="margin-left: 50px;">%pwd</p>
+
+<p>Make sure to change directories to the WORK directory:</p>
+  <p style="margin-left: 50px;">%cd WORK</p>
+<p>Double check:</p>
+  <p style="margin-left: 50px;">%pwd</p>
+<p>To build CapsimTMK do the following:</p>
+
+<p>1-In the WORK directory type:</p>
+  <p style="margin-left: 50px;">%bash $CAPSIM/TOOLS/precapsim.sh</p>
+<p>A lot of things start to happen. The bash shell <b> precapsim.sh</b> will create a BLOCKS and SUBS directory. 
+It will also create the file  <b>krn_blocklib.c</b> in the BLOCKS directory. This file has the database of all blocks.
+It will also create the all important file: <b>Makefile</b>.</p>
+<p>2-Ignore the error  and type:</p>
+<p  style="margin-left: 50px;">%make</p>    
+<p>An executable file named <b>capsim</b> will be created.</p>    
+<p>3- Type:</p>
+<p style="margin-left: 50px;">%./capsim -b</p>
+<p>To verify. Then type quit to exit for now.</p>
+
+
+
+<div id="running">
+<h2>Running CapsimTMK</h2>   
+  </div>        
+<h3>1-Capsim Interactive Mode</h3>
+<p>Type:</p>
+<p style="margin-left: 50px;">%./capsim -b</p>  
+<p>Create block that generates a sine wave </p>
+<p style="margin-left: 50px;">block sine</p>
+<p>Create a block that prints its input to the terminal (or file):</p>
+<p style="margin-left: 50px;">block prfile</p>
+<p>Now connect the two blocks:</p>
+<p style="margin-left: 50px;">connect sine0 prfile0</p>
+<p>Run the simulation:</p>
+<p style="margin-left: 50px;">run</p>
+
+<p>Next we are going to change the parameter of the prfile0 block and have it store its input into the file "sine.dat".
+</p>
+<p>Type:</p>
+<p style="margin-left: 50px;">to prfile0</p>
+<p style="margin-left: 50px;">chp</p>
+<p style="margin-left: 50px;">sine.date</p>
+<p>hit the carriage return to accept the defaults for the next two parameters.</p>
+
+<p>Now run</p>
+<p style="margin-left: 50px;">run</p>
+<p>The results are stored in the file "sine.dat"</p> 
+<p>Save the topology by typing:</p>
+<p style="margin-left: 50px;">store test.t</p>
+
+<p>Exit Capsim by typing</p>
+<p style="margin-left: 50px;">quit</p>
+
+<p>Check the file "sine.dat" by typing</p>
+<p style="margin-left: 50px;">%cat sine.dat</p>
+
+<p>We can plot the result using the Java Tool <b>IIPPlot.jar</b> in the $CAPSIM/TOOLS directory.</p>
+<p>Type:</p>
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/IIPPlot.jar sine.dat</p>
+
+<p>The sine wave is plotted.</p>  
+
+<img src="images/sine1.jpg" width="511" height="374" alt="sine.dat" title="" /> 
+<p><strong>Plot of generated sine wave "sine.dat"</strong></p>
+
+<img src="images/sine2.jpg" width="516" height="453" alt="sine2.dat" title="" />
+<p><strong>Plot of generated sine wave "sine.dat" with dark background theme</strong></p>
+
+
+<div id="fsk">
+<h3>2-Simulating an FSK Modulator/Demodulator, Plotting and Topology Viewer</h3>   
+</div>
+Copy the topologies from the FSK directory in APPLICATIONS to the WORK directory:
+
+ <p style="margin-left: 50px;">%cp $CAPSIM/APPLICATIONS/FSK/*.t .</p> 
+<p>The copied topologies are:</p>
+ 
+<p style="margin-left: 50px;"> dcotest.t  fskdemod.t  fsk.t </p> 
+
+<p>Run Capsim in interactive mode:</p>
+<p style="margin-left: 50px;">%./capsim -b </p> 
+
+<p>Load the topology fsk.t:</p>
+
+<p style="margin-left: 50px;">load fsk.t</p>
+Run the simulation:
+<p style="margin-left: 50px;">run</p>
+<p>You will get a messages that the following files are created:</p>
+<!--
+<p style="margin-left: 50px;">plot created file: original.tim</p> 
+<p style="margin-left: 50px;">spectrum created file: Spectrum.tim </p>
+<p style="margin-left: 50px;">spectrum created file: Spectrum.fre </p>
+<p style="margin-left: 50px;">plot created file: demod.tim  </p>  
+-->
+ <pre>plot created file: original.tim  
+ spectrum created file: Spectrum.tim  
+ spectrum created file: Spectrum.fre  
+ plot created file: demod.tim</pre>   
+ <p></p>
+ 
+
+Quit Capsim. Issue the following command to plot the original signal that is Frequency Shift Keyed Modulated:
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/IIPPlot.jar original.tim</p>
+
+<img src="images/fsk_original.jpg" width="943" height="614" alt="fsk original" title="" />
+<p><strong>Plot of original signal to be modulated (FSK)</strong></p>
+<br> 
+<p>Note that we are using the fixed bounds capability of IIPPlot. See below:</p>
+<img src="images/fixed_bounds_select.jpg" width="735" height="129" alt="fixed bounds" title="" />
+<br>
+<img src="images/fsk_time_fixed_bounds.jpg" width="475" height="268" alt="fixed boumds" title="" />
+
+<p>Next plot the demodulated signal where it is shown that the original is recovered:</p>
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/IIPPlot.jar demod.tim</p>
+
+
+
+<img src="images/fsk_demodulated_fixed_bounds.jpg" width="883" height="531" alt="fsk_demodulated" title="" />
+<p><strong>Plot of demodulated signal(FSK)</strong></p>
+
+<br>
+
+<p>In the plot below we show the FSK signal in the time domain where we have zoomed in to highlight Frequency Shift Keying.</p>
+Use the command:</p>
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/IIPPlot.jar Spectrum.tim</p>
+
+<br>
+<img src="images/fsk_time_zoomed_in.jpg" width="1050" height="741" alt="fsk time zoomed in" title="" />
+<p><strong>Plot of FSK signal in the time domain zoomed in.</strong></p>
+<p>Next we plot the Spectrum of the FSK signal:</p>
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/IIPPlot.jar Spectrum.fre</p>
+
+
+<br>
+<img src="images/spectrum.jpg" width="933" height="702" alt="fsk frequency domain" title="" /> 
+<p><strong>Plot of the Spectrum of the FSK signal in the frequency  domain.</strong></p>
+<br>   
+
+<h3>3-Drawing the Topology of the FSK Modulation and Demodulation Topology</h3>
+
+<p>We have a Java tool,<strong>DrawTopology.jar</strong>, that will draw the topology of a system or hierarchical block.
+Use the following command:</p>
+<p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/DrawTopology.jar fsk.t</p>
+<p>The topology is shown below:</p>
+<br>
+<img src="images/fsk_block_diagram.jpg" width="1089" height="284" alt="fsk block diagram" title="" />
+<p><strong>Drawing of the topology "fsk.t" using the Java tool DrawTopology</strong></p>
+<br>
+ <p>To draw the FSK demodulation hierarchical block issue the command</p>
+ <p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/DrawTopology.jar fskdemod.t</p>
+
+
+<img src="images/fsk_fskdemod_block_diagram.jpg" width="1045" height="318" alt="fsk fskdemod block diagram" title="" />
+<p><strong>Drawing of the topology "fskdemod.t" using the Java tool DrawTopology</strong></p>
+
+<br>
+<br>
+<br>
+ 
+
+<!-- ===================================================== -->
+  <div id="adding_blocks">
+    <h2>Adding Models (Blocks) to Capsim</h2>
+ </div>   
+    <p>CAPSIM provides the utility to add blocks(stars) to the library through the use of the 
+    bash shell  <em>precapsim.sh</em>. This is a separate program from CAPSIM and is 
+    run from the UNIX/LINUX shell not from inside CAPSIM. 
+    Another program, <em>blockmaint.pl</em>, is also available for library maintenance.</p>
+    
+    <p>Suppose that CapsimTMK is installed in the following directory:</p>
+    <p style="margin-left: 50px;"> /usr/local/CapsimTMK</p>
+    <p>Then setup the environment variable CAPSIM as follows:</p>
+    <p  style="margin-left: 50px;"> %export CAPSIM=/usr/local/CapsimTMK</p>
+
+    
+    <h2> Precapsim and Makefile</h2>
+    <p>The bash shell script <em>precapsim.sh</em> provides all the functionality necessary 
+    to create your own personalized version of CAPSIM.</p>
+    <p>Create a new directory any where on your system. 
+    For example WORK. You will be creating blocks and subroutines to incorporate into Capsim in this directory.</p>
+        <p>Next make the directory you just created the current directory (VERY IMPORTANT) and execute the following:</p>
+    <p style="margin-left: 50px;"> %bash $CAPSIM/TOOLS/precapsim.sh  </p>
+    <p>(ignore warning)</p>
+    <p>Followed by </p>
+    <p style="margin-left: 50px;"> %make  </p>
+    
+    
+    <p>The <em>precapsim.sh</em> shell command will create all the necessary directories and copy all files including Makefiles and scripts from the $CAPSIM directory. It will also create the <em>capsim</em> executable in the current directory.</p>
+    
+    <p>Following the <em>precapsim.sh</em> execution type:</p>
+    
+    <p  style="margin-left: 50px;">%make </p>
+    <p>To execute <em>capsim</em> type:</p>
+    <p  style="margin-left: 50px;"> %./capsim -b</p>
+    <p>You will be in the Capsim TMK interactive environment. Go ahead and quit.</p>
+    <h2 align="center">Directory Structure<a name="directory"></a></h2>
+
+    <p><img src="images/directory_structure.jpg" width="657" height="368"></p>
+   
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <p>The shell command creates the directories BLOCKS, SUBS, and <em>include</em>. 
+    A dummy subroutine and block(star) are also created.</p>
+    <p>A key point is that  <em>precapsim.sh</em> also copies a Makefile into the current directory. 
+    With this Makefile it is very easy to build <em>capsim</em> using your own blocks(stars) and subroutines. 
+    All you need to do is place a block in the BLOCKS directory and, in the main directory (WORK), 
+    type:
+     <p style="margin-left: 50px;">%make</p> 
+     <p>TWICE  if first time block is added.</p>
+    <p>View the Makefile to see how this happens. 
+    The BLOCKS directory has a file called <em>blocks.mak</em> . 
+    This Makefile has all the necessary dependencies to create the C code from the Block &quot;.s&quot; code.
+     It adds the block to the block database <em>blockdatabase.dat </em>
+     and creates the file<em> krn_libblock.c</em> and the library <em>libblock.a</em> 
+     with the object files for the blocks. This is all done automatically. 
+     The file <em>blocks.mak</em> itself is created by a perl script <em>blockmake.pl</em> in the $CAPSIM/TOOLS directory. 
+     This perl script, given the name of the blocks or *.s, creates a make file for the blocks:<em> blocks.mak</em>.</p>
+     
+    <p>For more info on the block database and block maintenance see the CapsimTMK PDF document <a href="Documenetation/CapsimCustomization.pdf">Capsim Customization</a>    
+     on adding blocks.</p>
+    <p>The subroutine directory SUBS also has a Makefile and any C subroutine will be compiled and added to the <em>libsubs.a</em> library and linked to capsim.</p>
+    <p>The include directory is where common include files to the blocks in the BLOCKS and C code in the SUBS directory should be placed. 
+    The Makefiles use this directory to search for include files when compiling the blocks and subroutines.</p>
+    <p>So in a nutshell it is real easy to get started. For the first time just execute
+     <em>precapsim.sh</em> followed by <em>make</em>. Afterwords just type <em>make</em> to update. Just place blocks in the BLOCKS directory and the subroutine C code in the SUBS directory.</p>
+    <p>When running <em>make</em>, check for errors and correct them. For block compile errors, refer to the C code. Make sure you fix the corresponding .s code.</p>
+    <p>You can use <em>gdb</em> and <em>ddd</em> to debug the block source code.</p>
+    
+    <h2>Detailed Steps in Adding Blocks to CapsimTMK</h2>  
+    
+    
+    <p>In this section we will go over detailed steps to incorporate new blocks into Capsim.</p>
+    <p>We will also show how to create new blocks using the Java Tool <i>BlockBuilder</i>.
+    We also provide the source code for an example block that we will incorporate into Capsim. 
+    <p>You can use this block <a href="images/processcubed..html">processcubes.s</a> at any time if you encounter any issues (creating, compiling, running).</p> 
+    We will also show how to generate the block using the Java Tool.</p>
+    <p>To setup CAPSIM in order to add your own blocks here is a quick guide:</p>
+    <ul>
+      <li>Create a working directory anywhere. For example call it WORK.<br>
+      %mkdir WORK</li>
+      <li>Change directory to WORK<br>
+        %cd WORK</li>
+      <li>Type ( Do this once! also ignore warnings)<br>
+        <br>
+        <p style="margin-left: 50px;"> %bash $CAPSIM/TOOLS/precapsim.sh  </p><br> 
+        <br> Followed by:
+        <p style="margin-left: 50px;"> %make  </p>
+         </li>
+      <li>The<em> precapsim.sh</em> bash shell will do all the work. It will create<br>
+        the BLOCKS directory and copy a dummy block to this directory.<br>
+        It will create the SUBS directroy. It will copy a Makefile<br>
+        to the WORK directory. The Makefile will be used to maintain and<br>
+        add Blocks and Subroutines to your custom CAPSIM.</li>
+      <li>You must type &quot;make&quot; TWICE<br>
+        <p style="margin-left: 50px;">%make</p></li>   
+        <p style="margin-left: 50px;">%make</p></li>
+      <li> A CAPSIM executable &quot;capsim&quot; will be created in the WORK directory.</li>
+      
+      <li>To run Capsim in text mode type:<br>
+        <p style="margin-left: 50px;">%./capsim -b</p></li>
+    </ul>            
+    
+    <h2>Creating Blocks Using the Block Generation Tool </h2>   
+    
+    
+    <p>To create a block and add it to Capsim do the following (detailed and step by step):</p>
+   
+     <p> Change directory to the BLOCKS directory in the WORK directory:</p>
+        <p style="margin-left: 50px;"> %cd BLOCKS</p>
+       <p>Type the following to bring up the Block Generation Graphical Tool(<strong>BlockBuilder.jar</strong>):</p>
+        <p style="margin-left: 50px;">%java -jar $CAPSIM/TOOLS/BlockBuilder.jar  </p> 
+       
+    
+ 
+    <p>Below we show  the Graphical Interface with annotations in order to create a new block.</p>
+    <p>&nbsp;</p> 
+ <img src="images/block_generation.jpg" width="1000" height="437" alt="Block Generation" title="" />   
+ <p><strong>Java BlockBuilder Tool with annotations to create block processcubed.s with three parameters.</strong></p>
+ 
+<p>After you click on the <i>Generate</i>  button the file:</p>
+   <p style="margin-left: 50px;"><i> blockgen.dat</i></p>
+<p>will be created in the current directory.</p>
+<p>The next step is to generate the new block from this data.</p>
+<p>Issue the command:</p>
+<p style="margin-left: 50px;">%perl $CAPSIM/TOOLS/blockgen.pl blockgen.dat</p>
+<p>The block <i>processcubed.s</i> will be created.</p>  
+<p>Type the command:</p>
+<p style="margin-left: 50px;">%ls -lt processescubed.s</p>
+<p>to verify.</p>
+
+<p>Next fire up your favorite text editor and make the following changes to <i>processcubed.s</i>:</p>
+
+ <img src="images/new_blockcubic_eqn.jpg" width="1109" height="831" alt="new blobk modifications" title="" />
+ <p>For reference the generated parameters are shown below:</p>
+ <img src="images/new_block_parameters.jpg" width="1535" height="733" alt="parameters" title="" />
+    
+ <p>So now that we have the block, it is time to build a new capsim executable incorporating the new block.</p>
+ <p>To do this, follow the steps below:</p>
+ <p>Change directory back to WORK:</p>
+ <p style="margin-left: 50px;">%cd ..</p>
+ <p>Type <i>pwd</i> to make sure you are in the WORK directory. BLOCKS is a subdirectory (where <i>processcubed.s</i> was created).</p>
+ <p style="margin-left: 50px;">%pwd</p>
+<p> Type:</p>
+ <p style="margin-left: 50px;">%make</p>
+<p> Type it again:</p>
+ <p style="margin-left: 50px;">%make</p>
+ <p>You only need to type <i>make</i> twice the first time a block is created. 
+ If it is modified type make only once.</p>
+ 
+<h3>Using the Created Block  in Capsim</h3>
+Run the newly created capsim executable in the WORK directory. Type: 
+
+<p style="margin-left: 50px;">%./capsim -b</p>
+<p>In the follwing type the text in BOLD followed by Carriage Return.</p>  
+<p>We will instantiate the block. Feed it a sine wave and create the spectrum showing the
+DC, second and third harmonics due to the squaring and cubing in the block <i>processcube.s</i>.
+</p>
+
+    
+<p style="margin-left: 50px;">CapsimTMK[1]-> <strong>block processcubed</strong>  </p>
+<p style="margin-left: 50px;">CapsimTMK[2]-><strong> block sine</strong></p>
+<p style="margin-left: 50px;">CapsimTMK[3]-> <strong>block prfile</strong> </p>
+<p style="margin-left: 50px;">CapsimTMK[4]-> <strong>connect sine0 processcubed0 </strong> </p>
+<p style="margin-left: 50px;">CapsimTMK[5]-> <strong>connect processcubed0 prfile0</strong> </p>
+<p style="margin-left: 50px;">CapsimTMK[6]-> <strong>store testnewblock.t</strong> </p>
+<p style="margin-left: 50px;">CapsimTMK[7]-> <strong>run </strong></p>
+
+<p style="margin-left: 50px;">Output From Prfile 'prfile0'</p>
+<p style="margin-left: 50px;">processcubed0:0</p>  
+<p style="margin-left: 50px;">1  </p>          
+<p style="margin-left: 50px;"> 0.980785</p>     
+<p style="margin-left: 50px;"> 0.92388</p>      
+<p style="margin-left: 50px;"> 0.83147 </p>     
+<p style="margin-left: 50px;"> 0.707107 </p>    
+<p style="margin-left: 50px;"> 0.55557 </p>     
+<p style="margin-left: 50px;"> 0.382683 </p>    
+ <p style="margin-left: 50px;">0.19509 </p>     
+<p style="margin-left: 50px;"> -4.37114e-08  </p> 
+<p style="margin-left: 50px;"> -0.19509 </p>    
+<p style="margin-left: 50px;"> -0.382683</p>    
+ <p style="margin-left: 50px;">-0.55557 </p>    
+ <p style="margin-left: 50px;">-0.707107</p>    
+<p style="margin-left: 50px;"> -0.83147</p>     
+<p style="margin-left: 50px;">... </p>
+
+<p style="margin-left: 50px;">CapsimTMK[9]-> <strong>to prf</strong> </p>
+<p style="margin-left: 50px;">Current Block:  prfile0  (star: prfile)</p>
+<p style="margin-left: 50px;">CapsimTMK[10]-> <strong>chp</strong> </p>
+<p style="margin-left: 50px;"> Enter 3 new parameters: </p>
+<p style="margin-left: 50px;">0: Name of output file </p>
+<p style="margin-left: 50px;">  param file stdout ?==>  <strong>test.dat</strong></p>
+<p style="margin-left: 50px;">1: Print output control (0/Off, 1/On)</p>
+<p style="margin-left: 50px;">  param int 1 ?==>  </p>
+<p style="margin-left: 50px;">2: Buffer type:0= Float,1= Complex, 2=Integer</p>
+<p style="margin-left: 50px;">  param int 0 ?==> </p> 
+<p style="margin-left: 50px;">CapsimTMK[11]-> </p>
+
+
+
+
+
+<p style="margin-left: 50px;">CapsimTMK[26]-> <strong>block spectrumtxt</strong>  </p>
+<p style="margin-left: 50px;">CapsimTMK[27]-> <strong>connect prfile0 spectrumtxt0</strong></p>
+<p style="margin-left: 50px;">CapsimTMK[28]-> <strong>store</strong>   </p>
+<p style="margin-left: 50px;">CapsimTMK[29]-><strong> run</strong> </p>
+<p style="margin-left: 50px;">CapsimTMK[30]-><strong> quit</strong> </p>
+
+<p> When you run the simulation the <i>spectrumtxt0</i> block will create two files: </p>
+<p style="margin-left: 50px;">spectrum created file: Spectrum.tim    </p>
+<p style="margin-left: 50px;">spectrum created file: Spectrum.fre </p>
+
+<p>We can now use the following command to plot the "Spectrum.fre" file:</p>
+<p style="margin-left: 50px;"> %java -jar $CAPSIM/TOOLS/IIPPlot.jar Spectrum.fre  </p>
+
+<img src="images/new_block_spectrun+harmonics.jpg" width="1003" height="550" alt="New Block Spectrum" title="" />
+<strong><p>Spectrum of the output of processedcubed0 block showing DC and Harmonics.</p></strong> 
+
+<p>Note that we have used the following dialog to set the plot to "bar" mode:</p>
+<img src="images/new_block_spectrun_bars.jpg" width="801" height="587" alt="Bar Chart" title="" />
+<p></p>
+
+<BR><BR><BR>
+
+                    
+
+
+
+
+
+ <!--
+
+    <ul>
+      <li> Select Source Block and set a name (for example xsource).</li>
+      <li> Click on Generate Block.</li>
+      <li> The block is generated. View the file:<br>
+        xsource.s<br>
+        Or using the name you provided.</li>
+      <li>Change directory to WORK <br>
+        <span class="style6">cd ..</span></li>
+      <li> Type make TWICE!<br>
+        <span class="style6">make</span><br>
+        <span class="style6">make</span><br>
+        This is only necessary when you add a block or multiple blocsk.<br>
+        Once a block is added type make once when you change a blocks<br>
+        source code or asubroutines source code.</li>
+      <li>  Bring up CAPSIM<br>
+        <span class="style6">./capsim -b </span></li>
+      <li>Type </li>
+    </ul>
+    <pre>       block xsource
+       block prfile
+       connect xsource0 prfile0
+       store test</pre>
+    <ul><li> Run the simulation.</li>
+      <li> You should see a print out of a constant DC source.</li>
+      <li> Save your topology.</li>
+      <li> Now lets change the source code for &quot;xsource.s&quot;.</li>
+      <li> Change directory to BLOCKS.</li>
+      <li> Edit &quot;xsource.s&quot; or your block name. Change the following in the MAIN_CODE section:<br>
+        <span class="style6">/*<br>
+        * output the sample<br>
+        */<br>
+        x(0)=1.0*sampleCount*sampleCount/numberOfSamples;</span><br>
+      </li>
+      <li>This will output a parabola.</li>
+      <li> Save the block.</li>
+      <li> Change directory to WORK and type make.<br>
+        <span class="style6">cd ..</span><br>
+        <span class="style6">make</span></li>
+      <li> Run capsim. Open the saved topology. Run the simulation.<br>
+        You should see a print of a parabola.<br>
+        Store in a file and plot.<br>
+        </li>
+      <li> If you run into any errors make sure you check all the <br>
+        messages for compilation errors. <br>
+        One thing you can do is go to the BLOCKS directory and type<br>
+        <span class="style6">make -f blocks.mak</span><br>
+        Check for errors. Correct. Then type make again. When all<br>
+        errors have been corrected type:<br>
+        <span class="style6">cd ..</span><br>
+        <span class="style6">make</span><br>
+        Run CAPSIM<br>
+        <span class="style6">./capsim -b</span> <br>
+        <br>
+        See the CAPSIM Tutorial on using the Block Generation tool.</li>
+    </ul>
+    <p>Its easy to create new blocks and add them to CAPSIM. </p>
+    <p>Adding C code and calling libraries and subroutines is straight forward.</p>
+    <p>Finally, if you plan on linking to additional libraries you have to:</p>
+    <p> 1- create a copy of <em>precapsim.sh</em><br>
+  2- Add the library to the link path (see the last line in <em>precapsim.sh</em>)<br>
+  3- Edit your Makefile to use the modified precapsim.sh file.</p>
+    <p></p>
+    
+    
+
+
+
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+ 
+
+
+
+
+ <!--
+     
+To start capsim in the interactive mode type:
+
+$CAPSIM/BIN/capsim -c
+
+See the Capsim Text Mode User Guide for a tutorial.
+
+
+
+
+2. Creating Capsim and Adding Models
+
+ 
+
+CAPSIM provides the utility to add blocks to the library through 
+the use of the bash shell program precapsim.sh.
+This is a separate program from CAPSIM and is run from the UNIX/LINUX shell
+not from inside CAPSIM. Another program, blockmaint.pl, is also available
+for library maintenance.
+
+See the file README2.txt
+
+3. Precapsim and Makefile
+
+The bash shell script precapsim.sh provides all the functionality necessary
+to create your own personalized version of CAPSIM.
+
+Create a new directory any where on your system. For example WORK. 
+You will be creating blocks and subroutines to incorporate into Capsim
+in this directory.
+
+Suppose that CapsimTMK is installed in the following directory:
+
+/usr/local/CapsimTMK
+
+Then setup the environment variable CAPSIM as follows:
+
+export CAPSIM=/usr/local/CapsimTMK
+
+Next make the directory you just created (e.g. WORK) the current directory 
+and execute the following:
+
+%bash $CAPSIM/TOOLS/precapsim.sh -l
+
+On MSYS2 use:
+  %bash $CAPSIM/TOOLS/precapsim_msys2.sh -l
+  
+On MACOSX:
+  
+   %bash $CAPSIM/TOOLS/precapsim_macosx.sh -l
+   
+   
+The precapsim.sh shell command will create all the necessary directories and copy all files
+including Makefiles and scripts from the $CAPSIM directory. 
+It will also create the capsim executable in the current directory.
+
+You may need to type 
+        make
+after running the precapsim.sh shell command.
+
+To execute capsim type:
+
+./capsim -c
+
+or on MSYS2
+  winpty ./capsim -c
+
+You will be in the Capsim TMK interactive environment. Go ahead and quit.
+
+4. Directory Structure
+
+  
+
+The shell command creates the directories BLOCKS, SUBS, and include. 
+A dummy subroutine and block are also created.
+
+A key point is that the precapsim.sh also copies a Makefile in 
+the current directory. 
+
+With this Makefile it is very easy to build capsim using your blocks 
+and subroutines. 
+All you need to do is place a block in the BLOCKS directory and, in the main directory (WORK), type make.
+
+View the Makefile to see how this happens. The BLOCKS directory has 
+a file called blocks.mak . 
+This makefile has all the necessary dependencies to create the C code 
+from the Block ".s" code. 
+It adds the block to the blockmaint database blockdatabase.dat 
+and creates the file krn_blocklib.c 
+and the library libblock.a with the object files for the blocks. 
+This is all done automatically. 
+
+The file blocks.mak itself is created by a perl script blockmake.pl in the $CAPSIM/TOOLS directory. 
+This perl script, given the name of the blocks or *.s, creates a Makefile 
+for the blocks: blocks.mak.
+
+For more info on the block database and blockmaint see the CapsimTMK 
+document on adding blocks (Capsim Customization).
+
+The subroutine directory SUBS also has a Makefile and any C subroutine 
+will be compiled and added to the libsubs.a library and linked to capsim.
+
+The include directory is where common include files to the blocks in 
+the BLOCKS and C code in the SUBS directory should be placed. 
+The Makefiles use this directory to search for include files when compiling 
+the blocks and subroutines.
+
+So in a nutshell it is real easy to get started. 
+For the first time just execute bash $CAPSIM/TOOLS/precapsim.sh  . 
+Afterwords just type make to update. 
+Just place blocks in the BLOCKS directory and the subroutine C code 
+in the SUBS directory.
+
+If you add a new block run:
+      bash $CAPSIM/TOOLS/precapsim.sh
+
+
+When running make, check for errors for each step and correct them. 
+
+For block compile errors, refer to the C code. Make sure you fix the 
+corresponding .s code.
+
+You can use gdb and ddd to debug the block source code.
+
+
+5. Using TK/TCL Scripts or Java for Creating Custom Blocks and Block Management
+
+Note we have developed a Java Open Source Application BlockBuilder.jar.
+This is more platform friendly than TCL/TK and should be used. 
+See the TOOLS directory.
+
+Run it with:
+    java -jar $CAPSIM/TOOLS/BlockBuilder.jar
+Then run
+    perl $CAPSIM/TOOLS/blockgen.pl
+
+For TCL/TK:
+
+The easy way to create your own block is to run the blockgen.tcl script.
+Change directory to your Working directory's BLOCKS directory.
+Make sure you set the CAPSIM environment variable to point to where 
+CapsimTMK is located.
+
+Type the following:
+
+	wish $CAPSIM/TOOLS/blockgen.tcl
+
+Two windows will appear. In one window you can select the Block Type and
+Buffer type. In the second window you can add parameters before you generate the XML code for the block. 
+
+After the block is generated, you can modify the code and add your own 
+C code. 
+
+
+To manipulate and view the block database, use the blocksmanage.tcl script.
+
+Run this script in your BLOCKS directory.
+
+   wish $CAPSIM/TOOLS/blocksmanage.tcl
+
+You can use this tool to view the generated C code and the XML code for blocks. Also add and delete blocks from the block database file:
+        blockdatabase.dat
+
+You can also generate HTML documentation for your block with this tool.
+ --> 
+ 
+<a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+<p><strong>Silicon DSP Corporation</strong></p>
+<p>1989-2025</p>
+<p>https://www.ccdsp.org</p>
+
+
+  </body>
+</html>
