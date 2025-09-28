@@ -11,6 +11,7 @@ Capsim&reg; TMK has built in IIR and FIR filter design blocks. It also incorpora
 
 Capsim&reg; with its flexible buffer connection management can handle mixed synchronous and asynchronous simulations. One key advantage of Capsim&reg; is that the blocks run at their natural sampling rate using the unique buffer connection architecture.
 
+<img src="images/2x3_mimo_ofdm.gif"   alt="Block XML" title="" />
 <h2>Capsim&reg; Blocks </h2>
 The new model for block C code generation is illustrated below, Blocks are written in embedded C code in XML and transformed to C code and incorporated into Capsim&reg;. The XML code is transformed using XSLT (Extensible Stylesheet Language for Transformation) to C code and HTML for documentation. Tools are provided that automatically do the conversion from XML to C code when adding models to Capsim&reg;.
 
