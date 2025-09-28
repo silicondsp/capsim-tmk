@@ -13,6 +13,16 @@ Capsim&reg; with its flexible buffer connection management can handle mixed sync
 
 <h2>Capsim&reg; Blocks </h2>
 The new model for block C code generation is illustrated below, Blocks are written in embedded C code in XML and transformed to C code and incorporated into Capsim&reg;. The XML code is transformed using XSLT (Extensible Stylesheet Language for Transformation) to C code and HTML for documentation. Tools are provided that automatically do the conversion from XML to C code when adding models to Capsim&reg;.
+<h1>Documentation</h1>   
+</div>
+ <ol type="1">
+    <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+<li><a href="https://www.ccdsp.org/IIPPlot/index.html">IIPPlot</a> Interactive Java Plotting Package</li>
+<li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
+</ol> 
+
 
 <h2>Capsim&reg; TMK History</h2>
 Capsim&reg; was originaly developed by XCAD Corporation.  All XCAD Open Source projects have been transferred to and taken over by Silicon DSP Corporation. Silicon DSP Corporation has since 2006 added major enhancements to Capsim&reg; and Capsim&reg; TMK. The  predecessor and original model of CAPSIM&reg; was  BLOSIM.  BLOSIM is a block diagram signal processing simulation program, originally developed at the University of California, Berkeley, 1985. The primary authors were D. G. Messerschmitt and D. J. Hait. For papers on BLOSIM visit this link.  Since arrival at NCSU in November 1987, the program has been extensively debugged. Capsim&reg;  was completely remodeled, enhanced with new commands,  and improved by  XCAD Corporation and later by Silicon DSP Corporation. The person-hours spent on this task have made Capsim a vast improvement over the original in user convenience, capability and reliability and the complete elimimation of memory leaks allowing for unlimited simulation runs ( for example for BER in optocal links). 
