@@ -1,6 +1,8 @@
 # capsim-tmk
 <h1>Capsim&reg;  DSP and Communications System Block Diagram Modeling and Simulation Text Mode Kernel (TMK) </h1>
 
+Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a>
+
 CAPSIM&reg; Text Mode Kernel (TMK) is a hierarchical interactive block diagram simulation and design system for digital signal processing and communications. All Capsim TMK models are written in C with provisions for parameters, input /output buffers, internal state maintenance, and three phases of execution: initialization, run-time and wrap-up.
 Capsim&reg;  Blocks are written in C embedded in XML for modular/re-usable design. Capsim&reg; includes a built in TCL interpreter for support of iterative simulation and design optimization.
 
