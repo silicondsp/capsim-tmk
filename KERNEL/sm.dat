@@ -1,0 +1,117 @@
+! This is the core library data
+!
+add add add
+convolve convolve convolv
+delay delay delay
+fxnlms fxnlms fxnlms
+impulse impulse impulse
+mixer mixer mixer
+node node node
+prfile prfile prfile
+sine sine sine
+sum sum sum
+zero zero zero
+*END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* libstar.c */
+/****************************************************************************
+
+		STAR LIBRARY FILE
+
+*****************************************************************************
+This file is used to define the star library.  It declares the       
+global model table and initializes it for stars.  (Galaxies are      
+added later.)                                                        
+                                                                     
+Whenever the library containing the stars is updated, this file MUST 
+also be updated, and the executable re-made.  Don't forget to set    
+'model_count', the total number of stars defined including NULL!     
+                                                                    
+*/                                                                   
+
+#include "../KERNEL/krn_capsim.h"
+
+/* Function declarations */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*FUNCDECL
+
+/* model table Definition */
+*MODTABL
+*END

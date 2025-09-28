@@ -1,0 +1,747 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+nl 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+nl 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Normalized Lattice Filter
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    File with normalized lattice filter parameters
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    file_name
+    
+    </td>
+    <td>
+    
+    tmp.lat
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    FILE*
+    
+    </td>
+    <td>
+    
+    fp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    k
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    c
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    nu
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    xb
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    n
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    wsc
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    wnorm
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    fs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int buffer_no;
+	FILE *fopen();
+        float xf,ysum,sum,tmp;
+        int n1,n2,i,j,m;
+	int	noSamples;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+		if(strcmp(file_name,"stdin") == 0)
+			fp = stdin;
+		else if((fp = fopen(file_name,"r")) == NULL)
+			return(1); /* nl() file cannot be opened */
+	     /*****************************************************
+		   read lattice filter parameters from file
+	      ****************************************************/
+	     fscanf(fp,"%d",&n);
+	     n1=n+1;
+	     /*   allocate work space      */
+	     if(((k=(float*)calloc(n,sizeof(float))) == NULL) ||
+		((c=(float*)calloc(n,sizeof(float))) == NULL) ||
+		((nu=(float*)calloc(n1,sizeof(float))) == NULL) ||
+		((xb=(float*)calloc(n1,sizeof(float))) == NULL )) {
+		fprintf(stderr,"nl(): can't allocate work space \n");
+		return(1);
+    	     }
+ 	     for (i=0; i<n; i++) {
+    	     fscanf(fp,"%f ",&k[i]);
+    	     tmp=k[i]*k[i];
+    	     tmp=1.0-tmp;
+	     c[i]=sqrt(tmp);
+             }
+             n1=n+1;
+             for (i=0; i<n1; i++) {
+                   fscanf(fp,"%f ",&nu[i]);
+             }
+             fscanf(fp,"%f",&wsc);
+             fscanf(fp,"%f",&fs);
+             fscanf(fp,"%f",&wnorm);
+      	     /*    initial conditions   */
+             for (i=0; i<n1; i++) xb[i]=0.0; 
+             fclose(fp);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+     for(noSamples=MIN_AVAIL();noSamples >0; --noSamples) {
+     	  IT_IN(0);
+	  xf=x(0);
+          for (m=0; m<n; m++) {
+             i=n-m;
+             xb[i]=xb[i-1]*c[i-1]+k[i-1]*xf;
+             xf=xf*c[i-1]-k[i-1]*xb[i-1];    
+          }
+          xb[0]=xf;
+          sum=0.0;
+          for (m=0; m<n+1; m++)  sum=sum+xb[m]*nu[m];
+          ysum=sum;
+	  if(IT_OUT(0)) {
+		KrnOverflow("nl",0);
+		return(99);
+	  }
+          y(0)=ysum*wsc/wnorm;
+     }
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	free(k);
+	free(nu);
+	free(c);
+	free(xb);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*************************************************************
+			Normalized Lattice Filter
+				nl()
+***************************************************************
+<NAME>
+nl
+</NAME>
+<DESCRIPTION>
+Normalized Lattice Filter
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: Sasan H Ardalan
+Date: August 22,1987
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

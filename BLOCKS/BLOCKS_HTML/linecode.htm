@@ -1,0 +1,807 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+linecode 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+linecode 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    bindata
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Code type:0-Binary(NRZ),1-Biphase(Manchester),2-2B1Q,3-RZ-AMI(Alternate mark inversion)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    code_type
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Samples per baud
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    smplbd
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    template
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    even
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    oneState
+    
+    </td>
+    <td>
+    
+    -1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOutputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    sample_A[25]
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    overFlowBuffer_A[25]
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    overFlowIndex
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    overFlowCodeValue
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    overFlow
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i;
+	int j;
+	int sign;
+	int mag;
+	int code_val;
+	int no_samples;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if((template = (float*)calloc(smplbd, sizeof(float))) == NULL) {
+		fprintf(stderr, "linecode: cannot allocate space\n");
+		return(1);
+	}
+	if((code_type == 0) || (code_type == 3)) {	/* Binary */
+		template[0] = 1.;
+	}
+	else if(code_type == 1) {	/* Biphase */
+		if(smplbd%2 != 0) {
+			fprintf(stderr,
+				"linecode: oversample rate not \
+					compatible with code type\n");
+			return(1);
+		}
+		template[0] = -1.;
+		template[smplbd/2] = 1.;
+	}
+	else if(code_type == 2) {	/* 2B1Q */
+		template[0] = 1.;
+	}
+	else {
+		fprintf(stderr,"linecode: unrecognized code type\n");
+		return(2);
+	}
+        numberOutputBuffers = NO_OUTPUT_BUFFERS();
+	if(numberOutputBuffers == 0) {
+                fprintf(stderr,"linecode: no output buffers connected \n");
+                return(3);
+        }	
+	overFlow=FALSE;
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+ for(no_samples=MIN_AVAIL();no_samples >0; --no_samples) {
+		IT_IN(0);
+		if(code_type == 2) {
+			even = ++even % 2;
+			if(even) {
+				mag = 1;
+				if(bindata(0) == bindata(1)) mag = 3;	
+				sign = -1;
+				if(bindata(0) > 0.5) sign = 1;
+			}
+			else   continue;
+		}
+		else if (code_type == 3) {
+			if (bindata(0)) {
+				oneState = -1*oneState;
+				sign = oneState;
+				mag = 1.0;
+			} else {
+				mag = 0.0;
+			}
+		}
+		else 	{	/* other code types */
+			mag = 1;
+			sign = -1;
+			if(bindata(0) > 0.5) sign = 1;
+		}
+
+		code_val = sign * mag;
+		for(i=0; i<smplbd; i++) {
+			if(overFlow) {
+			   for(j=overFlowIndex; j<smplbd; j++) {
+				if(IT_OUT(0)) {
+					KrnOverflow("linecode",0);
+					return(99); 
+				}
+				OUTF(0,0) = overFlowCodeValue * template[j];
+				overFlow=FALSE;
+			   }
+			}
+				
+			if(IT_OUT(0)) {
+				overFlowIndex=i;
+				overFlowCodeValue=code_val;
+				overFlow=TRUE;
+				fprintf(stderr,"linecode: Buffer 0 is full \n");
+				return(0);
+			}
+			OUTF(0,0) = code_val * template[i];
+		}
+                if( numberOutputBuffers == 2 ) {
+			if(IT_OUT(1)) {
+				KrnOverflow("linecode",1);
+				return(99); 
+			}
+                        OUTF(1,0) =code_val;
+		}
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	free(template);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/**********************************************************************
+                linecode()
+***********************************************************************
+Description:
+This star inputs 0/1 binary data and outputs various line codes.
+Line codes are selectable by the first input parameter `code_type':
+	0 - Binary (NRZ) (1 = +1, 0 = -1)  (Default; 1 phase)
+	1 - Biphase (Manchester) (1 = -1,+1; 0 = +1,-1)  (2 phase)
+	2 - 2B1Q  (00 = -3, 01 = -1, 10 = +1, 11 = +3)  (1 phase)
+	3 - RZ-AMI (Alternate mark inversion)
+The code output oversampling rate (samples per baud interval) is
+selected by the second parameter `smplbd'.  Note that multi-phase
+codes require oversampling rates which are integer multiples of the
+number of phases!
+I/O buffers are float to be compatible with most stars.
+Output buffer 0: Over sampled symbols.
+Output buffer 1 (optional): symbols at baud rate.
+Programmer:  L.J. Faber
+Date: 11/25/86
+Modified: 4/18/88 add 2B1Q
+Modified: 5/88 add output1 as coded symbols, not oversampled
+Modified: 6/88 change oversampling method to zero fill
+<NAME>
+linecode
+</NAME>
+<DESCRIPTION>
+This star inputs 0/1 binary data and outputs various line codes.
+Line codes are selectable by the first input parameter `code_type':
+	0 - Binary (NRZ) (1 = +1, 0 = -1)  (Default; 1 phase)
+	1 - Biphase (Manchester) (1 = -1,+1; 0 = +1,-1)  (2 phase)
+	2 - 2B1Q  (00 = -3, 01 = -1, 10 = +1, 11 = +3)  (1 phase)
+	3 - RZ-AMI (Alternate mark inversion)
+The code output oversampling rate (samples per baud interval) is
+selected by the second parameter `smplbd'.  Note that multi-phase
+codes require oversampling rates which are integer multiples of the
+number of phases!
+I/O buffers are float to be compatible with most stars.
+Output buffer 0: Over sampled symbols.
+Output buffer 1 (optional): symbols at baud rate.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer:  L.J. Faber
+Date: 11/25/86
+Modified: 4/18/88 add 2B1Q
+Modified: 5/88 add output1 as coded symbols, not oversampled
+Modified: 6/88 change oversampling method to zero fill
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

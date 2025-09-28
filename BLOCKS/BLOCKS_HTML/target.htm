@@ -1,0 +1,950 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+target 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+target 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This simulates target range measurements from a track-while-scan radar
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    closing velocity (knots)
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    cv
+    
+    </td>
+    <td>
+    
+    -600.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    initial range (nautical miles)
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    initial_range
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    standard deviation (feet)
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    sdf
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    number of samples
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    num_of_samples
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    interval (msec)
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    ts
+    
+    </td>
+    <td>
+    
+    10.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    data probability
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    pd
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+    random number seed
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    seed
+    
+    </td>
+    <td>
+    
+    1287
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+    pace rate to determine how many samples to output
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    pace_rate
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+    number of samples on the first call if paced
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    samples_first_time
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    samples_out
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    pace_in_total
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    output_target
+    
+    </td>
+    <td>
+    
+    NUMBER_SAMPLES_PER_VISIT
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    no_inbuf
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    no_outbuf
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    pass
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    xm[10000]
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    char
+    
+    </td>
+    <td>
+    
+    rand_state[256]
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    max
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i,j,k;
+	float tdel;
+	double sd,yn,zn,ynr,znc,zns,u,sqrt(),log();
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if((no_outbuf = NO_OUTPUT_BUFFERS() ) <= 0)  {
+		fprintf(stderr,"target: no output buffers\n");
+		return(1); /* no output buffers */
+	}
+	no_inbuf = NO_INPUT_BUFFERS();
+	if(no_inbuf == 1)
+		output_target = samples_first_time;
+	else
+		output_target = num_of_samples;
+	if(output_target > num_of_samples)
+		output_target = num_of_samples;
+	if(pace_rate < 0) pace_rate = -pace_rate;
+	tdel = ts*0.001;
+	xm[0] = initial_range;
+	sd = sdf/6076.0;
+	srandom(seed);
+	max = m;
+	for(k=1; k<num_of_samples; k++)  xm[k] = xm[k-1] + cv*tdel/3600.0;
+	for(k=0; k<num_of_samples-2; k=k+2)  {
+		yn = random()/max;
+		zn = random()/max;
+		ynr = -2.0*log(yn);
+		znc = cos(2.0*pi*zn);
+		zns = sin(2.0*pi*zn);
+		xm[k] += sd*sqrt(ynr)*znc;
+		xm[k+1] += sd*sqrt(ynr)*zns;
+	}
+	for(k=0; k<num_of_samples; k++)  {
+		u = random()/max;
+		if(u > pd)  xm[k] = 0.0;
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if(no_inbuf == 1)  {
+		while(IT_IN(0))
+			pace_in_total += 1.0;
+		if(pass == 1)  {
+			output_target = samples_first_time + (int) (pace_rate *
+					pace_in_total + 0.5);
+			if(output_target > num_of_samples && num_of_samples > 0)
+				output_target = num_of_samples;
+		}
+	}
+	pass = 1;
+	i = 0;
+
+	while(samples_out < output_target)  {
+
+		if(++i > NUMBER_SAMPLES_PER_VISIT) return(0);
+
+		for(j=0; j<no_outbuf; j++)  {
+
+				if(IT_OUT(j)) {
+					KrnOverflow("target",j);
+					return(99);
+				}
+				OUTF(j,0) = xm[samples_out];
+		}
+		samples_out += 1;
+	}
+	return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+ 	target.s:	this simulates target range measurements
+ 			from a track-while-scan radar 
+ 	parameters:	cv - closing velocity in knots
+ 			initial_range - initial range in nautical miles
+ 			sdf - standard deviation in feet
+ 			num_of_samples - number of samples
+ 			ts - sampling interval in milliseconds
+ 			pd - data probability
+			seed - random number seed
+ 	inputs:		none
+ 	outputs:	range measurements
+ 	description:	This star generates range measurements from
+ 			a track-while-scan radar with measurement
+ 			uncertainty.  If there is a missed range
+ 			value a "0" is output.
+ 			written by Ray Kassel
+			August 13, 1990 
+<NAME>
+target
+</NAME>
+<DESCRIPTION>
+This star generates range measurements from
+ 			a track-while-scan radar with measurement
+ 			uncertainty.  If there is a missed range
+ 			value a "0" is output.
+</DESCRIPTION>
+<PROGRAMMERS>
+			written by Ray Kassel
+			August 13, 1990 
+</PROGRAMMERS>
+ */
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

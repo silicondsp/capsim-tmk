@@ -1,0 +1,42 @@
+#
+#       Makefile for updated custom capsim stars. 
+#
+# 	Note: Use this make file after you have created and
+#	added stars to the custom star library: libstar.a using
+#	the "precapsim star1 star2 ... " command.
+#
+#	In otherwords, use this Makefile if you update the stars in this
+#	directory, not if you just created a new one. Use precapsim to
+#	add the new star to the library, then use make after any further
+#	changes to the star.
+#
+# 
+# 	Written by Sasan H. Ardalan.
+#
+
+
+
+all: capsimtmk 
+
+capsimtmk: STARS/libstar.a SUBS/libsub.a krn_starlib.o  
+	cd STARS; perl $(CAPSIM)/TOOLS/starmaint.pl g
+	gcc -c -I$(CAPSIM)/include STARS/krn_starlib.c 
+	bash $(CAPSIM)/TOOLS/precapsim.sh '-l' 
+
+
+
+STARS/libstar.a:   
+	cd STARS; perl $(CAPSIM)/TOOLS/starmake.pl *.s; make -f stars.mak
+
+SUBS/libsub.a:
+	cd SUBS ; make
+
+clean:
+	touch	libstar.a
+	rm libstar.a
+	cd SUBS; touch libsub.a  ; rm libsub.a
+	touch STARS/sm.dat
+	rm STARS/sm.dat
+	cp $(CAPSIM)/STARS/sm.dat STARS/.
+	chmod +w STARS/sm.dat
+

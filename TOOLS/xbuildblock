@@ -1,0 +1,5 @@
+Type Control C to Termionate Java App
+java -jar ./dist/BlockBuilder.jar 
+Echo Generating block: running perl on blockgen.dat
+perl $CAPSIM/TOOLS/blockgen.pl
+echo Generated Block

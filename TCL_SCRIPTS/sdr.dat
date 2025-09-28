@@ -1,0 +1,25 @@
+ Signal to Distortion Analysis 
+ Total power = 4.774785e-07 Peak at 32 value: 2.362248e-07 
+Power Spectrum 
+ Point    Power 
+ ------------- 
+24 4.438709e-12 
+25 3.160788e-12 
+26 7.359590e-12 
+27 7.380994e-12 
+28 5.926628e-13 
+29 1.199838e-11 
+30 4.200541e-12 
+31 7.325843e-12 
+32 2.362248e-07 
+33 5.510220e-12 
+34 1.826969e-12 
+35 6.077970e-13 
+36 3.474107e-12 
+37 6.592922e-12 
+38 8.627216e-12 
+39 4.750274e-12 
+Results : 
+ Signal Strength = 4.725207e-07 
+ Total Noise = 4.947871e-09 
+Signal to Distortion Ratio: 9.549980e+01 and 1.980002e+01(dB) 

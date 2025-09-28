@@ -1,0 +1,745 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+resmpl
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+resmpl
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star performs interpolation or decimation on an input data stream, in order to change the output data rate.  Polynomial or sinc interpol- ation is used to create output values that occur "between" input points.  An initial time offset between the input/output streams can be entered.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+     float 
+    
+    </td>
+    <td>
+    
+     x 
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+     float 
+    
+    </td>
+    <td>
+    
+     y 
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+     ratio:  output data rate/input data rate. 
+    
+    </td>
+    <td>
+    
+     float 
+    
+    </td>
+    <td>
+    
+     ratio 
+    
+    </td>
+    <td>
+    
+     1. 
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+     delay of first output sample, rel. to first sample.Expressed in units of input data period. 
+    
+    </td>
+    <td>
+    
+     float 
+    
+    </td>
+    <td>
+    
+     phi 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+     Type of interpolation: 0: sinc (3 point) 1: 1rst order (line) (default) 2: 2nd order (parbola) 3: 3rd order polynomial 
+    
+    </td>
+    <td>
+    
+     int 
+    
+    </td>
+    <td>
+    
+     intype 
+    
+    </td>
+    <td>
+    
+     1 
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+     long 
+    
+    </td>
+    <td>
+    
+     incount 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+     long 
+    
+    </td>
+    <td>
+    
+     outcount 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+     float 
+    
+    </td>
+    <td>
+    
+     phase 
+    
+    </td>
+    <td>
+    
+     phi 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+     double 
+    
+    </td>
+    <td>
+    
+     outaccum 
+    
+    </td>
+    <td>
+    
+     phase 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+     float 
+    
+    </td>
+    <td>
+    
+     Q 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+     float 
+    
+    </td>
+    <td>
+    
+     R 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+     float 
+    
+    </td>
+    <td>
+    
+     S 
+    
+    </td>
+    <td>
+    
+     0 
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i,j;
+	float beta;	/* interpolation fraction */
+	float beta2;
+	float sinc ();	/* custom function in SUBS library */
+	int  no_samples;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if( ratio <= 0) {
+		fprintf(stderr,"resmpl: improper ratio parameter\n");
+		return(1);
+	}
+	if( intype < 0 || intype > 3) {
+		fprintf(stderr,"resmpl: unknown interpolation type\n");
+		return(2);
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	for(no_samples=MIN_AVAIL();no_samples >0; --no_samples) {
+		IT_IN(0);
+		incount++;
+		if(intype == 0) ;
+		else if(intype == 1) {
+			Q = x(1) - x(0);
+			R = S = 0;
+		}
+		else if(intype == 2) {
+			Q = -1.5*x(0) + 2*x(1) - .5*x(2);
+			R = .5*x(0) - x(1) + .5*x(2);
+			S = 0;
+		}
+		else if(intype == 3) {
+			Q = -11*x(0)/6 + 3*x(1) - 1.5*x(2) + x(3)/3;
+			R = x(0) - 2.5*x(1) + 2*x(2) - .5*x(3);
+			S = -x(0)/6 + .5*x(1) - .5*x(2) + x(3)/6;
+		}
+
+		while( (int)outaccum <= incount - 1) { //ST_DBG
+			if(IT_OUT(0)) {
+				KrnOverflow("resmpl",0);
+				return(99);
+			}
+			outcount++;
+			beta = incount- outaccum;
+			if(intype == 0) {
+				y(0) = x(0)*sinc (beta)
+					+ x(1)*sinc (1-beta)
+					+ x(2)*sinc (2-beta);
+			}
+			else {
+				beta2 = beta*beta;
+				y(0) = x(0) + Q*beta
+					+ R*beta2 + S*beta2*beta;
+			}
+			/*this method prevents accumulation of error*/
+			outaccum = phase + outcount / ratio;
+		}
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* resmpl.s */
+/**********************************************************************
+			resmpl()
+***********************************************************************
+This star performs interpolation or decimation on an input data stream,
+in order to change the output data rate.  Polynomial or sinc interpol-
+ation is used to create output values that occur "between" input points.
+An initial time offset between the input/output streams can be entered.
+Param.	1 - (float) ratio:  output data rate/input data rate.
+	2 - (float) phi:  delay of first output sample, relative to
+		first input sample; expressed in units of input data
+		period.  Normally -1 < phi < 1.  default: 0.
+	3 - (int) intype:  type of interpolation:
+		0: sinc (3 point)
+		1: 1rst order (line) (default)
+		2: 2nd order (parbola)
+		3: 3rd order polynomial
+Warning: although any output/input rate ratio > 0 will work, some
+spectral problems can occur.  Time interpolation is not optimal, since
+there is no access to an infinite number of points!
+This problem is magnified as ratio deviates farther from unity.
+If ratio < 1 (decimation mode), aliasing can occur if the input signal
+is not properly bandlimited.
+Programmer: L.J. Faber
+Date: June, 1988.
+Modified by Jie Gao on Oct 25,04
+*/
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

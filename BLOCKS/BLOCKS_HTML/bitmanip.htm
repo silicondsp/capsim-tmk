@@ -1,0 +1,1514 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+bitmanip 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+bitmanip 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Review code.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of bits per frame (Info Only)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    numberOfBits
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Debug:1=true,0=false
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    debugFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    rx
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    outBits
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    outBitsCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    outFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    insertZero
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    shreg
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bitCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    endFrame
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    begFlag
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    endFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fcs
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    12
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    frameCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    13
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    contFlag
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    14
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    ns
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    15
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    nss
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    16
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    nt
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    17
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    infoLengthBytes
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    18
+    
+    </td>
+    <td>
+    
+  
+    char*
+    
+    </td>
+    <td>
+    
+    queue_A[8]
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    19
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberBitsCollected
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    20
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    buildByte
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    21
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    buildByteBits
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    22
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    byteCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    23
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bitsProc
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    24
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    nr
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    25
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    rej
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    26
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    rr
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    27
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    first
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    28
+    
+    </td>
+    <td>
+    
+  
+    FILE*
+    
+    </td>
+    <td>
+    
+    debug_F
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    29
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    infoComplete
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+unsigned short	carry;
+int	bit;
+int	i;
+unsigned int	m;
+int	numberOfSamples;
+UINT16	checkStuff;
+int	mask;
+int	done;
+int	bitPos;
+int	bytePos;
+int	rc;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+if(debugFlag) {
+        debug_F=fopen("bitmanip.dbg","w");
+        if(debug_F == NULL) return(2);
+}
+infoLengthBytes = numberOfBits/8+1;
+for(i=0; i<8; i++) {
+	queue_A[i]=(char*)calloc(infoLengthBytes,sizeof(char));
+	if(queue_A[i]==NULL) {
+		fprintf(stderr,"bitmanip could not allocate space\n");
+		return(1);
+	}
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+while(IT_IN(0) ) {
+       	/*
+       	 * collect the bits
+	 * and store them in a buffer
+	 * first info frames are stored in queue zero
+       	 */
+       	bit=(int)(x(0)+0.001);
+	buildByte |= bit;
+	buildByteBits++;
+if(debugFlag) 
+	fprintf(debug_F,"bit=%d,buildByte=%4x,buildByteBits=%d,byteCount=%d\n",
+		bit,buildByte,buildByteBits,byteCount);
+	if(buildByteBits == 8) {
+
+		queue_A[0][byteCount]=buildByte;
+		buildByte=0;
+		buildByteBits=0;
+		byteCount++;
+	}
+	
+	bitCount++;
+	if(bitCount == numberOfBits) {
+		infoComplete=1;
+		queue_A[0][byteCount]=buildByte;
+		byteCount=0;
+		buildByte=0;
+		buildByteBits=0;
+		bitCount=0;
+		break;
+	}
+	buildByte <<= 1;
+}
+
+if(infoComplete) {
+   done=0;
+   bitsProc=0;
+   while(!done) {
+       	/*
+       	 * get a bit
+       	 */
+	bytePos=bitsProc >> 3;
+	bitPos = 7-(bitsProc % 8);
+	mask=1; mask <<= bitPos;
+	bit = (queue_A[0][bytePos] & mask) ? 1:0;
+if(debugFlag) 
+	fprintf(debug_F,"output:bit=%d,queue=%4x,bitPos=%d,bytePos=%d\n", bit,queue_A[0][bytePos],bitPos,bytePos);
+	bitsProc++;
+	if(bitsProc == numberOfBits) { 
+		endFrame=1;
+		bitsProc=0;
+	}
+	/*
+	 * Output bit
+	 */
+	if(IT_OUT(0) ){ KrnOverflow("bitmanip",0); return(99); }
+	y(0) = bit;
+	if(endFrame) {
+		/*
+		 * Finished outputting
+		 * Reset everything
+		 */
+		frameCount++;
+
+		done=1;
+		infoComplete=0;
+		endFrame=0;
+
+	}
+   }
+	
+
+}
+
+	
+return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	fprintf(stderr,"bitmanip: number of outputted frames=%d\n",frameCount);
+for(i=0; i<8; i++) 
+	free(queue_A[i]);
+	if(debugFlag)
+		fclose(debug_F);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+<NAME>
+bitmanip
+</NAME>
+<DESCRIPTION>
+Review code.
+</DESCRIPTION>
+<PROGRAMMERS>
+Written by: Sasan H. Ardalan
+Date: November 30, 1993
+</PROGRAMMERS>
+ */
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,885 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+autoxcorr
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+autoxcorr
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+If one input then compute autocorrelation. If two inputs then compute crosscorrelation.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of samples
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    npts
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftLength
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftexp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    fftBuffer
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    fftBuffer2
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    temp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    freqBuff
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    freqBuff2
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    sampleCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOfInputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    preverse
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    pforward
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    norm
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int no_samples;
+	int i,j;
+	float	tmpReal;
+	float	temp2;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+ * compute the power of 2 number of fft points
+ */
+fftexp = (int) (log((float)npts)/log(2.0)+0.5);
+fftLength = 1 << fftexp;
+if (fftLength > npts ) {
+        fftLength = fftLength/2;
+        fftexp -= 1;
+}
+if((numberOfInputBuffers = NO_INPUT_BUFFERS()) > 2) {
+     fprintf(stderr,"autoxcorr: no input buffers\n");
+     return(3);
+}
+if (fftLength < 8) {
+	fprintf(stderr,"autocorr: fft length is too short \n");
+	return(1);
+}
+if ((fftBuffer = (cap_fft_scalar*)calloc(fftLength,sizeof(cap_fft_scalar))) == NULL) {
+	fprintf(stderr,"autoxcorr: can't allocate work space \n");
+	return(2);
+}
+if ((freqBuff = (cap_fft_cpx*)calloc(fftLength,sizeof(cap_fft_cpx))) == NULL) {
+	fprintf(stderr,"autoxcorr: can't allocate work space \n");
+	return(3);
+}
+if(numberOfInputBuffers == 2) {  
+	if ((fftBuffer2 = (cap_fft_scalar*)calloc(fftLength,sizeof(cap_fft_scalar))) == NULL) {
+	   fprintf(stderr,"autoxcorr: can't allocate work space \n");
+	   return(4);
+	}
+	if ((freqBuff2 = (cap_fft_cpx*)calloc(fftLength,sizeof(cap_fft_cpx))) == NULL) {
+	fprintf(stderr,"autoxcorr: can't allocate work space \n");
+	return(5);
+	}
+}
+if ((temp = (cap_fft_scalar*)calloc(fftLength,sizeof(cap_fft_scalar))) == NULL) {
+	fprintf(stderr,"autoxcorr: can't allocate work space \n");
+	return(6);
+}
+
+norm=1.0/(float)fftLength;
+norm=norm*norm*2.;
+
+
+	preverse = cap_fftr_alloc(fftLength, INVERSE_FFT, NULL,NULL);
+	pforward = cap_fftr_alloc(fftLength, FORWARD_FFT, NULL,NULL);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+for (no_samples = MIN_AVAIL(); no_samples > 0; --no_samples) {
+
+		/* 
+		 * read in input value	
+		 */
+		if(numberOfInputBuffers == 1) { 
+			IT_IN(0);
+			fftBuffer[sampleCount] = INF(0,0);
+		}
+		else {
+			IT_IN(0);
+			fftBuffer[sampleCount] = INF(0,0);
+			IT_IN(1);
+			fftBuffer2[sampleCount] = INF(1,0);
+		}
+		sampleCount++;
+
+		/* 
+		 * Get enough points				
+		 */
+		if(sampleCount >= fftLength)
+		{
+			/* 
+			 * perform fft calculation		
+			 */
+			 
+		cap_fftr(pforward, fftBuffer,freqBuff);	 
+			 
+		//	rfft(fftBuffer,fftLength);
+		
+		
+
+		if(numberOfInputBuffers == 1) { 
+			    /*
+			     * compute X(k)X*(k)
+			     */
+ 
+			    cmultfftcap(freqBuff, freqBuff, fftLength, 1.0);
+
+			} else {
+			
+		        
+		             cap_fftr(pforward, fftBuffer2,freqBuff2);
+		        
+		//		     rfft(fftBuffer2,fftLength);
+
+				
+			
+			
+			    /*
+			     * compute X(k)Y*(k)
+			     */
+			     
+			    cmultfftcap(freqBuff, freqBuff2, fftLength, 1.0);
+			     
+
+			}
+			
+			cap_fftri(preverse, freqBuff, fftBuffer);
+
+			// rfti(fftBuffer,fftLength);
+			
+			/* 
+			 * now, output samples			
+			 */
+            for (i=0; i<fftLength; i++)
+			{
+				if(IT_OUT(0)) {
+					KrnOverflow("autoxcorr",0);
+					return(99);
+				}
+				y(0) = fftBuffer[i]*norm;
+			}
+
+
+			sampleCount = 0;
+		}
+}
+return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	/* 
+	 * free up allocated space	
+	 */
+	free((char*)fftBuffer);
+	free((char*)freqBuff);
+        if(numberOfInputBuffers == 2) {  
+		free((char*)fftBuffer2);
+		free((char*)freqBuff2);
+        }
+    
+        free(preverse);
+        free(pforward);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* autoxcorr.s */
+/***********************************************************************
+                             autoxcorr()
+************************************************************************
+If one input then compute autocorrelation.
+If two inputs then compute crosscorrelation.
+************************************************************************
+Programmer: 	Sasan H. Ardalan	
+Date: 		January 4, 1991
+<NAME>
+autoxcorr
+</NAME>
+<DESCRIPTION>
+If one input then compute autocorrelation.
+If two inputs then compute crosscorrelation.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: 	Sasan H. Ardalan	
+Date: 		January 4, 1991
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

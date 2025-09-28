@@ -1,0 +1,942 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+stats 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+stats 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Points to skip
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    skip
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    File to store results
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    stat_file
+    
+    </td>
+    <td>
+    
+    stat.dat
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">Result Variables (TCL)<a name="Results"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_sigma
+    
+    </td>
+    <td>
+    
+      The standard deviation of the input stream
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_var
+    
+    </td>
+    <td>
+    
+      The variance of the input stream
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_mean
+    
+    </td>
+    <td>
+    
+      The mean of the input stream
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_min
+    
+    </td>
+    <td>
+    
+      The minimum value  of the input stream
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_max
+    
+    </td>
+    <td>
+    
+      The maximum value  of the input stream
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    FILE*
+    
+    </td>
+    <td>
+    
+    file_ptr
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    obufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    totalCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    sum_x
+    
+    </td>
+    <td>
+    
+    0.0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    sum_x2
+    
+    </td>
+    <td>
+    
+    0.0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    max
+    
+    </td>
+    <td>
+    
+    -1e30
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    min
+    
+    </td>
+    <td>
+    
+    1e30
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i,j;
+	float xSample;	/* current sample of input signal	*/
+	float mu;	/* mean = sum_x/count			*/
+	float var;	/* variance = (sum_x2/count - mu**2)	*/
+	float sigma;	/* std dev  = square root of variance	*/
+	double sqrt();
+	char theVar[100];
+	char theName[100];
+#ifdef TCL_SUPPORT
+        Tcl_Obj *varNameObj_P;
+        Tcl_Obj *objVar_P;
+#endif	
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if( (obufs = NO_OUTPUT_BUFFERS()) > 1) {
+		fprintf(stderr,"stats: only one output allowed\n");
+		return(2);
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	/* note the minimum number of samples on the input 	*/
+	/* buffers and iterate that many times 			*/
+	for(i=MIN_AVAIL();i>0; --i) {
+    	     IT_IN(0);
+	     for(j=0; j<obufs; j++) {
+			if(IT_OUT(j)) {
+				KrnOverflow("stats",j);
+				return(99);
+			}
+			OUTF(j,0) = x(0);
+	     }
+	     if(++totalCount > skip) {
+		count++;
+		xSample = x(0);
+		if (xSample > max)
+			max = xSample;
+		if (xSample < min)
+			min = xSample;
+
+		sum_x += xSample;
+		sum_x2 += xSample * xSample;
+	     }
+	}
+	return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	mu = sum_x/count;
+	var = (sum_x2/count) - (mu*mu);
+	sigma = sqrt(var);
+	fprintf(stderr,"samples   \t%d       \tmean    \t%g\n",count,mu);
+	fprintf(stderr,"maximum   \t%g  \tminimum \t%g\n",max,min);
+	fprintf(stderr,"variance  \t%g  \tsigma   \t%g\n",var,sigma);
+	fprintf(stderr,"samples   \t%d       \tmean    \t%g\n",count,mu); 
+	fprintf(stderr,"maximum   \t%g  \tminimum \t%g\n",max,min);
+	fprintf(stderr,"variance  \t%g  \tsigma   \t%g\n",var,sigma);
+	{
+		if( (file_ptr = fopen(stat_file,"w")) == NULL) {
+			fprintf(stderr,"stats: can't open results file %s \n",
+				stat_file);
+			return(3);
+	}
+	{
+		fprintf(file_ptr,"samples   %d  mean      %e \n",count,mu);
+		fprintf(file_ptr,"maximum   %e  minimum %e \n",max,min);
+		fprintf(file_ptr,"variance  %e  sigma   %e \n",var,sigma);
+	}
+	
+#ifdef TCL_SUPPORT
+       if(!krn_TCL_Interp) {
+          
+	  return(0);
+       }
+       
+       sprintf(theName,"%s_sigma",STAR_NAME);
+
+	varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	objVar_P=Tcl_NewObj();
+	Tcl_SetDoubleObj(objVar_P,sigma);
+	Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+        
+       
+       sprintf(theName,"%s_mean",STAR_NAME);
+	varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	objVar_P=Tcl_NewObj();
+	Tcl_SetDoubleObj(objVar_P,mu);
+	Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+       
+       
+       
+        sprintf(theName,"%s_max",STAR_NAME);
+	varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	objVar_P=Tcl_NewObj();
+	Tcl_SetDoubleObj(objVar_P,max);
+	Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+        
+      
+       
+       sprintf(theName,"%s_min",STAR_NAME);
+	varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	objVar_P=Tcl_NewObj();
+	Tcl_SetDoubleObj(objVar_P,min);
+	Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+ 
+     
+
+       
+       
+       
+       
+       sprintf(theName,"%s_var",STAR_NAME);
+	varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	objVar_P=Tcl_NewObj();
+	Tcl_SetDoubleObj(objVar_P,var);
+	Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+
+
+       
+              
+#endif
+
+}
+fclose(file_ptr);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* stats.s */
+/***************************************************************
+			stats() 
+*******************************************************************
+	Input:		x, the signal of interest
+	Output:		optional:  terminate signal or flow through
+	Parameters:	1: file sig_name, signal identifier
+			2: file stat_file, statistics file name
+				default => no file created.
+*******************************************************************
+This star calculates the statistics of the incoming signal.  
+The parameter is a filename for storage of the results.
+<NAME>
+stats
+</NAME>
+<DESCRIPTION>
+This star calculates the statistics of the incoming signal.  
+The parameter is a filename for storage of the results.
+	Input:		x, the signal of interest
+	Output:		optional:  terminate signal or flow through
+	Parameters:	1: file sig_name, signal identifier
+			2: file stat_file, statistics file name
+				default => no file created.
+*******************************************************************
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: 	Prayson W. Pate
+Date:		December 8, 1987
+Modified:	February 22, 1987
+		April 1988
+		May 1988 ljfaber: add 'flow-thru' capability
+				: add signal identifier
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

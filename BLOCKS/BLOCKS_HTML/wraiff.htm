@@ -1,0 +1,1052 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+wraiff 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+wraiff 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Writes  samples from an arbitrary number of input buffers to an AIFF file, which is named as a parameter.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Name of output file
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    fileName
+    
+    </td>
+    <td>
+    
+    aiff.aif
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Number of bits
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bits
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    Sampling Rate Hz
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    samplingRate
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    Range
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    range
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    Add Constant
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    dcOffset
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    Multiplication Factor
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    scale
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+    Buffer type:0= Float, 1=Integer
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bufferType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+    Play AIFF File:0=No,1=Yes
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    playFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    FILE*
+    
+    </td>
+    <td>
+    
+    fp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberInputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOutputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    wordSize
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    totalSamples
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    numberFrames
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    formSizeOffset
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    formBaseSize
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    numberFramesOffset
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    sndSizeOffset
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    long
+    
+    </td>
+    <td>
+    
+    samplesOffset
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+        char    sample;
+        float   sampf;
+        long int        i;
+        long int        j;
+        char buffer[100];
+        unsigned char   *samples_P;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+if((numberInputBuffers = NO_INPUT_BUFFERS()) <= 0) {
+        fprintf(stdout,"wraiff: no input buffers\n");
+        return(1);
+}
+if((numberOutputBuffers = NO_OUTPUT_BUFFERS()) > numberInputBuffers) {
+        fprintf(stdout,"wraiff: more output than input buffers\n");
+        return(2);
+}
+switch(bufferType) {
+        case FLOAT_BUFFER:
+                for(i=0; i< numberInputBuffers; i++)
+                        SET_CELL_SIZE_IN(i,sizeof(float));
+                for(i=0; i< numberOutputBuffers; i++)
+                        SET_CELL_SIZE_OUT(0,sizeof(float));
+                break;
+        case INTEGER_BUFFER:
+                for(i=0; i< numberInputBuffers; i++)
+                        SET_CELL_SIZE_IN(i,sizeof(int));
+                for(i=0; i< numberOutputBuffers; i++)
+                        SET_CELL_SIZE_OUT(0,sizeof(int));
+                break;
+        default:
+                fprintf(stderr,"wraiff: Bad buffer type specified  \n");
+                return(4);
+                break;
+}
+wordSize = 1;
+wordSize <<= bits-1;
+/*
+ *
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ *  AIFC File Creation
+ */
+if(IIP_WriteAIFF((char*)fileName,NULL,NULL,NULL,(int)bits,
+                        samplingRate,(int)1,
+                        scale,dcOffset,range,0,
+                        NULL,1,
+                        &formSizeOffset,&formBaseSize,
+                        &numberFramesOffset,
+                        &sndSizeOffset,&samplesOffset,NULL)) {
+	fprintf(stderr,"wraiff: problems writting aiff file\n");
+	return(5);
+}
+fprintf(stderr,"formSizeOffset=%d,formBaseSize=%d,numberFramesOffset=%d,sndSizeOffset=%d,samplesOffset=%d\n",
+                        formSizeOffset,formBaseSize,
+                        numberFramesOffset,
+                        sndSizeOffset,samplesOffset);
+/*
+ * Open AIFF file now that the chunks have been written 
+ */
+fp=fopen(fileName,"rb+");
+if(fp==NULL) {
+	fprintf(stderr,"wraiff: could not open aiff file to write samples\n");
+	return(6);
+}
+/*
+ * Position the file pointer where the samples should be written
+ */ 
+fseek(fp,samplesOffset,SEEK_SET);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+/*
+ * This mode synchronizes all input buffers
+ */
+for(i = MIN_AVAIL(); i>0; i--) {
+                /*
+                 * Calculate total number of samples inputted
+                 * If more than samples return
+                 */
+                totalSamples++;
+
+                for(j=0; j<numberInputBuffers; ++j) {
+                        IT_IN(j);
+                        if(j < numberOutputBuffers) {
+                                if(IT_OUT(j)) {
+                                        KrnOverflow("aiffw",j);
+                                        return(99);
+                                }
+                                switch(bufferType) {
+                                        case FLOAT_BUFFER:
+                                           OUTF(j,0) = INF(j,0);
+                                           break;
+                                    case INTEGER_BUFFER:
+                                           OUTI(j,0) = INI(j,0);
+                                           break;
+                                }
+
+                        }
+
+                        switch(bufferType) {
+                                case FLOAT_BUFFER:
+
+                                   sampf=INF(j,0);
+
+                                   break;
+                           case INTEGER_BUFFER:
+                                   sampf=(float)INI(j,0);
+                                   break;
+                        }
+            		/*
+            		 * Now we are ready to write out data
+            		 * First Convert it to 8 bits
+            		 */
+
+                        sampf=(((sampf+dcOffset)*scale)/range)*((
+float)wordSize);
+
+                        /*
+                         * Saturate if necessary
+                         */
+                        if(sampf < -wordSize)
+                                        sampf= -wordSize;
+                        if(sampf > wordSize-1)
+                                        sampf=wordSize;
+			WriteSample((FILE*)fp,(int)bits,sampf);
+
+                }
+
+}
+return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if(totalSamples%2) totalSamples++;
+	IIP_UpdateNumberFramesAIFF(fp,
+                        bits,1,
+                        totalSamples,
+                        formSizeOffset,formBaseSize,
+                        numberFramesOffset,
+                        sndSizeOffset,samplesOffset);
+        fclose(fp);
+#if 0
+        if(playFlag)
+                Cs_PlayAIFF(fileName);
+#endif
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/**********************************************************************
+                        wraiff()
+***********************************************************************
+writes  samples from an arbitrary number of input buffers to an AIFF file,
+which is named as a parameter.
+- Data "flow-through" is implemented: if any outputs are connected,
+        their values come from the correspondingly numbered input.
+        (This feature is not affected by the control parameter.)
+        (There cannot be more outputs than inputs.)
+<NAME>
+wraiff
+</NAME>
+<DESCRIPTION>
+writes  samples from an arbitrary number of input buffers to an AIFF file,
+which is named as a parameter.
+- Data "flow-through" is implemented: if any outputs are connected,
+        their values come from the correspondingly numbered input.
+        (This feature is not affected by the control parameter.)
+        (There cannot be more outputs than inputs.)
+</DESCRIPTION>
+<PROGRAMMERS>
+Written by Sasan Ardalan
+Date: June 15, 1993
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

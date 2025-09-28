@@ -1,0 +1,921 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+repeater 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+repeater 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star simulates an Ethernet local repeater 
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    inLeft
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    cdLeft
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    inRight
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    cdRight
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    outLeft
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    outRight
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    The width of a bit in samples
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bitTime
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    direction
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    dataLeft
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    dataRight
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    collLeft
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    collRight
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    jamCount
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bitCount
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    hiState
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int	i;
+	int	numberSamples;
+	double fabs();
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	direction = IDLE;
+	dataLeft=0.0;
+	dataRight = 0.0;
+	collRight =0.0;
+	collLeft = 0.0;
+	jamCount = 0;
+	bitCount = 0;
+	hiState=0;
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+for(numberSamples = MIN_AVAIL(); numberSamples > 0; -- numberSamples) {
+	IT_IN(0);
+	IT_IN(1);
+	IT_IN(2);
+	IT_IN(3);
+
+	if(IT_OUT(0)) {
+		KrnOverflow("repeater",0);
+		return(99);
+	}
+	if(IT_OUT(1)) {
+		KrnOverflow("repeater",1);
+		return(99);
+	}
+
+	dataLeft = (1.0-POLE)*dataLeft + POLE*fabs(inLeft(0));
+	dataRight = (1.0-POLE)*dataRight + POLE*fabs(inRight(0));
+	
+	collLeft = (1.0-POLE)*collLeft + POLE*fabs(cdLeft(0));
+	collRight = (1.0-POLE)*collRight + POLE*fabs(cdRight(0));
+
+	switch(direction) {
+		case IDLE:
+			if(dataLeft > SQUELCH)
+				direction = LEFT_TO_RIGHT;
+			else if (dataRight > SQUELCH)
+				direction = RIGHT_TO_LEFT;
+			else if ((collLeft > SQUELCH) || (collRight > SQUELCH))
+				direction = COLL;
+			outLeft(0) = 0.0;
+			outRight(0) = 0.0;
+			break;
+
+		case LEFT_TO_RIGHT:
+			if (dataLeft <= SQUELCH) {
+				direction = IDLE;
+				outRight(0) =0.0;
+			} else {
+				/*
+				 * Repeat data from left to right 
+				 */
+				if ( inLeft(0) > 0.0 ) 
+					outRight(0) = PEAK;
+				else
+					outRight(0) = -1.0 * PEAK;
+			}
+			/*
+			 * Squelch data from right to left
+			 */
+			outLeft(0) = 0.0;
+
+			if(( collLeft > SQUELCH ) || ( collRight > SQUELCH))
+				direction = COLL;
+			break;
+			
+		case RIGHT_TO_LEFT:
+			if ( dataRight <= SQUELCH) {
+				direction=IDLE;
+				outLeft(0) = 0.0;
+			}
+			else {
+				/*
+				 * Repeat data from right to left 
+				 */
+
+				if( inRight(0) > 0.0 )
+					outLeft(0) = PEAK;
+				else
+					outLeft(0) = -1.0*PEAK;
+			}
+			
+			/*
+			 * Squelch data from left to right
+			 */
+			outRight(0) = 0.0;
+			if((collLeft > SQUELCH ) || ( collRight > SQUELCH))
+				direction= COLL;
+			break;
+
+		case COLL:
+
+			if (hiState) {
+				if( bitCount < bitTime) {
+					outLeft(0) = PEAK;
+					outRight(0) = PEAK;
+				}
+				else {
+					hiState = 0;
+					bitCount = 0;
+					outLeft(0) = -1.0*PEAK;
+					outRight(0) = -1.0*PEAK;
+				}
+			}
+			else {
+				if(bitCount < bitTime) {
+					outLeft(0) = -1.0 * PEAK;
+					outRight(0) = -1.0 * PEAK;
+				}
+				else {
+
+					hiState =1;
+					bitCount = 0;
+					outLeft(0) = PEAK;
+					outRight(0) = PEAK;
+				}
+			}
+			++bitCount;
+			if(( collLeft < SQUELCH) && (collRight < SQUELCH)) {
+				jamCount =0;
+				direction = JAM;
+			}
+		case JAM:
+			if(hiState) {
+				if (bitCount < bitTime ) {
+					outLeft(0) = PEAK;
+					outRight(0) = PEAK;
+				}
+				else {
+					hiState = 0;
+					bitCount = 0;
+					outLeft(0) = -1.0*PEAK;
+					outRight(0) = -1.0*PEAK;
+				}
+			}
+			else {
+				if( bitCount < bitTime) {
+					outLeft(0) = -1.0*PEAK;
+					outRight(0) = -1.0*PEAK;
+				}
+				else {
+					hiState = 1;
+					bitCount = 0;
+					outLeft(0) = PEAK;
+					outRight(0) = PEAK;
+					++jamCount;
+				}
+			}
+			++bitCount;
+			if((collLeft > SQUELCH ) || (collRight > SQUELCH)) {
+				jamCount = 0;
+				direction = COLL;
+			}
+			else if ( jamCount > JAM_LIMIT) {
+				direction = IDLE;
+				jamCount = 0;
+			}
+			break;
+		default:
+			fprintf(stderr,"Repeater in illegal state %i ",direction);
+			return(1);
+			break;
+	}
+}
+
+return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*repeater.s*/
+/*
+ * Inputs: 	inLeft:	The  left input data signal 
+ *		inRight:	The  right input data signal	
+ *		cdLeft:	The left collision signal	
+ *		cdRight:	The right collision signal	
+ * Outputs:	outLeft:	The left output data signal	
+ *		outRight:	The right output data signal 
+ *
+ * Parameters:	bitTime: The width of a bit in samples 
+ *
+ * This star simulates an Ethernet local repeater 
+ *
+ * Programmer: Prayson W. Pate
+ * Date: September 28, 1987
+ *
+<NAME>
+repeater
+</NAME>
+<DESCRIPTION>
+ * Inputs: 	inLeft:	The  left input data signal 
+ *		inRight:	The  right input data signal	
+ *		cdLeft:	The left collision signal	
+ *		cdRight:	The right collision signal	
+ * Outputs:	outLeft:	The left output data signal	
+ *		outRight:	The right output data signal 
+ *
+ * Parameters:	bitTime: The width of a bit in samples 
+ *
+ * This star simulates an Ethernet local repeater 
+</DESCRIPTION>
+<PROGRAMMERS>
+ Prayson W. Pate
+ Date: September 28, 1987
+</PROGRAMMERS>
+ */
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

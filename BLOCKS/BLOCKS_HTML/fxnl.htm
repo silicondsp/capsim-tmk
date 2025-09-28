@@ -1,0 +1,1001 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+fxnl 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+fxnl 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star implements a fixed point normalized lattice filter. 
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    File with normalized lattice filter parameters
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    file_name
+    
+    </td>
+    <td>
+    
+    tmp.lat
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Fixed point precision for coefficients, bits
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    regBits
+    
+    </td>
+    <td>
+    
+    16
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    Input/output quantization bits
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    quantBits
+    
+    </td>
+    <td>
+    
+    16
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    Input/output Range e.g. +- 5 volts
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    quantRange
+    
+    </td>
+    <td>
+    
+    10.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    0=Float Buffers,1=Integer Buffer
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bufferType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int*
+    
+    </td>
+    <td>
+    
+    k
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int*
+    
+    </td>
+    <td>
+    
+    c
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int*
+    
+    </td>
+    <td>
+    
+    nu
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int*
+    
+    </td>
+    <td>
+    
+    xb
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    n
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberInputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOutputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    wsc
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    wnorm
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    fs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bitPrec
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    quant
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int buffer_no;
+        float xf,tmp;
+	int	xq;
+	int	sum,ysum;
+	float	val;
+	int	xfq,yq;
+        int n1,n2,i,j,m;
+	int	noSamples;
+	FILE* fp;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+if((numberInputBuffers = NO_INPUT_BUFFERS()) <= 0) {
+        fprintf(stderr,"fxn1: no inputs connected\n");
+        return(1);
+}
+if(numberInputBuffers > 1) {
+        fprintf(stderr,"fxnl: only one  input allowed \n");
+        return(2);
+}
+if((numberOutputBuffers = NO_OUTPUT_BUFFERS()) > numberInputBuffers) {
+        fprintf(stderr,"fxnl: too many outputs connected\n");
+        return(3);
+}
+if(numberOutputBuffers == 0) {
+        fprintf(stderr,"fxnl: no output connected\n");
+        return(4);
+}
+if(strcmp(file_name,"stdin") == 0)
+			fp = stdin;
+else if((fp = fopen(file_name,"r")) == NULL) {
+		fprintf(stderr,"fxnl():can't open file \n");
+		return(1); /* nl() file cannot be opened */
+}
+/*****************************************************
+   read lattice filter parameters from file
+****************************************************/
+fscanf(fp,"%d",&n);
+n1=n+1;
+/*   allocate work space      */
+if(((k=(int*)calloc(n,sizeof(int))) == NULL) ||
+		((c=(int*)calloc(n,sizeof(int))) == NULL) ||
+		((nu=(int*)calloc(n1,sizeof(int))) == NULL) ||
+		((xb=(int*)calloc(n1,sizeof(int))) == NULL )) {
+		fprintf(stderr,"fxnl(): can't allocate work space \n");
+		return(1);
+}
+bitPrec=1;
+bitPrec = bitPrec<< regBits;
+quant=1;
+quant = quant<< quantBits;
+for (i=0; i<n; i++) {
+		/*
+		 * Read k parameters
+		 */
+    	     	fscanf(fp,"%f ",&val);
+		k[i]=val*bitPrec;
+    	     	tmp=val*val;
+    	     	tmp=1.0-tmp;
+	     	val=sqrt(tmp);
+		c[i]=val*bitPrec;
+}
+n1=n+1;
+for (i=0; i<n1; i++) {
+                   fscanf(fp,"%f ",&val);
+		   nu[i]=val*bitPrec;
+}
+fscanf(fp,"%f",&wsc);
+fscanf(fp,"%f",&fs);
+fscanf(fp,"%f",&wnorm);
+/*    
+ * initial conditions   
+ */
+for (i=0; i<n1; i++) xb[i]=0.0; 
+fclose(fp);
+switch (bufferType) {
+	case FLOAT_BUFFER:
+		SET_CELL_SIZE_IN(0,sizeof(float));
+		SET_CELL_SIZE_OUT(0,sizeof(float));
+		break;
+	case INTEGER_BUFFER:
+		SET_CELL_SIZE_IN(0,sizeof(int));
+		SET_CELL_SIZE_OUT(0,sizeof(int));
+		break;
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+     for(noSamples=MIN_AVAIL();noSamples >0; --noSamples) {
+     	  IT_IN(0);
+	switch (bufferType) {
+		case FLOAT_BUFFER:
+			/*
+			 * input floating point sample and quantize
+			 */
+			xf=INF(0,0);
+	  		xfq = (int) xf*quant/(2.0 * quantRange);
+			break;
+		case INTEGER_BUFFER:
+			xq=INI(0,0);
+			break;
+	}
+             
+
+        for (m=0; m<n; m++) {
+             i=n-m;
+             xb[i]=xb[i-1]*c[i-1]+k[i-1]*xfq;
+	     xb[i] = xb[i] >> regBits;
+             xfq=xfq*c[i-1]-k[i-1]*xb[i-1];    
+	     xfq = xfq >> regBits;
+        }
+        xb[0]=xfq;
+        sum=0;
+        for (m=0; m<n+1; m++)  sum=sum+xb[m]*nu[m];
+        ysum=sum >> regBits;
+     	  if(IT_OUT(0)) {
+		KrnOverflow("fxnl",0);
+		return(99);
+	  }
+	switch (bufferType) {
+		case FLOAT_BUFFER:
+			/*
+			 * convert to float and output floating point sample
+			 */
+          		OUTF(0,0)=ysum*wsc/wnorm*quantRange*2.0/quant;
+			break;
+		case INTEGER_BUFFER:
+          		OUTI(0,0)=(int) ysum*wsc/wnorm;
+			break;
+	}
+             
+
+     }
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	free(k);
+	free(nu);
+	free(c);
+	free(xb);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*************************************************************
+Fixed Point Normalized Lattice Filter
+				fxnl()
+This star implements a fixed point normalized lattice filter. 
+All variables used are of type integer so that the algorithm can 
+be directly implemented on a Digital Signal Processor.
+This star supports both floating point and integer buffers.
+If floating point buffers are used, the input samples are quantized 
+with the input quantizer range and number of bits specified as
+parameters.
+The output is also converted to floating point within the
+original quantizer range. e.g. +- 5 volts.
+If integer buffers are used, no quantization is used and the
+integer input samples are processed directly.
+This star can be replace the floating point normalized lattice star
+nl.s to analyze the effects of fixed point implementation
+with different word sizes.
+***************************************************************
+(c) 1991-2002 XCAD Corporation, All Rights Reserved
+<NAME>
+fxnl
+</NAME>
+<DESCRIPTION>
+Fixed Point Normalized Lattice Filter
+				fxnl()
+This star implements a fixed point normalized lattice filter. 
+All variables used are of type integer so that the algorithm can 
+be directly implemented on a Digital Signal Processor.
+This star supports both floating point and integer buffers.
+If floating point buffers are used, the input samples are quantized 
+with the input quantizer range and number of bits specified as
+parameters.
+The output is also converted to floating point within the
+original quantizer range. e.g. +- 5 volts.
+If integer buffers are used, no quantization is used and the
+integer input samples are processed directly.
+This star can be replace the floating point normalized lattice star
+nl.s to analyze the effects of fixed point implementation
+with different word sizes.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: Sasan H Ardalan
+Date: September 7, 1991 
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

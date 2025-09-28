@@ -1,0 +1,961 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+sdr
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+sdr
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Compute signal to distortion ratio
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of points to collect
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    npts
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Number of points to skip
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    skip
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    File to store SDR results
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    sdrRes
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    Window: 0=Rect., 1=Hamming
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    windFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">Result Variables (TCL)<a name="Results"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    BlockName_sdr
+    
+    </td>
+    <td>
+    
+      The Signal to Distortion(Noise) Ratio
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    ibufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    obufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    xpts
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    ypts
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    spect
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    cxinBuff
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    cxoutBuff
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cfg
+    
+    </td>
+    <td>
+    
+    cfg
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    total_count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftl
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftexp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int samples;
+    	int i,j;
+	float tmp;
+	float wind;
+	char title1[80];
+  	float sdr,sdrdB;
+        float norm;
+	char theName[100];
+#ifdef TCL_SUPPORT
+        Tcl_Obj *varNameObj_P;
+        Tcl_Obj *objVar_P;
+#endif
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+        /*                                                      
+         * allocate arrays                                      
+         */                                                     
+        xpts = (float* )calloc(npts,sizeof(float));           
+        ypts = (float* )calloc(npts,sizeof(float));           
+	if(ibufs > 1) {
+		fprintf(stderr,"plot: only one  input allowed \n");
+		return(5);
+	}
+	/* store as state the number of input/output buffers */
+	if((ibufs = NO_INPUT_BUFFERS()) <= 0) {
+		fprintf(stderr,"plot: no inputs connected\n");
+		return(2);
+	}
+	if((obufs = NO_OUTPUT_BUFFERS()) > ibufs) {
+		fprintf(stderr,"plot: too many outputs connected\n");
+		return(3);
+	}
+        /*
+	 * compute the power of 2 number of fft points
+	 */
+	fftexp = (int) (log((float)npts)/log(2.0)+0.5);
+	fftl = 1 << fftexp;
+	if (fftl > npts ) {
+		fftl = fftl/2;
+		fftexp -= 1;
+	}
+        spect = (float* )calloc(2*fftl,sizeof(float));           
+        cfg=cap_fft_alloc(fftl,0,NULL,NULL);
+        if ((cxinBuff = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL)
+        {
+                fprintf(stderr,"cmxfft: can't allocate work space \n");
+                return(6);
+        }
+        if ((cxoutBuff = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL)
+        {
+             fprintf(stderr,"cmxfft: can't allocate work space \n");
+             return(7);
+        }
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	for(samples = MIN_AVAIL(); samples > 0; --samples) {
+		for(i=0; i<ibufs; ++i) {
+	   		IT_IN(i);
+			if(obufs > i) {
+				if(IT_OUT(i)) {
+					KrnOverflow("sdr",i);
+					return(99);
+				}
+	 			OUTF(i,0) = INF(i,0);
+			}
+	        }
+
+		if(++total_count > skip) {
+			for(i=0; i<ibufs; ++i)
+           			ypts[npts*i+count] = INF(i,0);
+
+			xpts[count] = total_count - 1;
+
+     			if(++count >= npts) {
+                            norm=1.0/(float)fftl;
+			    for(i=0; i<fftl; i++) {
+			        if(windFlag == 1) 
+				/*
+				 * Hamming Window
+				 */
+				  wind= 0.54-0.46*cos(2.*3.1415926*i/(fftl-1));
+				else 
+				  wind= 1.0;
+				       
+				cxinBuff[i].r=ypts[i]*wind*norm;
+				cxinBuff[i].i = 0.0;
+				}
+
+                                cap_fft(cfg,cxinBuff,cxoutBuff);
+                                for(i=0; i< fftl; i++) {
+                                       spect[2*i]=cxoutBuff[i].r*norm;
+                                       spect[2*i+1]=cxoutBuff[i].i*norm;
+
+                                }
+				calsdr(spect,&sdr,fftl,sdrRes);
+  				if (sdr) sdrdB = 10.*log10(sdr);
+ 				   else sdrdB = -200.0;
+ 				fprintf(stderr,"SDR = %e %e (dB) \n",sdr,sdrdB);
+				count = 0;
+#ifdef TCL_SUPPORT				
+     if(krn_TCL_Interp) {
+
+				sprintf(theName,"%s_var",STAR_NAME);
+	                        varNameObj_P=Tcl_NewStringObj(theName, strlen(theName));
+	                        objVar_P=Tcl_NewObj();
+	                        Tcl_SetDoubleObj(objVar_P,sdr);
+	                        Tcl_ObjSetVar2(krn_TCL_Interp,varNameObj_P,NULL,objVar_P,TCL_NAMESPACE_ONLY);
+       }
+#endif				
+				
+			}
+		}
+	}
+
+	return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+       free((cap_fft_cpx*)cxinBuff);
+        free((cap_fft_cpx*)cxoutBuff);
+        free((char*)spect);
+                                                                                
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* sdr.s */
+/**********************************************************************
+                                sdr()
+***********************************************************************
+	inputs:		(One channel)
+	outputs:	(optional feed-through of input channels)
+	parameters:	int npts, the number of points to use 
+			int skip, number of points to skip before calculation 
+			window flag (0=Rect 1= Hamming)
+*************************************************************************
+Programmer: 	Sasan Ardalan
+Date: 		2/16/89
+Modified:	L.J. Faber 1/3/89.  Add flow through; general cleanup.
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

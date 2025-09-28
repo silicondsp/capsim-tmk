@@ -1,0 +1,681 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+encoder 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+encoder 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star  encodes incoming data accoding to the first parameter:NRZ,Manchester,Diff Manchester,Partial Response,AMI,2B1Q,RZ
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Code Type:0=NRZ,1=manch,2=diff_manch,3=part_resp,4=AMI,5=2B1Q,6=RZ
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    codeType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    sign
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int	i;
+	int	numberSamples;
+	float	thisX,thisY,lastX,lastY;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if(!(codeType >= 0) && (codeType <=6))
+	{
+		fprintf(stderr,"encoder: code type %d is not allowed",
+			codeType);
+		return(1);
+	}
+	sign= -1.0;
+	lastX= 0;
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+for(numberSamples = MIN_AVAIL(); numberSamples > 0; -- numberSamples) {
+	if(codeType == _2B1Q) {
+		if(numberSamples > 1)
+			IT_IN(0);
+		else
+			return(0);
+	}
+	else 
+		IT_IN(0);
+	if(x(0) > 0.5) 
+		thisX = 1;
+	else
+		thisX = 0;
+	
+	switch (codeType) {
+		case  NRZ:
+			if(IT_OUT(0)) {
+				KrnOverflow("encoder",0);
+				return(99);
+			}
+			if(thisX) 
+				y(0)= 1.0;
+			else
+				y(0) = -1.0;
+			break;
+		case MANCHESTER:
+			if(thisX) {
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0)= -1.0;
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0) = 1.0;
+			}
+			else {
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0)= 1.0;
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0) = -1.0;
+			}
+			break;
+		case DIFFERENTIAL_MANCHESTER:
+			if(y(0) > 0.0)
+				lastY = 1;
+			else
+				lastY=0;
+			if(thisX) {
+				if(lastY) {
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = 1.0;
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = -1.0;
+				}
+				else {
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = -1.0;
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = 1.0;
+				}
+			}
+			else {
+				if(lastY) {
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = -1.0;
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = 1.0;
+				}
+				else {
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0)= 1.0;
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+					y(0) = -1.0;
+				}
+			}
+			break;
+		case PARTIAL_RESPONSE:
+			if(thisX) {
+					if(IT_OUT(0)) {
+						KrnOverflow("encoder",0);
+						return(99);
+					}
+				if(lastX) {
+					y(0)=0.0;
+				}
+				else {
+					y(0) = 1.0;
+				}
+			}
+			else {
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				if(lastX) {
+					y(0) = 0.0;
+				}
+				else {
+					y(0) = 0.0;
+				}
+			}
+			break;
+		case AMI:
+			if(IT_OUT(0)) {
+				KrnOverflow("encoder",0);
+				return(99);
+			}
+			if(thisX) {
+				y(0) = sign;
+				sign = 0.0 - sign;
+			} 
+			else {
+				y(0) = 0.0;
+			}
+			break;
+		case _2B1Q:
+			--numberSamples;
+			IT_IN(0);
+			if(IT_OUT(0)) {
+				KrnOverflow("encoder",0);
+				return(99);
+			}
+
+			if(thisX) {
+				if(x(0) > 0.5) 
+					y(0) = 3.0;
+				else 
+					y(0) = 1.0;
+			}
+			else {
+				if(x(0) > 0.5)
+					y(0) = -1.0;
+				else
+					y(0) = -3.0;
+			}
+			break;
+		case RZ:
+			if(IT_OUT(0)) {
+				KrnOverflow("encoder",0);
+				return(99);
+			}
+			y(0)= 0.0;
+			if(thisX) {
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0) = 1.0;
+			}
+			else {
+				if(IT_OUT(0)) {
+					KrnOverflow("encoder",0);
+					return(99);
+				}
+				y(0) = -1.0;
+			}
+			break;
+		
+	}
+	lastX=thisX;	
+			
+}	
+
+
+return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*encoder.s*/
+/*
+ * Inputs: 	 
+ *		x:	The  digital data stream	
+ * Outputs:		
+ *		y:	The encoded output	
+ *
+ * Parameters:	codeType:  Coding technique 
+ *
+ * This star  encodes incoming data accoding to the first parameter 
+ * as listed below:
+ * Type	name				"0" code	"1" code
+ * ---------------------------------------
+ * 0	non-return-to -zero (NRZ)	-1		+1
+ * 1	manchester			-1 +1		+1 -1
+ * 2 	differential manchester		[-1]+1 -1	[-1]-1+1
+ * 					[+1]-1 +1	[+1]+1 -1
+ * 3	partial response		(0) 0		(0) 1
+ *					(1) -1		(1) 0
+ * 4	alternate mark inversion (AMI)	0		alt. +1 and -1
+ *
+ * Type	Name		levels		codes
+ * ------------------------------------------------------
+ * 5	2B1Q		4		-3,-1,1,3
+ *
+ * Type  Name		"0" code		"1" code
+ * 6	Return-to-zero (RZ) 	0 -1		0 +1
+ *
+ * Programmer: Prayson Pate
+ * Date: 	August 31, 1987
+ *
+<NAME>
+encoder
+</NAME>
+<DESCRIPTION>
+ *
+ * Parameters:	codeType:  Coding technique 
+ *
+ * This star  encodes incoming data accoding to the first parameter 
+ * as listed below:
+ * Type	name				"0" code	"1" code
+ * ---------------------------------------
+ * 0	non-return-to -zero (NRZ)	-1		+1
+ * 1	manchester			-1 +1		+1 -1
+ * 2 	differential manchester		[-1]+1 -1	[-1]-1+1
+ * 					[+1]-1 +1	[+1]+1 -1
+ * 3	partial response		(0) 0		(0) 1
+ *					(1) -1		(1) 0
+ * 4	alternate mark inversion (AMI)	0		alt. +1 and -1
+ *
+ * Type	Name		levels		codes
+ * ------------------------------------------------------
+ * 5	2B1Q		4		-3,-1,1,3
+ *
+ * Type  Name		"0" code		"1" code
+ * 6	Return-to-zero (RZ) 	0 -1		0 +1
+ * Inputs: 	 
+ *		x:	The  digital data stream	
+ * Outputs:		
+ *		y:	The encoded output	
+</DESCRIPTION>
+<PROGRAMMERS>
+</PROGRAMMERS> 
+ */
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

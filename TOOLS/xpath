@@ -1,0 +1,5 @@
+set CAPSIM = `pwd`
+echo capsim path is: $CAPSIM
+sed -e 1,\$s+CAPSIM_PATH+$CAPSIM+g < precapsim.tcl.rel > precapsim.tcl
+
+

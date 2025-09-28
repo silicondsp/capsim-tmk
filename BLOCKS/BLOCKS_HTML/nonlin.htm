@@ -1,0 +1,941 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+nonlin 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+nonlin 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Gives two outputs for bifurcation diagram
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    total number of samples to output
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    num_of_samples
+    
+    </td>
+    <td>
+    
+    100
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    minimum parameter value
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    min_param
+    
+    </td>
+    <td>
+    
+    0.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    maximum parameter value
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    max_param
+    
+    </td>
+    <td>
+    
+    5.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    length of iteration
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    length_iterate
+    
+    </td>
+    <td>
+    
+    100
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    pace rate to determine how many samples to output
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    pace_rate
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    number of samples on the first call if paced
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    samples_first_time
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    increment_val
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    differ
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    temp_param
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    temp_val
+    
+    </td>
+    <td>
+    
+    0.5
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    samples_out_total
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    pace_in_total
+    
+    </td>
+    <td>
+    
+    0.0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    output_target
+    
+    </td>
+    <td>
+    
+    NUMBER_SAMPLES_PER_VISIT
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    no_inbuf
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    no_outbuf
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    pass
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i,j,k,k2;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if((no_outbuf = NO_OUTPUT_BUFFERS() ) <= 0) {
+		fprintf(stderr,"seqgen: no output buffers\n");
+		return(1); /* no output buffers */
+	}
+	no_inbuf = NO_INPUT_BUFFERS();
+	if(no_inbuf == 1) 
+	   output_target = samples_first_time;
+	else
+	   output_target = num_of_samples;
+	if(output_target > num_of_samples)
+	   output_target = num_of_samples;
+	if(pace_rate < 0) pace_rate = -pace_rate;
+	temp_param = min_param;
+	differ = (float)(max_param - min_param);
+	increment_val = differ/(float)(num_of_samples);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	if(no_inbuf == 1) {
+	   while(IT_IN(0))
+		pace_in_total += 1.0;
+	   if(pass == 1) {
+		output_target = samples_first_time + (int) (pace_rate *
+	   			pace_in_total + 0.5);
+		if(output_target > num_of_samples && num_of_samples > 0)
+			output_target = num_of_samples;
+	   }
+	}
+	pass = 1;
+	i = 0;
+
+	/* generate NUMBER_SAMPLES_PER_VISIT samples, then return */
+	while(samples_out_total < output_target) {
+
+		/* return if all samples have been output */
+		if(++i > NUMBER_SAMPLES_PER_VISIT) return(0);
+
+		for(k=0; k<num_of_samples; k++)
+		{
+			temp_param += increment_val;
+			for(j=0; j<length_iterate; j++)
+			{
+				temp_val = temp_param*temp_val*
+					(1.0-temp_val);
+			}
+			for(k2=0; k2<num_of_samples; k2++)
+			{
+				temp_val = temp_param*temp_val*
+					(1.0-temp_val);
+				if(IT_OUT(0)) {
+					KrnOverflow("nonlin",0);
+					return(99);
+				}
+				OUTF(0,0) = temp_param;
+				if(IT_OUT(1) ) {
+					KrnOverflow("nonlin",0);
+					return(99);
+				}
+				OUTF(1,0) = temp_val;
+			}
+			samples_out_total ++;
+		}
+	}
+	return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* nonlin.s */
+/**********************************************************************
+                nonlin()
+***********************************************************************
+Gives two outputs for bifurcation diagram
+Input parameters:
+	min_param: minimum parameter value
+	max_param: maximum parameter value
+	num_inc: number of increments
+	length_iterate: number of iterations
+CONTROL PARAMETERS:
+	num_of_samples     = total number of samples to output.
+	pace_rate          = multiplies the number of samples received 
+			     on pace input (if connected) to determine 
+			     how many samples to output.
+	samples_first_time = the number of samples to put out on the
+			     first call if pace input connected. It can
+			     be zero. negative values = 0.
+CONTROL DESCRIPTION:
+If the pace input is not connected:
+      The num_of_samples parameter sets the maximum number of samples
+	that the star will output. If num_of_samples < 0, an indefinite
+	number of samples can be output.
+      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+If the pace input is connected:
+      The num_of_samples parameter sets the maximum number of samples
+        that the star will output. If num_samples_out < 0, an infinite
+	number of samples can be output.
+      The pace input paces the number of output samples on each call.
+      At each call of the star all samples are read from the pace input
+	and a running total of how many there have been is kept.
+      An output_target  is computed at each pass = pace_input_total *
+	pace_rate. If pace_rate < 0, the absolute value is used.
+      On the first call:
+	output = lesser of (samples_first_time, num_of_samples)
+      On subsequent calls:
+	output = lesser of (NUMBER_SAMPLES_PER_VISIT, output_target)
+	   output_target = samples_first_time +
+		 pace_rate * pace_input_total - to that point
+      The total number of samples that will be output:
+	samples_out_total = lesser of (num_of_samples,
+		     samples_first_time + pace_rate * pace_input_total)
+<NAME>
+nonlin
+</NAME>
+<DESCRIPTION>
+Gives two outputs for bifurcation diagram
+Input parameters:
+	min_param: minimum parameter value
+	max_param: maximum parameter value
+	num_inc: number of increments
+	length_iterate: number of iterations
+CONTROL PARAMETERS:
+	num_of_samples     = total number of samples to output.
+	pace_rate          = multiplies the number of samples received 
+			     on pace input (if connected) to determine 
+			     how many samples to output.
+	samples_first_time = the number of samples to put out on the
+			     first call if pace input connected. It can
+			     be zero. negative values = 0.
+CONTROL DESCRIPTION:
+If the pace input is not connected:
+      The num_of_samples parameter sets the maximum number of samples
+	that the star will output. If num_of_samples < 0, an indefinite
+	number of samples can be output.
+      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+If the pace input is connected:
+      The num_of_samples parameter sets the maximum number of samples
+        that the star will output. If num_samples_out < 0, an infinite
+	number of samples can be output.
+      The pace input paces the number of output samples on each call.
+      At each call of the star all samples are read from the pace input
+	and a running total of how many there have been is kept.
+      An output_target  is computed at each pass = pace_input_total *
+	pace_rate. If pace_rate < 0, the absolute value is used.
+      On the first call:
+	output = lesser of (samples_first_time, num_of_samples)
+      On subsequent calls:
+	output = lesser of (NUMBER_SAMPLES_PER_VISIT, output_target)
+	   output_target = samples_first_time +
+		 pace_rate * pace_input_total - to that point
+      The total number of samples that will be output:
+	samples_out_total = lesser of (num_of_samples,
+		     samples_first_time + pace_rate * pace_input_total)
+</DESCRIPTION>
+<PROGRAMMERS>
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

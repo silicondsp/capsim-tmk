@@ -1,0 +1,778 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+phi_meter 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+phi_meter 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star finds the relative phase of a signal to a reference.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    ref
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    phi
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    edge
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    sync
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    ref_count
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    x_count
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    tau
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    counting
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    last_phi
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    phi_max
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int no_samples;
+	int this_x,last_x,x_falling,x_rising;
+	int this_ref,last_ref,ref_falling,ref_rising;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if ((edge >= 0) && (edge >= 1))
+		;
+	else
+		return(1);
+	ref_count = 0;
+	x_count = 0;
+	counting = 0;
+	phi_max = 180;
+	tau = 0.0;
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+ 
+	for(no_samples=MIN_AVAIL();no_samples >0; --no_samples) 
+ 
+		{
+		/* read x and check for edge		*/
+		if (x(0) > 0.5)
+			last_x = 1;
+		else
+			last_x = 0;
+ 
+		IT_IN(0);	
+ 
+		if (x(0) > 0.5)
+			this_x = 1;
+		else
+			this_x = 0;
+ 
+		if (!this_x && last_x)
+			x_falling = 1;
+		else
+			x_falling = 0;
+ 
+		if (this_x && !last_x)
+			x_rising = 1;
+		else
+			x_rising = 0;
+ 
+ 
+		/* read ref and check for falling edge		*/
+		if (ref(0) > 0.5)
+			last_ref = 1;
+		else
+			last_ref = 0;
+ 
+ 
+		IT_IN(1);	
+ 
+		if (ref(0) > 0.5)
+			this_ref = 1;
+		else
+			this_ref = 0;
+ 
+		if (!this_ref && last_ref)
+			ref_falling = 1;
+		else
+			ref_falling = 0;
+ 
+		if (this_ref && !last_ref)
+			ref_rising = 1;
+		else
+			ref_rising = 0;
+ 
+ 
+		if ((edge && ref_rising) || (!edge && ref_falling))
+			{
+			counting = true;
+			tau = ref_count + 1.0;
+			ref_count = 0;
+			x_count = 0;
+			}
+		else
+			++ref_count;
+ 
+		if ((edge && x_rising) || (!edge && x_falling))
+			{
+			if(IT_OUT(0)) {
+				KrnOverflow("phi_meter",0);
+				return(99);
+			}
+			counting = false;
+ 
+			if (tau > 0)
+				phi(0) = (x_count * 360.0)/tau;
+			else
+				phi(0) = 0.0;
+ 
+			while (phi(0) > 360.0)
+				phi(0) = phi(0) - 360.0;
+ 
+			if (phi(0) > phi_max)
+				phi(0) = phi(0) - (2 * phi_max);
+ 
+			last_phi = phi(0);
+			}
+		/* else, continue to count and output last phase */
+		else 
+			{
+			if (sync)
+				{
+				if(IT_OUT(0)) {
+					KrnOverflow("phi_meter",0);
+					return(99);
+				}
+				phi(0) = last_phi;
+				}
+			if (counting)
+				++x_count;
+			}
+			
+		}
+ 
+ 
+	return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* phi_meter.s */
+/***************************************************************
+			phi_meter() 
+****************************************************************
+	Inputs:		x, the signal of interest
+			ref, the reference signal
+	Outputs:	phi, the phase difference in degrees
+	Parameters:	int edge, the edge to trigger on
+			int sync, specifies if a value is to be
+				output for every input sample
+****************************************************************
+This star finds the relative phase of a signal to a reference.  
+Both signals are assumed to be digital and between 0.0 and 1.0.
+One parameter specifies the trigger edge (true for rising, false 
+for falling).  The other specifies the output rate (synchronous 
+or one per cycle).  The output is the phase difference of the 
+chosen edges in degrees.
+<NAME>
+phi_meter
+</NAME>
+<DESCRIPTION>
+This star finds the relative phase of a signal to a reference.  
+Both signals are assumed to be digital and between 0.0 and 1.0.
+One parameter specifies the trigger edge (true for rising, false 
+for falling).  The other specifies the output rate (synchronous 
+or one per cycle).  The output is the phase difference of the 
+chosen edges in degrees.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer:	Prayson W. Pate
+Date:		June 2, 1987
+Modified:	August 17, 1987
+		September 2, 1987
+		October 1, 1987
+		December 3, 1987
+		February 2, 1988
+		February 22, 1988
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

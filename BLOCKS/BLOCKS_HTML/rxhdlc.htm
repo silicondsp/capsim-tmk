@@ -1,0 +1,1883 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+rxhdlc 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+rxhdlc 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Process an HDLC frame and generate ACK and NACK. Use only in ARQ simulation
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    byteVector_t
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    rack
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of bits per frame (Info Only)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    numberOfBits
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Debug:1=true,0=false
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    debugFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    byteCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberBytes
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    UINT8*
+    
+    </td>
+    <td>
+    
+    vect_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    buildByte
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    buildByteBits
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    acc
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    shreg
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    UINT16
+    
+    </td>
+    <td>
+    
+    fcsshreg
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bitCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    endFrame
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fcs
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    12
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    frameCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    13
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    errorCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    14
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    correctCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    15
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    contFlag
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    16
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    done
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    17
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    removeZero
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    18
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    first
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    19
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    first2
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    20
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    begFrame
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    21
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fcsReg
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    22
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fcsbit
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    23
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    startFCS
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    24
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bit
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    25
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    rxFrameFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    26
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    rxBitFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    27
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    frameBits
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    28
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    nr
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    29
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    errorFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    30
+    
+    </td>
+    <td>
+    
+  
+    FILE*
+    
+    </td>
+    <td>
+    
+    debug_F
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    31
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    totalBitsInput
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+UINT16	stuffCheck;
+UINT16	flagCheck;
+unsigned short	carry;
+int	i;
+int	numberOfSamples;
+byteVector_t	codedBlock;
+int	ns;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+ * account for address and control and FCS 
+ * we will ignore on output
+ */
+numberBytes=numberOfBits/8+1+1+1+2;
+acc=0;
+if(debugFlag) {
+	debug_F=fopen("rxhdlc.dbg","w");
+	if(debug_F == NULL) return(2);
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+if(first2) {
+
+	IT_OUT(1);
+	nr=0;
+	rxFrameFlag=1;
+	rack(0) = 0x80 | nr;
+}
+first2=0;
+
+while(IT_IN(0)) {
+	rxBitFlag=1;
+	/*
+	 * output the bit check if address+cntrl+info+FCS
+ 	 * also ignore if removing a zero
+	 */
+	if(!removeZero && begFrame) {
+		/*
+		 */ 
+		fcsshreg |= bit;
+		if(startFCS) {
+			fcsbit = (0x100 & fcsshreg) ? 1:0;
+			{
+				carry=(acc&0x8000) ? 1:0;
+				acc <<= 1;
+				acc ^= ((fcsbit ^ carry) ? GENERATOR_POLY:0);
+			}
+		}
+#if 1
+if(debugFlag)
+	fprintf(debug_F,"shreg=%4x fcsshreg=%4x fcsbit=%d bit=%d acc=%4x\n",shreg,fcsshreg,fcsbit,bit,acc);
+#endif
+		fcsshreg <<= 1;
+		buildByte |= bit;
+		buildByteBits++;
+		if(buildByteBits == 8) {
+			vect_P[byteCount]=buildByte;
+			buildByte=0;
+			buildByteBits=0;
+			byteCount++;
+		}
+		buildByte <<= 1;
+		frameBits++;
+		/*
+		 * check if received bits  exceeds payload size plus address
+		 * control,and FCS
+		 */
+		if(frameBits > numberOfBits +8+8+16+8) {
+			/*
+			 * If exceeds then we have an error condition.
+			 * Possiblility is that end flag corrupted.
+			 * In this case we request retransmission as if error
+			 * occured.
+			 * We must also flush out input buffer.
+			 */
+			frameBits=0;
+			endFrame=1;
+			first=1;
+			begFrame=0;
+			shreg=0;
+			fcsshreg=0;
+			acc=0;
+			startFCS=0;
+			bit=0;
+			count=0;
+
+			/*
+			 * get ns from transmitted frame
+			 */
+			ns=vect_P[1];
+			ns = ns >> 3;
+			ns = ns & 0x07;
+			
+			IT_OUT(1);
+			rack(0) = 0x90 | nr;
+			rxFrameFlag=1;
+			if(debugFlag)
+				fprintf(debug_F,"Bad End Flag Received NS=%d NR %d\n",ns,nr);
+			/*
+			 * Flush input port
+			 */
+			while(IT_IN(0));
+			break;
+		}
+	}
+	else
+		removeZero=0;
+
+
+     	/*
+      	 * collect the bits
+       	 */
+       	bit=(int)(x(0)+0.001);
+	totalBitsInput++;
+
+	shreg |= bit;
+	stuffCheck=shreg & 0x3f;
+	if(stuffCheck == 0x3e ) {	
+		if(debugFlag)
+			fprintf(debug_F,"Unstuff zero condition\n");
+		removeZero=1;
+	}
+	stuffCheck=shreg & 0x7f;
+	if(stuffCheck == 0x7f ) {	
+		if(debugFlag)
+			fprintf(debug_F,"Abort condition\n");
+
+		/*
+		 * reset and start over. 
+		 * reject frame and request retransmission
+		 */
+			frameBits=0;
+			endFrame=1;
+			first=1;
+			begFrame=0;
+			shreg=0;
+			fcsshreg=0;
+			acc=0;
+			startFCS=0;
+			bit=0;
+			count=0;
+
+			/*
+			 * get ns from transmitted frame
+			 */
+			ns=vect_P[1];
+			ns = ns >> 3;
+			ns = ns & 0x07;
+			
+			IT_OUT(1);
+			rack(0) = 0x90 | nr;
+			rxFrameFlag=1;
+			if(debugFlag)
+				fprintf(debug_F,"Abort Received NS=%d NR %d\n",ns,nr);
+			/*
+			 * Flush input port
+			 */
+			while(IT_IN(0));
+			break;
+	}
+	/*
+	 * Frame Check Sequence
+	 */
+	if(startFCS) {
+	}
+	/*
+	 * check if FLAG (beginning or end)
+	 */
+	flagCheck=shreg & 0xff;
+	if(flagCheck == 0x7e) {
+		/*
+		 * found a flag
+		 */
+		removeZero=0;
+		if(first) {
+			/*
+			 * beginning of frame flag
+			 */
+			acc=0;
+			first=0;
+			begFrame=1;
+			if(debugFlag)
+				fprintf(debug_F,"Start Flag\n");
+			frameCount++;
+			bitCount=0;
+			/*
+			 * beginning of frame
+			 * allocate vector of bytes 
+			 */
+			
+			vect_P=(char*)calloc(numberBytes,sizeof(char));
+			byteCount=0;
+			buildByte=0;
+			buildByteBits=0;
+#if 1
+			/*
+			 * a trick to not include last bit of flag in
+			 * output vector
+			 */
+			removeZero=1;
+#endif
+		}
+		else {
+			/*
+			 * end of frame flag
+		 	 */
+			if(debugFlag)
+				fprintf(debug_F,"END Flag\n");
+			if(shreg == 0x7e7e) {
+				/*
+				 * Two consecutive flags encountered.
+				 * Set state to beginning
+				 * flag 
+				 */
+				count=0;
+				fcsshreg =  0;
+				acc=0;
+				shreg=0x7e;
+				first=0;
+				begFrame=1;
+				byteCount=0;
+				buildByte=0;
+				buildByteBits=0;
+				removeZero=1;
+				frameBits=0;
+
+			} else {
+			frameBits=0;
+			fcsshreg =  0;
+			for(i=0; i<2; i++) {
+				/*
+				 * Flush FCS
+				 */
+				fcsshreg <<=1;
+				fcsbit = (0x100 & fcsshreg) ? 1:0;
+				{
+					carry=0;
+					acc <<= 1;
+					acc ^= ((fcsbit ^ carry) ? GENERATOR_POLY:0);
+				}
+#if 0
+fprintf(stderr,"Flushing fcsshreg=%4x acc=%4x \n",fcsshreg,acc);
+#endif
+			}
+			errorFlag=0;
+			if( acc) { 
+				errorFlag=1;
+				if(debugFlag)
+				   fprintf(debug_F,"Frame Error\n");
+				errorCount++;
+
+			}  
+			else
+				correctCount++;
+			endFrame=1;
+			first=1;
+			begFrame=0;
+			shreg=0;
+			fcsshreg=0;
+			acc=0;
+			startFCS=0;
+			bit=0;
+			count=0;
+
+			/*
+			 * get ns from transmitted frame
+			 */
+			ns=vect_P[1];
+			ns = ns >> 3;
+			ns = ns & 0x07;
+			
+    			if(!errorFlag) {
+			   if(IT_OUT(0) ){ KrnOverflow("rxhdlc",0);return(99);}
+			   codedBlock.vector_P=&vect_P[2];
+			   codedBlock.length=byteCount-2-2;
+			   if(codedBlock.length > numberBytes) {
+				fprintf(debug_F,"rxhdlc: bad frame length=%d\n",
+					codedBlock.length);
+				codedBlock.length=numberBytes;
+			   }
+    			   y(0) = codedBlock; 
+			}
+		
+			IT_OUT(1);
+			if(errorFlag) {
+				rxFrameFlag=1;
+				rack(0) = 0x90 | nr;
+			} else {
+				nr++;
+				nr %= 8;
+				rxFrameFlag=1;
+				rack(0) = 0x80 | nr;
+
+			}
+			if(debugFlag)
+				fprintf(debug_F,"Received NS=%d NR %d\n",ns,nr);
+			} /*end double flag */
+
+			
+		}
+	} 
+	shreg <<= 1;
+	if(begFrame ) {
+		/*
+		 * start FCS after first FLAG
+		 * delay also allows time to check for end of frame flag
+		 * so that it is not used in computation of FCS
+		 */
+		if(count == 10) { 
+			startFCS=1;
+		
+			if(debugFlag)
+				   fprintf(debug_F,"Begin startFCS\n");
+		}
+		count++;
+	} 
+	
+}
+if(!rxFrameFlag && rxBitFlag) {
+	/*
+	 * Bad news all input bits exhausted but no frame encountered.
+	 * This could be due to the fact that a flag got corrupted
+	 * In this case request retransmission and reset every thing
+	 */
+			frameBits=0;
+			endFrame=1;
+			first=1;
+			begFrame=0;
+			shreg=0;
+			fcsshreg=0;
+			acc=0;
+			startFCS=0;
+			bit=0;
+			count=0;
+			/*
+			 * reject and request retransmission
+			 */
+			IT_OUT(1);
+			rack(0) = 0x90 | nr;
+			rxFrameFlag=1;
+			if(debugFlag)
+				fprintf(debug_F,"Damaged Frame:NR %d\n",nr);
+
+}
+rxFrameFlag=0;
+rxBitFlag=0;
+
+return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	fprintf(stderr,"RxHDLC: number of received frames=%d\n",frameCount);
+	fprintf(stderr,"RxHDLC: number of bits received %d\n",totalBitsInput);
+	fprintf(stderr,"RxHDLC: number of errors =%d\n",errorCount);
+	fprintf(stderr,"RxHDLC: number of correct frames =%d\n",correctCount);
+	if(debugFlag)
+		fclose(debug_F);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+ * 
+ * Written by: Sasan H. Ardalan
+ *(c) Copyright 1993-2000 XCAD Corporation, Raleigh, NC All Rights Reserved
+ * Date: November 30, 1993
+ */
+ /*
+  * IMPORTANT:
+  *  This star assumes that an HDLC frame worth of bits is on its input buffer.
+  *  To guarantee this, make sure that the input is comming from a galaxy
+  *  This way the galaxy (data pump) will consume all of its input bits
+  * from the transmitter, and output them on its output terminal before
+  * returning control to the connected block ( rxhdlc in this case).
+  * If you do not do this, there is no gaurantee that a whole Frame (damaged
+  * or not) is at the input buffer. It could arrive in pieces. 
+  * The reason for requiring this, is so that rxhdlc can asses whether a 
+  * damaged flag exists or other conditions.
+  * If this condition is not to be detected then the code must be modified.
+  * A more elaborate scheme must be devised to detect damaged frame flags.
+  * See main_code at the if(rxframeFlag) statement. If input has been
+  * exausted and this flag has not been set ( either correct
+  * an FCS error or abort) then flags were damaged.
+  */
+/*
+<NAME>
+rxhdlc
+</NAME>
+<DESCRIPTION>
+Process an HDLC frame and generate ACK and NACK. Use only in ARQ simulation
+  * IMPORTANT:
+  *  This star assumes that an HDLC frame worth of bits is on its input buffer.
+  *  To guarantee this, make sure that the input is comming from a galaxy
+  *  This way the galaxy (data pump) will consume all of its input bits
+  * from the transmitter, and output them on its output terminal before
+  * returning control to the connected block ( rxhdlc in this case).
+  * If you do not do this, there is no gaurantee that a whole Frame (damaged
+  * or not) is at the input buffer. It could arrive in pieces. 
+  * The reason for requiring this, is so that rxhdlc can asses whether a 
+  * damaged flag exists or other conditions.
+  * If this condition is not to be detected then the code must be modified.
+  * A more elaborate scheme must be devised to detect damaged frame flags.
+  * See main_code at the if(rxframeFlag) statement. If input has been
+  * exausted and this flag has not been set ( either correct
+  * an FCS error or abort) then flags were damaged.
+</DESCRIPTION>
+<PROGRAMMERS>
+Written by: Sasan H. Ardalan
+Date: November 30, 1993
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

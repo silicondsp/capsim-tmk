@@ -1,0 +1,960 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+sqrtnyq
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+sqrtnyq
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star performs square root Nyquist pulse shaping for a baseband transmitter.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    samples per baud interval.
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    smplbd
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    expfft: 2^expfft=fft length to use.
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    expfft
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    beta: filter rolloff factor, 0<beta<=.5 
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    beta
+    
+    </td>
+    <td>
+    
+    .5
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    nyqfresp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    temp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    temp2
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    freqBuffCx
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    save
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    preverse
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    pforward
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftl
+    
+    </td>
+    <td>
+    
+     1 << expfft    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    impl
+    
+    </td>
+    <td>
+    
+    IMPBAUD * smplbd
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    pcount
+    
+    </td>
+    <td>
+    
+    impl
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    norm
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+   	int i;
+   	int j;
+	float freq;			/* fractional norm. frequency */
+	float val;			/* temporary */
+	int	no_samples;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if(smplbd < 2) {
+	   	fprintf(stderr,"sqrtnyq: do not use if smplbd < 2\n");
+		return(1);
+	}
+	if(fftl <= impl) {
+	   	fprintf(stderr,"sqrtnyq: fft length too short\n");
+		return(2);
+	}
+	if(beta <= 0. || beta > .5) {
+	   	fprintf(stderr,"sqrtnyq: beta param out of range\n");
+		return(3);
+	}
+	if( (nyqfresp = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL ||
+	    (temp = (cap_fft_scalar*)calloc(fftl,sizeof(cap_fft_scalar))) == NULL ||
+	    (temp2 = (cap_fft_scalar*)calloc(fftl,sizeof(cap_fft_scalar))) == NULL ||
+	    (freqBuffCx = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL ||
+	    (save = (cap_fft_scalar*)calloc(impl,sizeof(cap_fft_scalar))) == NULL ) {
+	   	fprintf(stderr,"sqrtnyq: can't allocate work space\n");
+		return(4);
+	}
+
+	preverse = cap_fftr_alloc(fftl, INVERSE_FFT, NULL,NULL);
+	pforward = cap_fftr_alloc(fftl, FORWARD_FFT, NULL,NULL);
+
+	/* Compute nyquist frequency response */
+	/* store in `folded, real fft' form */
+	/* note: frequency is normalized to unity at baud rate */
+	for(i=0; i<fftl/2; i++) {
+		freq = i * ((float) smplbd / fftl);
+		temp[2*i+1] = 0.; /*imaginary part*/
+		if(freq <= .5 - beta) temp[2*i] = smplbd;
+		else if(freq >= .5 + beta) temp[2*i] = 0.;
+		else {	/* frequency in rolloff region */
+			val =  cos(PI * (freq -.5 + beta)/(4.* beta));
+			temp[2*i] = smplbd * val ;
+		}
+	}
+	for(i=0; i<fftl/2; i++) {
+	      freqBuffCx[i].r=temp[2*i];
+             freqBuffCx[i].i=temp[2*i+1];
+
+       }
+//	for(i=0; i<fftl/2; i++) 
+ //            printf("%d %f %f\n",i, freqBuffCx[i],freqBuffCx[fftl-i]);
+	/* Construct realizable, truncated impulse response */
+	/* (add delay by getting samples from end of imp. resp.) */
+        cap_fftri(preverse, freqBuffCx, temp);
+        // rfti(temp,fftl);
+	for(i=0; i<fftl; i++) {
+		if(i < impl)
+			temp2[i] = temp[(i + fftl - impl/2)%fftl];
+		else
+			temp2[i] = 0;
+	}
+	/* Back to frequency response form */
+        cap_fftr(pforward, temp2,nyqfresp);
+        // rfft(nyqfresp,fftl);
+	for(i=0; i<fftl; i++)
+		temp[i] = 0.;
+        norm=1.0/(float)fftl;
+	//norm=norm*norm;
+	for(i=0; i<fftl; i++) {
+		nyqfresp[i].r = nyqfresp[i].r*norm;;
+		nyqfresp[i].i = nyqfresp[i].i*norm;;
+        }
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	for(no_samples=MIN_AVAIL();no_samples >0; --no_samples) {
+		IT_IN(0);
+		temp[pcount++] = x(0);
+		if(pcount == fftl){
+			for(i=0; i<impl; i++)
+				save[i] = temp[fftl - impl + i];
+                        
+                        cap_fftr(pforward, temp,freqBuffCx);
+        		//rfft(temp,fftl);
+
+			cmultfftcap(freqBuffCx, nyqfresp, fftl/2,1.0);
+
+                        cap_fftri(preverse, freqBuffCx,temp);
+        		//rfti(temp,fftl);
+			for(i=impl; i<fftl; i++) {
+				if(IT_OUT(0)) {
+					KrnOverflow("sqrtnyq",0);
+					return(99);
+				}
+				y(0) = temp[i]*norm;
+			}
+			pcount = impl;
+			for(i=0; i<impl; i++)
+				temp[i] = save[i];
+		}
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+#if 1 // PROBLEM NEED TO FIND LINK SINCE MOVING TO FFTW
+        free(nyqfresp); 
+        free(save); 
+        free(freqBuffCx);
+	free(temp);
+	free(temp2);
+#endif
+
+
+        free(preverse);
+        free(pforward);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* sqrtnyq.s */
+/***********************************************************************
+                             sqrtnyq()
+************************************************************************
+This star performs Nyquist pulse shaping for a baseband transmitter.
+See Carlson, Communications Systems, page 381, equation 17b.
+The Nyquist criterion in the frequency domain is to have an amplitude
+rolloff which is symmetric about Fb/2 (half baud frequency).
+First, a frequency-domain amplitude response is created using a raised
+cosine shape.  This computation is affected by:
+Param:	1 - (int) smplbd: samples per baud interval. default=>8
+	2 - (int) expfft: 2^expfft = fft length to use.  default=>8
+	3 - (float) beta: filter rolloff factor, 0<beta<=.5  default=>.5
+The amplitude response is changed to impulse response via inverse fft.
+The impulse response is made causal by right shifting (filter delay),
+and is time limited to "IMPBAUD" baud intervals (set by definition).
+(This filter will cause a delay of IMPBAUD/2 baud intervals.)
+Finally, the impulse response is transformed back to a frequency
+response, which is used in subsequent linear convolution with the input,
+which is implemented by the Fast Fourier Transform overlap-save method.
+The fft length must be greater than the impulse response length;
+for efficiency, a factor of two or more in length is desirable.
+This implies that 2^expfft > smplbd * IMPBAUD.
+Nyquist shaping has no meaning if smplbd = 1; this implies that
+each sample would go through the filter unchanged!
+<NAME>
+sqrtnyq
+</NAME>
+<DESCRIPTION>
+This star performs Nyquist pulse shaping for a baseband transmitter.
+See Carlson, Communications Systems, page 381, equation 17b.
+The Nyquist criterion in the frequency domain is to have an amplitude
+rolloff which is symmetric about Fb/2 (half baud frequency).
+First, a frequency-domain amplitude response is created using a raised
+cosine shape.  This computation is affected by:
+Param:	1 - (int) smplbd: samples per baud interval. default=>8
+	2 - (int) expfft: 2^expfft = fft length to use.  default=>8
+	3 - (float) beta: filter rolloff factor, 0<beta<=.5  default=>.5
+The amplitude response is changed to impulse response via inverse fft.
+The impulse response is made causal by right shifting (filter delay),
+and is time limited to "IMPBAUD" baud intervals (set by definition).
+(This filter will cause a delay of IMPBAUD/2 baud intervals.)
+Finally, the impulse response is transformed back to a frequency
+response, which is used in subsequent linear convolution with the input,
+which is implemented by the Fast Fourier Transform overlap-save method.
+The fft length must be greater than the impulse response length;
+for efficiency, a factor of two or more in length is desirable.
+This implies that 2^expfft > smplbd * IMPBAUD.
+Nyquist shaping has no meaning if smplbd = 1; this implies that
+each sample would go through the filter unchanged!
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: L.J. Faber
+Date: Jan. 14, 1987
+Modified: 6/88 ljfaber.  expand comments, fix flaws
+Modified: 6/89 S. H. Ardalan.  
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

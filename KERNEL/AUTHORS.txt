@@ -1,0 +1,40 @@
+Capsim Text Mode (C) 1989 XCAD Corporation
+=============================
+
+
+
+This program is based on an original concept called BLOSIM,
+developed at the University of California, Berkeley, 1985.
+The primary authors were D.G. Messerschmitt and D.J. Hait.
+Since arrival at NCSU in November 1987 and through work done at 
+XCAD Corporation, the program has been
+extensively remodeled, debugged, and improved with many added features
+including, but not limited to:
+        - program re-organization, saving 20% on executable size.
+        - improved scheduling for run-time efficiency
+        - improved run-time logic to control buffer size
+        - buffer memory de-allocation, for multiple runs
+        - internal star and galaxy parameter model storage,
+           specification, and definition.
+        - on-line parameter prompting, with type/value checking
+        - on-line review of commands and star/galaxy source files
+        - command history and alias mechanisms
+        - compilation control for UNIX or VMS operating systems
+
+These changes and improvements are now considered copyrighted.
+
+
+Programmers:
+
+D.G. Messerschmitt
+D.J. Hait
+L. J. Faber
+S. H. Ardalan
+
+Contact:
+XCAD Corporation
+http://www.xcad.com
+
+
+
+

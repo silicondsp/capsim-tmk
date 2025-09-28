@@ -1,0 +1,1412 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+spectrumtxt
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+spectrumtxt
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Spectrum probe (plots both frequency and time domain). Float/Int/Complex input buffers.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of points ( dynamic window size )
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    npts
+    
+    </td>
+    <td>
+    
+    128 
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Number of points to skip
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    skip
+    
+    </td>
+    <td>
+    
+    0 
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    Plot title
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    title
+    
+    </td>
+    <td>
+    
+    Spectrum
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    Linear = 0, dB = 1
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    dbFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    Window:0= Rec.,1=Hamm,2=Hann,3=Blackman
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    windFlag
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    Plot Style: 1=Line,2=Points,5=Bar Chart
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    plotStyleParam
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+    Time Domain On/Off (1/0)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    timeFlag
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+    Sampling Rate (Bin Number if zero,Normalized if Negative
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    sampFreq
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+    Control: 1=On, 0=Off
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    control
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+    Buffer type:0= Float,1= Complex, 2=Integer
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bufferType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+    0=Static,1=Dynamic
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    mode
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberInputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOutputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    xfreq_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    xTime_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    ypts_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    spect_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    totalCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    blockOff
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bufi
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftl
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftexp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    12
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    plottedFlag
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    13
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    displayed
+    
+    </td>
+    <td>
+    
+    FALSE
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int	points;
+	int samples;
+	int numberPoints;
+    	int i,j,ii;
+	float tmp;
+	complex val;
+	float wind;
+	char title1[80];
+	char fname[80];
+        char curveSubTitle[80];
+	float* mag_P;
+	float* phase_P;
+	FILE *time_F;
+	FILE *freq_F;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* store as state the number of input/output buffers */
+if((numberInputBuffers = NO_INPUT_BUFFERS()) <= 0) {
+	fprintf(stderr,"spectrum: no inputs connected\n");
+	return(1);
+}
+if(numberInputBuffers > 1) {
+	fprintf(stderr,"spectrum: only one  input allowed \n");
+	return(2);
+}
+if((numberOutputBuffers = NO_OUTPUT_BUFFERS()) > numberInputBuffers) {
+	fprintf(stderr,"spectrum: too many outputs connected\n");
+	return(3);
+}
+/*
+ * Find closest power of two number 
+ */
+fftexp = (int) (log((float)npts)/log(2.0)+0.5);
+fftl = 1 << fftexp;
+if (fftl > npts ) {
+	fftl = fftl/2;
+	fftexp -= 1;
+}
+if (control && mode == DYNAMIC) {
+	/*                                                      
+	 * allocate arrays                                      
+	 */                                                     
+	xfreq_P = (float* )calloc(npts,sizeof(float));           
+	xTime_P = (float* )calloc(npts,sizeof(float));           
+	if( bufferType == COMPLEX_BUFFER)
+		ypts_P = (float* )calloc(2*npts,sizeof(float));           
+	else
+		ypts_P = (float* )calloc(npts,sizeof(float));           
+	spect_P = (float* )calloc(2*fftl,sizeof(float));           
+	if(xfreq_P == NULL || xTime_P ==NULL || ypts_P==NULL) {
+		fprintf(stderr,"spectrum: could not allocate space\n");
+		return(5);
+	}
+} else if(control && mode == STATIC) {
+	/*                                                      
+	 * allocate arrays                                      
+	 */                                                     
+	xfreq_P = (float* )calloc(BLOCK_SIZE,sizeof(float));           
+	xTime_P = (float* )calloc(BLOCK_SIZE,sizeof(float));           
+	if( bufferType == COMPLEX_BUFFER)
+		ypts_P = (float* )calloc(2*BLOCK_SIZE,sizeof(float));           
+	else
+		ypts_P = (float* )calloc(BLOCK_SIZE,sizeof(float));           
+	if(xfreq_P == NULL || xTime_P ==NULL || ypts_P==NULL) {
+		fprintf(stderr,"spectrum: could not allocate space\n");
+		return(5);
+	}
+}
+count = 0;
+totalCount = 0;
+switch(bufferType) {
+	case COMPLEX_BUFFER: 
+		SET_CELL_SIZE_IN(0,sizeof(complex));
+		if(numberOutputBuffers == 1)
+			SET_CELL_SIZE_OUT(0,sizeof(complex));
+		break;
+	case FLOAT_BUFFER: 
+		SET_CELL_SIZE_IN(0,sizeof(float));
+		if(numberOutputBuffers == 1)
+			SET_CELL_SIZE_OUT(0,sizeof(float));
+		break;
+	case INTEGER_BUFFER: 
+		SET_CELL_SIZE_IN(0,sizeof(int));
+		if(numberOutputBuffers == 1)
+			SET_CELL_SIZE_OUT(0,sizeof(int));
+		break;
+	default: 
+		fprintf(stderr,"Bad buffer type specified in spectrum \n");
+		return(4);
+		break;
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+for(samples = MIN_AVAIL(); samples > 0; --samples) {
+
+
+  for(i=0; i<numberInputBuffers; ++i) {
+   		IT_IN(i);
+		if(numberOutputBuffers > i) {
+			if(IT_OUT(i)) {
+				KrnOverflow("spectrum",i);
+				return(99);
+			}
+
+			switch(bufferType) {
+				case COMPLEX_BUFFER:
+	 				OUTCX(i,0) = INCX(i,0);
+					break;
+				case INTEGER_BUFFER:
+	 				OUTI(i,0) = INI(i,0);
+					break;
+				case FLOAT_BUFFER:
+	 				OUTF(i,0) = INF(i,0);
+					break;
+			}
+
+		}
+  }
+  if(++totalCount > skip && control ) {
+		if(mode == STATIC)
+			count=blockOff + bufi;
+
+		bufi++;
+
+		if (bufi == BLOCK_SIZE && mode==STATIC) {
+			blockOff += BLOCK_SIZE;
+			xfreq_P = (float *)realloc((char *) xfreq_P, 
+				sizeof(float) * (blockOff + BLOCK_SIZE));
+			xTime_P = (float *)realloc((char *) xTime_P, 
+				sizeof(float) * (blockOff + BLOCK_SIZE));
+			if(bufferType == COMPLEX_BUFFER) 
+			    ypts_P = (float *)realloc((char *) ypts_P, 
+				sizeof(float) * 2*(blockOff + BLOCK_SIZE));
+			else
+			    ypts_P = (float *)realloc((char *) ypts_P, 
+				sizeof(float) * (blockOff + BLOCK_SIZE));
+				
+			bufi=0;
+			if(xfreq_P == NULL || ypts_P==NULL || xTime_P==NULL) {
+				fprintf(stderr,"spectrum: could not allocate space\n");
+				return(6);
+			}
+		}
+
+		switch(bufferType) {
+			case COMPLEX_BUFFER:
+				val=INCX(0,0);
+          	     		ypts_P[2*count] = val.re; 
+          	     		ypts_P[2*count+1] = val.im; 
+				break;
+			case INTEGER_BUFFER:
+          	     		ypts_P[count] = INI(0,0);
+				break;
+			case FLOAT_BUFFER:
+          	     		ypts_P[count] = INF(0,0);
+				break;
+		}
+
+		if(mode == DYNAMIC)
+			count++;
+		
+  }
+
+} 
+
+return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+if(control == 0) return(0);
+if((totalCount - skip) > 0 && mode ==STATIC) {
+	/*
+	 * compute the power of 2 number of fft points
+	 */
+	fftexp = (int) (log((float)count)/log(2.0)+0.5);
+	fftl = 1 << fftexp;
+	if (fftl > count ) {
+		    fftl = fftl/2;
+		    fftexp -= 1;
+	}
+	spect_P = (float* )calloc(2*fftl,sizeof(float));           
+	xfreq_P = (float *) realloc((char *) xfreq_P, sizeof(float) *
+				 (blockOff + bufi));
+	xTime_P = (float *) realloc((char *) xTime_P, sizeof(float) *
+				 (blockOff + bufi));
+	if(bufferType == COMPLEX_BUFFER) 
+		ypts_P = (float *) realloc((char *) ypts_P, sizeof(float) *
+				 2*(blockOff + bufi));
+	else
+		ypts_P = (float *) realloc((char *) ypts_P, sizeof(float) *
+				 (blockOff + bufi));
+	if(xfreq_P == NULL || ypts_P==NULL || xTime_P == NULL) {
+		fprintf(stderr,"spectrum: could not allocate space\n");
+		return(8);
+	}
+for(i=0; i<fftl; i++) {
+    switch(windFlag) { 
+	case HAMMING_WINDOW:
+		/*
+		 * Hamming Window
+		 */
+	        wind= 0.54-0.46*cos(2.*PI*i/(fftl-1));
+		break;
+	case HANNING_WINDOW:
+		/*
+		 * Hanning Window
+		 */
+        	wind= 0.5*(1-cos(2.*PI*i/(fftl-1)));
+		break;
+	case BLACKMAN_WINDOW:
+                /*
+                 * Blackman Window
+                 */
+                wind= 0.42-0.50*cos(2.*PI*i/(fftl-1))
+                          +0.08*cos(4.*PI*i/(fftl-1));
+	default:	      
+	        wind= 1.0;
+		break;
+     }
+	      if(bufferType == COMPLEX_BUFFER) {
+	      		spect_P[2*i]=ypts_P[2*i]*wind;
+	      		spect_P[2*i+1] = ypts_P[2*i+1]*wind;
+	      } else {
+	      		spect_P[2*i]=ypts_P[i]*wind;
+	      		spect_P[2*i+1] = 0.0;
+	      }
+	}
+	cxfft(spect_P,&fftexp);
+	if(bufferType == COMPLEX_BUFFER) {
+		mag_P = (float* )calloc(fftl,sizeof(float));           
+		phase_P = (float* )calloc(fftl,sizeof(float));           
+		if(mag_P == NULL || phase_P ==NULL ) {
+			fprintf(stderr,"spectrum: could not allocate space\n");
+			return(6);
+		}
+	}
+	for(i=0; i<fftl; i++) {
+	    if(bufferType == COMPLEX_BUFFER) {
+		mag_P[i]=sqrt(spect_P[2*i]*spect_P[2*i] +
+				spect_P[2*i+1]*spect_P[2*i+1]);		
+		if(spect_P[2*i] == 0.0)
+                                        phase_P[i]= PI/2 *(spect_P[2*i+1] > 0 ? 1:-1);
+                                else
+                                        phase_P[i]= atan2((double)spect_P[2*i+1],(double)spect_P[2*i]);
+	    } else {
+		spect_P[i]=sqrt(spect_P[2*i]*spect_P[2*i] +
+				spect_P[2*i+1]*spect_P[2*i+1]);		
+	        if(dbFlag) {
+			tmp = spect_P[i];
+			if(tmp)
+			spect_P[i] = 10*log10(tmp*tmp);
+			else spect_P[i] = -200.0;
+		 }
+	    }
+	     if(sampFreq>0) 
+		xfreq_P[i] = i*sampFreq/fftl;
+	     else if(sampFreq == 0)
+		xfreq_P[i] = i;
+	     else
+		xfreq_P[i] = (float)i/(float)fftl;
+	     if(sampFreq>0) 
+		xTime_P[i] = i/sampFreq;
+	     else if(sampFreq == 0)
+		xTime_P[i] = (float)i;
+	     else
+		xTime_P[i] = (float)i;
+}
+{
+	/*
+	 * text mode, write results to file
+	 */
+#if 1
+	strcpy(fname,title);
+	strcat(fname,".tim");
+	time_F = fopen(fname,"w");
+        fprintf(stderr,"spectrum created file: %s \n",fname);
+	strcpy(fname,title);
+	strcat(fname,".fre");
+	if(bufferType == COMPLEX_BUFFER) {
+		fprintf(time_F,"#complex time domain \n");
+		for(i=0; i<count; i++) 
+			fprintf(time_F,"%e %e\n",ypts_P[2*i],ypts_P[2*i+1]);
+	} else {
+		for(i=0; i<count; i++) 
+			fprintf(time_F,"%e %e\n",xTime_P[i],ypts_P[i]);
+	}
+	freq_F = fopen(fname,"w");
+        fprintf(stderr,"spectrum created file: %s \n",fname);
+	if(bufferType == COMPLEX_BUFFER) {
+	       	fprintf(freq_F,"#Complex Frequency Response\n");
+		for(i=0; i<fftl; i++) 
+	        	fprintf(freq_F,"%e %e\n",spect_P[2*i],spect_P[2*i+1]);
+	} else {
+		for(i=0; i<fftl/2; i++) 
+	        	fprintf(freq_F,"%e %e\n",xfreq_P[i],spect_P[i]);
+	}
+	fclose(time_F);
+	fclose(freq_F);
+	free(xfreq_P); 
+	free(ypts_P); 
+	free(xTime_P);
+	free(spect_P);
+#endif
+}
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* spectrumtxt.s */
+/**********************************************************************
+                                spectrumtxt()
+***********************************************************************
+        inputs:         (One channel)
+        outputs:        (optional feed-through of input channels)
+        parameters:     int npts, the number of points to plot
+                        int skip, number of points to skip before first plot
+                        file title,  the title of the plot
+                        dB flag (0=linear 1=dB)
+                        window flag (0=Rect 1= Hamming Hanning=2 Blackman=3)
+*************************************************************************
+This routine will produces the time domain and frequency domain spectrum 
+of the input buffer.
+The first parameter represents the number of points plotted from the channel.
+Default is set to (int 128).
+The second parameter is the number of points to skip before the first plot set
+is presented.  This enables skipping of any transient period.
+Default is set to (int 0).
+The third parameter represents the title for the plot.
+Default is set to "PLOT".
+The fourth parameter is the dB flag (0 for linear, 1 for dB );
+The fifth parameter is the window flag ( 0 for Rectangular 1 for hammming)
+The sixth paramter determines the plotting style.
+The seventh parameter is used to turn the time domain plot on and off.
+The last parameter is used to plot agains bin number , frequency, or
+normalized axis.
+Programmer: 	Sasan Ardalan, Ramin Nobakht
+Date: 		2/16/89
+Modified:	L.J. Faber 1/3/89.  Add flow through; general cleanup.
+modified for Hanning & Blackman window       Ali Sadri, Oct. 11, 1991.
+Modified:	Sasan Ardalan, June 3, 1993 Added Dynamic Display.
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

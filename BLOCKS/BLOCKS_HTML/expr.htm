@@ -1,0 +1,463 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+expr 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+expr 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Function evaluates all its input samples through an expression specified as a parameter.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Enter expression ( buffers are in0,in1,...)
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    paramExpr
+    
+    </td>
+    <td>
+    
+    in0*1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    ibufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    obufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i,j;
+	int samples;
+	float sampleIn;
+	char	expression[256];
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	/*
+	 *  Store as state the number of input/output buffers 
+	 */
+	if((ibufs = NO_INPUT_BUFFERS()) < 1) {
+		sprintf(stderr,"expr: no input buffers\n");
+		return(2);
+	}
+	if((obufs = NO_OUTPUT_BUFFERS()) < 1) {
+		sprintf(stderr,"expr: no output buffers\n");
+		return(3);
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	/* 
+	 * Read one sample from each input buffer  
+	 */
+	for(samples = MIN_AVAIL(); samples >0; --samples) {
+
+
+		for(i=0; i<ibufs; ++i) {
+			IT_IN(i);
+			
+			sampleIn = INF(i,0);
+			/*
+			 * Setup expression for ini=sampleIn
+			 * This will be passed to the parser.
+			 * The symbol table will contain the symbols
+			 * in0,in1,... which are equal to the buffer
+			 * samples. When we later evaluate the expression
+			 * which refers to in0, in1,... they will be recognized.
+			 */
+			sprintf(expression,"in%d=%e\n",i,sampleIn);
+			krn_bufferPtr=0;
+                        krn_buffer=expression;
+                        yyparse();
+		}
+		/*
+		 * since in0,in1,... are setup, evaluate expression. 
+		 * First add an end of line ( all expressions must end with
+		 * an end of line character.
+		 * Next set the buffer pointer to zero and the buffer to
+		 * the expression and call yyparse()
+		 */
+		strcpy(expression,paramExpr);
+		strcat(expression,"\n");
+		krn_bufferPtr=0;
+                krn_buffer=expression;
+               	yyparse();
+//        	if(krn_yyerror) {
+//                	krn_yyerror=FALSE;
+//                	fprintf(stderr,"expr: Error in expression\n");
+//                	return(7);
+//        	}
+
+
+		/*
+		 * the result of evaluating the expression is in 
+		 * krn_eqnResult. Ship it out to the output buffers
+		 */
+		for(i=0; i<obufs; i++) {
+			if(IT_OUT(i)) {
+				fprintf(stderr,"expr: Buffer %d is full\n",i);;
+				return(1);
+			}
+			OUTF(i,0) = krn_eqnResult;
+		}
+	}
+
+	return(0);	/* at least one input buffer empty */
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* expr.s */
+/**********************************************************************
+			expr()
+***********************************************************************
+Function evaluates all its input samples through an expression
+specified as a parameter to yield an output sample;
+the number of input buffers is arbitrary and determined at run time.
+The number of output buffers is also arbitrary (auto-fanout).
+In the expression refer to the sample on input buffer 0 as in0, for
+input buffer 1 as in1 and so on. For example:
+	sin(5*PI*in0/100)*exp(-0.001*in1)
+Note the PI is predefined.
+<NAME>
+expr
+</NAME>
+<DESCRIPTION>
+Function evaluates all its input samples through an expression
+specified as a parameter to yield an output sample;
+the number of input buffers is arbitrary and determined at run time.
+The number of output buffers is also arbitrary (auto-fanout).
+In the expression refer to the sample on input buffer 0 as in0, for
+input buffer 1 as in1 and so on. For example:
+	sin(5*PI*in0/100)*exp(-0.001*in1)
+Note the PI is predefined.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: Sasan H. Ardalan
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,875 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+fconv
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+fconv
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star convolves its input signal with an impulse response (from file) to generate the output signal.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Input Connections<a name="inputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    x
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    y
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    impl: length of impulse response in samples:
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    impl
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    (file)ASCII file which holds impulse response:
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    impf_name
+    
+    </td>
+    <td>
+    
+    imp.dat
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    log2(fft length):
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    fftexp
+    
+    </td>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    temp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    freqBuffCx
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    temp2
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_cpx*
+    
+    </td>
+    <td>
+    
+    iresp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    cap_fft_scalar*
+    
+    </td>
+    <td>
+    
+    save
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    preverse
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    cap_fftr_cfg
+    
+    </td>
+    <td>
+    
+    pforward
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    pcount
+    
+    </td>
+    <td>
+    
+    impl
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftl
+    
+    </td>
+    <td>
+    
+     1 << fftexp    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+  
+    double
+    
+    </td>
+    <td>
+    
+    norm
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int i;
+	int no_samples;
+	FILE* fp;
+	float val;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	if(impl < (2.89 * log((float)fftl) + 1))
+	fprintf(stderr,"fconv: direct convolution may be faster\n");
+	if(impl >= fftl) {
+		fprintf(stderr,"fconv: FFT length smaller than impulse response length\n");
+		return(1);
+	}
+	if( (temp = (cap_fft_scalar*)calloc(fftl,sizeof(cap_fft_scalar))) == NULL
+	 || (iresp = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL
+	 || (freqBuffCx = (cap_fft_cpx*)calloc(fftl,sizeof(cap_fft_cpx))) == NULL 
+	 || (temp2 = (cap_fft_scalar*)calloc(fftl,sizeof(cap_fft_scalar))) == NULL
+	 || (save = (cap_fft_scalar*)calloc(impl,sizeof(cap_fft_scalar))) == NULL  ) {
+		fprintf(stderr,"fconv: can't allocate work space\n");
+		return(2);
+	}
+	if((fp = fopen(impf_name,"r")) == NULL) {
+		fprintf(stderr,"fconv: can't open impulse response file %s\n",impf_name);
+		return(3);
+	}
+	for(i=0; i<impl; i++) {
+		if( (fscanf(fp,"%f", &val)) != 1) {
+			fprintf(stderr, "fconv: impulse response file %s too short\n",
+				impf_name);
+			return(4);
+		}
+		temp[i]=val;
+		//printf("reading %d %f\n",i, temp[i]);
+	}
+	fclose(fp);
+
+	preverse = cap_fftr_alloc(fftl, INVERSE_FFT, NULL,NULL);
+	pforward = cap_fftr_alloc(fftl, FORWARD_FFT, NULL,NULL);
+	
+	
+	 cap_fftr(pforward, temp,iresp);
+	 for(i=0; i<fftl; i++) temp[i]=0.0;
+	  norm=1.0/(float)fftl;
+	 
+	
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	for(no_samples=MIN_AVAIL();no_samples >0; --no_samples) {
+		IT_IN(0);
+		temp[pcount++] = x(0);
+		if(pcount == fftl) {
+			for(i=0; i<impl; i++)
+				save[i] = temp[fftl-impl+i];
+				
+		        cap_fftr(pforward, temp,freqBuffCx);		
+				
+		//	rfft(temp,fftl);
+			
+			
+		//	cmultfft(temp, iresp, fftl);
+		
+		        cmultfftcap(freqBuffCx, iresp, fftl/2,1.0);
+		        cap_fftri(preverse, freqBuffCx,temp);	
+			
+			
+			
+			for(i=impl; i<fftl; i++){
+				if(IT_OUT(0) ) {
+					KrnOverflow("fconv",0);
+					return(99);
+				}
+				y(0) = temp[i]*norm;
+			}
+			pcount = impl;
+			for(i=0; i<impl; i++)
+				temp[i] = save[i];
+		}
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	free(temp); free(iresp); free(save); free(temp2); free(freqBuffCx);
+	
+        free(preverse);
+        free(pforward);
+	
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* fconv.s */
+/***********************************************************************
+                             fconv()
+************************************************************************
+"Linear Convolution":
+This star convolves its input signal with an impulse response to
+generate the output signal.
+Param.	1 - (int) impl: length of impulse response in samples.
+	2 - (file) impf_name: ASCII file which holds impulse response.
+	3 - (int) fftexp: log2(fft length).
+Convolution is performed by the fft overlap-save method (described in
+Oppenheim & Schafer, Digital Signal Processing, pp. 113).
+The FFT length must be greater than the impulse response length.
+For efficiency, it should probably be more than twice as long.
+<NAME>
+fconv
+</NAME>
+<DESCRIPTION>
+"Linear Convolution":
+This star convolves its input signal with an impulse response to
+generate the output signal.
+Param.	1 - (int) impl: length of impulse response in samples.
+	2 - (file) impf_name: ASCII file which holds impulse response.
+	3 - (int) fftexp: log2(fft length).
+Convolution is performed by the fft overlap-save method (described in
+Oppenheim & Schafer, Digital Signal Processing, pp. 113).
+The FFT length must be greater than the impulse response length.
+For efficiency, it should probably be more than twice as long.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: M. R. Civanlar
+Date: November 16, 1986
+Modified: ljfaber, Dec86, Feb87
+Modified: 6/88 ljfaber  update comments, efficiency
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

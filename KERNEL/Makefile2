@@ -1,0 +1,16 @@
+#
+# Makefile for Kernel library libkrn.a
+#
+
+CFLAGS =   -I../include -I../TCL/tcl8.4.13/generic/
+ 
+#CFLAGS = -m32  -I../include 
+SRC=  krn_arguments.c krn_block.c krn_buffer.c krn_block.c krn_command.c krn_connect.c krn_eqneval.c krn_eqninit.c krn_eqnmath.c krn_eqnsymbol.c krn_expeval.c krn_file.c krn_main.c krn_parameter.c krn_prinfo.c krn_run.c krn_star.c krn_sys_calls.c krn_traverse.c krn_tcl.c krn_tclinvoke.c krn_tclappinit.c
+
+ 
+libkrn.a: krn_arguments.c krn_block.c krn_buffer.c krn_block.c krn_command.c krn_connect.c krn_eqneval.c krn_eqninit.c krn_eqnmath.c krn_eqnsymbol.c krn_expeval.c krn_file.c krn_main.c krn_parameter.c krn_prinfo.c krn_run.c krn_star.c krn_sys_calls.c krn_traverse.c krn_tcl.c krn_tclinvoke.c krn_tclappinit.c
+	gcc -c  -g $(CFLAGS) $?
+	ar rv libkrn.a  *.o
+	ranlib libkrn.a
+	cp libkrn.a ../LIBS/
+	

@@ -1,0 +1,1251 @@
+krn_arguments.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_arguments.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_arguments.c: * KrnFixupArgList--
+krn_arguments.c:	object_P = hdr_P->list_P->next_P->next_P;
+krn_arguments.c:	while (!object_P->sentFlag) {
+krn_arguments.c:		object_P = object_P->next_P;
+krn_arguments.c:	hdr_P->num = i;
+krn_arguments.c: * KrnNewInitedArgRec--
+krn_arguments.c: *	Return a new, init-ed Object record.  The caller should set fields
+krn_arguments.c:	object_P->sentFlag = FALSE;
+krn_arguments.c:	object_P->next_P = NULL;
+krn_arguments.c:	hdr_P->num = 0;
+krn_arguments.c:	hdr_P->list_P = (krn_ArgObj_Pt) malloc(sizeof(krn_ArgObj_t));
+krn_arguments.c:	hdr_P->list_P->sentFlag = TRUE;
+krn_arguments.c:	hdr_P->list_P->next_P = hdr_P->list_P;
+krn_arguments.c: * KrnAppendArg--
+krn_arguments.c:	 * hdr_P->list_P is the LAST Object in the circular Object list.
+krn_arguments.c:	 * is the FIRST Object.  hdr_P->list_P is left pointing to the
+krn_arguments.c:	 * even when hdr_P->list_P points only to the sentinel (i.e.,
+krn_arguments.c:	newArgObj_P->next_P = hdr_P->list_P->next_P;
+krn_arguments.c:	hdr_P->list_P->next_P = newArgObj_P;
+krn_arguments.c:	hdr_P->list_P = newArgObj_P;
+krn_arguments.c: * KrnDeleteArg--
+krn_arguments.c:	tmp_P =  hdr_P->list_P->next_P;
+krn_arguments.c:	while (!tmp_P->next_P->sentFlag && (tmp_P->next_P != object_P))
+krn_arguments.c:		tmp_P = tmp_P->next_P;
+krn_arguments.c:	if (tmp_P->next_P != object_P) {
+krn_arguments.c:	tmp_P->next_P = object_P->next_P;
+krn_arguments.c:	if (hdr_P->list_P == object_P)
+krn_arguments.c:		hdr_P->list_P = tmp_P;
+krn_arguments.c:	KrnFreeParam(&object_P->parameter_P);
+krn_arguments.c: * KrnDeleteAllObjects--
+krn_arguments.c:	tmp_P =  hdr_P->list_P->next_P;
+krn_arguments.c:	while (hdr_P->num) {
+krn_arguments.c:		KrnDeleteArg(hdr_P->list_P);
+krn_arguments.c: * KrnGetArg--
+krn_arguments.c:	tmp_P =  hdr_P->list_P->next_P;
+krn_arguments.c:	while (!tmp_P->next_P->sentFlag && (tmp_P->next_P->argNumber != number))
+krn_arguments.c:		tmp_P = tmp_P->next_P;
+krn_arguments.c:	if (tmp_P->next_P->argNumber != number) {
+krn_arguments.c:	return(tmp_P->next_P);
+krn_arguments.c: * KrnDeleteArgNumber--
+krn_arguments.c: * KrnCreateArray--
+krn_arguments.c:	hdr_P=galaxy_P->argHdr_P;	
+krn_arguments.c:		galaxy_P->param_AP[i]=NULL;
+krn_arguments.c:	tmp_P =  hdr_P->list_P->next_P;
+krn_arguments.c:	while (!tmp_P->next_P->sentFlag ) {
+krn_arguments.c:		galaxy_P->param_AP[tmp_P->next_P->argNumber]=
+krn_arguments.c:				tmp_P->next_P->parameter_P;
+krn_arguments.c:			tmp_P->next_P->argNumber,
+krn_arguments.c:			tmp_P->next_P->parameter_P->type,
+krn_arguments.c:			tmp_P->next_P->parameter_P->def);
+krn_arguments.c:		tmp_P = tmp_P->next_P;
+krn_arguments.c:	    if( galaxy_P->param_AP[i]) 
+krn_arguments.c:			galaxy_P->param_AP[i]->type,
+krn_arguments.c:			galaxy_P->param_AP[i]->def);
+krn_arguments.c: * KrnCreateArgListFromArray--
+krn_arguments.c:	hdr_P=galaxy_P->argHdr_P;	
+krn_arguments.c:		if(galaxy_P->param_AP[i] == NULL) 
+krn_arguments.c:		newArgObj_P->parameter_P=galaxy_P->param_AP[i];
+krn_arguments.c:		newArgObj_P->argNumber=i;
+krn_block.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_block.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_block.c:pgalaxy->pparent = NULL;
+krn_block.c:pgalaxy->pfsibling = pgalaxy;
+krn_block.c:pgalaxy->pbsibling = pgalaxy;
+krn_block.c:pgalaxy->pchild = NULL;
+krn_block.c:pgalaxy->type = UTYPE;
+krn_block.c:pgalaxy->model_index = model_count;
+krn_block.c:strcpy(pgalaxy->name, "UNIVERSE");
+krn_block.c:pgalaxy->info_P = (info_Pt) calloc ( 1,sizeof( info_t) ) ;
+krn_block.c:pblock->pparent = pgalaxy;
+krn_block.c:pblock->pchild = NULL;
+krn_block.c:if(pgalaxy->pchild == NULL) {
+krn_block.c:	pgalaxy->pchild = pblock;
+krn_block.c:	pblock->pfsibling = pblock;
+krn_block.c:	pblock->pbsibling = pblock;
+krn_block.c:	pblock->pfsibling = pgalaxy->pchild;
+krn_block.c:	pblock->pbsibling = pgalaxy->pchild->pbsibling;
+krn_block.c:	pgalaxy->pchild->pbsibling->pfsibling = pblock;
+krn_block.c:	pgalaxy->pchild->pbsibling = pblock;
+krn_block.c:	pblock->inputs[i] = NULL;
+krn_block.c:	pblock->outputs[i] = NULL;
+krn_block.c://	pblock->inConn_AP[i] = NULL;
+krn_block.c://	pblock->outConn_AP[i] = NULL;
+krn_block.c:	pblock->signalName[i]=NULL;
+krn_block.c:pblock->blkType=KRN_BLOCK_TYPE_REGULAR;
+krn_block.c:pblock->info_P=NULL;
+krn_block.c:pblock->selectFlag=FALSE;
+krn_block.c://pblock->drawFlag=FALSE;
+krn_block.c://pblock->blkPic_P=NULL;
+krn_block.c:pblock->change_flag=FALSE;
+krn_block.c:if((pblock = pgalaxy->pchild) == NULL)
+krn_block.c:	if(strcmp(block_name,pblock->name) == 0)
+krn_block.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_block.c:psecond->pbsibling->pfsibling = psecond->pfsibling;
+krn_block.c:psecond->pfsibling->pbsibling = psecond->pbsibling;
+krn_block.c:psecond->pfsibling = pfirst;
+krn_block.c:psecond->pbsibling = pfirst->pbsibling;
+krn_block.c:pfirst->pbsibling->pfsibling = psecond;
+krn_block.c:pfirst->pbsibling = psecond;
+krn_block.c:if(pfirst->pparent->pchild == pfirst)
+krn_block.c:	pfirst->pparent->pchild = psecond;
+krn_block.c:Removes the specified block from the current galaxy, and de-allocates.
+krn_block.c:	if((temp_block = pblock->inputs[i]) == NULL)
+krn_block.c:	if(temp_block != pblock->pparent) {
+krn_block.c:		ionum = pblock->output_no[i];
+krn_block.c:		temp_block->outputs[ionum] = NULL;
+krn_block.c:	free(pblock->signalName[i]);
+krn_block.c:	if((temp_block = pblock->outputs[i]) == NULL)
+krn_block.c:	if(temp_block != pblock->pparent) {
+krn_block.c:		ionum = pblock->input_no[i];
+krn_block.c:		temp_block->inputs[ionum] = NULL;
+krn_block.c:		free(temp_block->signalName[ionum]);
+krn_block.c:	KrnFreeParam(&pblock->param_AP[i]);
+krn_block.c:if(pblock->star_P != NULL) {
+krn_block.c:	free(pblock->star_P);
+krn_block.c:pblock->pbsibling->pfsibling = pblock->pfsibling;
+krn_block.c:pblock->pfsibling->pbsibling = pblock->pbsibling;
+krn_block.c:if(pblock == pblock->pparent->pchild) {
+krn_block.c:	if(pblock == pblock->pfsibling)
+krn_block.c:		pblock->pparent->pchild = NULL;
+krn_block.c:		pblock->pparent->pchild = pblock->pfsibling;
+krn_block.c:while(pblock->pchild != NULL)
+krn_block.c:	RemoveBlock(pblock->pchild);
+krn_block.c:else they are removed.  Implied self-connections or direct
+krn_block.c:input-output connections are not made.
+krn_block.c:	if((outBlk_P = blk_P->inputs[i]) != NULL) {
+krn_block.c:		blk_P->inputs[i] = NULL;
+krn_block.c:		outNum = blk_P->output_no[i];
+krn_block.c:		if(outBlk_P == blk_P->pparent)
+krn_block.c:		if((inBlk_P = blk_P->outputs[i]) != NULL) {
+krn_block.c:			blk_P->outputs[i] = NULL;
+krn_block.c:			inNum = blk_P->input_no[i];
+krn_block.c:			if(inBlk_P == blk_P->pparent)
+krn_block.c:				outBlk_P->outputs[outNum] = inBlk_P;
+krn_block.c:				outBlk_P->input_no[outNum] = inNum;
+krn_block.c:					outBlk_P->outputs[outNum] = NULL;
+krn_block.c:				inBlk_P->inputs[inNum] = outBlk_P;
+krn_block.c:				inBlk_P->output_no[inNum] = outNum;
+krn_block.c:				inBlk_P->signalName[inNum] = blk_P->signalName[i];
+krn_block.c:				blk_P->signalName[i] = NULL;
+krn_block.c:					inBlk_P->inputs[inNum] = NULL;
+krn_block.c:			outBlk_P->outputs[outNum] = NULL;
+krn_block.c:		if(blk_P->signalName[i] != NULL)
+krn_block.c:			free(blk_P->signalName[i]);
+krn_block.c:	else if((inBlk_P = blk_P->outputs[i]) != NULL) {
+krn_block.c:		blk_P->outputs[i] = NULL;
+krn_block.c:		inNum = blk_P->input_no[i];
+krn_block.c:		if(inBlk_P != blk_P->pparent) {
+krn_block.c:			inBlk_P->inputs[inNum] = NULL;
+krn_block.c:fgets(response,NAME_LENGTH-1,stdin);
+krn_block.c:if((pblock = pgalaxy->pchild) == NULL)
+krn_block.c:	if(pblock->change_flag) {
+krn_block.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_block.c:if((pblock = pgalaxy->pchild) == NULL)
+krn_block.c:	pblock->change_flag = 0;
+krn_block.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_block.c:if((pblock = pgalaxy->pchild) == NULL)
+krn_block.c:	if(strcmp(block_name,pblock->name) == 0)
+krn_block.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_block.c:strcpy(blk_P->name,block_name);
+krn_buffer.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_buffer.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_buffer.c:	  with delay less than or equal to dmin -- these are
+krn_buffer.c:  accessed or not -- it is set to one whenever a STAR adds a sample
+krn_buffer.c:pbuffer->dmax = 5;
+krn_buffer.c:pbuffer->dmin = 0;
+krn_buffer.c:pbuffer->cellsize = -1;
+krn_buffer.c:pbuffer->init_buffer = 0;
+krn_buffer.c:pbuffer->memseg = (cell_t **) calloc(krn_maxMemSegments,sizeof(cell_t *));
+krn_buffer.c:Function de-allocates a buffer.  Argument is a pointer to the buffer.
+krn_buffer.c:if(pbuf->init_buffer == 1) {
+krn_buffer.c:	for(i=0; pbuf->memseg[i] != NULL; i++) {
+krn_buffer.c:		free((pbuf->memseg[i])->pdata);
+krn_buffer.c:		free(pbuf->memseg[i]);
+krn_buffer.c:if(pbuffer->cellsize < 0)
+krn_buffer.c:	pbuffer->cellsize = cellsize;
+krn_buffer.c:else if(pbuffer->cellsize != cellsize)
+krn_buffer.c:if(dmax > pbuffer->dmax)
+krn_buffer.c:	pbuffer->dmax = dmax;
+krn_buffer.c:pbuffer->dmin = dmin;
+krn_buffer.c:if(pbuffer->dmax < dmin)
+krn_buffer.c:	pbuffer->dmax = dmin;
+krn_buffer.c:if(pbuffer->cellsize < 0)
+krn_buffer.c:	pbuffer->cellsize = sizeof(float);
+krn_buffer.c:pcell->pnew = pcell;
+krn_buffer.c:pcell->pold = pcell;
+krn_buffer.c:pcell->pdata = calloc(1,pbuffer->cellsize);
+krn_buffer.c:if(!pcell->pdata) ErrorAlloc("Data in cell in krn_buffer");
+krn_buffer.c:pbuffer->memseg[0] = pcell;
+krn_buffer.c:pbuffer->memseg[1] = NULL;
+krn_buffer.c:add_cells(pcell,pbuffer->cellsize,pbuffer->dmax+1);
+krn_buffer.c:pbuffer->memseg[1] = pcell->pnew;
+krn_buffer.c:pbuffer->memseg[2] = NULL;
+krn_buffer.c:pbuffer->cells_alloc = pbuffer->dmax+2;
+krn_buffer.c:pbuffer->cells_stored = pbuffer->dmin;
+krn_buffer.c:pbuffer->plast_wr = pbuffer->pnewest = pcell;
+krn_buffer.c:pbuffer->dlast_wr = 0;
+krn_buffer.c:pbuffer->plast_rd = pcell;
+krn_buffer.c:pbuffer->dlast_rd = 0;
+krn_buffer.c:pbuffer->init_buffer = 1;
+krn_buffer.c:Function increments the buffer write-pointer to an available cell,
+krn_buffer.c:(user star) will actually store the sample in the cell -- this allows
+krn_buffer.c:if(!pbuffer->init_buffer)
+krn_buffer.c:if(pbuffer->cells_alloc <=
+krn_buffer.c:	1 + pbuffer->cells_stored + pbuffer->dmax - pbuffer->dmin) {
+krn_buffer.c:	add_cells(pbuffer->pnewest,pbuffer->cellsize,CELL_INC);
+krn_buffer.c:	pbuffer->cells_alloc += CELL_INC;
+krn_buffer.c:	for(i=0; pbuffer->memseg[i] != NULL; i++)
+krn_buffer.c:	while(pgalaxy->type != UTYPE)
+krn_buffer.c:        	pgalaxy = pgalaxy->pparent;
+krn_buffer.c:			FindSignalNameFromBuffer(pbuffer,pgalaxy),i-1);
+krn_buffer.c:	if(i > krn_maxMemSegments - 2) {
+krn_buffer.c:	pbuffer->memseg[i] = pbuffer->pnewest->pnew;
+krn_buffer.c:	pbuffer->memseg[i+1] = NULL;
+krn_buffer.c:pbuffer->pnewest = pbuffer->pnewest->pnew;
+krn_buffer.c: * for efficiency, reset the write-pointer to the newest sample and the
+krn_buffer.c:pbuffer->plast_wr = pbuffer->pnewest;
+krn_buffer.c:pbuffer->dlast_wr = 0;
+krn_buffer.c:++(pbuffer->cells_stored);
+krn_buffer.c:Routine increments the buffer read-pointer, if possible.
+krn_buffer.c:any samples stored -- this number decreases upon every increment.
+krn_buffer.c:if(!pbuffer->init_buffer)
+krn_buffer.c:if(pbuffer->cells_stored == 0)
+krn_buffer.c:/* The pointer increment is a call from an inputting block --
+krn_buffer.c:pbuffer->plast_rd = pbuffer->plast_rd->pnew;
+krn_buffer.c:--(pbuffer->cells_stored);
+krn_buffer.c:return((pbuffer->cells_stored)+1);
+krn_buffer.c:the write-pointer (newest sample), appropriate for outputting stars,
+krn_buffer.c:or relative to the read-pointer, appropriate for inputting stars.
+krn_buffer.c:if(!pbuffer->init_buffer)
+krn_buffer.c:if(delay > pbuffer->dmax) ErrorPrint("",802);
+krn_buffer.c:if(rd_flag && delay < pbuffer->dmin) ErrorPrint("",803);
+krn_buffer.c:	/* delay is specified relative to the read-pointer */
+krn_buffer.c:	pcell = pbuffer->plast_rd;
+krn_buffer.c:	dinc = delay - pbuffer->dlast_rd;
+krn_buffer.c:				pcell = pcell->pold;
+krn_buffer.c:			for(i=0; i<-dinc; ++i)
+krn_buffer.c:				pcell = pcell->pnew;
+krn_buffer.c:		pbuffer->plast_rd = pcell;
+krn_buffer.c:		pbuffer->dlast_rd = delay;
+krn_buffer.c:	return(pcell->pdata);
+krn_buffer.c:	/* delay is specified relative to the write-pointer */
+krn_buffer.c:	pcell = pbuffer->plast_wr;
+krn_buffer.c:	dinc = delay - pbuffer->dlast_wr;
+krn_buffer.c:				pcell = pcell->pold;
+krn_buffer.c:			for(i=0; i<-dinc; ++i)
+krn_buffer.c:				pcell = pcell->pnew;
+krn_buffer.c:		pbuffer->plast_wr = pcell;
+krn_buffer.c:		pbuffer->dlast_wr = delay;
+krn_buffer.c:	return(pcell->pdata);
+krn_buffer.c:	(pcell+i)->pdata = pdata + i*cellsize;
+krn_buffer.c:	pcell->pnew = pcell_ins->pnew;
+krn_buffer.c:	pcell->pold = pcell_ins;
+krn_buffer.c:	pcell_ins->pnew->pold = pcell;
+krn_buffer.c:	pcell_ins->pnew = pcell;
+krn_buffer.c:	for(i=1; i<no_cells-1; ++i) {
+krn_buffer.c:		(pcell+i)->pold = pcell+i-1;
+krn_buffer.c:		(pcell+i)->pnew = pcell+i+1;
+krn_buffer.c:	(pcell+no_cells-1)->pnew = pcell_ins->pnew;
+krn_buffer.c:	(pcell+no_cells-1)->pold = pcell+no_cells-2;
+krn_buffer.c:	pcell->pold = pcell_ins;
+krn_buffer.c:	pcell->pnew = pcell+1;
+krn_buffer.c:	pcell_ins->pnew->pold = (pcell+no_cells-1);
+krn_buffer.c:	pcell_ins->pnew = pcell;
+krn_buffer.c:/* star may call this function without accessing a buffer --
+krn_buffer.c:if(!pbuffer->init_buffer)
+krn_buffer.c:return(pbuffer->cells_stored);
+krn_buffer.c:if(!pbuffer->init_buffer)
+krn_buffer.c:		pbuffer->cellsize, pbuffer->dmax, pbuffer->cells_alloc);
+krn_buffer.c:"delay for last read-pointer = %d, no. of cells stored = %d\n",
+krn_buffer.c:		pbuffer->dlast_rd, pbuffer->cells_stored);
+krn_buffer.c:"last read-pointer = %d, newest write-pointer = %d\n",
+krn_buffer.c:		pbuffer->plast_rd, pbuffer->pnewest);
+krn_buffer.c:pcell = pbuffer->pnewest;
+krn_buffer.c:for(i=0;i< pbuffer->cells_stored + pbuffer->dmax - pbuffer->dmin; ++i) {
+krn_buffer.c:		pcell, *(float *)(pcell->pdata));
+krn_buffer.c:	if(i < pbuffer->cells_stored-pbuffer->dmin-1)
+krn_buffer.c:	else if(i == pbuffer->cells_stored-pbuffer->dmin-1)
+krn_buffer.c:	if(pcell == pbuffer->plast_rd)
+krn_buffer.c:	pcell = pcell->pold;
+krn_buffer.c:if((inBlk_P = pgalaxy->pchild) == NULL) {
+krn_buffer.c:		if(inBlk_P->type == GTYPE) continue;
+krn_buffer.c:		pstar = inBlk_P->star_P;
+krn_buffer.c:		if(pstar->inBuffer_P[inNum] == pbuffer) {
+krn_buffer.c:			return(pstar->signalName[inNum]);
+krn_buffer.c:	if(inBlk_P->type == GTYPE) {
+krn_buffer.c:} while((inBlk_P = inBlk_P->pfsibling) != pgalaxy->pchild);
+krn_command.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_command.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_command.c:If it is not found, -1 is returned.
+krn_command.c:		return(-1);
+krn_command.c:return(-1);
+krn_command.c://printf("DEBUG: STRING COMM->%s<-\n",string);
+krn_command.c:if(*(string+strlen(string)-1) == '\n')
+krn_command.c:	*(string+strlen(string)-1) = '\0';
+krn_command.c:		index = MAX_HIST-1;
+krn_command.c:		index -= history_count - MAX_HIST;
+krn_command.c:		for(index=MAX_HIST-1; index>=0; index--) {
+krn_command.c:	for(i=0; i<MAX_HIST-1; i++)
+krn_command.c:	strcpy(comm_history[MAX_HIST-1], string);
+krn_command.c://printf("DEBUG word->%s-<   command->%s-< \n",word,command);
+krn_command.c:if((index = L_comm_lookup(word)) == -1)
+krn_command.c:return(-1);
+krn_command.c:while((ptemp = pgalaxy->pparent) != NULL)
+krn_command.c:pb_current = pb_current->pfsibling;
+krn_command.c:pb_current->change_flag = 1;
+krn_command.c:RemoveBlock(pb_current->pbsibling);
+krn_command.c:if(pg_current->pchild == NULL)
+krn_command.c:pb_current = pb_current->pfsibling;
+krn_command.c:pb_current->change_flag = 1;
+krn_command.c:DeleteBlock(pb_current->pbsibling);
+krn_command.c:if(pg_current->pchild == NULL)
+krn_command.c:	KrnFreeParam(&model[pg_current->model_index].param_AP[i]);
+krn_command.c:if (pg_current->info_P == NULL) { 
+krn_command.c:        pg_current->info_P = (info_Pt) calloc ( 1,sizeof( info_t) ) ;
+krn_command.c:        if(pg_current->info_P == NULL) {
+krn_command.c:        	pg_current->info_P=NULL;
+krn_command.c:if(pb_current->type != GTYPE)
+krn_command.c:pb_current = pg_current->pchild;
+krn_command.c:if(pg_current->type == UTYPE)
+krn_command.c:pg_current = pg_current->pparent;
+krn_command.c:conflict or non-match occurs.
+krn_command.c:		while(pg_current->pparent != NULL) {
+krn_command.c:			pg_current = pb_current->pparent;
+krn_command.c:		if(pg_current->pparent == NULL)
+krn_command.c:		pg_current = pb_current->pparent;
+krn_command.c:		if(pb_current->type != GTYPE)
+krn_command.c:		pb_current = pg_current->pchild;
+krn_command.c:		pb_current = pb_current->pfsibling;
+krn_command.c:		if(strncmp(name,pb_current->name,nlen) == 0) {
+krn_command.c:pb_current = pb_current->pfsibling;
+krn_command.c:pb_current = pb_current->pbsibling;
+krn_command.c:Name (or re-name) the connection signal between two blocks.
+krn_command.c:Name (or re-name) the block.
+krn_command.c:	/* no arguments -- display current block info */
+krn_command.c:	offset = history_count - MAX_HIST;
+krn_command.c:		index = pb_current->model_index;
+krn_command.c:		index = pg_current->model_index;
+krn_command.c:sprintf(command,"more -d %s", result);
+krn_command.c:		sprintf(scratch, "\t%-10s  %s\n",
+krn_command.c:if(pg_current->info_P == NULL) return(0);
+krn_command.c:	strcpy(pg_current->info_P->title,infoText);
+krn_command.c:	strcpy(pg_current->info_P->author,infoText);
+krn_command.c:	strcpy(pg_current->info_P->date,infoText);
+krn_command.c:	strcpy(pg_current->info_P->descrip,infoText);
+krn_command.c:	fprintf(stderr,"---------------------------------------------------\n");
+krn_command.c:	fprintf(stderr,"Title: %s \n",pg_current->info_P->title);
+krn_command.c:	fprintf(stderr,"Author: %s \n",pg_current->info_P->author);
+krn_command.c:	fprintf(stderr,"Date: %s \n",pg_current->info_P->date);
+krn_command.c:	fprintf(stderr,"Description: %s \n",pg_current->info_P->descrip);
+krn_command.c:	fprintf(stderr,"---------------------------------------------------\n");
+krn_command.c:fprintf(stderr,"---------- List of Galaxies ----------------\n");
+krn_command.c:fprintf(stderr,"--------------------------------------------\n");
+krn_command.c:fprintf(stderr,"Total number of stars=%d\n",numberBlks-numberGalaxies);
+krn_command.c:    	ErrorPrint(" B-Cubed line command error", err);
+krn_connect.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_connect.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_connect.c:Auto-i/o number assignment is implemented, if a complete specification
+krn_connect.c:	outNum = -1;
+krn_connect.c:	inNum = -1;
+krn_connect.c:	outNum = -1;
+krn_connect.c:	inNum = -1;
+krn_connect.c:			if(outBlk_P->outputs[i] == NULL)
+krn_connect.c:			if(inBlk_P->inputs[i] == NULL)
+krn_connect.c:/* now connect -- there are three cases to consider */
+krn_connect.c:	if(outBlk_P->outputs[outNum] != NULL)
+krn_connect.c:	outBlk_P->outputs[outNum] = pgalaxy;
+krn_connect.c:	outBlk_P->input_no[outNum] = inNum;
+krn_connect.c:		outBlk_P->change_flag = 1;
+krn_connect.c:	if(inBlk_P->inputs[inNum] != NULL)
+krn_connect.c:	inBlk_P->inputs[inNum] = pgalaxy;
+krn_connect.c:	inBlk_P->output_no[inNum] = outNum;
+krn_connect.c:		inBlk_P->change_flag = 1;
+krn_connect.c:	if(pgalaxy->inputs[outNum] != NULL)
+krn_connect.c:		strcpy(signalName,pgalaxy->signalName[outNum]);
+krn_connect.c:	if(inBlk_P->inputs[inNum] != NULL)
+krn_connect.c:	if(outBlk_P->outputs[outNum] != NULL)
+krn_connect.c:	inBlk_P->inputs[inNum] = outBlk_P;
+krn_connect.c:	inBlk_P->output_no[inNum] = outNum;
+krn_connect.c:	outBlk_P->outputs[outNum] = inBlk_P;
+krn_connect.c:	outBlk_P->input_no[outNum] = inNum;
+krn_connect.c:		outBlk_P->change_flag = 1;
+krn_connect.c:		inBlk_P->change_flag = 1;
+krn_connect.c:	outNum = -1;
+krn_connect.c:	inNum = -1;
+krn_connect.c:		if(inBlk_P->inputs[inNum] != pgalaxy
+krn_connect.c:		 || inBlk_P->output_no[inNum] != outNum)
+krn_connect.c:		if(outBlk_P->outputs[outNum] != pgalaxy
+krn_connect.c:		 || outBlk_P->input_no[outNum] != inNum)
+krn_connect.c:		if(outBlk_P->outputs[outNum] != inBlk_P
+krn_connect.c:		 || outBlk_P->input_no[outNum] != inNum)
+krn_connect.c:		if(inBlk_P->inputs[inNum] != outBlk_P
+krn_connect.c:		 || inBlk_P->output_no[inNum] != outNum)
+krn_connect.c:		for(i=IO_BUFFERS-1; i>=0; i--) {
+krn_connect.c:			if(inBlk_P->inputs[i] == pgalaxy)
+krn_connect.c:		for(i=IO_BUFFERS-1; i>=0; i--) {
+krn_connect.c:			if(outBlk_P->outputs[i] == pgalaxy)
+krn_connect.c:		for(i=IO_BUFFERS-1; i>=0; i--) {
+krn_connect.c:			if(outBlk_P->outputs[i] == inBlk_P)
+krn_connect.c:		inNum = outBlk_P->input_no[outNum];
+krn_connect.c:		if(inBlk_P->inputs[inNum] != pgalaxy)
+krn_connect.c:		for(i=IO_BUFFERS-1; i>=0; i--) {
+krn_connect.c:			if(outBlk_P->outputs[i] == pgalaxy
+krn_connect.c:			 && outBlk_P->input_no[i] == inNum)
+krn_connect.c:		if(inBlk_P->inputs[inNum] != outBlk_P)
+krn_connect.c:		outNum = inBlk_P->output_no[inNum];
+krn_connect.c:		for(i=IO_BUFFERS-1; i>=0; i--) {
+krn_connect.c:			if(inBlk_P->inputs[i] == pgalaxy
+krn_connect.c:			 && inBlk_P->output_no[i] == inNum)
+krn_connect.c:		if(outBlk_P->outputs[outNum] != pgalaxy)
+krn_connect.c:		if(outBlk_P->outputs[outNum] != inBlk_P)
+krn_connect.c:		inNum = outBlk_P->input_no[outNum];
+krn_connect.c:	inBlk_P->inputs[inNum] = NULL;
+krn_connect.c:		inBlk_P->change_flag = 1;
+krn_connect.c:	outBlk_P->outputs[outNum] = NULL;
+krn_connect.c:		outBlk_P->change_flag = 1;
+krn_connect.c:if(inBlk_P->inputs[inNum] == NULL)
+krn_connect.c:inBlk_P->change_flag = 1;
+krn_connect.c:Inserts the current block before(-) or after(+) a specified block.
+krn_connect.c:The command format is "insert <-,+> <specifiedBlockName> <i,o number>"
+krn_connect.c:	int	placeFlag = 0;	/* -1,before  +1,after */
+krn_connect.c:else if(plus[0] == '-')
+krn_connect.c:	placeFlag = -1;
+krn_connect.c:	if(pb_current->inputs[cbInNum] == NULL)
+krn_connect.c:	if(pb_current->inputs[cbOutNum] == NULL)
+krn_connect.c:if(placeFlag == -1 && cbOutNum >= IO_BUFFERS)
+krn_connect.c:	if(placeFlag == -1) {
+krn_connect.c:		if(placeFlag == -1)
+krn_connect.c:			pb_current->inputs[cbInNum] = pg_current;
+krn_connect.c:			pb_current->output_no[cbInNum] = connNum;
+krn_connect.c:			pb_current->change_flag = 1;
+krn_connect.c:		placeFlag = -1;
+krn_connect.c:			pb_current->outputs[cbOutNum] = pg_current;
+krn_connect.c:			pb_current->input_no[cbOutNum] = connNum;
+krn_connect.c:			pb_current->change_flag = 1;
+krn_connect.c:if(placeFlag == -1) {
+krn_connect.c:	if((outBlk_P = inBlk_P->inputs[inNum]) != NULL) {
+krn_connect.c:		outNum = inBlk_P->output_no[inNum];
+krn_connect.c:			outBlk_P->outputs[outNum] = pb_current;
+krn_connect.c:			outBlk_P->input_no[outNum] = cbInNum;
+krn_connect.c:			outBlk_P->change_flag = 1;
+krn_connect.c:		pb_current->inputs[cbInNum] = outBlk_P;
+krn_connect.c:		pb_current->output_no[cbInNum] = outNum;
+krn_connect.c:	pb_current->outputs[cbOutNum] = inBlk_P;
+krn_connect.c:	pb_current->input_no[cbOutNum] = inNum;
+krn_connect.c:	pb_current->change_flag = 1;
+krn_connect.c:	sigName = inBlk_P->signalName[inNum];
+krn_connect.c:	inBlk_P->inputs[inNum] = pb_current;	
+krn_connect.c:	inBlk_P->output_no[inNum] = cbOutNum;	
+krn_connect.c:	inBlk_P->change_flag = 1;
+krn_connect.c:	if((inBlk_P = outBlk_P->outputs[outNum]) != NULL) {
+krn_connect.c:		inNum = outBlk_P->input_no[outNum];
+krn_connect.c:			inBlk_P->inputs[inNum] = pb_current;
+krn_connect.c:			inBlk_P->output_no[inNum] = cbOutNum;
+krn_connect.c:			inBlk_P->change_flag = 1;
+krn_connect.c:			sigName = inBlk_P->signalName[inNum];
+krn_connect.c:		pb_current->outputs[cbOutNum] = inBlk_P;
+krn_connect.c:		pb_current->input_no[cbOutNum] = inNum;
+krn_connect.c:	pb_current->inputs[cbInNum] = outBlk_P;
+krn_connect.c:	pb_current->output_no[cbInNum] = outNum;
+krn_connect.c:	pb_current->change_flag = 1;
+krn_connect.c:	outBlk_P->outputs[outNum] = pb_current;	
+krn_connect.c:	outBlk_P->input_no[outNum] = cbInNum;
+krn_connect.c:	outBlk_P->change_flag = 1;
+krn_connect.c:if(pb_current->inputs[cbInNum] != NULL) {
+krn_connect.c:	sigName = pb_current->signalName[cbInNum];
+krn_connect.c:	while(inBlk_P->type == GTYPE) {
+krn_connect.c:		strcpy(inBlk_P->signalName[inNum], sigName);
+krn_connect.c:Function returns a non-zero value if an error occurs.
+krn_connect.c:if((outBlk_P = inBlk_P->inputs[inNum]) == NULL)
+krn_connect.c:outNum = inBlk_P->output_no[inNum];
+krn_connect.c:if(inBlk_P->signalName[inNum] == NULL)
+krn_connect.c:	inBlk_P->signalName[inNum] = (char *)calloc(1,SNLEN+1);
+krn_connect.c:if(*sigName == '\0' && outBlk_P != inBlk_P->pparent)
+krn_connect.c:	string[SNLEN-1] = '\0';
+krn_connect.c:strcpy(inBlk_P->signalName[inNum], string);
+krn_connect.c:while(inBlk_P->type == GTYPE) {
+krn_connect.c:	strcpy(inBlk_P->signalName[inNum], string);
+krn_connect.c:Function returns a non-zero value if an error occurs.
+krn_connect.c:if((inBlk_P = pgalaxy->pchild) == NULL) {
+krn_connect.c:	for(inNum=0; inNum < IO_BUFFERS-1; inNum++) {
+krn_connect.c:		if(inBlk_P->outputs[inNum] == NULL
+krn_connect.c:		  && inBlk_P->outputs[inNum+1] != NULL) {
+krn_connect.c:		if(inBlk_P->inputs[inNum] == NULL
+krn_connect.c:		  && inBlk_P->inputs[inNum+1] != NULL) {
+krn_connect.c:		if((outBlk_P = inBlk_P->inputs[inNum]) == NULL)
+krn_connect.c:			if(pgalaxy->type == UTYPE && (pgalaxy->blkType != KRN_BLOCK_TYPE_SPICE))
+krn_connect.c:	if(inBlk_P->type == GTYPE) {
+krn_connect.c:} while((inBlk_P = inBlk_P->pfsibling) != pgalaxy->pchild);
+krn_connect.c:outBlk_P = inBlk_P->inputs[inNum];
+krn_connect.c:outNum = inBlk_P->output_no[inNum];
+krn_connect.c:while(inBlk_P->type == GTYPE) {
+krn_connect.c:while(outBlk_P->type == GTYPE) {
+krn_connect.c:SetStarOut(outBlk_P->star_P,outNum,pbuffer);
+krn_connect.c:SetStarIn(inBlk_P->star_P,inNum,pbuffer,inBlk_P->signalName[inNum]);
+krn_connect.c:and a zero is returned.  If block is not found, non-zero is returned.
+krn_connect.c:if((pblock = (*p)->pchild) == NULL) {
+krn_connect.c:		if(pblock->inputs[inNum] == *p
+krn_connect.c:		  && pblock->output_no[inNum] == *i) {
+krn_connect.c:} while((pblock = pblock->pfsibling) != (*p)->pchild);
+krn_connect.c:Returns non-zero value if connecting block cannot be found.
+krn_connect.c:if((pblock = (*p)->pchild) == NULL)
+krn_connect.c:		if(pblock->outputs[outNum] == *p
+krn_connect.c:		  && pblock->input_no[outNum] == *o) {
+krn_connect.c:} while((pblock = pblock->pbsibling) != (*p)->pchild);
+krn_connect.c:for(i=0; i < IO_BUFFERS-1; i++) {
+krn_connect.c:	if(blk_P->outputs[i] == NULL
+krn_connect.c:	  && blk_P->outputs[i+1] != NULL) {
+krn_connect.c:	if(blk_P->inputs[i] == NULL
+krn_connect.c:	  && blk_P->inputs[i+1] != NULL) {
+krn_connect.c:for(i=0; i < IO_BUFFERS-1; i++) {
+krn_connect.c:	if(blk_P->outputs[i] == NULL
+krn_connect.c:	  && blk_P->outputs[i+1] != NULL) {
+krn_connect.c:		inBlk_P=blk_P->outputs[i+1];
+krn_connect.c:		inNum=blk_P->input_no[i+1];
+krn_connect.c:			blk_P->name,i+1,inBlk_P->name,inNum);
+krn_connect.c:			blk_P->name,i,inBlk_P->name,inNum);
+krn_connect.c:	if(blk_P->inputs[i] == NULL
+krn_connect.c:	  && blk_P->inputs[i+1] != NULL) {
+krn_connect.c:		outBlk_P=blk_P->inputs[i+1];
+krn_connect.c:		outNum=blk_P->output_no[i+1];
+krn_connect.c:			outBlk_P->name,outNum,blk_P->name,i+1);
+krn_connect.c:			outBlk_P->name,outNum,blk_P->name,i);
+krn_eqneval.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_eqneval.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_eqneval.c:#define yyclearin yychar = -1
+krn_eqneval.c:		krn_bufferPtr--;
+krn_eqneval.c:				if(c=='+' || c=='-') krn_bufferPtr++;
+krn_eqneval.c:		krn_bufferPtr--;
+krn_eqneval.c:		return s->type == UNDEF ? VAR : s->type;
+krn_eqneval.c:-1, 1,
+krn_eqneval.c:	0, -1,
+krn_eqneval.c:	-2, 0,
+krn_eqneval.c:-1000, -10,-1000,  16,  -6,  11, -56,-1000, -28, -39,
+krn_eqneval.c: -39,-1000,-1000, -39, -39, -39, -39, -39, -39,-1000,
+krn_eqneval.c: -39, -39, -27,-1000, -92, -18, -18, -92, -92, -92,
+krn_eqneval.c: -92, -20, -34,-1000,-1000 };
+krn_eqneval.c:-1000,  -3,  10,  -2,  -1, 256, 258, 257, 259,  40,
+krn_eqneval.c:  61,  40,  -1,  -2,  -1,  -1,  -1,  -1,  -1,  -1,
+krn_eqneval.c:  -1,  -1,  -1,  41,  41 };
+krn_eqneval.c:   1,  -2,   2,   9,   0,   0,   8,   7,   0,   0,
+krn_eqneval.c:# define YYFLAG -1000
+krn_eqneval.c:int yychar = -1; /* current input token number */
+krn_eqneval.c:	yychar = -1;
+krn_eqneval.c:	yyps= &yys[-1];
+krn_eqneval.c:	yypv= &yyv[-1];
+krn_eqneval.c:		yychar = -1;
+krn_eqneval.c:		if( yyerrflag > 0 ) --yyerrflag;
+krn_eqneval.c:	if( (yyn=yydef[yystate]) == -2 ) {
+krn_eqneval.c:		for( yyxi=yyexca; (*yyxi!= (-1)) || (yyxi[1]!=yystate) ; yyxi += 2 ) ; /* VOID */
+krn_eqneval.c:			   if( yydebug ) printf( "error recovery pops state %d, uncovers %d\n", *yyps, yyps[-1] );
+krn_eqneval.c:			   --yyps;
+krn_eqneval.c:			   --yypv;
+krn_eqneval.c:			yychar = -1;
+krn_eqneval.c:		yyps -= yyr2[yyn];
+krn_eqneval.c:		yypv -= yyr2[yyn];
+krn_eqneval.c:		if( yyj>=YYLAST || yychk[ yystate = yyact[yyj] ] != -yyn ) yystate = yyact[yypgo[yyn]];
+krn_eqneval.c:{ krn_eqnResult=yypvt[-1].val; } break;
+krn_eqneval.c:{ yyval.val=yypvt[-2].sym->u.val=yypvt[-0].val; yypvt[-2].sym->type=VAR;} break;
+krn_eqneval.c:{if (yypvt[-0].sym->type == UNDEF)
+krn_eqneval.c:				execerror("undefined variable",yypvt[-0].sym->name);
+krn_eqneval.c:			yyval.val = yypvt[-0].sym->u.val; } break;
+krn_eqneval.c:{ yyval.val = (float)(*(yypvt[-3].sym->u.ptr))((double)yypvt[-1].val); } break;
+krn_eqneval.c:{ yyval.val=yypvt[-2].val + yypvt[-0].val;} break;
+krn_eqneval.c:{ yyval.val=yypvt[-2].val - yypvt[-0].val;} break;
+krn_eqneval.c:{ yyval.val=yypvt[-2].val * yypvt[-0].val;} break;
+krn_eqneval.c:		if(yypvt[-0].val == 0.0 )
+krn_eqneval.c:		yyval.val=yypvt[-2].val / yypvt[-0].val;} break;
+krn_eqneval.c:{ yyval.val=fmod(yypvt[-2].val , yypvt[-0].val);} break;
+krn_eqneval.c:{ yyval.val=yypvt[-1].val; } break;
+krn_eqneval.c:{ yyval.val = -yypvt[-0].val; } break;
+krn_eqneval.c:{ yyval.val = Pow(yypvt[-2].val,yypvt[-0].val); } break; 
+krn_eqninit.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_eqninit.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_eqninit.c:		s->u.ptr = builtins[i].func;
+krn_eqnmath.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_eqnmath.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_eqnsymbol.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_eqnsymbol.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_eqnsymbol.c:	for(sp=symlist; sp != (Symbol *) 0; sp=sp->next)
+krn_eqnsymbol.c:		if (strcmp(sp->name,s) == 0)
+krn_eqnsymbol.c:	sp->name=emalloc(strlen(s) +1); /* +1 for '\0' */
+krn_eqnsymbol.c:	strcpy(sp->name,s);
+krn_eqnsymbol.c:	sp->type = t;
+krn_eqnsymbol.c:	sp->u.val =(float)d;
+krn_eqnsymbol.c:	sp->next = symlist; /* put at front of list */
+krn_expeval.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_expeval.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_expeval.c:gmodel = &model[pg_current->model_index];
+krn_expeval.c:if((np = KrnParamCount(gmodel->param_AP)) != 0) {
+krn_expeval.c:        	pp = gmodel->param_AP[i];
+krn_expeval.c:        	type = pp->type;
+krn_expeval.c:        		sprintf(argAssignment,"arg%d=%d\n", i,pp->value.d);
+krn_expeval.c:        		sprintf(argAssignment,"arg%d=%e\n", i,pp->value.f);
+krn_file.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_file.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_file.c:	index = pg_current->model_index;
+krn_file.c:	pg_current->model_index = index;
+krn_file.c:	if(pg_current->type == UTYPE)
+krn_file.c:		strcpy(pg_current->name, blkModelName);
+krn_file.c:if(pg_current->type == UTYPE) {
+krn_file.c:		KrnFreeParam(&pg_current->param_AP[i]);
+krn_file.c:pg_current->info_P=NULL;
+krn_file.c:if (pg_current->info_P == NULL) {
+krn_file.c:        pg_current->info_P = (info_Pt) calloc ( 1,sizeof( info_t) ) ;
+krn_file.c:        if(pg_current->info_P == NULL) {
+krn_file.c:                pg_current->info_P=NULL;
+krn_file.c:pb_current = pg_current->pchild;
+krn_file.c:	index = ++model_count - 1;
+krn_file.c:		&model[pg_current->model_index].param_AP[i]);
+krn_file.c:index = pg_current->model_index;
+krn_file.c:	index = ++model_count - 1;
+krn_file.c:			&model[pg_current->model_index].param_AP[i]);
+krn_file.c:	pg_current->model_index = index;
+krn_file.c:	pg_current->change_flag = 1;
+krn_file.c:	if(pg_current->type == UTYPE)
+krn_file.c:		strcpy(pg_current->name,filename);
+krn_file.c:a given type.  Returns -1 if name not found.
+krn_file.c:return(-1);
+krn_file.c:for(len = strlen(filename); len > 0; len--) {
+krn_file.c:	s = filename + len - 1;
+krn_file.c:A (-1) is returned if the character is not found.
+krn_file.c:return(-1);
+krn_file.c:	int offset = 'A' - 'a';
+krn_file.c:		*c -= offset;
+krn_file.c:	int offset = 'A' - 'a';
+krn_getfile.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_getfile.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_getfile.c:if(fd <0) return(-1);
+krn_getfile.c:  while(buffer[ptr] != 0x0a && i < max-1 && ptr <MAX_TOP_FILE_SIZE ) {
+krn_main.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_main.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_main.c:This is the top-level of CAPSIM/BLOSIM.
+krn_main.c:        - program re-organization, saving 20% on executable size.
+krn_main.c:        - improved scheduling for run-time efficiency
+krn_main.c:        - improved run-time logic to control buffer size
+krn_main.c:        - buffer memory de-allocation, for multiple runs
+krn_main.c:        - internal star and galaxy parameter model storage,
+krn_main.c:        - on-line parameter prompting, with type/value checking
+krn_main.c:        - on-line review of commands and star/galaxy source files
+krn_main.c:        - command history and alias mechanisms
+krn_main.c:        - compilation control for UNIX or VMS operating systems
+krn_main.c:if "quit" is used, warning of any un-saved changes is made.
+krn_main.c:  -l <file> :   (load) First read commands from the specified file.
+krn_main.c:  -b        :   (blosim line-mode) Come up in line mode.  This is
+krn_main.c:printf("(c)1989-2002 XCAD Corporation\n");
+krn_main.c:while (--argc > 0 && (*++argv)[0] == '-') {
+krn_main.c:                argc--;
+krn_main.c:                argc--;
+krn_main.c:                argc--;
+krn_main.c:                argc--;
+krn_main.c:                argc--;
+krn_main.c:                argc--;
+krn_main.c:                prinfo(stdout," Usage: capsim [-lf <loadfile>] [-bmi] \n");
+krn_main.c:        argv--;
+krn_main.c:sprintf(prompt,"CapsimTMK[%d]-> ", history_count);
+krn_main.c:        sprintf(prompt,"CapsimTMK[%d]-> ", history_count);
+krn_main.c:if(KrnGetFileContent(fileName, buffer, MAX_TOP_FILE_SIZE-1)<0) {
+krn_main.c:        strcpy(buffer,"# topology file:  testsine.t\n inform title  \n inform author  \n inform date  \n inform descrip  \n \n arg -1 (none) \n \n param int 128 \n param float 1\n param float 32000\n param float 1000\n param float 0\n param float 1\n param int 128\n star sine0 sine\n \n param file stdout\n param int 1\n param int 0\n star prfile0 prfile\n \n connect sine0 0 prfile0 0\n\n");
+krn_parameter.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_parameter.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_parameter.c:p1->arg = -1;	/* initialize, not an arg parameter */
+krn_parameter.c:p1->type = param_type(stype);
+krn_parameter.c:p1->exprFlag=FALSE;
+krn_parameter.c:	p1->exprFlag=TRUE;
+krn_parameter.c:	p1->express = (char*)calloc(strlen(sval),sizeof(char)); 
+krn_parameter.c:	strcpy(p1->express,sval);
+krn_parameter.c:	switch(p1->type) {
+krn_parameter.c:			p1->value.f = (float)paramEval;
+krn_parameter.c:			p1->value.d = (int)paramEval;
+krn_parameter.c:switch(p1->type) {
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	if(sscanf(sval,"%f",&p1->value.f) != 1)
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	if(sscanf(sval,"%d",&p1->value.d) != 1)
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	p1->value.s = (char *) calloc(1,strlen(sval)+1);
+krn_parameter.c:	sscanf(sval,"%s",p1->value.s);
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:             t = sval + strlen(sval) - 1;
+krn_parameter.c:             while(*t == ' ' || *t == '"' || *t == '\t')  t--;
+krn_parameter.c:        p1->value.s = (char *)calloc(1,strlen(sval)+1);
+krn_parameter.c:        strcpy(p1->value.s, sval);
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	if(strcmp(".c",sval[strlen(sval)-2]) != 0) {
+krn_parameter.c:	p1->value.s = (char *) calloc(1,strlen(sval)+1);
+krn_parameter.c:	sscanf(sval,"%s",p1->value.s);
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	if(sscanf(sval,"%d",&p1->array_size) != 1
+krn_parameter.c:	 || p1->array_size < 0 || p1->array_size > KRN_PARAM_MAX_ARRAY_SIZE) {
+krn_parameter.c:	p1->value.a = a;
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	if(sscanf(sval,"%d",&p1->arg) != 1
+krn_parameter.c:	 || p1->arg < 0 || p1->arg >= MAX_PARAM) {
+krn_parameter.c:	if(model[pg_current->model_index].param_model_flag == 1
+krn_parameter.c:	 && model[pg_current->model_index].param_AP[p1->arg] == NULL) {
+krn_parameter.c:paramBlk_AP = pb_current->param_AP;
+krn_parameter.c:	if(pb_current->type == GTYPE) return(92);
+krn_parameter.c:paramBlkModel_AP = model[pb_current->model_index].param_AP;
+krn_parameter.c:paramGal_AP = pg_current->param_AP;
+krn_parameter.c:paramGalModel_AP = model[pg_current->model_index].param_AP;
+krn_parameter.c:		ptype = paramBlk_AP[i]->type;
+krn_parameter.c:	ptype = paramBlk_AP[i]->type;
+krn_parameter.c:	sprintf(sprompt, "%d: %s\n", i,paramBlk_AP[i]->def);
+krn_parameter.c:        exprFlag=paramBlk_AP[i]->exprFlag;
+krn_parameter.c:	if(paramBlk_AP[i]->arg >= 0)
+krn_parameter.c:				paramBlk_AP[i]->arg);
+krn_parameter.c:				paramBlk_AP[i]->express);
+krn_parameter.c:				paramBlk_AP[i]->value.d);
+krn_parameter.c:				paramBlk_AP[i]->value.f);
+krn_parameter.c:				paramBlk_AP[i]->value.s);
+krn_parameter.c:				paramBlk_AP[i]->value.s);
+krn_parameter.c:		nar = paramBlk_AP[i]->array_size;
+krn_parameter.c:		a = paramBlk_AP[i]->value.a;
+krn_parameter.c:				paramBlk_AP[i]->value.s);
+krn_parameter.c:	fgets(sval,2*MAX_LINE-1,stdin);
+krn_parameter.c:	        sval[strlen(sval)-1]=0;
+krn_parameter.c:		paramBlk_AP[i]->exprFlag=TRUE;
+krn_parameter.c:		paramBlk_AP[i]->express=(char*)calloc(strlen(sval),sizeof(char));
+krn_parameter.c:		strcpy(paramBlk_AP[i]->express,sval);
+krn_parameter.c:			paramBlk_AP[i]->value.f = (float)paramEval;
+krn_parameter.c:			paramBlk_AP[i]->value.d = (int)paramEval;
+krn_parameter.c:			i--;
+krn_parameter.c:		paramBlk_AP[i]->exprFlag=FALSE;
+krn_parameter.c:		if(argnum == paramBlk_AP[i]->arg) {
+krn_parameter.c:			i--;
+krn_parameter.c:			paramBlk_AP[i]->arg = -1;
+krn_parameter.c:			paramBlk_AP[i]->def = paramBlkModel_AP[i]->def;
+krn_parameter.c:			pb_current->change_flag = 1;
+krn_parameter.c:			i--;
+krn_parameter.c:		if(paramGalModel_AP[argnum]->type != paramBlk_AP[i]->type) {
+krn_parameter.c:			i--;
+krn_parameter.c:		paramBlk_AP[i]->arg = argnum;
+krn_parameter.c:		pb_current->change_flag = 1;
+krn_parameter.c:			i--;
+krn_parameter.c:			paramBlk_AP[i]->value.f = floatval;
+krn_parameter.c:			i--;
+krn_parameter.c:			paramBlk_AP[i]->value.d = intval;
+krn_parameter.c:		free(paramBlk_AP[i]->value.s);
+krn_parameter.c:		paramBlk_AP[i]->value.s = (char*)calloc(1,strlen(sval)+1);
+krn_parameter.c:		sscanf(sval,"%s",paramBlk_AP[i]->value.s);
+krn_parameter.c:		free(paramBlk_AP[i]->value.s);
+krn_parameter.c:		paramBlk_AP[i]->value.s = (char*)calloc(1,strlen(sval)+1);
+krn_parameter.c:		strcpy(paramBlk_AP[i]->value.s,sval);
+krn_parameter.c:			i--;
+krn_parameter.c:		paramBlk_AP[i]->array_size = nar;
+krn_parameter.c:		free(paramBlk_AP[i]->value.s);
+krn_parameter.c:		paramBlk_AP[i]->value.a = a;
+krn_parameter.c:	paramBlk_AP[i]->arg = -1;
+krn_parameter.c:	paramBlk_AP[i]->def = paramBlkModel_AP[i]->def;
+krn_parameter.c:	pb_current->change_flag = 1;
+krn_parameter.c:The line 'arg -1' is interpreted as 'no args for this galaxy'.
+krn_parameter.c:paramGalModel_AP = model[pg_current->model_index].param_AP;
+krn_parameter.c:paramGal_AP = pg_current->param_AP;
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(argnum < MAX_PARAM-1 && paramGalModel_AP[argnum+1] != NULL)
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:if(argnum > 0 && paramGalModel_AP[argnum-1] == NULL)
+krn_parameter.c:pp->arg = -1;	/* model parameters are NEVER arguments */
+krn_parameter.c:pp->type = argtype = param_type(sargtype);
+krn_parameter.c:	if(sscanf(sargval,"%d",&(pp->value.d)) != 1) {
+krn_parameter.c:	if(sscanf(sargval,"%f",&(pp->value.f)) != 1) {
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sargval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sargval);
+krn_parameter.c:	     t = sargval + strlen(sargval) - 1;
+krn_parameter.c:	     while(*t == ' ' || *t == '"' || *t == '\t')  t--;
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sargval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sargval);
+krn_parameter.c:	t = argprompt + strlen(argprompt) - 1;
+krn_parameter.c:	while(*t == ' ' || *t == '"' || *t == '\t')  t--;
+krn_parameter.c:	pp->def = (char *)calloc(1,strlen(argprompt)+1);
+krn_parameter.c:	strcpy(pp->def,argprompt);
+krn_parameter.c:	pp->def = (char *)calloc(1,1);
+krn_parameter.c:	strcpy(pp->def,"");
+krn_parameter.c:	if(strcmp(pp->def,"") == 0)
+krn_parameter.c:		pp->def = paramGalModel_AP[argnum]->def;
+krn_parameter.c:	if(paramGalModel_AP[argnum]->type != pp->type) {
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:paramGalModel_AP = model[pg_current->model_index].param_AP;
+krn_parameter.c:paramGal_AP = pg_current->param_AP;
+krn_parameter.c:	    argType = pp->type;
+krn_parameter.c:	             argType = pp->type;
+krn_parameter.c:	strcpy(argprompt,pp->def);
+krn_parameter.c:      while (fgets(sval,2*MAX_LINE-1,stdin) != NULL) {
+krn_parameter.c:      while (fgets(sval,MAX_LINE-1,stdin) != NULL) {
+krn_parameter.c:             t = argprompt + strlen(argprompt) - 1;
+krn_parameter.c:             while(*t == ' ' || *t == '"' || *t == '\t' || *t=='\n' || *t=='\r')  t--;
+krn_parameter.c:				pp->value.d);
+krn_parameter.c:				pp->value.f);
+krn_parameter.c:				pp->value.s);
+krn_parameter.c:				pp->value.s);
+krn_parameter.c://	fgets(sval,2*MAX_LINE-1,stdin);
+krn_parameter.c:        while (fgets(sval,2*MAX_LINE-1,stdin) != NULL) {
+krn_parameter.c://	fgets(sval,2*MAX_LINE-1,stdin);
+krn_parameter.c:        while (fgets(sval,2*MAX_LINE-1,stdin) != NULL) {
+krn_parameter.c:paramGalModel_AP = model[pg_current->model_index].param_AP;
+krn_parameter.c:paramGal_AP = pg_current->param_AP;
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(argnum < MAX_PARAM-1 && paramGalModel_AP[argnum+1] != NULL)
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:if(argnum > 0 && paramGalModel_AP[argnum-1] == NULL)
+krn_parameter.c:pp->arg = -1;	/* model parameters are NEVER arguments */
+krn_parameter.c:pp->type = argtype = param_type(sargtype);
+krn_parameter.c:	if(sscanf(sargval,"%d",&(pp->value.d)) != 1) {
+krn_parameter.c:	if(sscanf(sargval,"%f",&(pp->value.f)) != 1) {
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sargval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sargval);
+krn_parameter.c:	     t = sargval + strlen(sargval) - 1;
+krn_parameter.c:	     while(*t == ' ' || *t == '"' || *t == '\t')  t--;
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sargval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sargval);
+krn_parameter.c:	t = argprompt + strlen(argprompt) - 1;
+krn_parameter.c:	while(*t == ' ' || *t == '"' || *t == '\t')  t--;
+krn_parameter.c:	pp->def = (char *)calloc(1,strlen(argprompt)+1);
+krn_parameter.c:	strcpy(pp->def,argprompt);
+krn_parameter.c:	pp->def = (char *)calloc(1,1);
+krn_parameter.c:	strcpy(pp->def,"");
+krn_parameter.c:	if(strcmp(pp->def,"") == 0)
+krn_parameter.c:		pp->def = paramGalModel_AP[argnum]->def;
+krn_parameter.c:	if(paramGalModel_AP[argnum]->type != pp->type) {
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:	model[pg_current->model_index].param_model_flag = 1;
+krn_parameter.c:	if(pg_current->type == UTYPE)
+krn_parameter.c:		pg_current->change_flag = 1;
+krn_parameter.c:index = pblock->model_index;
+krn_parameter.c:paramBlk_AP = pblock->param_AP;
+krn_parameter.c:if(pblock->type != GTYPE ) {
+krn_parameter.c:           paramBlk_AP[i]->name=(char *)calloc(100,sizeof(char));
+krn_parameter.c:           strcpy(paramBlk_AP[i]->name,model[index].param_AP[i]->name);
+krn_parameter.c:if(pblock->type==GTYPE || pblock->type == UTYPE) 
+krn_parameter.c:if(model[pblock->model_index].param_model_flag != 1) {
+krn_parameter.c:	if(pblock->type == STYPE)
+krn_parameter.c: 		model[pblock->model_index].param_model_flag = 1;
+krn_parameter.c:paramBlk_AP = pblock->param_AP;
+krn_parameter.c:paramBlkModel_AP = model[pblock->model_index].param_AP;
+krn_parameter.c:if(pblock->pparent != NULL) {
+krn_parameter.c:	/* this is for non-universe galaxies */
+krn_parameter.c:	paramGal_AP = pblock->pparent->param_AP;
+krn_parameter.c:	paramGalModel_AP = model[pblock->pparent->model_index].param_AP;
+krn_parameter.c:	if(model[pblock->pparent->model_index].param_model_flag != 1)
+krn_parameter.c:		pblock->change_flag = 1;
+krn_parameter.c:	else if((arg = paramBlk_AP[i]->arg) >= 0) {
+krn_parameter.c:			if((type = paramBlkModel_AP[i]->type) == PARAM_INT
+krn_parameter.c:				pblock->change_flag = 1;
+krn_parameter.c:		paramBlk_AP[i]->arg = arg;
+krn_parameter.c:p1->arg = -1;
+krn_parameter.c:p1->type = p2->type;
+krn_parameter.c:p1->def = p2->def;
+krn_parameter.c:p1->name = p2->name;
+krn_parameter.c:p1->array_size = 0;
+krn_parameter.c:switch (p2->type) {
+krn_parameter.c:	p1->value.d = p2->value.d;
+krn_parameter.c:	p1->value.f = p2->value.f;
+krn_parameter.c:	p1->value.s = (char*)calloc(1,strlen(p2->value.s)+1);
+krn_parameter.c:	strcpy(p1->value.s, p2->value.s);
+krn_parameter.c:	p1->array_size = p2->array_size;
+krn_parameter.c:	p1->value.a = (float *)calloc(KRN_PARAM_MAX_ARRAY_SIZE,sizeof(float));
+krn_parameter.c:	for(i=0; i<p2->array_size; i++)
+krn_parameter.c:		p1->value.a[i] = p2->value.a[i];
+krn_parameter.c:	if(p1->exprFlag) break;
+krn_parameter.c:	p1->value.s = (char *) calloc(1,strlen(sval)+1);
+krn_parameter.c:	buff=(char*)p1->value.s;
+krn_parameter.c:if(p2->exprFlag) {
+krn_parameter.c:	p1->exprFlag=TRUE;
+krn_parameter.c:	p1->express=(char*)calloc(strlen(p2->express),sizeof(char));
+krn_parameter.c:	strcpy(p1->express,p2->express);
+krn_parameter.c:	p1->exprFlag=FALSE;
+krn_parameter.c:p1->arg = -1;
+krn_parameter.c:p1->type = p2->type;
+krn_parameter.c:p1->def = p2->def;
+krn_parameter.c:p1->name = p2->name;
+krn_parameter.c:p1->array_size = 0;
+krn_parameter.c:switch (p2->type) {
+krn_parameter.c:	p1->value.d = p2->value.d;
+krn_parameter.c:	p1->value.f = p2->value.f;
+krn_parameter.c:	p1->value.s = (char*)calloc(1,strlen(p2->value.s)+1);
+krn_parameter.c:	strcpy(p1->value.s, p2->value.s);
+krn_parameter.c:	p1->value.s = (char*)calloc(1,strlen(p2->value.s)+1);
+krn_parameter.c:	strcpy(p1->value.s, p2->value.s);
+krn_parameter.c:	p1->array_size = p2->array_size;
+krn_parameter.c:	p1->value.a = (float *)calloc(KRN_PARAM_MAX_ARRAY_SIZE,sizeof(float));
+krn_parameter.c:	for(i=0; i<p2->array_size; i++)
+krn_parameter.c:		p1->value.a[i] = p2->value.a[i];
+krn_parameter.c:if(p2->exprFlag) {
+krn_parameter.c:	p1->exprFlag=TRUE;
+krn_parameter.c:	p1->express=(char*)calloc(strlen(p2->express),sizeof(char));
+krn_parameter.c:	strcpy(p1->express,p2->express);
+krn_parameter.c:	p1->exprFlag=FALSE;
+krn_parameter.c:if((p1 = *pp1) != NULL && p1->type == p2->type) {
+krn_parameter.c:	if(p1->def == NULL)
+krn_parameter.c:		p1->def = p2->def;
+krn_parameter.c:	if(p1->name == NULL)
+krn_parameter.c:		p1->name = p2->name;
+krn_parameter.c:else return(-2); /* error */
+krn_parameter.c:if((type = (*pp)->type) == PARAM_FILE
+krn_parameter.c:	free((*pp)->value.s);
+krn_parameter.c:child parameters with matching args are "turned off" (param arg = -1);
+krn_parameter.c:if(pg == NULL || (pblock = pg->pchild) == NULL)
+krn_parameter.c:paramGal_AP = pg->param_AP;
+krn_parameter.c:paramGalModel_AP = model[pg->model_index].param_AP;
+krn_parameter.c:	paramBlk_AP = pblock->param_AP;
+krn_parameter.c:	paramBlkModel_AP = model[pblock->model_index].param_AP;
+krn_parameter.c:                paramBlk_AP[i]->name=paramBlkModel_AP[i]->name;
+krn_parameter.c:		if(paramBlk_AP[i]->arg == index) {
+krn_parameter.c:				paramBlk_AP[i]->arg = -1;
+krn_parameter.c:				paramBlk_AP[i]->def = paramBlkModel_AP[i]->def;
+krn_parameter.c:				pblock->change_flag = 1;
+krn_parameter.c:			if(paramBlk_AP[i]->type == PARAM_INT) {
+krn_parameter.c:				paramBlk_AP[i]->value.d = paramGal_AP[index]->value.d;
+krn_parameter.c:				paramBlk_AP[i]->def = paramGalModel_AP[index]->def;
+krn_parameter.c:			if(paramBlk_AP[i]->type == PARAM_FLOAT) {
+krn_parameter.c:				paramBlk_AP[i]->value.f = paramGal_AP[index]->value.f;
+krn_parameter.c:				paramBlk_AP[i]->def = paramGalModel_AP[index]->def;
+krn_parameter.c:			if(paramBlk_AP[i]->type == PARAM_FILE) {
+krn_parameter.c:				free(paramBlk_AP[i]->value.s);
+krn_parameter.c:				val2 = paramGal_AP[index]->value.s;
+krn_parameter.c:				paramBlk_AP[i]->value.s = val1;
+krn_parameter.c:				paramBlk_AP[i]->def = paramGalModel_AP[index]->def;
+krn_parameter.c:			if(paramBlk_AP[i]->type == PARAM_STRING) {
+krn_parameter.c:				free(paramBlk_AP[i]->value.s);
+krn_parameter.c:				val2 = paramGal_AP[index]->value.s;
+krn_parameter.c:				paramBlk_AP[i]->value.s = val1;
+krn_parameter.c:				paramBlk_AP[i]->def = paramGalModel_AP[index]->def;
+krn_parameter.c:} while((pblock = pblock->pfsibling) != pg->pchild);
+krn_parameter.c:pp->def = (char *)calloc(1,strlen(def)+1);
+krn_parameter.c:pp->name = (char *)calloc(1,strlen(sname)+1);
+krn_parameter.c:strcpy(pp->def,def);
+krn_parameter.c:strcpy(pp->name,sname);
+krn_parameter.c:pp->arg = -1;
+krn_parameter.c:pp->type = param_type(stype);
+krn_parameter.c:switch(pp->type) {
+krn_parameter.c:		pp->value.f = paramValue;
+krn_parameter.c:		sscanf(sval,"%f",&pp->value.f);
+krn_parameter.c:		pp->value.d = (int)paramValue;
+krn_parameter.c:		sscanf(sval,"%d",&pp->value.d);
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sval);	
+krn_parameter.c:			&pp->array_size,
+krn_parameter.c:	pp->value.a = a;
+krn_parameter.c:	pp->value.s = (char *)calloc(1,strlen(sval)+1);
+krn_parameter.c:	strcpy(pp->value.s, sval);
+krn_parameter.c://	CsInfo("Star");CsInfo(pp->value.s);
+krn_prinfo.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_prinfo.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_prinfo.c:if(pb_current->type == GTYPE)
+krn_prinfo.c:			model[pb_current->model_index].name);
+krn_prinfo.c:			model[pb_current->model_index].name);
+krn_prinfo.c:	if(pg_current->type != UTYPE)
+krn_prinfo.c:	sprintf(tree_string,"%s", blk_P->name);
+krn_prinfo.c:	if(blk_P->type != UTYPE) {
+krn_prinfo.c:		while((blk_P = blk_P->pparent)->type != UTYPE) {
+krn_prinfo.c:				blk_P->name, tree_string);
+krn_prinfo.c:blk_P = pgalaxy->pchild;
+krn_prinfo.c:modelTableEntry = model[pgalaxy->model_index];
+krn_prinfo.c:if ( pgalaxy->info_P) {
+krn_prinfo.c:prinfo(fp,"#--------------------------------------------------- \n");
+krn_prinfo.c:sprintf(strBuf,"# Title: %s \n",pg_current->info_P->title);
+krn_prinfo.c:sprintf(strBuf,"# Author: %s \n",pg_current->info_P->author);
+krn_prinfo.c:sprintf(strBuf,"# Date: %s \n",pg_current->info_P->date);
+krn_prinfo.c:sprintf(strBuf,"# Description: %s \n",pg_current->info_P->descrip);
+krn_prinfo.c:prinfo(fp,"#--------------------------------------------------- \n");
+krn_prinfo.c:sprintf(strBuf,"inform title %s\n",pg_current->info_P->title);
+krn_prinfo.c:sprintf(strBuf,"inform author %s\n",pg_current->info_P->author);
+krn_prinfo.c:sprintf(strBuf,"inform date %s\n",pg_current->info_P->date);
+krn_prinfo.c:sprintf(strBuf,"inform descrip %s\n",pg_current->info_P->descrip);
+krn_prinfo.c:	PrInfoParams(fp, blk_P->param_AP);
+krn_prinfo.c:	modelTableEntry = model[blk_P->model_index];
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:        if(displayFlag && graphics_mode && blk_P->blkPic_P == NULL)
+krn_prinfo.c:	if(displayFlag && blk_P->change_flag == 1)
+krn_prinfo.c:} while((blk_P = blk_P->pfsibling) != pgalaxy->pchild);
+krn_prinfo.c:	sprintf(string,"Parent:  %s\n", pb->pparent->name);
+krn_prinfo.c:	sprintf(string,"Name:  %s  (%s)\n", pb->name, NameTree(pb));
+krn_prinfo.c:if(pb->type == GTYPE)
+krn_prinfo.c:modelTableEntry = model[pb->model_index];
+krn_prinfo.c:if(pb->change_flag)
+krn_prinfo.c:if ((np = KrnParamCount(pb->param_AP)) == 0)
+krn_prinfo.c:		pptr = pb->param_AP[i];
+krn_prinfo.c:		def = pptr->def;
+krn_prinfo.c:		if(pptr->arg >= 0) {
+krn_prinfo.c:				i,def,pptr->arg);
+krn_prinfo.c:		switch (pptr->type) {
+krn_prinfo.c:				i,def, pptr->value.d);
+krn_prinfo.c:				i,def,pptr->value.f);
+krn_prinfo.c:				i,def,pptr->value.s);
+krn_prinfo.c:				i, def, pptr->value.s);
+krn_prinfo.c:				i, def, pptr->value.s);
+krn_prinfo.c:				i,def,pptr->array_size);
+krn_prinfo.c:			for(j=0; j<pptr->array_size; j++) {
+krn_prinfo.c:				*(((float *)pptr->value.s)+j) );
+krn_prinfo.c:	if (pb->inputs[i] == NULL)
+krn_prinfo.c:	else if(pb->inputs[i] == pb->pparent) {
+krn_prinfo.c:		j = pb->output_no[i];
+krn_prinfo.c:			i, j, pb->signalName[i]);
+krn_prinfo.c:			i, pb->inputs[i]->name,
+krn_prinfo.c:			model[pb->inputs[i]->model_index].name,
+krn_prinfo.c:			pb->output_no[i], pb->signalName[i]);
+krn_prinfo.c:	if(pb->outputs[i] == NULL)
+krn_prinfo.c:	else if(pb->outputs[i] == pb->pparent) {
+krn_prinfo.c:		j = pb->input_no[i];
+krn_prinfo.c:		if(pb->pparent->outputs[j] != NULL) {
+krn_prinfo.c:			k = pb->pparent->input_no[j];
+krn_prinfo.c:			signame = pb->pparent->outputs[j]->signalName[k];
+krn_prinfo.c:		j = pb->input_no[i];
+krn_prinfo.c:			i, pb->outputs[i]->name,
+krn_prinfo.c:			model[pb->outputs[i]->model_index].name,
+krn_prinfo.c:			j, pb->outputs[i]->signalName[j]);
+krn_prinfo.c:if((blk_P = pgalaxy->pchild) == NULL)
+krn_prinfo.c:	if(blk_P->inputs[i] == pgalaxy) {
+krn_prinfo.c:		sigName = blk_P->signalName[i];
+krn_prinfo.c:		inNum = blk_P->output_no[i];
+krn_prinfo.c:				inNum, blk_P->name, i, sigName);
+krn_prinfo.c:	if((inBlk_P = blk_P->outputs[i]) == NULL)
+krn_prinfo.c:	inNum = blk_P->input_no[i];
+krn_prinfo.c:		sigName = inBlk_P->signalName[inNum];
+krn_prinfo.c:			blk_P->name,i,inBlk_P->name,inNum,sigName);
+krn_prinfo.c:			blk_P->name,i,inNum, "");
+krn_prinfo.c:} while((blk_P = blk_P->pfsibling) != pgalaxy->pchild);
+krn_prinfo.c:	switch (pptr->type) {
+krn_prinfo.c:		if(pptr->exprFlag)
+krn_prinfo.c:			sprintf(string, "param int %s", pptr->express);
+krn_prinfo.c:			sprintf(string, "param int %d", pptr->value.d);
+krn_prinfo.c:		if(pptr->exprFlag)
+krn_prinfo.c:			sprintf(string, "param float %s", pptr->express);
+krn_prinfo.c:			sprintf(string, "param float %g", pptr->value.f);
+krn_prinfo.c:		sprintf(string, "param function %s", pptr->value.s);
+krn_prinfo.c:		sprintf(string, "param file %s", pptr->value.s);
+krn_prinfo.c:		sprintf(string, "param string \"%s\"", pptr->value.s);
+krn_prinfo.c:		sprintf(string, "param array %d", pptr->array_size);
+krn_prinfo.c:		for(i=0; i<pptr->array_size; i++) {
+krn_prinfo.c:				*((float *)(pptr->value.s)+i) );
+krn_prinfo.c:	if(pptr->arg >= 0) {
+krn_prinfo.c:				krn_argAssoc_A[pptr->arg]);
+krn_prinfo.c:				pptr->arg, string);
+krn_prinfo.c:	//if(displayFlag && (pdef = pptr->def) != NULL && *pdef != '\0')
+krn_prinfo.c:        if(1 && (pdef = pptr->def) != NULL && *pdef != '\0') {
+krn_prinfo.c:                pname=pptr->name;
+krn_prinfo.c:gmodel = &model[pgalaxy->model_index];
+krn_prinfo.c:if((np = KrnParamCount(gmodel->param_AP)) == 0) {
+krn_prinfo.c:	prinfo(fp,"arg -1 (none)\n\n");
+krn_prinfo.c:j= -1;
+krn_prinfo.c:	pp = gmodel->param_AP[i];
+krn_prinfo.c:	type = pp->type;
+krn_prinfo.c:		sprintf(string2,"int %d ", pp->value.d);
+krn_prinfo.c:		if(displayFlag && pgalaxy->param_AP[i] != NULL) {
+krn_prinfo.c:				pgalaxy->param_AP[i]->value.d);
+krn_prinfo.c:		sprintf(string2,"float %g ", pp->value.f);
+krn_prinfo.c:		if(displayFlag && pgalaxy->param_AP[i] != NULL) {
+krn_prinfo.c:				pgalaxy->param_AP[i]->value.f);
+krn_prinfo.c:		sprintf(string2,"file %s ", pp->value.s);
+krn_prinfo.c:		if(displayFlag && pgalaxy->param_AP[i] != NULL) {
+krn_prinfo.c:				pgalaxy->param_AP[i]->value.s);
+krn_prinfo.c:		sprintf(string2,"string \"%s\" ", pp->value.s);
+krn_prinfo.c:		if(displayFlag && pgalaxy->param_AP[i] != NULL) {
+krn_prinfo.c:				pgalaxy->param_AP[i]->value.s);
+krn_prinfo.c:	if(pp->def != NULL && *(pp->def) != '\0') {
+krn_prinfo.c:		sprintf(string2,"\"%s\"", pp->def);
+krn_prinfo.c:		sprintf(string, "%-12s  ", model[i].name);
+krn_prinfo.c:	code -= 1000;
+krn_prinfo.c:if(*line && *(t = line+strlen(line)-1) == '\n')
+krn_prinfo.c:{68,	"can not name inputs or outputs--go to higher level"},
+krn_prinfo.c:{1000,	"star '%s' returned non-zero error code"},
+krn_prinfo.c:if((blk_P = pgalaxy->pchild) == NULL)
+krn_prinfo.c:	if(blk_P->inputs[i] == NULL)
+krn_prinfo.c:       if((connPic_P = blk_P->inConn_AP[i]) == NULL) {
+krn_prinfo.c:        if(connPic_P->termType == -1 || connPic_P->auxFlag ==
+krn_prinfo.c:                sigName = blk_P->sig_name[i];
+krn_prinfo.c:                inNum = blk_P->output_no[i];
+krn_prinfo.c:                if(connPic_P->auxFlag == BBOX_CONN_INPUT_TERMINAL) {
+krn_prinfo.c:                                inTermCount, blk_P->name, i, sigName);
+krn_prinfo.c:                                inNum, blk_P->name, i, sigName);
+krn_prinfo.c:	if(blk_P->outputs[i] == NULL)
+krn_prinfo.c:        if((connPic_P = blk_P->outConn_AP[i]) == NULL) {
+krn_prinfo.c:	if((inBlk_P = blk_P->outputs[i]) == NULL)
+krn_prinfo.c:	inNum = blk_P->input_no[i];
+krn_prinfo.c:        if(connPic_P->auxFlag == BBOX_CONN_IN) {
+krn_prinfo.c:                sigName = inBlk_P->sig_name[inNum];
+krn_prinfo.c:                        blk_P->name,i,inBlk_P->name,inNum,sigName);
+krn_prinfo.c:        else if (connPic_P->auxFlag == BBOX_CONN_OUTPUT_TERMINAL) {
+krn_prinfo.c:                        blk_P->name,i,outTermCount, "");
+krn_prinfo.c:} while((blk_P = blk_P->pfsibling) != pgalaxy->pchild);
+krn_prinfo.c:blk_P = galaxy_P->pchild;
+krn_prinfo.c:modelTableEntry = model[galaxy_P->model_index];
+krn_prinfo.c:if ( galaxy_P->info_P) {
+krn_prinfo.c:prinfo(fp,"#--------------------------------------------------- \n");
+krn_prinfo.c:sprintf(strBuf,"# Title: %s \n",pg_current->info_P->title);
+krn_prinfo.c:sprintf(strBuf,"# Author: %s \n",pg_current->info_P->author);
+krn_prinfo.c:sprintf(strBuf,"# Date: %s \n",pg_current->info_P->date);
+krn_prinfo.c:sprintf(strBuf,"# Description: %s \n",pg_current->info_P->descrip);
+krn_prinfo.c:prinfo(fp,"#--------------------------------------------------- \n");
+krn_prinfo.c:sprintf(strBuf,"inform title \"%s\" \n",pg_current->info_P->title);
+krn_prinfo.c:sprintf(strBuf,"inform author \"%s\" \n",pg_current->info_P->author);
+krn_prinfo.c:sprintf(strBuf,"inform date \"%s\" \n",pg_current->info_P->date);
+krn_prinfo.c:sprintf(strBuf,"inform descrip \"%s\" \n",pg_current->info_P->descrip);
+krn_prinfo.c:	if(blk_P->selectFlag == FALSE) 
+krn_prinfo.c:	PrInfoParams(fp, blk_P->param_AP);
+krn_prinfo.c:	modelTableEntry = model[blk_P->model_index];
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:			blk_P->name, modelTableEntry.name);
+krn_prinfo.c:	if(displayFlag && blk_P->change_flag == 1)
+krn_prinfo.c:} while((blk_P = blk_P->pfsibling) != galaxy_P->pchild );
+krn_run.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_run.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_run.c:if(pgalaxy->blkType != KRN_BLOCK_TYPE_SPICE) 
+krn_run.c:   while(pgalaxy->type != UTYPE)
+krn_run.c:	pgalaxy = pgalaxy->pparent;
+krn_run.c:pblock = pgalaxy->pchild;
+krn_run.c:		if(pblock->inputs[i] == NULL)
+krn_run.c:		if((pblock->inputs[i] == pgalaxy) && (pgalaxy->blkType !=
+krn_run.c:		if(pblock->outputs[i] == NULL)
+krn_run.c:		if((pblock->outputs[i] == pgalaxy) && (pgalaxy->blkType !=
+krn_run.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_run.c:if((pb_unsched = pgalaxy->pchild) == NULL)
+krn_run.c:				pb_unsched = pblock->pfsibling;
+krn_run.c:			if(pblock->type == GTYPE && pblock->blkType != KRN_BLOCK_TYPE_SPICE)
+krn_run.c:	} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_run.c:	if((pblock_from = pblock->inputs[in_no]) == NULL)
+krn_run.c:	} while((ptemp = ptemp->pfsibling) != pblock->pparent->pchild);
+krn_run.c:	if((pblock_from = pblock->inputs[in_no]) == NULL)
+krn_run.c:	if(pblock_from == pblock->pparent)
+krn_run.c:	ptemp = pblock->pparent->pchild;
+krn_run.c:		ptemp = ptemp->pfsibling;
+krn_run.c:pblock = pgalaxy->pchild;
+krn_run.c:	if (pblock->type == GTYPE ) {
+krn_run.c:		if(pblock->blkType != KRN_BLOCK_TYPE_SPICE) {
+krn_run.c:			(*(pblock->function))(status,pblock);
+krn_run.c:		/* error if STAR returns non-zero */
+krn_run.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_run.c:	pblock = pgalaxy->pchild;
+krn_run.c:		if(pblock->type == GTYPE) {
+krn_run.c:			if(!first_pass && pblock->inputs[0] == NULL)
+krn_run.c:			star_P = pblock->star_P;
+krn_run.c:				(*(pblock->function))(status,pblock);
+krn_run.c:	} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_run.c:if((pblock = pgalaxy->pchild) == NULL) {
+krn_run.c:	if(pblock->type == GTYPE)
+krn_run.c:} while((pblock = pblock->pfsibling) != pgalaxy->pchild);
+krn_run.c:This function initializes one (star-type) block.
+krn_run.c:if(pblock->star_P->state_P != NULL) {
+krn_run.c:	free(pblock->star_P->state_P);
+krn_run.c:	pblock->star_P->state_P = NULL;
+krn_run.c:	if(pblock->star_P->inBuffer_P[i] != NULL) {
+krn_run.c:		FreeBuffer(pblock->star_P->inBuffer_P[i]);
+krn_run.c:		pblock->star_P->inBuffer_P[i] = NULL;
+krn_run.c:	if(pblock->star_P->outBuffer_P[i] != NULL)
+krn_run.c:		pblock->star_P->outBuffer_P[i] = NULL;
+krn_run.c:pblock->star_P->numberInBuffers = 0;
+krn_run.c:pblock->star_P->numberOutBuffers = 0;
+krn_star.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_star.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_star.c:		index = model_count-1;
+krn_star.c:strcpy(pblock->name, starname);
+krn_star.c:pblock->model_index = index;
+krn_star.c:pblock->type = STYPE;
+krn_star.c:pblock->function = model[index].function;
+krn_star.c:	pblock->change_flag = 1;
+krn_star.c:pblock->star_P = CreateStar();
+krn_star.c:	(*(pblock->function)) (PARAM_INIT,pblock);
+krn_star.c:pblock->model_index = index;
+krn_star.c:pblock->type = GTYPE;
+krn_star.c:strcpy(pblock->name, galaxy_name);
+krn_star.c:	pblock->change_flag = 1;
+krn_star.c:pg_current = pblock->pparent;
+krn_star.c:	strcpy(pblock->name, blkname);
+krn_star.c:	pblock->model_index = index;
+krn_star.c:	pblock->change_flag = 1;
+krn_star.c:	if(pblock->type = GTYPE)
+krn_star.c:		pblock->star_P = CreateStar();
+krn_star.c:	pblock->type = STYPE;
+krn_star.c:	pblock->function = model[index].function;
+krn_star.c:		(*(pblock->function)) (PARAM_INIT,pblock);
+krn_star.c:		KrnFreeParam(&pblock->param_AP[i]);
+krn_star.c:	strcpy(pblock->name, blkname);
+krn_star.c:	pblock->model_index = index;
+krn_star.c:	pblock->change_flag = 1;
+krn_star.c:	pblock->type = GTYPE;
+krn_star.c:		KrnFreeParam(&pblock->param_AP[i]);
+krn_star.c:	pg_current = pblock->pparent;
+krn_star.c:pstar->numberInBuffers = 0;
+krn_star.c:pstar->numberOutBuffers = 0;
+krn_star.c:pstar->state_P = NULL;
+krn_star.c:pstar->inBuffer_P[input_no] = pbuffer;
+krn_star.c:pstar->signalName[input_no] = signal_name;
+krn_star.c:(pstar->numberInBuffers)++;
+krn_star.c:pstar->outBuffer_P[output_no] = pbuffer;
+krn_star.c:(pstar->numberOutBuffers)++;
+krn_star.c:if((no_buffers = pstar->numberInBuffers) == 0)
+krn_star.c:min = BufferLength(pstar->inBuffer_P[0]);
+krn_star.c:	if(min > (len = BufferLength(pstar->inBuffer_P[i])))
+krn_starload.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_starload.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_starload.c:if(*(filename + strlen(filename) - 1) != '.')
+krn_starload.c:ftype = *(filename + strlen(filename) - 1);
+krn_starload.c:*(filename + strlen(filename) - 1) = 's';
+krn_starload.c:*(filename + strlen(filename) -1) = 'c';
+krn_starload.c:*(filename + strlen(filename) -1) = 'o';
+krn_starload.c:	*(cresult + strlen(cresult) - 1) = 'c';
+krn_starload.c:	sprintf(scratch, "cc -c -g -I%s %s\n",CAPSIM_PATH, cresult);
+krn_starload.c:	*(oresult + strlen(oresult) - 1) = 'o';
+krn_starload.c:	/* This is necessary because -c flag always puts the object*/
+krn_starload.c:	non-0 if not.
+krn_starload.c:if (header->a_bss != 0)
+krn_starload.c:total_size = header->a_text + header->a_data;
+krn_starload.c:/* Allocate the space, page-aligned */
+krn_starload.c:/* Caveat -- only the math library is included! */
+krn_starload.c:sprintf(command,"ld -A %s -T %x -N -o %s %s -lm -lc",
+krn_sys_calls.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_sys_calls.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_sys_calls.c:This dummy function is called once from main -- it simply serves to
+krn_sys_calls.c:	 * for mu-law quantizer
+krn_traverse.c:    Copyright (C) 1989-2002  XCAD Corporation 
+krn_traverse.c:    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+krn_traverse.c:        ErrorPrint(" B-Cubed line command error", err);
+krn_traverse.c:blk_P=blk_P->pchild;
+krn_traverse.c:                blkCurrent_P = blkCurrent_P->pfsibling;
+krn_traverse.c:        blkCurrent_P = blkCurrent_P->pfsibling;
+krn_traverse.c:	if(blkCurrent_P->type==GTYPE) {
+krn_traverse.c:while(blkGal_P->pparent != NULL) {
+krn_traverse.c:          blkGal_P = blk_P->pparent;
+krn_traverse.c:while(blkGal_P->pparent != NULL) {
+krn_traverse.c:          blkGal_P = blk_P->pparent;
+krn_traverse.c:fprintf(fp,"2.0    996.0 -1 %s\n",blkGal_P->name);
+krn_traverse.c:blk_P=blk_P->pchild;
+krn_traverse.c:        blkCurrent_P = blkCurrent_P->pfsibling;
+krn_traverse.c:xblk= x - width/2.0;
+krn_traverse.c:yblk= y-DELTA_Y-galNumber*DELTA_GAL;
+krn_traverse.c:        blkCurrent_P = blkCurrent_P->pfsibling;
+krn_traverse.c:	if((blkCurrent_P->type==GTYPE && !starFlag) || starFlag) {
+krn_traverse.c:		fprintf(fp,"%e %e -1 %s\n",xText,yText,blkCurrent_P->name);
+krn_traverse.c:	if(blkCurrent_P->type==GTYPE) {
+krn_traverse.c:        blkCurrent_P = blkCurrent_P->pfsibling;

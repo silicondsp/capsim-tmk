@@ -1,0 +1,178 @@
+#
+# Precapsim shell script
+#
+# written by Sasan H. Ardalan
+# June 6, 1989.
+#
+# usage: precapsim flag star1 star2 star3 ...
+# where flag is one of the following:
+#
+#  no flag: stargaze and compile each star and add to library. 
+#	    Create custom capsim with stars included.
+#  -s:	    stargaze and compile only.
+#  -a: 	    add star object file  to library and create custom capsim
+#  -l:	    link only. Creates custom capsim.
+#  -d:	    delete the stars.
+#  -dl:	    delete the stars and create custom capsim
+#
+# Note: stars should not have suffix. Example,
+# 	precapsim -s add mixer filter
+#
+set CAPSIM=..
+
+set CC = gcc
+set delFlag = 0
+set gazeOnlyFlag = 0
+set addFlag = 0
+set SUBS =  
+echo $CAPSIM
+#
+# check to see if sm.dat present. If not copy it from $CAPSIM/STARS
+#
+if (-e sm.dat) then
+else
+        echo Since star data base does not exist it will be copied
+        echo from the STARS directory
+        cp $CAPSIM/STARS/sm.dat .
+endif
+
+#
+# check to see if krn_starlib.c is  present. If not create it.
+#
+if (-e krn_starlib.c ) then
+else
+        echo Creating krn_starlib.c
+        perl $CAPSIM/TOOLS/starmaint.pl g 
+endif
+
+
+
+#
+# check to see if libstar.a is  present. If it is not create an empty one 
+#
+if (-e libstar.a ) then
+	set LIBSTAR=libstar.a
+else
+	set LIBSTAR=
+endif
+
+#
+# check to see if SUBS directory is  present. If not 
+# make it and copy contents of  $CAPSIM/TOOLS/SUBS to it.
+#
+if (-e SUBS) then
+else
+        echo Since SUBS dircetory does not exist  it will be created
+        echo and files copied to it 
+        mkdir SUBS
+       cp $CAPSIM/TOOLS/SUBS/* SUBS/.
+endif
+
+#
+# check to see if  Makefile is present. If not copy it. 
+#
+if (-e Makefile ) then
+else
+        echo  Makefile will be copied
+       echo cp $CAPSIM/TOOLS/Makefile .
+       cp $CAPSIM/TOOLS/Makefile .
+endif
+
+
+#
+# check to make sure no .s extentions are used
+# also check to see if star source exists
+#
+foreach i ($argv)
+	if("$i" =~ *.s) then
+	    echo \.s extension not allowed in $i.
+	    exit
+	endif
+	if(("$i" !~ -*)&&("$i" !~ *.[oa])) then
+	 	if( !( -e $i.s) ) then
+		      echo The star source $i.s does not exist!
+		      exit
+		endif
+	endif
+	if("$i" =~ *.[oa]) then
+		set SUBS = "$SUBS"' '$i
+		echo $SUBS
+	endif
+
+end
+
+foreach i ($argv)
+
+    switch ($i)
+	case -l:
+		echo link only 
+		set gazeOnlyFlag=0
+		breaksw
+	case -s:
+		echo stargaze and compile only 
+		set gazeOnlyFlag=1
+		breaksw
+	case -d:
+		echo delete stars 
+		set gazeOnlyFlag=1
+		set delFlag = 1
+		breaksw
+
+	case -dl:
+		echo delete stars and link 
+		set delFlag = 1
+		breaksw
+
+	case -a:
+		echo add star object file to library and link 
+		set addFlag = 1
+		breaksw
+	
+	default:
+		if( ($i =~ -*) ) then
+		    echo Bad flag: $i
+		    exit
+		endif
+		if( $i =~ *.[ao]) then
+			echo also linking to: $i 
+			breaksw
+		endif 
+		if($delFlag == 1) then 
+			echo $CAPSIM/TOOLS/starmaint delete $i
+			perl $CAPSIM/TOOLS/starmaint.pl d $i
+			ar dv libstar.a $i.o
+			ranlib libstar.a
+			breaksw
+		endif
+		
+		if ($addFlag != 1) then
+		   perl $CAPSIM/TOOLS/stargazem.pl $i.s
+		   echo $CC -g -c $i.c
+		   $CC -g -c  $i.c
+		   if ( $status ) then
+			echo C compilation errors in $1.c
+			exit
+		   endif
+		endif
+
+		if($gazeOnlyFlag != 1) then
+			perl $CAPSIM/TOOLS/starmaint.pl a $i
+			ar rv libstar.a $i.o
+			ranlib libstar.a
+			/bin/rm $i.c $i.o
+			set LIBSTAR=libstar.a
+		endif
+		breaksw
+     endsw
+end
+
+if($gazeOnlyFlag != 1) then
+	set LDFLAGS=(    -lm)
+	$CC -g  -c  krn_starlib.c
+	echo creating custom capsim "->capsimtmk"
+	$CC  -o capsimtmk -g krn_starlib.o \
+	$CAPSIM/LIBS/libkrn.a   $LIBSTAR  $SUBS   $CAPSIM/STARS/libstar.a $CAPSIM/LIBS/libsubs.a $CAPSIM/LIBS/libfxsubs.a  $LDFLAGS
+	chmod +x capsimtmk
+endif
+
+

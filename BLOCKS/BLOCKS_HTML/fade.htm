@@ -1,0 +1,1148 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+
+
+fade 
+
+
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+
+
+fade 
+
+
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+This star models multipath fading channels for mobile radio applications.
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Output Connections<a name="outputs"></a> </span>
+  </caption>
+  <tr>
+   <th width="45" scope="col">Port</th>
+    <th width="201" scope="col">Type</th>
+    <th width="500" scope="col">Name</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    inPhase
+    
+    </td>
+    <td>
+    
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    quadPhase
+    
+    </td>
+    <td>
+    
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of points (preferably a power of 2)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    npts
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Doppler Spectrum, only Ez supported at this time.
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    type
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    Sampling Rate
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    fs
+    
+    </td>
+    <td>
+    
+    1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    Carrier frequency
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    fc
+    
+    </td>
+    <td>
+    
+    1000e6
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    Vehicle Velocity, m/s
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    v
+    
+    </td>
+    <td>
+    
+     0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    Power
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    p
+    
+    </td>
+    <td>
+    
+     1.0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+    Array of multipath delays microsec: number_of_paths t0 t1  ... 
+    
+    </td>
+    <td>
+    
+    array
+    
+    </td>
+    <td>
+    
+    delays
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+    Array of multipath powers: number_of_paths p0 p1  ... 
+    
+    </td>
+    <td>
+    
+    array
+    
+    </td>
+    <td>
+    
+    powers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+    Number of Plane Waves arriving plane waves, N where N >=34
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    numberArrivals
+    
+    </td>
+    <td>
+    
+    40
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    inbufs
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftl
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    fftexp
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    fftBuffer_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    inputBuffer_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    outputBuffer_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    inSampleCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    samplesOutput
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    float
+    
+    </td>
+    <td>
+    
+    wd
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int numberOfSamples;
+	int i,j;
+	float fd, lambda;
+	double er,ei;
+	float arg;
+	float t;
+	float env;
+	float tsin,tcos;
+	int	samples;
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	inbufs = NO_INPUT_BUFFERS();
+	/*
+ 	 * extract the exponent in npts=2**fftexp 
+         */
+        fftexp = (int) (log((float)npts)/log(2.0)+0.5);
+        fftl = 1 << fftexp;
+        if (fftl > npts ) {
+                    fftl = fftl/2;
+                    fftexp -= 1;
+        }
+	if (n_delays == 0 )
+	{
+		fprintf(stderr,"fade: number of delays must be >= 1 \n");
+		return(1);
+	}
+	if (n_delays != n_powers)
+	{
+		fprintf(stderr,"fade: number of delays dont match powers \n");
+		return(2);
+	}
+	if ((fftBuffer_P = (float*)calloc(2*fftl,sizeof(float))) == NULL)
+	{
+		fprintf(stderr,"fade: can't allocate work space \n");
+		return(3);
+	}
+	if ((inputBuffer_P = (float*)calloc(2*fftl,sizeof(float))) == NULL)
+	{
+		fprintf(stderr,"fade: can't allocate work space \n");
+		return(4);
+	}
+	if ((outputBuffer_P = (float*)calloc(2*fftl,sizeof(float))) == NULL)
+	{
+		fprintf(stderr,"fade: can't allocate work space \n");
+		return(5);
+	}
+	/*
+	 * calculate maximum doppler shift
+ 	 */
+	lambda= 3.e8/fc;
+	fd= v/lambda;
+	wd=2*PI*fd;
+	inSampleCount=0;
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/*
+ * Output computed complex samples in chunks of 128 samples
+ * This is done after fftl number of samples have been input and processed.
+ */
+if(inSampleCount >= fftl) {
+     if(samplesOutput >= fftl) return(0);
+     for(i=0; i < 128; i++) {
+	    samples=samplesOutput;
+	    if(IT_OUT(0) ){
+		KrnOverflow("fade",0);
+		return(99);
+	    }
+	    if(IT_OUT(1)) {
+		KrnOverflow("fade",1);
+		return(99);
+	    }
+	    inPhase(0) = outputBuffer_P[2*samples]/fftl;
+	    quadPhase(0) = outputBuffer_P[2*samples+1]/fftl;
+	    samplesOutput++;
+     }
+     return(0);
+}
+/*
+ * input the samples. Collect fftl number of samples before processing
+ */
+for (numberOfSamples = MIN_AVAIL(); numberOfSamples > 0; --numberOfSamples) {
+
+      IT_IN(0);
+      IT_IN(1);
+      /*
+       * store samples in inputBuffer_P
+       */
+      inputBuffer_P[2*inSampleCount] = INF(0,0);
+      inputBuffer_P[2*inSampleCount+1] = INF(1,0);
+      /*
+       * keep track of the number of samples inputted up this point
+       */
+      inSampleCount++;
+      if(inSampleCount == fftl) {
+	/*
+	 * fftl number of samples collected. 
+	 * Compute fading channel amplitude. 
+	 * Compute n_delays, the number of multipaths,  independent amplitudes.
+	 * This done my chnage the phase by an offset. See Jakes(1974).
+	 */
+        for(j=0; j< n_delays; j++) {
+	   for(samples=0; samples < inSampleCount; samples++) {
+	      t=(float)samples/fs;
+	      /*
+	       * Compute complex mobile fading channel amplitude
+	       */
+	      er=0.0;
+	      ei=0.0;
+	      for(i=0; i<numberArrivals/2; i++) {
+		 /*
+		  * note the term (i+2*j)
+		  * This poduces (hopefully) independent amplitues for
+		  * different j's where j is the multipath number.
+		  * ri(t) = er + j*ei
+		  */
+	         arg = wd*t*cos(2*PI*(float)i/numberArrivals) + PI*((float)(i+2*j)/numberArrivals);
+	         er=er + cos(arg);
+	         ei=ei + sin(arg);
+	      }
+	      /*
+	       * powers[j] are the relative powers for each multipath
+	       */	
+	      er= sqrt(2.0*p*powers[j]/numberArrivals) * er;
+	      ei = sqrt(2.0*p*powers[j]/numberArrivals) * ei;
+	      /*
+	       * form u(t)*ri(t). Store in fft buffer to be transformed
+	       * into the frequency domain.
+	       * note  that u(t) is stored in inputBuffer_P.
+	       */
+	      fftBuffer_P[2*samples] = er*inputBuffer_P[2*samples] - 
+					ei*inputBuffer_P[2*samples+1]; 
+	      fftBuffer_P[2*samples+1] = ei*inputBuffer_P[2*samples] + 
+					er*inputBuffer_P[2*samples+1]; 
+	   }
+	   /*
+	    * Transform into the frequency domain
+	    */
+	   cxfft(fftBuffer_P,&fftexp);
+	      
+	   /*
+	    * incorporate delay by multiplying Yi(f) by
+	    * exp { -j2Pi(fc +f)ti} where the ti are stored in
+	    * delays[i].
+	    * Also add all paths.
+	    */
+	   for(samples=0; samples < inSampleCount; samples++) {
+	       arg = 2*PI*(fc+(float)samples*fs/(float)inSampleCount)*1.e-6*delays[j];
+	       tcos=cos(arg);
+	       tsin = -sin(arg);
+	    
+	       outputBuffer_P[2*samples] += tcos*fftBuffer_P[2*samples] -
+			tsin*fftBuffer_P[2*samples+1];
+	       outputBuffer_P[2*samples+1] += - (tsin*fftBuffer_P[2*samples] +
+			tcos*fftBuffer_P[2*samples+1]);
+	   }
+	}
+	/*
+	 * convert to time domain
+	 */
+	cxifft(outputBuffer_P,&fftexp);
+      }
+}
+return(0);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	/* 
+	 * free up allocated space	
+	 */
+	free((char*)fftBuffer_P);
+	free((char*)inputBuffer_P);
+	free((char*)outputBuffer_P);
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* fade.s */
+/***********************************************************************
+                             fade()
+************************************************************************
+This star models multipath fading channels for mobile radio
+applications.
+The star accepts a complex baseband equivalent input and produces 
+complex baseband equivalent samples. 
+The method is based on William C. Jakes, "Microwave Mobile Communications," 
+John Wiley & Sons, 1974 in particular pp. 13-65.
+Multipath is modeled using the technique presented by Nader Farahati, 
+"A Software Multipath Fading Channel Simulator", Technophone Limited,
+July 1989. Nader Farahati is now with Scientific Generics, Cambridge
+U.K. Each multipath is associated with a time delay. The time
+delays are incorporated by transforming the problem into the frequency
+domain.
+This star first reads all samples, u(t), at its input. It then multiplies the
+complex input samples by the complex fading channel amplitude with
+doppler shift for path i,
+ri(t),  and transforms them into the frequency domain, Yi(f). 
+The various delays are
+incorporated by multiplying the frequency domain data, Yi(f), by
+exp{-2PIj(fc+f)ti} where fc is the carrier frequency, f is the
+frequency, and ti is the time delay of the ith multipath.
+The various multipaths with independent fading channel amplitudes are
+added in the frequency domain and transformed back into the time domain.
+The star then outputs the complex data as two channels ( in-phase and
+quad-phase) in 128 sample chunks. This helps in limiting the size of
+buffers. 
+Note that other doppler spectrums and Rician distributions will be
+supported later. The star can easily be changed.
+<NAME>
+fade
+</NAME>
+<DESCRIPTION>
+This star models multipath fading channels for mobile radio
+applications.
+The star accepts a complex baseband equivalent input and produces 
+complex baseband equivalent samples. 
+The method is based on William C. Jakes, "Microwave Mobile Communications," 
+John Wiley & Sons, 1974 in particular pp. 13-65.
+Multipath is modeled using the technique presented by Nader Farahati, 
+"A Software Multipath Fading Channel Simulator", Technophone Limited,
+July 1989. Nader Farahati is now with Scientific Generics, Cambridge
+U.K. Each multipath is associated with a time delay. The time
+delays are incorporated by transforming the problem into the frequency
+domain.
+This star first reads all samples, u(t), at its input. It then multiplies the
+complex input samples by the complex fading channel amplitude with
+doppler shift for path i,
+ri(t),  and transforms them into the frequency domain, Yi(f). 
+The various delays are
+incorporated by multiplying the frequency domain data, Yi(f), by
+exp{-2PIj(fc+f)ti} where fc is the carrier frequency, f is the
+frequency, and ti is the time delay of the ith multipath.
+The various multipaths with independent fading channel amplitudes are
+added in the frequency domain and transformed back into the time domain.
+The star then outputs the complex data as two channels ( in-phase and
+quad-phase) in 128 sample chunks. This helps in limiting the size of
+buffers. 
+Note that other doppler spectrums and Rician distributions will be
+supported later. The star can easily be changed.
+</DESCRIPTION>
+<PROGRAMMERS>
+Programmer: 	Sasan Ardalan	
+Date: 		Dec. 27, 1990
+</PROGRAMMERS>
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+

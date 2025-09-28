@@ -1,0 +1,6 @@
+star=channelest
+type=processor
+buffer=complex
+parameters
+1
+int;numberCarriers;64;Number of Carriers (Size of FFT)

@@ -1,0 +1,1263 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<title>
+
+scattertxt
+
+</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {
+	font-size: x-large;
+	font-weight: bold;
+}
+.style5 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body>
+
+<h1>
+
+scattertxt
+
+<a name="top"></a></h1>
+<p><a href="http://www.xcad.com">Capsim</a> Block Documentation </p>
+<ul>
+  <li><a href="#license">License</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#inputs">Input Connections</a></li>
+  <li><a href="#outputs">Output Connections</a></li>
+  <li><a href="#parameters">Parameters</a></li>
+  <li><a href="#Results">Result Variables</a></li>
+  <li><a href="#states">States</a></li>
+  <li><a href="#declarations">Declarations</a></li>
+  <li><a href="#initialization">Initialization Code</a></li>
+  <li><a href="#maincode">Main Code</a></li>
+  <li><a href="#wrapup">Wrapup Code</a></li>
+</ul>
+
+
+
+
+
+<h2>Short Description</h2><P>
+
+
+Scatter Probe
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  Parameters<a name="parameters"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>
+    <th width="373" scope="col">Description</th>
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Default Value </th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+    Number of points ( dynamic plot window)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    npts
+    
+    </td>
+    <td>
+    
+    128
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+    Number of points to skip
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    skip
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+    Title
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    title
+    
+    </td>
+    <td>
+    
+    Scatter
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+    x Axis
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    x_axis
+    
+    </td>
+    <td>
+    
+    X
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+    y Axis
+    
+    </td>
+    <td>
+    
+    file
+    
+    </td>
+    <td>
+    
+    y_axis
+    
+    </td>
+    <td>
+    
+    Y
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+    Plot Style: 1=Line,2=Points,5=Bar Chart
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    plotStyleParam
+    
+    </td>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+    Fixed Bounds ( 0=none, 1=fixed)
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    fixed
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+    Minimum x
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    minx
+    
+    </td>
+    <td>
+    
+     -1.2
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+    Maximum x
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    maxx
+    
+    </td>
+    <td>
+    
+      1.2
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    9
+    
+    </td>
+    <td>
+    
+    Minimum y
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    miny
+    
+    </td>
+    <td>
+    
+     -1.2
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    10
+    
+    </td>
+    <td>
+    
+    Maximum y
+    
+    </td>
+    <td>
+    
+    float
+    
+    </td>
+    <td>
+    
+    maxy
+    
+    </td>
+    <td>
+    
+      1.2
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    11
+    
+    </td>
+    <td>
+    
+    Marker type:0=dot,1=O,2=+,3=X,4=*,5=square,6=diamond,7=triangle
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    markerType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    12
+    
+    </td>
+    <td>
+    
+    Control: 1=On, 0=Off
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    control
+    
+    </td>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    13
+    
+    </td>
+    <td>
+    
+    Buffer type:0= Float,1= Complex, 2=Integer
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    bufferType
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    14
+    
+    </td>
+    <td>
+    
+    0=Static,1=Dynamic
+    
+    </td>
+    <td>
+    
+    int
+    
+    </td>
+    <td>
+    
+    mode
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<table width="746" border="1" cellspacing="1" cellpadding="1">
+  <caption>
+  <span class="style3">  States<a name="states"></a> </span>
+  </caption>
+  <tr>
+    <th width="58" scope="col">Num</th>    
+    <th width="80" scope="col">Type</th>
+    <th width="98" scope="col">Name</th>
+    <th width="109" scope="col">Initial Value </th>
+    <th width="373" scope="col">Description</th>
+  </tr>
+
+  
+
+
+ <tr>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberInputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    1
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    numberOutputBuffers
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    2
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    xx_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    3
+    
+    </td>
+    <td>
+    
+  
+    float*
+    
+    </td>
+    <td>
+    
+    yy_P
+    
+    </td>
+    <td>
+    
+    
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    4
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    count
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    5
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    totalCount
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    6
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    displayed
+    
+    </td>
+    <td>
+    
+    FALSE
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    7
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    blockOff
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+ <tr>
+    <td>
+    
+    8
+    
+    </td>
+    <td>
+    
+  
+    int
+    
+    </td>
+    <td>
+    
+    bufi
+    
+    </td>
+    <td>
+    
+    0
+    
+    </td>
+    <td>
+    
+      
+    
+    </td>
+     </tr>
+    
+ 
+
+
+
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Declarations<a name="declarations"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+ 
+
+	int samples;
+    	int i,j;
+	int operState;
+	FILE* file_F;
+	complex	val;
+	char	fname[100];
+	char curveTitle[80];
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Initialization Code<a name="initialization"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+	/* 
+	 * store as state the number of input/output buffers 
+ 	 */
+	if((numberInputBuffers = NO_INPUT_BUFFERS()) <= 0) {
+		fprintf(stderr,"scatter: no inputs connected\n");
+		return(2);
+	}
+	if((numberOutputBuffers = NO_OUTPUT_BUFFERS()) > numberInputBuffers) {
+		fprintf(stderr,"scatter: too many outputs connected\n");
+		return(3);
+	}
+	if(numberInputBuffers > 2) {
+		fprintf(stderr,"scatter: too many inputs connected\n");
+		return(3);
+	}
+	if(control && mode == DYNAMIC) {
+		/*
+		 * allocate arrays
+		 */
+		xx_P = (float* )calloc(npts,sizeof(float));
+		if(xx_P == NULL) {
+			fprintf(stderr,"Could not allocate space in scatter\n");
+			return(4);
+		}
+		yy_P = (float* )calloc(npts,sizeof(float));
+		if(yy_P == NULL) {
+			fprintf(stderr,"Could not allocate space in scatter\n");
+			return(4);
+		}
+	} else if(control && mode == STATIC) {
+		/*
+		 * allocate arrays
+		 */
+		xx_P = (float* )calloc(BLOCK_SIZE,sizeof(float));
+		if(xx_P == NULL) {
+			fprintf(stderr,"Could not allocate space in scatter\n");
+			return(4);
+		}
+		yy_P = (float* )calloc(BLOCK_SIZE,sizeof(float));
+		if(yy_P == NULL) {
+			fprintf(stderr,"Could not allocate space in scatter\n");
+			return(4);
+		}
+	}
+    	count = 0;
+	totalCount = 0;
+	switch(bufferType) {
+		case COMPLEX_BUFFER: 
+			SET_CELL_SIZE_IN(0,sizeof(complex));
+			if(numberOutputBuffers == 1)
+				SET_CELL_SIZE_IN(0,sizeof(complex));
+			break;
+		case FLOAT_BUFFER: 
+			if(numberInputBuffers == 1) {
+				SET_CELL_SIZE_IN(0,sizeof(float));
+				if(numberOutputBuffers == 1)
+				   SET_CELL_SIZE_OUT(0,sizeof(float));
+			}
+			else {
+				SET_CELL_SIZE_IN(0,sizeof(float));
+				SET_CELL_SIZE_IN(1,sizeof(float));
+				if(numberOutputBuffers == 2) {
+				   SET_CELL_SIZE_OUT(0,sizeof(float));
+				   SET_CELL_SIZE_OUT(1,sizeof(float));
+				}
+			}
+			break;
+		case INTEGER_BUFFER: 
+			if(numberInputBuffers == 1) {
+				SET_CELL_SIZE_IN(0,sizeof(int));
+				if(numberOutputBuffers == 1)
+				   SET_CELL_SIZE_OUT(0,sizeof(int));
+			}
+			else {
+				SET_CELL_SIZE_IN(0,sizeof(int));
+				SET_CELL_SIZE_IN(1,sizeof(int));
+				if(numberOutputBuffers == 2) {
+				    SET_CELL_SIZE_OUT(0,sizeof(int));
+				    SET_CELL_SIZE_OUT(1,sizeof(int));
+				}
+			}
+			break;
+		default: 
+			fprintf(stderr,"Bad buffer type specified in scatter \n");
+			return(5);
+			break;
+	}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Main Code<a name="maincode"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+
+	for(samples = MIN_AVAIL(); samples > 0; --samples) {
+
+
+
+
+		   for(i=0; i<numberInputBuffers; ++i) {
+	   		IT_IN(i);
+			if(numberOutputBuffers > i) {
+				if(IT_OUT(i)) {
+					KrnOverflow("scatter",i);
+					return(99);
+				}
+				switch(bufferType) {
+					case COMPLEX_BUFFER:
+	 					OUTCX(i,0) = INCX(i,0);
+						break;
+					case INTEGER_BUFFER:
+	 					OUTI(i,0) = INI(i,0);
+						break;
+					case FLOAT_BUFFER:
+	 					OUTF(i,0) = INF(i,0);
+						break;
+				}
+			}
+	        }
+
+		if(++totalCount > skip && control) {
+                	if(mode == STATIC) 
+				count = blockOff + bufi;
+			bufi++;
+		if (bufi == BLOCK_SIZE && mode==STATIC) {
+			blockOff += BLOCK_SIZE;
+			xx_P = (float *)realloc((char *) xx_P,
+				sizeof(float) * (blockOff + BLOCK_SIZE));
+			if(xx_P==NULL)
+			{
+				fprintf(stderr,"Could not allocate space in scatter \n");
+				return(7);
+			}
+			yy_P = (float *)realloc((char *) yy_P,
+				sizeof(float) * (blockOff + BLOCK_SIZE));
+			if(yy_P==NULL)
+			{
+				fprintf(stderr,"Could not allocate space in scatter \n");
+				return(7);
+			}
+			bufi=0;
+
+		}
+
+			switch(bufferType) {
+				case COMPLEX_BUFFER:
+					val=INCX(0,0);
+           				yy_P[count] = val.im;
+					xx_P[count] = val.re;
+					break;
+				case FLOAT_BUFFER:
+           			if(numberInputBuffers==2)
+					        yy_P[count] = INF(1,0);
+					xx_P[count] = INF(0,0);
+					break;
+				case INTEGER_BUFFER:
+           			if(numberInputBuffers==2)
+						yy_P[count] = (float)INI(1,0);
+					xx_P[count] = (float)INI(0,0);
+					break;
+			}
+			if(mode == DYNAMIC)
+					count++;
+		}
+	}
+
+	return(0);
+
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Wrapup Code<a name="wrapup"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+if(control == 0) return(0);
+if((totalCount - skip) > 0 ) {
+     {
+                strcpy(fname,title);
+                strcat(fname,".sct");
+                file_F = fopen(fname,"w");
+                for(i=0; i<count; i++)
+                        fprintf(file_F,"%e %e\n",xx_P[i],yy_P[i]);		
+                fprintf(stderr,"scatter created file: %s \n",fname);
+		fclose(file_F);
+		free(xx_P);
+		free(yy_P);
+      }
+}
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>License<a name="license"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+/*  Capsim (r) Text Mode Kernel (TMK) Star Library (Blocks)
+    Copyright (C) 1989-2017  Silicon DSP Corporation
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    http://www.silicondsp.com
+    Silicon DSP  Corporation
+    Las Vegas, Nevada
+*/
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+<h6><a href="#top">Top</a></h6>
+<h2>Description<a name="description"></a></h2>
+<table width="754" height="98" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <th class="style5" scope="col"><div align="left"> 
+      <pre>
+
+
+ 
+
+/* scatter.s */
+/**********************************************************************
+                                scatter()
+***********************************************************************
+	inputs:		Two I and Q channels
+	outputs:	(optional feed-through of input channels)
+	parameters:	int npts, the number of points to plot
+			int skip, number of points to skip before first plot
+			file title,  the title of the plot
+			file x_axis, the title for the x_axis
+			file y_axis, the title for the y_axis
+			int	plotQ 0=High, 1,2, ... Marker Type and Low Quality
+*************************************************************************
+This routine will produce a scatter plot of the two input channels.
+channels.  Optionally, the input channel data can 'flow through' to the
+correspondingly numbered output channel.  This is useful if this star is
+to be placed in line in a simulation (e.g. probe).
+The first parameter represents the number of points plotted from each channel.
+Default is set to 128.
+The second parameter is the number of points to skip before the first plot set
+is presented.  This enables skipping of any transient period.
+Default is set to (int 0).
+The third parameter represents the title for the plot.
+Default is set to "PLOT".
+The fourth parameter represents the title for the x_axis.
+Default is set to "X".
+The fifth parameter represents the title for the y_axis.
+Default is set to "Y".
+Programmer: 	Sasan Ardalan
+Date: 		8/16/87
+Modified:	March 30, 1988 ,(RANobakht)
+Modified:	L.J. Faber 1/3/89.  Add flow through; general cleanup.
+Modified:	Sasan Ardalan 1/20/89.  dynamic allocation of arrays.
+*/
+
+
+
+
+</pre>
+    </div></th>
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>
+
+
