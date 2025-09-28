@@ -1,0 +1,28 @@
+
+Execute capsim by typing:
+
+../bin/capsim
+
+The universe in this directory is codec.t .
+It implements a mu-law PCM codec.
+
+In graphical mode select codec from the list in the open item in the file
+menu.
+
+This toplogy also show hierarchical block. Move the cursor to the TxCodec
+block and click the left button. A popup menu will appear. 
+Select "Down One Level" by clicking the middle button. 
+
+A new workspace with the blocks of the TxCodec block appears. To make this
+workspace current, click the mouse in an empty area of the workspace.
+
+The RxCodec block is also hierarchical.
+
+
+To bring capsim up in text mode type:
+../bin/capsim -b
+load codec
+run
+
+Type quit to exit capsim.
+

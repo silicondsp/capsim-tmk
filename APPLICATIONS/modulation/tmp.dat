@@ -1,0 +1,69 @@
+Filter type : Lowpass
+Sampling Frequency [Hz]: 64000.000000
+Maximum allowable ripple in passband [db] : 0.100000
+Minimum allowable stopband attenuation [db] : 35.000000
+Passband edge frequency [Hz] : 900.000000
+Stopband edge frequency [Hz]  : 1000.000000
+
+
+
+
+
+ The Elliptic filter design results are as follows:
+
+# of zeroes = 6. # of poles  = 7. Cutoff Frequency =    900.5859985
+
+
+ THE S-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.0000000       6354.0927734
+		       2          0.0000000       7092.6743164
+		       3          0.0000000      10859.8662109
+		       4          0.0000000     -10859.8662109
+		       5          0.0000000      -7092.6743164
+		       6          0.0000000      -6354.0927734
+
+
+ THE S-Plane poles: Index     Real part          Imag part
+
+		       1       -170.2635956      5767.1499023
+		       2       -758.9764404      5394.6040039
+		       3      -2110.9306641      3927.2976074
+		       4      -3316.3464355         0.0000000
+		       5      -2110.9306641     -3927.2976074
+		       6       -758.9764404     -5394.6040039
+		       7       -170.2635956     -5767.1499023
+
+
+
+
+
+ The Bilinear transformation results for zeros are as below:
+
+
+ The Z-Plane Zeros: Index     Real part          Imag part
+
+		       1         -1.0000000          0.0000000
+		       2          0.9950836          0.0990386
+		       3          0.9938779          0.1104838
+		       4          0.9857063          0.1684727
+		       5          0.9857063         -0.1684727
+		       6          0.9938779         -0.1104838
+		       7          0.9950836         -0.0990386
+
+
+
+
+
+ The bilinear transformation results for poles are as below:
+
+
+ The Z-Plane Poles: Index     Real part          Imag part
+
+		       1          0.9933075          0.0896909
+		       2          0.9847269          0.0831539
+		       3          0.9657609          0.0593350
+		       4          0.9494908          0.0000000
+		       5          0.9657609         -0.0593350
+		       6          0.9847269         -0.0831539
+		       7          0.9933075         -0.0896909

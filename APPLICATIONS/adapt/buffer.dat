@@ -1,0 +1,9 @@
+gauss0:0 1
+node0:0 1
+node0:1 1
+convolve0:0 1
+node1:0 1
+node1:1 1
+lms0:0 1
+sum0:0 1
+plot0:0 1

@@ -1,0 +1,218 @@
+
+% Copyright (C)  2007-2018 Sasan Ardalan
+%    Permission is granted to copy, distribute and/or modify this document
+%    under the terms of the GNU Free Documentation License, Version 1.3
+%    or any later version published by the Free Software Foundation;
+%    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%    A copy of the license is included in the section entitled "GNU
+%    Free Documentation License".
+ 
+
+
+
+
+
+
+%
+% This document has designed to be read through as a PDF first.
+% Click on the ``Typeset'' button in the toolbar to generate the PDF
+% if it is not already visible.
+%
+
+%%% PREAMBLE %%%
+% You probably want to skip to \begin{document} if this is your first time.
+
+\documentclass[article,oneside]{memoir}
+% This command goes at the beginning of every document
+% [oneside,article] are two of many options that can be chosen
+%   oneside makes each page have the same layout, for printing on only one side
+%     of the paper (change it to twoside to see the difference)
+%   article means we're writing a short document only and won't be using special
+%     chapter headings
+%   a4paper changes the page dimensions for A4 sized paper
+
+%%% PACKAGES %%%
+
+\usepackage{graphicx} % Add graphics capabilities
+\usepackage{booktabs} % ``Proper'' table layout
+\usepackage{amsmath}  % Better maths support
+\usepackage[colorlinks=true,linkcolor=red]{hyperref} % Hyperlink capabilities
+
+\usepackage{memhfixc} % This package is required to resolve incompatibilities
+                      % with the memoir class & the hyperref package
+
+%\usepackage{pdfsync}
+%-----------   \usepackage{/Library/texmf/tex/latex/pdfsync}
+% This package is used to tell TeXShop where things are in the PDF file.
+% Command-click at any spot in the PDF and it will jump to the corresponding
+% location in the source file.
+
+%%% COMMANDS %%%
+
+
+
+
+% Define the title, author and date of the document.
+% If the date is undefined, the current date is substituted.
+\title {PLL Design}
+\author{Sasan Ardalan}
+\date{ January 28, 2018}
+
+
+%%% BODY OF THE DOCUMENT: %%%
+\begin{document}
+
+\maketitle
+
+%\begin{figure}[hbtp]
+%  \centering
+%    \includegraphics[width=2in]{circuit}
+%  \caption{Circuit }
+%  \label{fig:circuit}
+%\end{figure}
+
+
+\begin{equation}
+\tau= R_1C_1
+\end{equation}
+
+\begin{equation}
+\omega_n= \frac{K}{2\zeta}
+\end{equation}
+
+\begin{equation}
+\omega_n= \sqrt{ \frac{K_0I_p}{2\pi N C_1} }
+\end{equation}
+
+
+\begin{equation}
+K=\frac{K_0I_pR_1}{2\pi N}
+\end{equation}
+
+
+\begin{equation}
+\zeta= \frac{\sqrt{K\tau}}{2}
+\end{equation}
+
+\begin{equation}
+\zeta= \frac{\sqrt{\frac{K_0I_pR_1}{2\pi N}R_1C_1}}{2}
+\end{equation}
+
+\begin{equation}
+\zeta= \frac{1}{2}R_1\sqrt{\frac{K_0I_pC_1}{2\pi N}}
+\end{equation}
+
+
+
+
+
+
+\begin{equation}
+Phase~Margin= \arctan{\left ( \sqrt{\frac{C_1}{C_2}+1}\right )}-\arctan{\left (\frac{1}{\sqrt{\frac{C_1}{C_2}+1}}\right )}
+\end{equation}
+
+\begin{equation}
+BW= 2\omega_n\zeta
+\end{equation}
+
+\begin{equation}
+K_{stable}=\frac{1}{\frac{\pi}{2\pi f_i\tau}\left ( 1+\frac{\pi}{2\pi f_i \tau} \right )}
+\end{equation}
+
+\begin{equation}
+K= 2\omega_n\zeta
+\end{equation}
+
+\begin{equation}
+K \tau= 4 \zeta^2
+\end{equation}
+
+\begin{equation}
+\frac{K }{\tau}= \omega_n^2
+\end{equation}
+
+
+
+$\int$
+
+\begin{equation}
+T_w \propto  \frac{1}{C}
+\end{equation}
+
+
+\begin{equation}
+ -\frac{1}{R_{SC}C_F} \int v(t)dt
+\end{equation}
+
+
+$v(t)$
+\begin{equation}
+K_d=\frac{I_p}{2\pi}
+\end{equation}
+
+\begin{equation}
+Z_F(s)
+\end{equation}
+
+
+\begin{equation}
+N(s)
+\end{equation}
+
+
+\begin{equation}
+\Theta_o(s)
+\end{equation}
+
+
+\begin{equation}
+\Theta_n(s)
+\end{equation}
+
+\begin{equation}
+\Theta_i(s)
+\end{equation}
+
+
+\begin{equation}
+\frac{K_0}{N}\frac{1}{s}
+\end{equation}
+
+
+\begin{equation}
+\sqrt{E[\Theta^2_{tot}(nT)]}=\sqrt{\frac{1}{2K_L T}}\frac{2\pi \Delta \tau_{rms}}{T}
+\end{equation}
+
+\begin{equation}
+K_L=\frac{K_0I_pR_1}{2\pi N}
+\end{equation}
+
+\begin{equation}
+D(s) = s^2+s\zeta \omega_n + \omega_n^2
+\end{equation}
+
+\begin{equation}
+\frac{1}{s^2+s\zeta \omega_n + \omega_n^2}
+\end{equation}
+
+\begin{equation}
+e^{-\zeta \omega_n t} \sin ( \sqrt{1-\zeta^2}\omega_n t ) \frac{1}{\sqrt{1-\zeta^2} \omega_n }
+\end{equation}
+
+
+
+PAD Resistance
+\begin{equation}
+\frac{V_k(s)}{I_P(s)} =\frac{1}{(C_1+C_2)s}\frac{(1+sRC_1)(1+sR_PC_2)}{1+s\frac{C_1C_2(R_P+R)}{C_1+C_2}}
+\end{equation}
+
+\begin{equation}
+VC_1
+\end{equation}
+
+
+
+\end{document}
+
+
+

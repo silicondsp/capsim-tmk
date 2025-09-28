@@ -1,0 +1,89 @@
+
+# topology file:  deltasigma.t
+
+#--------------------------------------------------- 
+# Title:    Delta Sigma Modulation (2nd Order) 
+# Author:       Sasan H. Ardalan 
+# Date:       July 4, 1992 
+# Description:      Demonstrates 2nd order delta sigma modulation with decimation  
+#--------------------------------------------------- 
+
+inform title    Delta Sigma Modulation (2nd Order) 
+inform author       Sasan H. Ardalan 
+inform date       July 4, 1992 
+inform descrip      Demonstrates 2nd order delta sigma modulation with decimation  
+
+arg 0 int 32768 "Number of samples high rate"
+arg 1 int 256 "Number of decimated samples"
+arg 2 int 128 "1/DecimationRatio"
+
+param arg 0
+param float 0.5
+param float 2.048e+06
+param float 2000
+param float 0
+param float 1
+param int 128
+block sine0 sine
+
+param float 0.5
+param float 1
+param float 1
+block ds20 ds2
+
+param arg 0
+param int 0
+param file Pk
+param int 0
+param int 0
+param int 1
+param int 1
+param float 2.048
+param int 1
+param int 0
+block spectrum0 spectrumtxt
+
+param int 3
+param int 128
+param int 64
+block decimate0 decimate
+
+param arg 1
+param int 0
+param file Decimated
+param int 0
+param int 0
+param int 1
+param int 1
+param float 0
+param int 1
+param int 0
+block spectrum1 spectrumtxt
+
+param int 3
+param int 1
+param float 32000
+param float 0.1
+param float 60
+param float 3400
+param float 4400
+param float 220
+param float 3400
+param float 10
+param float 4400
+param file tmp
+block iirfil0 iirfil
+
+param int 128
+param int 128
+param file sdr.dat
+param int 1
+block sdr0 sdr
+
+connect sine0 0 ds20 0  	
+connect ds20 0 spectrum0 0  	pk
+connect spectrum0 0 decimate0 0  	pk
+connect decimate0 0 spectrum1 0  	
+connect spectrum1 0 iirfil0 0  	decimated
+connect iirfil0 0 sdr0 0  	
+

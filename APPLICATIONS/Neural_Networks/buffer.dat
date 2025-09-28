@@ -1,0 +1,13 @@
+{bdata0:NULL:NULL,node0:x:float} 1
+{bdata1:NULL:NULL,node1:x:float} 1
+node0:0 1
+node0:1 1
+node1:0 1
+node1:1 1
+{buildvec0:NULL:NULL,MLP_NN0: 1
+xorblk0:0 1
+{prfile1:NULL:NULL,MLP_NN0: 1
+MLP_NN0:0 1
+MLP_NN0:1 1
+prfile0:0 1
+plot0:0 1

@@ -1,0 +1,1 @@
+java -jar ../../TOOLS/IIPPlot.jar  dtoa.fre dtoa.tim output.fre output.tim -scatter scatter.sct -pz tmp.pz 

@@ -1,0 +1,89 @@
+Filter type: Bandpass
+Sampling frequency [Hz] : 32000.000000
+Maximum allowable ripple in passband [db] : 0.100000
+Maximum allowable attn. in stop band [db] : 35.000000
+Lower passband edge frequency [Hz] : 950.000000
+Upper passband edge frequency [Hz] : 1100.000000
+Lower stopband edge frequency [Hz] : 850.000000
+Upper stopband edge frequency [Hz] : 1200.000000
+
+
+
+
+
+ The Elliptic filter design results are as follows:
+
+# of zeroes = 4. # of poles  = 4. Cutoff Frequency =   3200.0000000
+
+
+ THE S-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.0000000      47416.3085938
+		       2          0.0000000     109934.7890625
+		       3          0.0000000     -109934.7890625
+		       4          0.0000000     -47416.3085938
+
+
+ THE S-Plane poles: Index     Real part          Imag part
+
+		       1      -4522.4545898     22481.8984375
+		       2     -13360.0712891     10484.4287109
+		       3     -13360.0712891    -10484.4287109
+		       4      -4522.4545898    -22481.8984375
+
+
+
+
+
+ The Bilinear transformation results for zeros are as below:
+
+
+ The Z-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.2912365          0.9566511
+		       2         -0.4937478          0.8696052
+		       3         -0.4937478         -0.8696052
+		       4          0.2912365         -0.9566511
+
+
+
+
+
+ The bilinear transformation results for poles are as below:
+
+
+ The Z-Plane Poles: Index     Real part          Imag part
+
+		       1          0.6864593          0.5533195
+		       2          0.6247572          0.2201995
+		       3          0.6247572         -0.2201995
+		       4          0.6864593         -0.5533195
+
+
+
+
+
+ The results of lowpass to bandpass
+ filter transformation are as follows:
+
+ The Z-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.9717208         -0.2361323
+		       2          0.9564055         -0.2920417
+		       3          0.9564055          0.2920417
+		       4          0.9717208          0.2361323
+		       5          0.9857620          0.1681465
+		       6          0.9908124          0.1352430
+		       7          0.9908124         -0.1352430
+		       8          0.9857620         -0.1681465
+
+ The Z-Plane poles: Index     Real part          Imag part
+
+		       1          0.9728805         -0.2153398
+		       2          0.9684952         -0.2047233
+		       3          0.9684952          0.2047233
+		       4          0.9728805          0.2153398
+		       5          0.9799671          0.1832877
+		       6          0.9722437          0.1899637
+		       7          0.9722437         -0.1899637
+		       8          0.9799671         -0.1832877

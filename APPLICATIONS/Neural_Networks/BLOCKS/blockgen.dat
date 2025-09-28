@@ -1,0 +1,4 @@
+block=MLP_NN
+type=processor
+buffer=image
+parameters

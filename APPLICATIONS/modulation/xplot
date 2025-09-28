@@ -1,0 +1,1 @@
+java -jar ../../TOOLS/IIPPLOT.jar Baseband.tim DSBSC.fre Squared.tim Squared.fre demodulated.tim demodulated.fre

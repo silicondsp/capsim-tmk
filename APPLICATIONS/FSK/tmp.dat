@@ -1,0 +1,66 @@
+Filter type : Lowpass
+Sampling Frequency [Hz]: 32000.000000
+Maximum allowable ripple in passband [db] : 0.100000
+Minimum allowable stopband attenuation [db] : 45.000000
+Passband edge frequency [Hz] : 1500.000000
+Stopband edge frequency [Hz]  : 2000.000000
+
+
+
+
+
+ The Elliptic filter design results are as follows:
+
+# of zeroes = 6. # of poles  = 6. Cutoff Frequency =   1510.9379883
+
+
+ THE S-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.0000000      13026.0664063
+		       2          0.0000000      16432.7714844
+		       3          0.0000000      41144.9609375
+		       4          0.0000000     -41144.9609375
+		       5          0.0000000     -16432.7714844
+		       6          0.0000000     -13026.0664063
+
+
+ THE S-Plane poles: Index     Real part          Imag part
+
+		       1       -661.9718018      9880.2226563
+		       2      -2487.7905273      8272.3496094
+		       3      -4847.1860352      3590.8115234
+		       4      -4847.1860352     -3590.8115234
+		       5      -2487.7905273     -8272.3496094
+		       6       -661.9718018     -9880.2226563
+
+
+
+
+
+ The Bilinear transformation results for zeros are as below:
+
+
+ The Z-Plane Zeros: Index     Real part          Imag part
+
+		       1          0.9204448          0.3908725
+		       2          0.8763015          0.4817630
+		       3          0.4151202          0.9097667
+		       4          0.4151202         -0.9097667
+		       5          0.8763015         -0.4817630
+		       6          0.9204448         -0.3908725
+
+
+
+
+
+ The bilinear transformation results for poles are as below:
+
+
+ The Z-Plane Poles: Index     Real part          Imag part
+
+		       1          0.9343631          0.2955669
+		       2          0.8958181          0.2358759
+		       3          0.8541462          0.0967053
+		       4          0.8541462         -0.0967053
+		       5          0.8958181         -0.2358759
+		       6          0.9343631         -0.2955669
