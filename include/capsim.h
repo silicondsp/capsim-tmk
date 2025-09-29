@@ -204,7 +204,7 @@ extern int krn_maxMemSegments;
 #define KRN_BLOCK_TYPE_NETWORK 2
 
 #ifdef TCL_SUPPORT
-Tcl_Interp *krn_TCL_Interp;
+extern Tcl_Interp *krn_TCL_Interp;
 #endif
 
 
@@ -728,7 +728,8 @@ KrnListElmt           *tail;
 } KrnList;
 
 
-char *krn_tclScriptFile;
+extern char *krn_tclScriptFile;
+
 
 /*****************************************************************************
 *                                                                            *
