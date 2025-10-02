@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Wed, 01 Oct 2025 15:50:58 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<pre># topology file:  iirtest.t
+
+#--------------------------------------------------- 
+# Title:  
+# Author:  
+# Date:  
+# Description:  
+#--------------------------------------------------- 
+
+inform title 
+inform author 
+inform date 
+inform descrip 
+
+arg -1 (none)
+
+param int 128    num_of_samples   "total number of samples to output"
+param float 1    magnitude   "Enter Magnitude"
+param float 32000    fs   "Enter Sampling Rate"
+param float 1000    freq   "Enter Frequency"
+param float 0    phase   "Enter Phase"
+param float 1    pace_rate   "pace rate to determine how many samples to output"
+param int 128    samples_first_time   "number of samples on the first call if paced"
+block sine0 sine
+
+param file stdout    file_name   "Name of output file"
+param int 1    control   "Print output control (0/Off, 1/On)"
+param int 0    bufferType   "Buffer type:0= Float,1= Complex, 2=Integer"
+block prfile0 prfile
+
+param int 0    skip   "Points to skip"
+param file stat.dat    stat_file   "File to store results"
+block stats0 stats
+
+param int 3    desType   "1=Butterworth,2=Chebyshev,3=Elliptic"
+param int 1    filterType   "1=LowPass,2=HighPass,3=BandPass,4=BandStop"
+param float 32000    fs   "Sampling Frequency, Hz"
+param float 0.1    pbdb   "Enter Passband Ripple in dB's"
+param float 35    sbdb   "Enter Stopband Attenuation in dB's"
+param float 3400    fpb   "Passband Freq. Hz/LowPass/HighPass Only"
+param float 4400    fsb   "Stopband Freq. Hz/LowPass/HighPass Only"
+param float 220    fpl   "Lower Passband Freq. Hz/BandPass/BandStop Only"
+param float 3400    fpu   "Upper Passband Freq. Hz/BandPass/BandStop Only"
+param float 10    fsl   "Lower Stopband Freq. Hz/BandPass/BandStop Only"
+param float 4400    fsu   "Upper Stopband Freq. Hz/BandPass/BandStop Only"
+param file tmp    name   "Filter name"
+block iirfil0 iirfil
+
+connect sine0 0 iirfil0 0  	 
+connect prfile0 0 stats0 0  	 
+connect iirfil0 0 prfile0 0  	
+</pre>
+  </body>
+</html>
