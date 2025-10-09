@@ -99,7 +99,6 @@ The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of bloc
 <div id="c_development_linux">
 <h1>Installing C/C++ Development Tools and Libraries for Capsim Build</h1>
   
- <a href="Capsim_V7_Installation_Guide.html">Back to Capsim Installation</a><br> 
 
 <p>This document shows how to install C/C++ development Tools needed to build Capsim.</p>
 This document shows how to create a custom Capsim executable (building Capsim).<br>
