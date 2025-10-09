@@ -1,11 +1,12 @@
 # capsim-tmk
 <h1>Capsim&reg;  DSP and Communications System Block Diagram Modeling and Simulation Text Mode Kernel (TMK) </h1>
+<a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
 
-Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a>
+<!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a> -->
 <h1>Documentation</h1>   
 </div>
  <ol type="1">
-    <li><a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Caspim&reg; Text Mode Kernel Getting Started.</a></li>
+    <li><a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Capsim&reg; Text Mode Kernel Getting Started.</a></li>
     <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
     <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
     <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
