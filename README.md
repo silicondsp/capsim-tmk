@@ -1,6 +1,6 @@
 # capsim-tmk
 <h1>Capsim&reg;  DSP and Communications System Block Diagram Modeling and Simulation Text Mode Kernel (TMK) </h1>
-<a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+<a href="https://www.silicondsp.com/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
 
 <!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a> -->
 <h1>Documentation</h1>   
