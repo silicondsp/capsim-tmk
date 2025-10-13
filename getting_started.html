@@ -7,7 +7,19 @@
     <meta name="dcterms.created" content="Tue, 23 Sep 2025 02:48:21 GMT">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <title>Getting Started CapsimTMK</title>
+    <title>Getting Started CapsimTMK</title>   
+       <style>
+  table {
+    border-collapse: collapse; /* Collapses borders between cells */
+    border: none; /* Removes the outer border of the table */
+  }
+
+  th, td {
+    border: none; /* Removes borders from individual cells */
+    padding: 8px; /* Add some padding for readability */
+    text-align: left;
+  }
+</style>
     
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -16,13 +28,39 @@
     
   </head>
   <body>   
-  <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+ <div style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+<table width="400px" border="1" cellpadding="2" cellspacing="2" style="background-color: #ffffff;">
+<tr valign="top">
+<td style="border-width : 0px;"><p style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><span style=" font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;"> <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+</span></p>
+</td>
+<td style="border-width : 0px;"><p style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><span style=" font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;"><a href="#linux_tux"><img src="Tux.svg.png" width="62" height="74" alt="Linux Tux" title="" /></a> <!-- width="250" height="297" -->Developed on Linux.
+</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-width : 0px;"><br />
+</td>
+<td style="border-width : 0px;"><br />
+</td>
+</tr>
+</table>
+</div>
 
   <h1>Capsim Hierarchical Block Diagram Modeling and Simulation Program</h1>
   
+<pre>Copyright (c) 1989-2007 Silicon DSP Corporation
+Permission is granted to copy, distribute and/or modify this
+document under the terms of the GNU Free Documentation License,
+Version 1.2 or any later version published by the Free Software
+Foundation; with no Invariant Sections, no Front-Cover Texts, and
+no Back-Cover Texts. A copy of the license is included in the
+section entitled "GNU Free Documentation License". </pre>
+
 <h2>Contents</h2>
  <ol type="1">
-    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#documentation">Documentation</a></li> 
+    <li><a href="#c_development_linux">Setup Linux for C/C++ Development and Image File Support</a></li> 
     <li><a href="#getting_started">Getting Started</a></li>
     <li><a href="#building">Building Capsim Text Mode Executable</a></li>
     <li><a href="#running">Running Capsim</a></li>
@@ -47,7 +85,9 @@
 <p>In the following the UNIX prompt is '%'. Do not type it when running the commands shown. It also indicates that this a command line command in Linux </p>
  
 <p>Example topologies are included in the APPLICATIONS directory. 
-Each application has a README file. </p>
+Each application has a README file. </p> 
+
+Make sure to <a href="#c_development_linux"">Setup Linux</a> for C/C++ Development and Image File Support (TIFF/JPEG).
 
 <p>Define the environment variable CAPSIM to point to the directory where CapsimTMK resides.
 For example if you place CapsimTMK in the directory:</p>  
@@ -713,6 +753,51 @@ You can use this tool to view the generated C code and the XML code for blocks. 
 
 You can also generate HTML documentation for your block with this tool.
  --> 
+            
+ 
+ <!- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div id="c_development_linux">
+<h1>Installing C/C++ Development Tools and Libraries for Capsim Build</h1>
+  
+
+<p>This document shows how to install C/C++ development Tools needed to build Capsim.</p>
+This document shows how to create a custom Capsim executable (building Capsim).<br>
+
+ Author: Sasan Ardalan<br>
+ Date: December 2018<br>
+
+<p><a href="https://www.silicondsp.com">Silicon DSP Corporation</a></p>
+  
+  
+<p>  You will need to be able to run 'sudo' in your Linux environemt.</p>
+  
+<p>  From a terminal run the following commands:</p>
+  
+  <b>
+  <p>sudo apt-get update</p>
+
+ <p> sudo apt-get install binutils-gold</p>
+  <p>sudo apt-get install g++ cmake</p>
+  <p>sudo apt-get install build-essential</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+
+
+  <p>sudo apt-get install freeglut3-dev</p>
+
+  
+ <p>sudo apt-get install glew1.5-dev libglm-dev</p>
+
+  <p>sudo apt-get install libtiff-dev</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+  <p> sudo apt-get install lzma</p></b>
+  
+ 
+<BR>
+<BR>
+<div id="linux_tux">
+Linux Tux By <a rel="nofollow" class="external text" href="http://www.isc.tamu.edu/~lewing/">Larry Ewing</a>, <a rel="nofollow" class="external text" href="http://www.home.unix-ag.org/simon/">Simon Budig</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">Garrett LeSage</a> - <a rel="nofollow" class="external free" href="https://isc.tamu.edu/~lewing/linux/">https://isc.tamu.edu/~lewing/linux/</a>, <a rel="nofollow" class="external free" href="http://www.home.unix-ag.org/simon/penguin/">http://www.home.unix-ag.org/simon/penguin/</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">garrett/Tux</a> on GitHub, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=753970">Link</a>
+<BR> 
+<BR>
  
 <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
 <p><strong>Silicon DSP Corporation</strong></p>

@@ -35,13 +35,13 @@ imgshrink
 /***********************************************************************
                              imgshrink()
 ************************************************************************
-This star inputs an image and decimates it.
+This block inputs an image and decimates it.
 NOTE: Input and output buffers are of image_t type.
 <NAME>
 imgshrink
 </NAME>
 <DESCRIPTION>
-This star inputs an image and decimates it.
+This block inputs an image and decimates it.
 NOTE: Input and output buffers are of image_t type.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date: 		May 12, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and decimates it.
+This block inputs an image and decimates it.
 </DESC_SHORT>
 
 
