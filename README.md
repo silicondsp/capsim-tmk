@@ -1,7 +1,20 @@
 # capsim-tmk
 <h1>Capsim&reg;  DSP and Communications System Block Diagram Modeling and Simulation Text Mode Kernel (TMK) </h1>
+<a href="https://www.silicondsp.com/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
 
-Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a>
+<!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a> -->
+<h1>Documentation</h1>   
+</div>
+ <ol type="1">
+    <li><a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Capsim&reg; Text Mode Kernel Getting Started.</a></li>
+    <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li> <a href="#c_development_linux" >Setup Linux for C/C++ Development and TIFF Image Support</a></li>
+<li><a href="https://www.ccdsp.org/IIPPlot/index.html">IIPPlot</a> Interactive Java Plotting Package</li>
+<li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
+</ol> 
+
 
 CAPSIM&reg; Text Mode Kernel (TMK) is a hierarchical interactive block diagram simulation and design system for digital signal processing and communications. All Capsim TMK models are written in C with provisions for parameters, input /output buffers, internal state maintenance, and three phases of execution: initialization, run-time and wrap-up.
 Capsim&reg;  Blocks are written in C embedded in XML for modular/re-usable design. Capsim&reg; includes a built in TCL interpreter for support of iterative simulation and design optimization.
@@ -18,15 +31,7 @@ Capsim&reg; with its flexible buffer connection management can handle mixed sync
 The new model for block C code generation is illustrated below, Blocks are written in embedded C code in XML and transformed to C code and incorporated into Capsim&reg;. The XML code is transformed using XSLT (Extensible Stylesheet Language for Transformation) to C code and HTML for documentation. Tools are provided that automatically do the conversion from XML to C code when adding models to Capsim&reg;.
 
 <img src="images/capsim_block_xml.jpg"   alt="Block XML" title="" />
-<h1>Documentation</h1>   
-</div>
- <ol type="1">
-    <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
-    <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
-    <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
-<li><a href="https://www.ccdsp.org/IIPPlot/index.html">IIPPlot</a> Interactive Java Plotting Package</li>
-<li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
-</ol> 
+
 
 
 <h2>Capsim&reg; TMK History</h2>
@@ -91,7 +96,41 @@ The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of bloc
         <li>Single make command to add new blocks to Capsim&reg; executable. </li>
         <li></li>
       </ul>
+<!- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div id="c_development_linux">
+<h1>Installing C/C++ Development Tools and Libraries for Capsim Build</h1>
+  
 
+<p>This document shows how to install C/C++ development Tools needed to build Capsim.</p>
+This document shows how to create a custom Capsim executable (building Capsim).<br>
+
+ Author: Sasan Ardalan<br>
+ Date: December 2018<br>
+
+<p><a href="https://www.silicondsp.com">Silicon DSP Corporation</a></p>
+  
+  
+<p>  You will need to be able to run 'sudo' in your Linux environemt.</p>
+  
+<p>  From a terminal run the following commands:</p>
+  
+  <b>
+  <p>sudo apt-get update</p>
+
+ <p> sudo apt-get install binutils-gold</p>
+  <p>sudo apt-get install g++ cmake</p>
+  <p>sudo apt-get install build-essential</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+
+
+  <p>sudo apt-get install freeglut3-dev</p>
+
+  
+ <p>sudo apt-get install glew1.5-dev libglm-dev</p>
+
+  <p>sudo apt-get install libtiff-dev</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+  <p> sudo apt-get install lzma</p></b>
 
 
 
