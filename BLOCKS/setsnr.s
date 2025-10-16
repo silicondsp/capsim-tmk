@@ -35,7 +35,7 @@ Date: February 2003
 </COMMENTS> 
 
 <DESC_SHORT>
-Set the Signal to Noise Raio (SNR) by calculating power over window of complex input samples and adding noise.
+Set the Signal to Noise Ratio (SNR) by calculating power over window of complex input samples and adding noise.
 </DESC_SHORT>
 
 <INCLUDES>
