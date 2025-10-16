@@ -19,7 +19,7 @@
 <h1>Documentation</h1>   
 </div>
  <ol type="1">
-    <li><a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Capsim&reg; Text Mode Kernel Getting Started.</a></li>
+    <li>Capsim&reg; Text Mode Kernel (TMK)<a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" > <strong>Getting Started</strong>.</a></li>
     <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
     <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
     <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
@@ -146,7 +146,7 @@ This document shows how to create a custom Capsim executable (building Capsim).<
   <p> sudo apt-get install lzma</p></b>
 
 <div id="linux_tux">
-Linux Tux By <a rel="nofollow" class="external text" href="http://www.isc.tamu.edu/~lewing/">Larry Ewing</a>, <a rel="nofollow" class="external text" href="http://www.home.unix-ag.org/simon/">Simon Budig</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">Garrett LeSage</a> - <a rel="nofollow" class="external free" href="https://isc.tamu.edu/~lewing/linux/">https://isc.tamu.edu/~lewing/linux/</a>, <a rel="nofollow" class="external free" href="http://www.home.unix-ag.org/simon/penguin/">http://www.home.unix-ag.org/simon/penguin/</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">garrett/Tux</a> on GitHub, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=753970">Link</a>
+<strong>Linux Tux</strong> By <a rel="nofollow" class="external text" href="http://www.isc.tamu.edu/~lewing/">Larry Ewing</a>, <a rel="nofollow" class="external text" href="http://www.home.unix-ag.org/simon/">Simon Budig</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">Garrett LeSage</a> - <a rel="nofollow" class="external free" href="https://isc.tamu.edu/~lewing/linux/">https://isc.tamu.edu/~lewing/linux/</a>, <a rel="nofollow" class="external free" href="http://www.home.unix-ag.org/simon/penguin/">http://www.home.unix-ag.org/simon/penguin/</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">garrett/Tux</a> on GitHub, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=753970">Link</a>
 <BR> 
 <BR>
 <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
