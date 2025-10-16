@@ -93,22 +93,22 @@ margin-left:1.0in;margin-bottom:.0001pt'>
     &nbsp;
       <![endif]>
       <o:p></o:p></p>
-    <p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Times'>CapsimTMK V6 has<span style="mso-spacerun: yes">&nbsp; </span>scripting support using a built in TCL interpreter. A major goal of adding TCL scripting is to support iterative simulations and to support TCL command interface to numerical packages such as LAPACK. <o:p></o:p></span></p>
+    <p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Times'>CapsimTMK V6 has<span style="mso-spacerun: yes">&nbsp; </span>scripting support using a built in TCL interpreter. A major goal of adding TCL scripting is to support iterative simulations and to support TCL command interface to numerical packages such as <a href="https://www.netlib.org/lapack/">LAPACK</a>. <o:p></o:p></span></p>
     <p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Times'>
       <![if !supportEmptyParas]></span><span style='font-family:Times'>The TCL commands support all of the CapsimTMK commands with the addition of new commands to refer to parameters by name and to change their value. Also CapsimTMK blocks can return values from simulations via TCL variables.</span> </p>
     <p class=MsoNormal style='margin-left:1.0in'>
       <![if !supportEmptyParas]>
     &nbsp;
- <p class=MsoNormal style='margin-left:1.0in'> <strong>Note:</strong> Make sure that your HOME directory has a directory called <b>library</b> with the file <i>init.tcl</i>.
+ <p class=MsoNormal style='margin-left:1.0in'> <strong>Note:</strong> Make sure that your HOME directory has a directory called <b>library</b> with the file <i>init.tcl</i>. Even better, create a directory called <b>tcl8.4.20</b> , then create the sub directory <strong>library</strong> and place <strong>init.tcl</strong> into the <strong>library</strong> directory.
         You can find the file <i>init.tcl</i> in the capsim-tmk distribution  in the direcory <strong>tcl8.4.20/library</strong> .
-        If not create the directory library in your HOME directory and copy the file init.tcl into that directory.
+        If not create the directory library in your HOME directory and copy the file <strong>init.tcl</strong> into that directory as outlined. 
         
         <p class=MsoNormal style='margin-left:1.0in'>To run capsim in TCL mode use the -c option:
         <p class=MsoNormal style='margin-left:1.0in'><strong>./capsim -c</strong> 
         
-        <p class=MsoNormal style='margin-left:1.0in'>If a file contains TCL commands, you can execute tha commands in the TCL file by running:
+        <p class=MsoNormal style='margin-left:1.0in'>If a file contains TCL commands, you can execute the commands in the TCL file by running:
         <p class=MsoNormal style='margin-left:1.0in'> <b>./capsim -t iir.tcl</b>
-        <p class=MsoNormal style='margin-left:1.0in'>This way you can use an editor to enter the TCL commands for the example below in a file called iir.tcl.
+        <p class=MsoNormal style='margin-left:1.0in'>This way you can use an editor to enter the TCL commands for the examples described below in a file called iir.tcl.
         <p class=MsoNormal style='margin-left:1.0in'>For the BER of the end to end QPSK modulation you can run:
                
                
@@ -136,7 +136,7 @@ mso-padding-between:0in'><span style='font-size:14.0pt;font-family:Times'>
       <![endif]>
       <o:p></o:p></p>
     <p class=MsoNormal style='margin-left:1.0in'><span style='font-family:Times'>The best way to see the power of TCL scripting is to review<span
-style="mso-spacerun: yes">&nbsp; </span>a TCL script for creating a table of BER (bit error rate) versus SNR (signal to noise ratio) in the simulation of a QPSK digital link.<o:p></o:p></span></p>
+style="mso-spacerun: yes">&nbsp; </span>a TCL script for creating a table of BER (bit error rate) versus SNR (signal to noise ratio) in the simulation of a QPSK digital communication  link.<o:p></o:p></span></p>
     <p class=MsoNormal style='margin-left:1.0in'>
       <![if !supportEmptyParas]>
     &nbsp;
