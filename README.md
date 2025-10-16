@@ -48,13 +48,13 @@ The new model for block C code generation is illustrated below, Blocks are writt
 
 
 <h2>Capsim&reg; TMK History</h2>
-Capsim&reg; was originaly developed by XCAD Corporation.  All XCAD Open Source projects have been transferred to and taken over by Silicon DSP Corporation. Silicon DSP Corporation has since 2006 added major enhancements to Capsim&reg; and Capsim&reg; TMK. The  predecessor and original model of CAPSIM&reg; was  BLOSIM.  BLOSIM is a block diagram signal processing simulation program, originally developed at the University of California, Berkeley, 1985. The primary authors were D. G. Messerschmitt and D. J. Hait. For papers on BLOSIM visit this link.  Since arrival at NCSU in November 1987, the program has been extensively debugged. Capsim&reg;  was completely remodeled, enhanced with new commands,  and improved by  XCAD Corporation and later by Silicon DSP Corporation. The person-hours spent on this task have made Capsim a vast improvement over the original in user convenience, capability and reliability and the complete elimimation of memory leaks allowing for unlimited simulation runs ( for example for BER in optocal links). 
+Capsim&reg; was originaly developed by XCAD Corporation.  All XCAD Open Source projects have been transferred to and taken over by Silicon DSP Corporation. Silicon DSP Corporation has since 2006 added major enhancements to Capsim&reg; and Capsim&reg; TMK. The  predecessor and original model of CAPSIM&reg; was  BLOSIM.  BLOSIM is a block diagram signal processing simulation program, originally developed at the University of California, Berkeley, 1985. The primary authors were D. G. Messerschmitt and D. J. Hait. For papers on BLOSIM visit this <a href="#blosim">link</a>.  Since arrival at NCSU in November 1987, the program has been extensively debugged. Capsim&reg;  was completely remodeled, enhanced with new commands,  and improved by  XCAD Corporation and later by Silicon DSP Corporation. The person-hours spent on this task have made Capsim a vast improvement over the original in user convenience, capability and reliability and the complete elimimation of memory leaks allowing for unlimited simulation runs ( for example for BER in optical links). 
 
 The latest version changes the block models to full XML support with the capability to transform the C embedded in XML code to C/C++, SystemC, and HTML or stand alone C 
 subroutines. A major enhancement has been the integration of TCL scripting capability where TCL scripts control the blocks in a block diagram and can change parameters and retrieve results from the blocks after a simulation completes.
 
 The principal authors for the enhancements to BLOSIM are Professor Sasan Ardalan formerly with the Dept. of Electrical and Computer Engineering, North Carolina State Univertsity, Raleigh, NC and Jim Faber, Ph.D. 
-
+<div id="blosim">
  <h3>Original IEEE Papers by Messerschmitt on BLOSIM</h3>
     <p>David G. Messerschmitt, &quot;<a href="Blosim/MesserschmittJSAC.pdf">A Tool for Structured Functional Simulation</a>&quot;, <em>IEEE Journal on Selected Areas in Communications</em>, Vol. SAC-2, NO.1, January 1984, pp.137-147<img src="images/pdf.gif" width="22" height="21"><a href="Blosim/MesserschmittJSAC.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
     <p>David G. Messerschmitt, &quot;<a href="Blosim/messerschmittBuffers.pdf">Structured Interconnection of Simulation Programs</a>&quot;,1984 <em>IEEE GlobeComm</em>. pp. 808-811 <img src="images/pdf.gif" width="22" height="21"><a href="Blosim/messerschmittBuffers.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
@@ -115,7 +115,7 @@ The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of bloc
   
 
 <p>This document shows how to install C/C++ development Tools needed to build Capsim.</p>
-This document shows how to create a custom Capsim executable (building Capsim).<br>
+
 
  Author: Sasan Ardalan<br>
  Date: December 2018<br>
