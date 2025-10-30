@@ -35,18 +35,18 @@ inventory
 /**********************************************************************
 			inventory()
 ***********************************************************************
-This star models an inventory system. 
+This block models an inventory system. 
 The input buffer is the customer inter arrival times and
 product demand. 
 The input are complex with the real part equal to the inter arrival time
 and the imaginary part equal to the product demand.
 The inventory does not need to output anything but we have chosen to output
 the inventory level.  Thus by connecting the output of
-the inventory star to the plot star, you can observe the inventory level
+the inventory block to the plot block, you can observe the inventory level
 over time. 
-Many other output combinations are possible but this star is used to serve
+Many other output combinations are possible but this block is used to serve
 as an example.
-The inventory star implements the C code in "Simulation Modeling and Analysis"
+The inventory block implements the C code in "Simulation Modeling and Analysis"
 by Averill M. Law and W. David Kelton, Second Edition 1991.
 We have included original comments.
 The parameters are:
@@ -73,18 +73,18 @@ The number of output buffers is also arbitrary (auto-fanout).
 inventory
 </NAME>
 <DESCRIPTION>
-This star models an inventory system. 
+This block models an inventory system. 
 The input buffer is the customer inter arrival times and
 product demand. 
 The input are complex with the real part equal to the inter arrival time
 and the imaginary part equal to the product demand.
 The inventory does not need to output anything but we have chosen to output
 the inventory level.  Thus by connecting the output of
-the inventory star to the plot star, you can observe the inventory level
+the inventory block to the plot block, you can observe the inventory level
 over time. 
-Many other output combinations are possible but this star is used to serve
+Many other output combinations are possible but this block is used to serve
 as an example.
-The inventory star implements the C code in "Simulation Modeling and Analysis"
+The inventory block implements the C code in "Simulation Modeling and Analysis"
 by Averill M. Law and W. David Kelton, Second Edition 1991.
 We have included original comments.
 The parameters are:
@@ -118,7 +118,7 @@ Date:	November 6, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star models an inventory system. 
+This block models an inventory system. 
 </DESC_SHORT>
 
 

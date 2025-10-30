@@ -36,7 +36,7 @@ operate
 			operate() 
 *******************************************************************
 Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => start from first
+		2: (int) index first sample; default => blockt from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 		5: (int) operation: 0=none,1=abs,2=square,3=sqrt,4=dB
@@ -45,7 +45,7 @@ operate
 </NAME>
 <DESCRIPTION>
 Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => start from first
+		2: (int) index first sample; default => blockt from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 		5: (int) operation: 0=none,1=abs,2=square,3=sqrt,4=dB
@@ -106,7 +106,7 @@ Perform operations on input buffer.
 	<VALUE>30000</VALUE>
 </PARAM>
 <PARAM>
-	<DEF>First sample to start from</DEF>
+	<DEF>First sample to blockt from</DEF>
 	<TYPE>int</TYPE>
 	<NAME>first</NAME>
 	<VALUE>0</VALUE>

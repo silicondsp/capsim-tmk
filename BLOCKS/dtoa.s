@@ -41,12 +41,12 @@ dtoa
 			The number of bits (e.g. 13 bits)
 			The Maximum input range (e.g. +- 5 volts)
 ****************************************************************
-This star simulates a digital to analog converter.  
+This block simulates a digital to analog converter.  
 <NAME>
 dtoa
 </NAME>
 <DESCRIPTION>
-This star simulates a digital to analog converter.  
+This block simulates a digital to analog converter.  
 	Inputs:		x, the digital sample to be converted 
 	Outputs:	y, the analog signal
 	Parameters:	
@@ -64,7 +64,7 @@ Date: 		February 17, 1989
 
     
 <DESC_SHORT>
-This star simulates a digital to analog converter.  
+This block simulates a digital to analog converter.  
 </DESC_SHORT>
 
 <STATES>

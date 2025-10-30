@@ -31,9 +31,9 @@
 /***********************************************************************
                              jkfade()
 ************************************************************************
-This star models multipath fading channels for mobile radio
+This block models multipath fading channels for mobile radio
 applications.
-The star accepts a complex baseband equivalent input and produces
+The block accepts a complex baseband equivalent input and produces
 complex baseband equivalent samples.
 The method is based on William C. Jakes, "Microwave Mobile Communications,"
 John Wiley & Sons, 1974 in particular pp. 13-65.
@@ -43,7 +43,7 @@ July 1989. Nader Farahati is now with Scientific Generics, Cambridge
 U.K. Each multipath is associated with a time delay. The time
 delays are incorporated by transforming the problem into the frequency
 domain.
-This star first reads all samples, u(t), at its input. It then multiplies the
+This block first reads all samples, u(t), at its input. It then multiplies the
 complex input samples by the complex fading channel amplitude with
 doppler shift for path i,
 ri(t),  and transforms them into the frequency domain, Yi(f).
@@ -53,11 +53,11 @@ exp{-2PIj(fc+f)ti} where fc is the carrier frequency, f is the
 frequency, and ti is the time delay of the ith multipath.
 The various multipaths with independent fading channel amplitudes are
 added in the frequency domain and transformed back into the time domain.
-The star then outputs the complex data as two channels ( in-phase and
+The block then outputs the complex data as two channels ( in-phase and
 quad-phase) in 128 sample chunks. This helps in limiting the size of
 buffers.
 Note that other doppler spectrums and Rician distributions will be
-supported later. The star can easily be changed.
+supported later. The block can easily be changed.
 Programmer:     Sasan Ardalan
 Date:           Dec. 27, 1990
 Modified:       Jeyhan Karaoguz (Time reversal and some other bugs)
@@ -67,7 +67,7 @@ Date:           June 28, 1991
 ]]>
 </COMMENTS> 
 <DESC_SHORT>
-This star models multipath fading channels for mobile radio applications.
+This block models multipath fading channels for mobile radio applications.
 </DESC_SHORT>
 
 <INCLUDES>

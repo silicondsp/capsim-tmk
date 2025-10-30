@@ -35,13 +35,13 @@ sink
 /*********************************************************************
 			sink()
 **********************************************************************
-This star absorbs data from an arbitrary number of input buffers.
+This block absorbs data from an arbitrary number of input buffers.
 It is useful to terminate temporarily unconnected outputs.
 <NAME>
 sink
 </NAME>
 <DESCRIPTION>
-This star absorbs data from an arbitrary number of input buffers.
+This block absorbs data from an arbitrary number of input buffers.
 It is useful to terminate temporarily unconnected outputs.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -53,7 +53,7 @@ It is useful to terminate temporarily unconnected outputs.
 
    
 <DESC_SHORT>
-This star absorbs data from an arbitrary number of input buffers.
+This block absorbs data from an arbitrary number of input buffers.
 </DESC_SHORT>
 
 <STATES>

@@ -35,14 +35,14 @@ impulse
 /**********************************************************************
                           impulse()
 ************************************************************************
-This star sends out a unit sample, then a number of zero samples. The 
+This block sends out a unit sample, then a number of zero samples. The 
 only parameter, which defaults to NUMBER_SAMPLES_PER_VISIT, sets the total samples
 to send out.
 <NAME>
 impulse
 </NAME>
 <DESCRIPTION>
-This star sends out a unit sample, then a number of zero samples. The 
+This block sends out a unit sample, then a number of zero samples. The 
 only parameter, which defaults to NUMBER_SAMPLES_PER_VISIT, sets the total samples
 to send out.
 </DESCRIPTION>
@@ -56,7 +56,7 @@ Mod: ljfaber 12/87 add 'auto fanout'
 
     
 <DESC_SHORT>
-This star sends out a unit sample, then a number of zero samples.
+This block sends out a unit sample, then a number of zero samples.
 </DESC_SHORT>
 
 <STATES>

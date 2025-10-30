@@ -36,7 +36,7 @@ pllfilt
 	parameters:	gain#1, gain#2, gain#3 of the filter
 	inputs:		in, the signal to be filtered
 	outputs:	out, the filtered signal
-	description:	This star implements a loop filter
+	description:	This block implements a loop filter
 			as a recursive equation:
 			y(n)=2*y(n-1)-y(n-2)
 			     +g1*[x(n)-2*x(n-1)+x(n-2)]	
@@ -52,7 +52,7 @@ pllfilt
 	parameters:	gain#1, gain#2, gain#3 of the filter
 	inputs:		in, the signal to be filtered
 	outputs:	out, the filtered signal
-	description:	This star implements a loop filter
+	description:	This block implements a loop filter
 			as a recursive equation:
 			y(n)=2*y(n-1)-y(n-2)
 			     +g1*[x(n)-2*x(n-1)+x(n-2)]	
@@ -71,7 +71,7 @@ pllfilt
 
 
 <DESC_SHORT>
-This star implements a loop filter as a recursive equation:  y(n)=2*y(n-1)-y(n-2) +g1*[x(n)-2*x(n-1)+x(n-2)] +g2*[x(n)-x(n-1)] +g3*x(n)
+This block implements a loop filter as a recursive equation:  y(n)=2*y(n-1)-y(n-2) +g1*[x(n)-2*x(n-1)+x(n-2)] +g2*[x(n)-x(n-1)] +g3*x(n)
 </DESC_SHORT>
 
 <DECLARATIONS> 

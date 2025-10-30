@@ -35,7 +35,7 @@ server
 /**********************************************************************
 			server()
 ***********************************************************************
-This star models an M/M/1 queue
+This block models an M/M/1 queue
 The input buffer is the customer inter arrival times. Thus,
 each sample on the input buffer represents the arrival of a customer.
 The value of the sample is the customer inter arrival time.
@@ -43,11 +43,11 @@ The server places the customer in a queue if necessary and processes the
 next available customer.
 The server does not need to output anything but we have chosen to output
 the current delay in the queue. Thus by connecting the output of
-the server star to the plot star, you can observe the delay in the queue
+the server block to the plot block, you can observe the delay in the queue
 over time. 
-Many other output combinations are possible but this star is used to serve
+Many other output combinations are possible but this block is used to serve
 as an example.
-The server star implements the C code in "Simulation Modeling and Analysis"
+The server block implements the C code in "Simulation Modeling and Analysis"
 by Averill M. Law and W. David Kelton, Second Edition 1991.
 We have included original comments.
 The parameters are:
@@ -67,7 +67,7 @@ The number of output buffers is also arbitrary (auto-fanout).
 server
 </NAME>
 <DESCRIPTION>
-This star models an M/M/1 queue
+This block models an M/M/1 queue
 The input buffer is the customer inter arrival times. Thus,
 each sample on the input buffer represents the arrival of a customer.
 The value of the sample is the customer inter arrival time.
@@ -75,11 +75,11 @@ The server places the customer in a queue if necessary and processes the
 next available customer.
 The server does not need to output anything but we have chosen to output
 the current delay in the queue. Thus by connecting the output of
-the server star to the plot star, you can observe the delay in the queue
+the server block to the plot block, you can observe the delay in the queue
 over time. 
-Many other output combinations are possible but this star is used to serve
+Many other output combinations are possible but this block is used to serve
 as an example.
-The server star implements the C code in "Simulation Modeling and Analysis"
+The server block implements the C code in "Simulation Modeling and Analysis"
 by Averill M. Law and W. David Kelton, Second Edition 1991.
 We have included original comments.
 The parameters are:
@@ -106,7 +106,7 @@ Date:	November 6, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star models an M/M/1 queue
+This block models an M/M/1 queue
 </DESC_SHORT>
 
 

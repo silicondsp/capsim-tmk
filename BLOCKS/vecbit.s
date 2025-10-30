@@ -35,12 +35,12 @@ vecbit
 /***********************************************************************
                              vecbit()
 ************************************************************************
-This star converts a byte input vector to a digital stream.
+This block converts a byte input vector to a digital stream.
 <NAME>
 vecbit
 </NAME>
 <DESCRIPTION>
-This star converts a byte input vector to a digital stream.
+This block converts a byte input vector to a digital stream.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -52,7 +52,7 @@ Date: 		Nov. 22, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star converts a byte input vector to a digital stream.
+This block converts a byte input vector to a digital stream.
 </DESC_SHORT>
 
 

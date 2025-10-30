@@ -35,14 +35,14 @@ dec_qpsk
 				dec_qpsk
  *********************************************************************
 Description:
-This star inputs constellation points and decods them into a bit stream.
+This block inputs constellation points and decods them into a bit stream.
 It is assumed that the constellation was produced by qpsk.s.
 Not  efficient but illustrative.
 <NAME>
 dec_qpsk
 </NAME>
 <DESCRIPTION>
-This star inputs constellation points and decods them into a bit stream.
+This block inputs constellation points and decods them into a bit stream.
 It is assumed that the constellation was produced by qpsk.s.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -55,7 +55,7 @@ Date: Dec 14, 2000
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs constellation points and decods them into a bit stream. It is assumed that the constellation was produced by qpsk.s.
+This block inputs constellation points and decods them into a bit stream. It is assumed that the constellation was produced by qpsk.s.
 </DESC_SHORT>
 
 

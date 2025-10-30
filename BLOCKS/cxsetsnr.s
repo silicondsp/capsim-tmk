@@ -32,7 +32,7 @@
 
 ************************************************************************
 
-This star adds white gaussian noise to the input data stream based on SNR.
+This block adds white gaussian noise to the input data stream based on SNR.
 
 Programmer:     L. James Faber
 Date:           November, 1987
@@ -47,7 +47,7 @@ Modified: August 30, 2001 Sasan Ardalan, Complex Add Noise
 </COMMENTS> 
 
 <DESC_SHORT>
-This star adds white gaussian noise to the input data stream based on SNR.
+This block adds white gaussian noise to the input data stream based on SNR.
 </DESC_SHORT>
 
 

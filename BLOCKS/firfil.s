@@ -35,20 +35,20 @@ firfil
 /***********************************************************************
                              firfil()
 ************************************************************************
-This star designs FIR low pass, high pass, band pass, and band stop 
+This block designs FIR low pass, high pass, band pass, and band stop 
 filters using the windowing method.
-The star stores the specs of the FIR filter in the file tmp.spec.
-The star stores the FIR filter taps in the file tmp.tap.
+The block stores the specs of the FIR filter in the file tmp.spec.
+The block stores the FIR filter taps in the file tmp.tap.
 Date:  October 19, 1989 
 Programmer: Sasan H. Ardalan. 
 <NAME>
 firfil
 </NAME>
 <DESCRIPTION>
-This star designs FIR low pass, highj pass, band pass, and band stop 
+This block designs FIR low pass, highj pass, band pass, and band stop 
 filters using the windowing method.
-The star stores the specs of the FIR filter in the file tmp.spec.
-The star stores the FIR filter taps in the file tmp.tap.
+The block stores the specs of the FIR filter in the file tmp.spec.
+The block stores the FIR filter taps in the file tmp.tap.
 </DESCRIPTION>
 <PROGRAMMERS>
 Date:  October 19, 1989 
@@ -60,7 +60,7 @@ Programmer: Sasan H. Ardalan.
 </COMMENTS> 
 
 <DESC_SHORT>
-This star designs FIR low pass, high pass, band pass, and band stop  filters using the windowing method.
+This block designs FIR low pass, high pass, band pass, and band stop  filters using the windowing method.
 </DESC_SHORT>
 
 

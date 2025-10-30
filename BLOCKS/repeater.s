@@ -42,7 +42,7 @@ repeater
  *
  * Parameters:	bitTime: The width of a bit in samples 
  *
- * This star simulates an Ethernet local repeater 
+ * This block simulates an Ethernet local repeater 
  *
  * Programmer: Prayson W. Pate
  * Date: September 28, 1987
@@ -60,7 +60,7 @@ repeater
  *
  * Parameters:	bitTime: The width of a bit in samples 
  *
- * This star simulates an Ethernet local repeater 
+ * This block simulates an Ethernet local repeater 
 </DESCRIPTION>
 <PROGRAMMERS>
  Prayson W. Pate
@@ -72,7 +72,7 @@ repeater
 </COMMENTS> 
 
 <DESC_SHORT>
-This star simulates an Ethernet local repeater 
+This block simulates an Ethernet local repeater 
 </DESC_SHORT>
 
 

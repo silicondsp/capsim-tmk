@@ -35,28 +35,28 @@ powmeter
 /******************************************************************
 			powmeter() 
 *******************************************************************
-This star is an averaging logarithmic power meter, which can be
+This block is an averaging logarithmic power meter, which can be
 connected either in-line or terminating.
 If an output is connected, input 0 is passed through unchanged.  
 If no output is connected, the signal is absorbed (like sink).
-The star computes 10*log10(square) of the signal at input 0, and
+The block computes 10*log10(square) of the signal at input 0, and
 (optionally) compares it to another signal at input 1.
 If no signal is connected to input 1, power is referenced to unity.
-This star ultimately prints an ASCII file with the power results.
+This block ultimately prints an ASCII file with the power results.
 	Parameter 1: (file) name of output file; default => powfile
 		  2: (int) number of samples to average; default => 1
 <NAME>
 powmeter
 </NAME>
 <DESCRIPTION>
-This star is an averaging logarithmic power meter, which can be
+This block is an averaging logarithmic power meter, which can be
 connected either in-line or terminating.
 If an output is connected, input 0 is passed through unchanged.  
 If no output is connected, the signal is absorbed (like sink).
-The star computes 10*log10(square) of the signal at input 0, and
+The block computes 10*log10(square) of the signal at input 0, and
 (optionally) compares it to another signal at input 1.
 If no signal is connected to input 1, power is referenced to unity.
-This star ultimately prints an ASCII file with the power results.
+This block ultimately prints an ASCII file with the power results.
 	Parameter 1: (file) name of output file; default => powfile
 		  2: (int) number of samples to average; default => 1
 </DESCRIPTION>
@@ -71,7 +71,7 @@ Modified:	9/88  output to stdout if desired
 </COMMENTS> 
 
 <DESC_SHORT>
-This star is an averaging logarithmic power meter, which can be connected either in-line or terminating.
+This block is an averaging logarithmic power meter, which can be connected either in-line or terminating.
 </DESC_SHORT>
          
 

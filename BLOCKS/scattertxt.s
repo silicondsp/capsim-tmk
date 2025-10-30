@@ -42,7 +42,7 @@
 *************************************************************************
 This routine will produce a scatter plot of the two input channels.
 channels.  Optionally, the input channel data can 'flow through' to the
-correspondingly numbered output channel.  This is useful if this star is
+correspondingly numbered output channel.  This is useful if this block is
 to be placed in line in a simulation (e.g. probe).
 The first parameter represents the number of points plotted from each channel.
 Default is set to 128.

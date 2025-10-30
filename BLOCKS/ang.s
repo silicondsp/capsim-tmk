@@ -29,7 +29,7 @@ ang
 </BLOCK_NAME> 
 
 <DESC_SHORT>
-This star finds the inverse tangent of x/y
+This block finds the inverse tangent of x/y
 </DESC_SHORT>
 
 
@@ -42,7 +42,7 @@ This star finds the inverse tangent of x/y
 ang
 </NAME>
 <DESCRIPTION>
-This star finds the inverse tangent of x/y
+This block finds the inverse tangent of x/y
 	inputs:		x, numerator
 			y, denominator
 	outputs:	z, atan(x/y)

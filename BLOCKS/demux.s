@@ -34,7 +34,7 @@ demux
 /**********************************************************************
                 demux()
 ***********************************************************************
-This star provides periodic demultiplexing of an input data stream.
+This block provides periodic demultiplexing of an input data stream.
 It is appropriate for sub-sampling (integer decimation) or creating
 data streams for fractionally-spaced equalization (FSE).
 For every N (integer) input samples, 1 sample is sent to each output.
@@ -47,7 +47,7 @@ Param	1 - (int) ratio input rate/output rate, N.
 demux
 </NAME>
 <DESCRIPTION>
-This star provides periodic demultiplexing of an input data stream.
+This block provides periodic demultiplexing of an input data stream.
 It is appropriate for sub-sampling (integer decimation) or creating
 data streams for fractionally-spaced equalization (FSE).
 For every N (integer) input samples, 1 sample is sent to each output.
@@ -69,7 +69,7 @@ Modified:
 
     
 <DESC_SHORT>
-This star provides periodic demultiplexing of an input data stream.
+This block provides periodic demultiplexing of an input data stream.
 </DESC_SHORT>
 
 <STATES>

@@ -35,13 +35,13 @@ invert
 /**********************************************************************
                           invert()
 ***********************************************************************
-This star logically inverts incoming data stream
+This block logically inverts incoming data stream
 Auto fanout is supported.
 <NAME>
 invert
 </NAME>
 <DESCRIPTION>
-This star logically inverts incoming data stream
+This block logically inverts incoming data stream
 Auto fanout is supported.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -53,7 +53,7 @@ Auto fanout is supported.
 
    
 <DESC_SHORT>
-This star logically inverts incoming data stream
+This block logically inverts incoming data stream
 </DESC_SHORT>
 
 <STATES>

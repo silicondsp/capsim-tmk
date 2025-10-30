@@ -39,13 +39,13 @@ sampler1
 		clock, the triggering clock
 	Output: y, the sampled version of x
 ****************************************************************
-This star simulates a sampler circuit. 
+This block simulates a sampler circuit. 
 Triggering is on the positive edge of the clock. 
 <NAME>
 sampler1
 </NAME>
 <DESCRIPTION>
-This star simulates a sampler circuit. 
+This block simulates a sampler circuit. 
 Triggering is on the positive edge of the clock. 
 	Inputs:	x, the data stream
 		clock, the triggering clock
@@ -63,7 +63,7 @@ Modified:   3/1/1990, add phase recording file
 
         
 <DESC_SHORT>
-This star simulates a sampler circuit.  Triggering is on the positive edge of the clock. 
+This block simulates a sampler circuit.  Triggering is on the positive edge of the clock. 
 </DESC_SHORT>
 
 <STATES>

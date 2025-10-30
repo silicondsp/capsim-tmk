@@ -35,7 +35,7 @@ sine
 /***************************************************************************
                           sine()
 *****************************************************************************
-This star generates a sinusoid ( cosine for zero phase) . 
+This block generates a sinusoid ( cosine for zero phase) . 
 If a second buffer is connected, the quadrature signal is output.
 Parameters: 
 The first parameter, which defaults to 128, tells how many total samples
@@ -55,15 +55,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The num_of_samples parameter sets the maximum number of samples
-	that the star will output. If num_of_samples is less than  0, an indefinite
+	that the block will output. If num_of_samples is less than  0, an indefinite
 	number of samples can be output.
-      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+      The block will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
 If the pace input is connected:
       The num_of_samples parameter sets the maximum number of samples
-        that the star will output. If num_samples_out  is less than 0, an infinite
+        that the block will output. If num_samples_out  is less than 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the star all samples are read from the pace input
+      At each call of the block all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An output_target  is computed at each pass = pace_input_total *
 	pace_rate. If pace_rate is lesss than  0, the absolute value is used.
@@ -80,7 +80,7 @@ If the pace input is connected:
 sine
 </NAME>
 <DESCRIPTION>
-This star generates a sinusoid ( cosine for zero phase) . 
+This block generates a sinusoid ( cosine for zero phase) . 
 If a second buffer is connected, the quadrature signal is output.
 Parameters: 
 The first parameter, which defaults to 128, tells how many total samples
@@ -100,15 +100,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The num_of_samples parameter sets the maximum number of samples
-	that the star will output. If num_of_samples is less than  0, an indefinite
+	that the block will output. If num_of_samples is less than  0, an indefinite
 	number of samples can be output.
-      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+      The block will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
 If the pace input is connected:
       The num_of_samples parameter sets the maximum number of samples
-        that the star will output. If num_samples_out is less than  0, an infinite
+        that the block will output. If num_samples_out is less than  0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the star all samples are read from the pace input
+      At each call of the block all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An output_target  is computed at each pass = pace_input_total *
 	pace_rate. If pace_rate is lesss than 0, the absolute value is used.
@@ -132,7 +132,7 @@ Date:		Nov. 1987
 </COMMENTS> 
 
 <DESC_SHORT>
-This star generates a sinusoid ( cosine for zero phase). If a second buffer is connected, the quadrature signal is output.
+This block generates a sinusoid ( cosine for zero phase). If a second buffer is connected, the quadrature signal is output.
 </DESC_SHORT>
 
 

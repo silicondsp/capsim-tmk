@@ -33,10 +33,10 @@
 addnoise
 </BLOCK_NAME>
 <DESCRIPTION>
-This star adds white gaussian noise to the input data stream.
+This block adds white gaussian noise to the input data stream.
 Param. 1 (float) sets the power of the added noise and should be >= 0. 
 Param. 2 (int) sets a seed for the random number generator.  Random
-sequences can be unique and repeatable for each instance of this star.
+sequences can be unique and repeatable for each instance of this block.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: 	L. James Faber

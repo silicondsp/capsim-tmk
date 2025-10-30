@@ -43,7 +43,7 @@ target
 			seed - random number seed
  	inputs:		none
  	outputs:	range measurements
- 	description:	This star generates range measurements from
+ 	description:	This block generates range measurements from
  			a track-while-scan radar with measurement
  			uncertainty.  If there is a missed range
  			value a "0" is output.
@@ -53,7 +53,7 @@ target
 target
 </NAME>
 <DESCRIPTION>
-This star generates range measurements from
+This block generates range measurements from
  			a track-while-scan radar with measurement
  			uncertainty.  If there is a missed range
  			value a "0" is output.

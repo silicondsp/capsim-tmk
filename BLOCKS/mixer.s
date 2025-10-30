@@ -42,7 +42,7 @@ mixer
  *									*
  *	outputs:	z, the product of x and y			*
  *									*
- *	description:	This star takes two inputs and produces 	*
+ *	description:	This block takes two inputs and produces 	*
  *			their product.					*
  *									*
  *			written by John T. Stonick			*
@@ -56,7 +56,7 @@ mixer
  *									*
  *	outputs:	z, the product of x and y			*
  *									*
- *	description:	This star takes two inputs and produces 	*
+ *	description:	This block takes two inputs and produces 	*
  *			their product.					*
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -68,7 +68,7 @@ mixer
 </COMMENTS> 
 
 <DESC_SHORT>
-  This star takes two inputs and produces their product.	
+  This block takes two inputs and produces their product.	
 </DESC_SHORT>
 
 <DECLARATIONS> 

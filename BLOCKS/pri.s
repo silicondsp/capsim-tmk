@@ -33,12 +33,12 @@ pri
 
 /*pri.s*/
 /*
- * This star writes the input data on the screen in hex form
+ * This block writes the input data on the screen in hex form
 <NAME>
 pri
 </NAME>
 <DESCRIPTION>
-This star writes the input data on the screen in hex form
+This block writes the input data on the screen in hex form
 </DESCRIPTION>
 <PROGRAMMERS>
 </PROGRAMMERS> 
@@ -49,7 +49,7 @@ This star writes the input data on the screen in hex form
 
    
 <DESC_SHORT>
-This star writes the input data on the screen in hex form
+This block writes the input data on the screen in hex form
 </DESC_SHORT>
 
 <STATES>

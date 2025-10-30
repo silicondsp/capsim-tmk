@@ -44,9 +44,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-star Reader cxrdfile.s
+block Reader cxrdfile.s
 param default
-star Reader cxrdfile.s
+block Reader cxrdfile.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 <NAME>
@@ -63,9 +63,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-star Reader cxrdfile.s
+block Reader cxrdfile.s
 param default
-star Reader cxrdfile.s
+block Reader cxrdfile.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 </DESCRIPTION>

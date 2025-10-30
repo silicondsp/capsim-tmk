@@ -39,13 +39,13 @@ cxreim
 	Outputs:	y0, the real part y1 the imaginary part
 	Parameters: 	None
 ****************************************************************
-This star outputs the real part of the input
+This block outputs the real part of the input
 complex stream. Buffer 0 contains the real part.
 <NAME>
 cxreim
 </NAME>
 <DESCRIPTION>
-This star outputs the real part of the input
+This block outputs the real part of the input
 complex stream. Buffer 0 contains the real part.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -58,7 +58,7 @@ Date:		March 12, 1989
 </COMMENTS> 
 
 <DESC_SHORT>
-This star outputs the real part of the input complex stream. Buffer 0 contains the real part.
+This block outputs the real part of the input complex stream. Buffer 0 contains the real part.
 </DESC_SHORT>
 
 

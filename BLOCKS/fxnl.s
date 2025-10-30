@@ -34,10 +34,10 @@ fxnl
 /*************************************************************
 Fixed Point Normalized Lattice Filter
 				fxnl()
-This star implements a fixed point normalized lattice filter. 
+This block implements a fixed point normalized lattice filter. 
 All variables used are of type integer so that the algorithm can 
 be directly implemented on a Digital Signal Processor.
-This star supports both floating point and integer buffers.
+This block supports both floating point and integer buffers.
 If floating point buffers are used, the input samples are quantized 
 with the input quantizer range and number of bits specified as
 parameters.
@@ -45,7 +45,7 @@ The output is also converted to floating point within the
 original quantizer range. e.g. +- 5 volts.
 If integer buffers are used, no quantization is used and the
 integer input samples are processed directly.
-This star can be replace the floating point normalized lattice star
+This block can be replace the floating point normalized lattice block
 nl.s to analyze the effects of fixed point implementation
 with different word sizes.
 ***************************************************************
@@ -56,10 +56,10 @@ fxnl
 <DESCRIPTION>
 Fixed Point Normalized Lattice Filter
 				fxnl()
-This star implements a fixed point normalized lattice filter. 
+This block implements a fixed point normalized lattice filter. 
 All variables used are of type integer so that the algorithm can 
 be directly implemented on a Digital Signal Processor.
-This star supports both floating point and integer buffers.
+This block supports both floating point and integer buffers.
 If floating point buffers are used, the input samples are quantized 
 with the input quantizer range and number of bits specified as
 parameters.
@@ -67,7 +67,7 @@ The output is also converted to floating point within the
 original quantizer range. e.g. +- 5 volts.
 If integer buffers are used, no quantization is used and the
 integer input samples are processed directly.
-This star can be replace the floating point normalized lattice star
+This block can be replace the floating point normalized lattice block
 nl.s to analyze the effects of fixed point implementation
 with different word sizes.
 </DESCRIPTION>
@@ -81,7 +81,7 @@ Date: September 7, 1991
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements a fixed point normalized lattice filter. 
+This block implements a fixed point normalized lattice filter. 
 </DESC_SHORT>
 
 

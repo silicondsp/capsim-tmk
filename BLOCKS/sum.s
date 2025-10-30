@@ -32,7 +32,7 @@
 /**********************************************************************
 			sum()
 ***********************************************************************
-This star is an extension of "add".  It creates a Weighted Sum of
+This block is an extension of "add".  It creates a Weighted Sum of
 all input channels and sends it to the output buffer(s).
 (This is convenient for negating inputs, for example.)
 Parameter one is an array for input channel weights.
@@ -42,7 +42,7 @@ The number of output buffers is determined at run time (auto-fanout).
 sum
 </NAME>
 <DESCRIPTION>
-This star is an extension of "add".  It creates a Weighted Sum of
+This block is an extension of "add".  It creates a Weighted Sum of
 all input channels and sends it to the output buffer(s).
 (This is convenient for negating inputs, for example.)
 Parameter one is an array for input channel weights.
@@ -60,7 +60,7 @@ Date: April 20, 1988.
 
     
 <DESC_SHORT>
-This star is an extension of "add".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
+This block is an extension of "add".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
 </DESC_SHORT>
 
 <STATES>

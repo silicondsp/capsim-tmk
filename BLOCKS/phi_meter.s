@@ -42,7 +42,7 @@ phi_meter
 			int sync, specifies if a value is to be
 				output for every input sample
 ****************************************************************
-This star finds the relative phase of a signal to a reference.  
+This block finds the relative phase of a signal to a reference.  
 Both signals are assumed to be digital and between 0.0 and 1.0.
 One parameter specifies the trigger edge (true for rising, false 
 for falling).  The other specifies the output rate (synchronous 
@@ -52,7 +52,7 @@ chosen edges in degrees.
 phi_meter
 </NAME>
 <DESCRIPTION>
-This star finds the relative phase of a signal to a reference.  
+This block finds the relative phase of a signal to a reference.  
 Both signals are assumed to be digital and between 0.0 and 1.0.
 One parameter specifies the trigger edge (true for rising, false 
 for falling).  The other specifies the output rate (synchronous 
@@ -75,7 +75,7 @@ Modified:	August 17, 1987
 </COMMENTS> 
 
 <DESC_SHORT>
-This star finds the relative phase of a signal to a reference.
+This block finds the relative phase of a signal to a reference.
 </DESC_SHORT>
 
 

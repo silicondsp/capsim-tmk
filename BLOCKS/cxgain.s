@@ -35,14 +35,14 @@ cxgain
 /**********************************************************************
                           cxgain()
 ***********************************************************************
-This star multiplies the incoming complex data stream by the complex parameter
+This block multiplies the incoming complex data stream by the complex parameter
 coefficient, and outputs the resulting complex data values.
 Auto fanout is supported.
 <NAME>
 cxgain
 </NAME>
 <DESCRIPTION>
-This star multiplies the incoming complex data stream by the complex parameter
+This block multiplies the incoming complex data stream by the complex parameter
 coefficient, and outputs the resulting complex data values.
 Auto fanout is supported.
 </DESCRIPTION>
@@ -56,7 +56,7 @@ Sasan Ardalan
 
    
 <DESC_SHORT>
-This star multiplies the incoming complex data stream by the complex parameter coefficient, and outputs the resulting complex data values.
+This block multiplies the incoming complex data stream by the complex parameter coefficient, and outputs the resulting complex data values.
 </DESC_SHORT>
 
 <STATES>

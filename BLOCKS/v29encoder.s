@@ -35,14 +35,14 @@ v29encoder
 				v29encoder()
  *********************************************************************
 Description:
-This star inputs data and ouputs the coordinates of th CCITT v.29
+This block inputs data and ouputs the coordinates of th CCITT v.29
 encoder constlations.  Output0 corresponds to the real value and 
 Output1 corresponds to the coordinates of the immaginary.
 <NAME>
 v29encoder
 </NAME>
 <DESCRIPTION>
-This star inputs data and ouputs the coordinates of th CCITT v.29
+This block inputs data and ouputs the coordinates of th CCITT v.29
 encoder constlations.  Output0 corresponds to the real value and 
 Output1 corresponds to the coordinates of the immaginary.
 </DESCRIPTION>
@@ -57,7 +57,7 @@ Date: Aug. 2, 1990
 
     
 <DESC_SHORT>
-This star inputs data and ouputs the coordinates of the CCITT v.29 encoder constlations. 
+This block inputs data and ouputs the coordinates of the CCITT v.29 encoder constlations. 
 </DESC_SHORT>
 
 <STATES>

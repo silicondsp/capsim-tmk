@@ -35,13 +35,13 @@ imginterp
 /***********************************************************************
                              imginterp()
 ************************************************************************
-This star inputs an image and interpolates it.
+This block inputs an image and interpolates it.
 NOTE: Input and output buffers are of image_t type.
 <NAME>
 imginterp
 </NAME>
 <DESCRIPTION>
-This star inputs an image and interpolates it.
+This block inputs an image and interpolates it.
 NOTE: Input and output buffers are of image_t type.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date: 		May 12, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and interpolates it.
+This block inputs an image and interpolates it.
 </DESC_SHORT>
 
 

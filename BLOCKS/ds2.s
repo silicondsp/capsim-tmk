@@ -34,7 +34,7 @@ ds2
 /***************************************************************************
 		ds2.s
 ****************************************************************************
-This star is a self-contained second order delta sigma modulator.  Ouput 0
+This block is a self-contained second order delta sigma modulator.  Ouput 0
 is the output of the circuit. Output 1 is the input to the comparator
 if connected.
 -Parameter one: the gain of the first integrator
@@ -44,7 +44,7 @@ if connected.
 ds2
 </NAME>
 <DESCRIPTION>
-his star is a self-contained second order delta sigma modulator.  Ouput 0
+his block is a self-contained second order delta sigma modulator.  Ouput 0
 is the output of the circuit. Output 1 is the input to the comparator
 if connected.
 -Parameter one: the gain of the first integrator
@@ -63,7 +63,7 @@ error prior to 1 bit quantization is output on buffer 1.
 </COMMENTS> 
 
 <DESC_SHORT>
-This star is a self-contained second order delta sigma modulator.
+This block is a self-contained second order delta sigma modulator.
 </DESC_SHORT>
 
 

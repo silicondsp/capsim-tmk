@@ -35,12 +35,12 @@ transpose
 /***********************************************************************
                              transpose()
 ************************************************************************
-This star inputs an image and transposes it.
+This block inputs an image and transposes it.
 <NAME>
 transpose
 </NAME>
 <DESCRIPTION>
-This star inputs an image and transposes it.
+This block inputs an image and transposes it.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -52,7 +52,7 @@ Date: 		April 15, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and transposes it.
+This block inputs an image and transposes it.
 </DESC_SHORT>
 
 

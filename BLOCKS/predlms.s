@@ -34,12 +34,12 @@ predlms
 /**********************************************************************
                 predlms()
 ***********************************************************************
-This star implements a multichannel input/output FIR predictor, which
+This block implements a multichannel input/output FIR predictor, which
 is adapted using the power normalized LMS algorithm.
 It can be used as an equalizer, FSE, DFE, or echo canceller.
 An arbitrary number p input channels are transversal filtered
 to produce an arbitrary number q output estimate signals.
-Note: each output buffer connected to this star implies a separate
+Note: each output buffer connected to this block implies a separate
 output channel, and identically numbered error input channel.
 Input signal channels are then connected to higher numbered buffers.
 It is assumed that the estimate error is computed externally.
@@ -73,7 +73,7 @@ Param.	3 - (float) lambda.  It is a multiplicative factor to
 	  control adaptation rate.  default => 1.0
 Param.	4 - (float) delta.  Tap leakage factor.  default => 1.0
 	  Default implies no tap leakage occurs.
-	5 - (int) wait.  number of samples to skip before starting
+	5 - (int) wait.  number of samples to skip before blockting
 	  adaptation.  The predictor still inputs samples, and
 	  outputs a zero estimate.  default => 0
 	6 - (int) adapt.  number of samples to adapt filter.  After
@@ -83,12 +83,12 @@ Param.	4 - (float) delta.  Tap leakage factor.  default => 1.0
 predlms
 </NAME>
 <DESCRIPTION>
-This star implements a multichannel input/output FIR predictor, which
+This block implements a multichannel input/output FIR predictor, which
 is adapted using the power normalized LMS algorithm.
 It can be used as an equalizer, FSE, DFE, or echo canceller.
 An arbitrary number p input channels are transversal filtered
 to produce an arbitrary number q output estimate signals.
-Note: each output buffer connected to this star implies a separate
+Note: each output buffer connected to this block implies a separate
 output channel, and identically numbered error input channel.
 Input signal channels are then connected to higher numbered buffers.
 It is assumed that the estimate error is computed externally.
@@ -122,7 +122,7 @@ Param.	3 - (float) lambda.  It is a multiplicative factor to
 	  control adaptation rate.  default => 1.0
 Param.	4 - (float) delta.  Tap leakage factor.  default => 1.0
 	  Default implies no tap leakage occurs.
-	5 - (int) wait.  number of samples to skip before starting
+	5 - (int) wait.  number of samples to skip before blockting
 	  adaptation.  The predictor still inputs samples, and
 	  outputs a zero estimate.  default => 0
 	6 - (int) adapt.  number of samples to adapt filter.  After
@@ -143,7 +143,7 @@ Modified: Sept 1988  add parameters 5,6 and associated.
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements a multichannel input/output FIR predictor, which is adapted using the power normalized LMS algorithm.
+This block implements a multichannel input/output FIR predictor, which is adapted using the power normalized LMS algorithm.
 </DESC_SHORT>
 
 
@@ -234,7 +234,7 @@ This star implements a multichannel input/output FIR predictor, which is adapted
 	<VALUE>1.0</VALUE>
 </PARAM>
 <PARAM>
-	<DEF> Number of samples to skip before starting adaptation</DEF>
+	<DEF> Number of samples to skip before blockting adaptation</DEF>
 	<TYPE>int</TYPE>
 	<NAME>wait</NAME>
 	<VALUE>0</VALUE>

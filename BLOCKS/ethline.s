@@ -39,7 +39,7 @@ ethline
  *
  * Parameters:	SamplesDelay: The Delay of the cable
  *
- * This star simulates an Ethernet cable.
+ * This block simulates an Ethernet cable.
  * If it is connected as a one-port it acts as a termination. If
  * connected as a two-port, it acts as a delay line of length samplesDelay 
  *
@@ -50,7 +50,7 @@ ethline
 </NAME>
 <DESCRIPTION>
  *
- * This star simulates an Ethernet cable.
+ * This block simulates an Ethernet cable.
  * If it is connected as a one-port it acts as a termination. If
  * connected as a two-port, it acts as a delay line of length samplesDelay 
  *
@@ -67,7 +67,7 @@ ethline
 </COMMENTS> 
 
 <DESC_SHORT>
-This star simulates an Ethernet cable.
+This block simulates an Ethernet cable.
 </DESC_SHORT>
 
 

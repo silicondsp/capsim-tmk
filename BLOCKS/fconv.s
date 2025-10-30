@@ -32,7 +32,7 @@
                              fconv()
 ************************************************************************
 "Linear Convolution":
-This star convolves its input signal with an impulse response to
+This block convolves its input signal with an impulse response to
 generate the output signal.
 Param.	1 - (int) impl: length of impulse response in samples.
 	2 - (file) impf_name: ASCII file which holds impulse response.
@@ -46,7 +46,7 @@ fconv
 </NAME>
 <DESCRIPTION>
 "Linear Convolution":
-This star convolves its input signal with an impulse response to
+This block convolves its input signal with an impulse response to
 generate the output signal.
 Param.	1 - (int) impl: length of impulse response in samples.
 	2 - (file) impf_name: ASCII file which holds impulse response.
@@ -68,7 +68,7 @@ Modified: 6/88 ljfaber  update comments, efficiency
 </COMMENTS> 
 
 <DESC_SHORT>
-This star convolves its input signal with an impulse response (from file) to generate the output signal.
+This block convolves its input signal with an impulse response (from file) to generate the output signal.
 </DESC_SHORT>
 
 

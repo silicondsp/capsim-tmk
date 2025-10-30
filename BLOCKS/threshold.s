@@ -41,7 +41,7 @@ threshold
 	inputs:		x, signal to threshold
 			in_control, control signal
 	outputs:	y, the threshold decision
-	description:	This star compares the input with a 
+	description:	This block compares the input with a 
 			threshold and outputs a 1 if the input
 			is less than the threshold, or 0 if
 			the input is greater than or
@@ -61,7 +61,7 @@ threshold.s:	Compares input with threshold and
 	inputs:		x, signal to threshold
 			in_control, control signal
 	outputs:	y, the threshold decision
-	description:	This star compares the input with a 
+	description:	This block compares the input with a 
 			threshold and outputs a 1 if the input
 			is less than the threshold, or 0 if
 			the input is greater than or

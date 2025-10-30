@@ -35,7 +35,7 @@ inverse
 /**********************************************************************
                           invert()
 ***********************************************************************
-This star inverts  the incoming data stream and multiplies by  the parameter
+This block inverts  the incoming data stream and multiplies by  the parameter
 coefficient after inversion , and outputs the resulting data values.
 Specifically, 
 	y= a/x
@@ -46,7 +46,7 @@ Auto fanout is supported.
 invert
 </NAME>
 <DESCRIPTION>
-This star inverts  the incoming data stream and multiplies by  the parameter
+This block inverts  the incoming data stream and multiplies by  the parameter
 coefficient after inversion , and outputs the resulting data values.
 Specifically, 
 	y= a/x
@@ -63,7 +63,7 @@ Auto fanout is supported.
 
    
 <DESC_SHORT>
-This star inverts  the incoming data stream and multiplies by  the parameter coefficient after inversion , and outputs the resulting data values.
+This block inverts  the incoming data stream and multiplies by  the parameter coefficient after inversion , and outputs the resulting data values.
 </DESC_SHORT>
 
 <STATES>

@@ -35,7 +35,7 @@ linecode
                 linecode()
 ***********************************************************************
 Description:
-This star inputs 0/1 binary data and outputs various line codes.
+This block inputs 0/1 binary data and outputs various line codes.
 Line codes are selectable by the first input parameter `code_type':
 	0 - Binary (NRZ) (1 = +1, 0 = -1)  (Default; 1 phase)
 	1 - Biphase (Manchester) (1 = -1,+1; 0 = +1,-1)  (2 phase)
@@ -45,7 +45,7 @@ The code output oversampling rate (samples per baud interval) is
 selected by the second parameter `smplbd'.  Note that multi-phase
 codes require oversampling rates which are integer multiples of the
 number of phases!
-I/O buffers are float to be compatible with most stars.
+I/O buffers are float to be compatible with most blocks.
 Output buffer 0: Over sampled symbols.
 Output buffer 1 (optional): symbols at baud rate.
 Programmer:  L.J. Faber
@@ -57,7 +57,7 @@ Modified: 6/88 change oversampling method to zero fill
 linecode
 </NAME>
 <DESCRIPTION>
-This star inputs 0/1 binary data and outputs various line codes.
+This block inputs 0/1 binary data and outputs various line codes.
 Line codes are selectable by the first input parameter `code_type':
 	0 - Binary (NRZ) (1 = +1, 0 = -1)  (Default; 1 phase)
 	1 - Biphase (Manchester) (1 = -1,+1; 0 = +1,-1)  (2 phase)
@@ -67,7 +67,7 @@ The code output oversampling rate (samples per baud interval) is
 selected by the second parameter `smplbd'.  Note that multi-phase
 codes require oversampling rates which are integer multiples of the
 number of phases!
-I/O buffers are float to be compatible with most stars.
+I/O buffers are float to be compatible with most blocks.
 Output buffer 0: Over sampled symbols.
 Output buffer 1 (optional): symbols at baud rate.
 </DESCRIPTION>
@@ -85,7 +85,7 @@ Modified: 6/88 change oversampling method to zero fill
 
            
 <DESC_SHORT>
-This star inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
+This block inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
 </DESC_SHORT>
 
 <STATES>

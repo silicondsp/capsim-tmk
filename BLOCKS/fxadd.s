@@ -35,8 +35,8 @@ fxadd
 /**********************************************************************
 			fxadd()
 ***********************************************************************
-	This star adds all of its input samples. The input is
-	accepted in pairs coming from fxgain.s star. The output
+	This block adds all of its input samples. The input is
+	accepted in pairs coming from fxgain.s block. The output
 	is rounded by the number of bits specified by the parameter
 	roundoff_bits.
 	Parameters :
@@ -47,8 +47,8 @@ fxadd
 fxadd
 </NAME>
 <DESCRIPTION>
-	This star adds all of its input samples. The input is
-	accepted in pairs coming from fxgain.s star. The output
+	This block adds all of its input samples. The input is
+	accepted in pairs coming from fxgain.s block. The output
 	is rounded by the number of bits specified by the parameter
 	roundoff_bits.
 	Parameters :
@@ -67,7 +67,7 @@ fxadd
 
     
 <DESC_SHORT>
-This star adds all of its input samples using fixed point arithmetic. 
+This block adds all of its input samples using fixed point arithmetic. 
 </DESC_SHORT>
 
 <STATES>

@@ -35,14 +35,14 @@ cxcorr
 /***********************************************************************
                              cxcorr()
 ************************************************************************
-This star correlates the input samples with the sequence given in a file.
+This block correlates the input samples with the sequence given in a file.
 Param:	1 - (file) File with the sequence to correlate
 	2 - (int) N  number of samples in the sequence.
 <NAME>
 cxcorr
 </NAME>
 <DESCRIPTION>
-This star correlates the input samples with the sequence given in a file.
+This block correlates the input samples with the sequence given in a file.
 Param:	1 - (file) File with the sequence to correlate
 	2 - (int) N  number of samples in the sequence.
 </DESCRIPTION>
@@ -57,7 +57,7 @@ Modified: August 27, 2001 for complex correlation, Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This star correlates the input samples with the sequence given in a file.
+This block correlates the input samples with the sequence given in a file.
 </DESC_SHORT>
 
 

@@ -35,7 +35,7 @@ cxsum
 /**********************************************************************
 			cxsum()
 ***********************************************************************
-This star is an extension of "cxadd".  It creates a Weighted Sum of
+This block is an extension of "cxadd".  It creates a Weighted Sum of
 all input channels and sends it to the output buffer(s).
 (This is convenient for negating inputs, for example.)
 Parameter one is an array for input channel weights.
@@ -45,7 +45,7 @@ The number of output buffers is determined at run time (auto-fanout).
 cxsum
 </NAME>
 <DESCRIPTION>
-This star is an extension of "cxadd".  It creates a Weighted Sum of
+This block is an extension of "cxadd".  It creates a Weighted Sum of
 all input channels and sends it to the output buffer(s).
 (This is convenient for negating inputs, for example.)
 Parameter one is an array for input channel weights.
@@ -64,7 +64,7 @@ Modified by Sasan Ardalan for complex inputs/outputs
 
     
 <DESC_SHORT>
-This star is an extension of "cxadd".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
+This block is an extension of "cxadd".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
 </DESC_SHORT>
 
 <STATES>

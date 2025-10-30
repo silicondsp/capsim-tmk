@@ -41,7 +41,7 @@ mulaw
  *									*
  *	outputs:	out, the filtered signal			*
  *									*
- *	description:	This star implements a mulaw quantizer          *
+ *	description:	This block implements a mulaw quantizer          *
  *									*
  *									*
  *			written by Sasan Ardalan                        *
@@ -50,7 +50,7 @@ mulaw
 mulaw
 </NAME>
 <DESCRIPTION>
-This star implements a mulaw quantizer
+This block implements a mulaw quantizer
 </DESCRIPTION>
 <PROGRAMMERS>
 Sasan Ardalan 
@@ -61,7 +61,7 @@ Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements a mulaw quantizer
+This block implements a mulaw quantizer
 </DESC_SHORT>
 
 

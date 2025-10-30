@@ -36,7 +36,7 @@ trig
 			trig() 
 *******************************************************************
 Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => start from first
+		2: (int) index first sample; default => blockt from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 		5: (int) operation: 0=sin,1=cos,2=tan,3=arctan,4=arcsin
@@ -46,7 +46,7 @@ trig
 <DESCRIPTION>
 Perform trig operation on input buffers
 Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => start from first
+		2: (int) index first sample; default => blockt from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 		5: (int) operation: 0=sin,1=cos,2=tan,3=arctan,4=arcsin

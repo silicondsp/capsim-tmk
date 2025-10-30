@@ -41,7 +41,7 @@ intdmp
  *									*
  *	outputs:	out, Decimated by Integration Time		*
  *									*
- *	description:	This star implements a matched filter 
+ *	description:	This block implements a matched filter 
  *									*
  *									*
  *			written by Sasan H. Ardalan			*
@@ -50,7 +50,7 @@ intdmp
 intdmp
 </NAME>
 <DESCRIPTION>
-This star implements a matched filter 
+This block implements a matched filter 
 </DESCRIPTION>
 <PROGRAMMERS>
 Sasan H. Ardalan	
@@ -61,7 +61,7 @@ Sasan H. Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements a matched filter 
+This block implements a matched filter 
 </DESC_SHORT>
     
 

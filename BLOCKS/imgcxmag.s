@@ -35,13 +35,13 @@ imgcxmag
 /***********************************************************************
                              imgcxmag()
 ************************************************************************
-This star inputs a complex image height*(2*width) and creates a new
+This block inputs a complex image height*(2*width) and creates a new
 real image height*width  of magnitudes
 <NAME>
 imgcxmag
 </NAME>
 <DESCRIPTION>
-This star inputs a complex image height*(2*width) and creates a new real image height*width  of magnitudes
+This block inputs a complex image height*(2*width) and creates a new real image height*width  of magnitudes
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -53,7 +53,7 @@ Date: 		September 9, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs a complex image height*(2*width) and creates a new real image height*width  of magnitudes
+This block inputs a complex image height*(2*width) and creates a new real image height*width  of magnitudes
 </DESC_SHORT>
 
 

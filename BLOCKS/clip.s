@@ -34,14 +34,14 @@ clip
 /***************************************************************************
 		clip.s
 ****************************************************************************
-This star eats values that are outside a range that is specified by the 
+This block eats values that are outside a range that is specified by the 
 first parameter
 -Parameter one: the cutoff value
 <NAME>
 clip
 </NAME>
 <DESCRIPTION>
-This star eats values that are outside a range that is specified by the 
+This block eats values that are outside a range that is specified by the 
 first parameter
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date:		January 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star eats values that are outside a range that is specified by the first parameter
+This block eats values that are outside a range that is specified by the first parameter
 </DESC_SHORT>
 
 

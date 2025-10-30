@@ -35,13 +35,13 @@ imgrtcx
 /***********************************************************************
                              imgrtcx()
 ************************************************************************
-This star inputs a real image widthxheight and creates a new
+This block inputs a real image widthxheight and creates a new
 complex image (2*width)*height with the imaginary part set to zero
 <NAME>
 imgrtcx
 </NAME>
 <DESCRIPTION>
-This star inputs a real image widthxheight and creates a new
+This block inputs a real image widthxheight and creates a new
 complex image (2*width)*height with the imaginary part set to zero
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date: 		September 9, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs a real image widthxheight and creates a new complex image (2*width)*height with the imaginary part set to zero
+This block inputs a real image widthxheight and creates a new complex image (2*width)*height with the imaginary part set to zero
 </DESC_SHORT>
 
 

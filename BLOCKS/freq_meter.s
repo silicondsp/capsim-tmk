@@ -39,13 +39,13 @@ freq_meter
 	outputs:	y, the frequency of x
 	parameters:	int parm, function determined by value
 **************************************************************************
-This star simulates a frequency counter.  The single parameter determines 
+This block simulates a frequency counter.  The single parameter determines 
 if the output is relative or absolute.
 <NAME>
 freq_meter
 </NAME>
 <DESCRIPTION>
-This star simulates a frequency counter.  The single parameter determines 
+This block simulates a frequency counter.  The single parameter determines 
 if the output is relative or absolute.
 	inputs:		x, the signal of interest
 	outputs:	y, the frequency of x
@@ -63,7 +63,7 @@ Modified:	March 28, 1988
 
        
 <DESC_SHORT>
-This star simulates a frequency counter.  The single parameter determines if the output is relative or absolute.
+This block simulates a frequency counter.  The single parameter determines if the output is relative or absolute.
 </DESC_SHORT>
 
 <STATES>

@@ -34,12 +34,12 @@ predftf
 /**********************************************************************
                 predftf()
 ***********************************************************************
-This star implements a multichannel input/output FIR predictor, which is
+This block implements a multichannel input/output FIR predictor, which is
 adapted using the least squares Fast Transversal Filter algorithm.
 It can be used as an equalizer, FSE, DFE, or echo canceller.
 An arbitrary number p input channels are transversal filtered
 to produce an arbitrary number q output estimate signals.
-Note: each output buffer connected to this star implies a separate
+Note: each output buffer connected to this block implies a separate
 output channel, and identically numbered error input channel.
 Input signal channels are then connected to higher numbered buffers.
 It is assumed that the estimate error is computed externally.
@@ -73,7 +73,7 @@ Param.  3 - (float) lambda.  data forgetting factor.  default => 1.0
           Lambda = 1.0 implies no long term adaptation occurs.
         4 - (float) delta.  initial value, forward prediction energy.
           default => 1e-4
-        5 - (int) wait.  number of samples to skip before starting
+        5 - (int) wait.  number of samples to skip before blockting
           adaptation.  The predictor still inputs samples, and
           outputs a zero estimate.  default => 0
         6 - (int) adapt.  number of samples to adapt filter.  After
@@ -83,12 +83,12 @@ Param.  3 - (float) lambda.  data forgetting factor.  default => 1.0
 predftf
 </NAME>
 <DESCRIPTION>
-This star implements a multichannel input/output FIR predictor, which is
+This block implements a multichannel input/output FIR predictor, which is
 adapted using the least squares Fast Transversal Filter algorithm.
 It can be used as an equalizer, FSE, DFE, or echo canceller.
 An arbitrary number p input channels are transversal filtered
 to produce an arbitrary number q output estimate signals.
-Note: each output buffer connected to this star implies a separate
+Note: each output buffer connected to this block implies a separate
 output channel, and identically numbered error input channel.
 Input signal channels are then connected to higher numbered buffers.
 It is assumed that the estimate error is computed externally.
@@ -122,7 +122,7 @@ Param.  3 - (float) lambda.  data forgetting factor.  default => 1.0
           Lambda = 1.0 implies no long term adaptation occurs.
         4 - (float) delta.  initial value, forward prediction energy.
           default => 1e-4
-        5 - (int) wait.  number of samples to skip before starting
+        5 - (int) wait.  number of samples to skip before blockting
           adaptation.  The predictor still inputs samples, and
           outputs a zero estimate.  default => 0
         6 - (int) adapt.  number of samples to adapt filter.  After
@@ -143,7 +143,7 @@ Modified: Sept 1988  add parameters 5,6 and associated.
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements a multichannel input/output FIR predictor, which is adapted using the least squares Fast Transversal Filter algorithm.
+This block implements a multichannel input/output FIR predictor, which is adapted using the least squares Fast Transversal Filter algorithm.
 </DESC_SHORT>
 
 
@@ -276,7 +276,7 @@ This star implements a multichannel input/output FIR predictor, which is adapted
 	<VALUE>1e-4</VALUE>
 </PARAM>
 <PARAM>
-	<DEF> Number of samples to skip before starting adaptation</DEF>
+	<DEF> Number of samples to skip before blockting adaptation</DEF>
 	<TYPE>int</TYPE>
 	<NAME>wait</NAME>
 	<VALUE>0</VALUE>
@@ -503,7 +503,7 @@ for(j=0; j<p; j++)
 sum = 1. - sum * gmp;
 
 if(sum < 0 ) {
-        /* Rescue: restart algorithm kernel */
+        /* Rescue: reblockt algorithm kernel */
         fprintf(stderr,"predftf: rescue @%d\n",counter);
         gamma = 1.0;
         for (i=0; i<N; i++) {

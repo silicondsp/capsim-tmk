@@ -43,7 +43,7 @@ fm
  *									*
  *	outputs:	A*sin(2.*PI*fo*t+phase)				*
  *									*
- *	description:	This star produces samples of the output	*
+ *	description:	This block produces samples of the output	*
  *			every 1/fs seconds.  The phase of an FM 	*
  *			signal is the integral of the input.  This	*
  *			is accomplished digitally as :			*
@@ -57,7 +57,7 @@ fm
 </NAME>
 <DESCRIPTION>
  *									*
- *	description:	This star produces samples of the output	*
+ *	description:	This block produces samples of the output	*
  *			every 1/fs seconds.  The phase of an FM 	*
  *			signal is the integral of the input.  This	*
  *			is accomplished digitally as :			*
@@ -81,7 +81,7 @@ fm
 </COMMENTS> 
 
 <DESC_SHORT>
-This star produces samples of the output every 1/fs seconds.  The phase of an FM  signal is the integral of the input.  This is accomplished digitally as :	phase=phase+in		
+This block produces samples of the output every 1/fs seconds.  The phase of an FM  signal is the integral of the input.  This is accomplished digitally as :	phase=phase+in		
 </DESC_SHORT>
 
 <INCLUDES>

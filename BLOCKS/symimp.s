@@ -36,14 +36,14 @@ symimp
                            symimp()
 ***********************************************************************
 Description:
-This star inputs data  and stretches it with zeros.
+This block inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 <NAME>
 symimp
 </NAME>
 <DESCRIPTION>
-This star inputs data  and stretches it with zeros.
+This block inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 </DESCRIPTION>
@@ -59,7 +59,7 @@ Modified: March 20, 2002 SHA
 
    
 <DESC_SHORT>
-This star inputs data  and stretches it with zeros.
+This block inputs data  and stretches it with zeros.
 </DESC_SHORT>
 
 <STATES>

@@ -40,7 +40,7 @@ encoder
  *
  * Parameters:	codeType:  Coding technique 
  *
- * This star  encodes incoming data accoding to the first parameter 
+ * This block  encodes incoming data accoding to the first parameter 
  * as listed below:
  * Type	name				"0" code	"1" code
  * ---------------------------------------
@@ -69,7 +69,7 @@ encoder
  *
  * Parameters:	codeType:  Coding technique 
  *
- * This star  encodes incoming data accoding to the first parameter 
+ * This block  encodes incoming data accoding to the first parameter 
  * as listed below:
  * Type	name				"0" code	"1" code
  * ---------------------------------------
@@ -100,7 +100,7 @@ encoder
 </COMMENTS> 
 
 <DESC_SHORT>
-This star  encodes incoming data accoding to the first parameter:NRZ,Manchester,Diff Manchester,Partial Response,AMI,2B1Q,RZ
+This block  encodes incoming data accoding to the first parameter:NRZ,Manchester,Diff Manchester,Partial Response,AMI,2B1Q,RZ
 </DESC_SHORT>
 
 

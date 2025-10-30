@@ -35,7 +35,7 @@ convolve
 /***********************************************************************
                              convolve()
 ************************************************************************
-This star convolves the input samples with the impulse response (finite
+This block convolves the input samples with the impulse response (finite
 duration, FIR ) given in a file. 
 Param:	1 - (file) File with the impulse response samples
 	2 - (int) N  number of samples in the impulse response.
@@ -43,7 +43,7 @@ Param:	1 - (file) File with the impulse response samples
 convolve
 </NAME>
 <DESCRIPTION>
-This star convolves the input samples with the impulse response (finite
+This block convolves the input samples with the impulse response (finite
 duration, FIR ) given in a file. 
 Param:	1 - (file) File with the impulse response samples
 	2 - (int) N  number of samples in the impulse response.
@@ -58,7 +58,7 @@ Programmer: Adali Tulay
 </COMMENTS> 
 
 <DESC_SHORT>
-This star convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
+This block convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
 </DESC_SHORT>
 
 <INCLUDES>

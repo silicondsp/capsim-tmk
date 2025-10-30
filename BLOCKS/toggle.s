@@ -35,7 +35,7 @@ toggle
 /**********************************************************************
 			toggle()
 ***********************************************************************
-This star selects one of two input data channels to output.
+This block selects one of two input data channels to output.
 It always begins with channel 0.  After a delay, it switches to ch.1.
 Parameter 1 selects the number of samples of ch.0 to output before
 switching to ch.1.
@@ -46,7 +46,7 @@ The output supports auto-fanout (automatic "forking").
 toggle
 </NAME>
 <DESCRIPTION>
-This star selects one of two input data channels to output.
+This block selects one of two input data channels to output.
 It always begins with channel 0.  After a delay, it switches to ch.1.
 Parameter 1 selects the number of samples of ch.0 to output before
 switching to ch.1.
@@ -65,7 +65,7 @@ Date: April, 1988.
 
      
 <DESC_SHORT>
-This star selects one of two input data channels to output.
+This block selects one of two input data channels to output.
 </DESC_SHORT>
 
 <STATES>

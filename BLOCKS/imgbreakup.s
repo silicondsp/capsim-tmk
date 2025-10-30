@@ -35,13 +35,13 @@ imgbreakup
 /***********************************************************************
                              imgbreakup()
 ************************************************************************
-This star inputs an image and creates sub images.
+This block inputs an image and creates sub images.
 The sub images are sequentially output.
 <NAME>
 imgbreakup
 </NAME>
 <DESCRIPTION>
-This star inputs an image and creates sub images. The sub images are sequentially output.
+This block inputs an image and creates sub images. The sub images are sequentially output.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -53,7 +53,7 @@ Date: 		August 15, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and creates sub images. The sub images are sequentially output.
+This block inputs an image and creates sub images. The sub images are sequentially output.
 </DESC_SHORT>
 
 

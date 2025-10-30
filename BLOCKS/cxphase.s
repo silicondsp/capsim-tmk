@@ -39,14 +39,14 @@ cxphase
 	Outputs:	y, the phase 
 	Parameters:	none
 ****************************************************************
-This star finds the phase of a complex data stream.  Each complex 
+This block finds the phase of a complex data stream.  Each complex 
 sample is assumed to be composed of a real sample followed by 
 an imaginary sample.
 <NAME>
 cxphase
 </NAME>
 <DESCRIPTION>
-This star finds the phase of a complex data stream.  Each complex 
+This block finds the phase of a complex data stream.  Each complex 
 sample is assumed to be composed of a real sample followed by 
 an imaginary sample.
 </DESCRIPTION>
@@ -61,7 +61,7 @@ Modified:	April, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star finds the phase of a complex data stream.  
+This block finds the phase of a complex data stream.  
 </DESC_SHORT>
 
 

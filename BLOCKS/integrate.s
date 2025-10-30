@@ -41,7 +41,7 @@ integrate
  *									*
  *	outputs:	out, the integrated signal			*
  *									*
- *	description:	This star implements aleacky integrator  	*
+ *	description:	This block implements aleacky integrator  	*
  *			recursive equation:				*
  *			y(n)=factor*y(n-1)+x(n)			*
  *									*
@@ -50,7 +50,7 @@ integrate
 integrate
 </NAME>
 <DESCRIPTION>
-This star implements aleacky integrator recursive equation:				
+This block implements aleacky integrator recursive equation:				
 			y(n)=factor*y(n-1)+x(n)
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -61,7 +61,7 @@ This star implements aleacky integrator recursive equation:
 </COMMENTS> 
 
 <DESC_SHORT>
-This star implements aleacky integrator recursive equation:	y(n)=factor*y(n-1)+x(n)
+This block implements aleacky integrator recursive equation:	y(n)=factor*y(n-1)+x(n)
 </DESC_SHORT>
 
 <DECLARATIONS> 

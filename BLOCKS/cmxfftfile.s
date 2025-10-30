@@ -37,14 +37,14 @@
 	Parameters:	int fftexp, the exponent of the fft length
 			file_name, the name of the file containinf the samples
 ************************************************************************
-This star reads a file and computes its FFT during the initialization phase.
+This block reads a file and computes its FFT during the initialization phase.
 (This produces H(k)).
-During execution, the star performs a complex multiplication of 
+During execution, the block performs a complex multiplication of 
 the FFT of the file with the input complex data blocks (The input fft, X(k)). 
 It then outputs the complex result.
-This star multiplies the two complex data streams  as follows: 
+This block multiplies the two complex data streams  as follows: 
 Each complex sample is assumed to be composed of a real sample followed by 
-an imaginary sample.  This star operates like a "butterfly," i.e.
+an imaginary sample.  This block operates like a "butterfly," i.e.
 	c1 = a + jb = x1(0) + x1(1)
 	c2 = c + jd = x2(0) + x2(1)
 	r = c1 * c2 = (ac-bd) + j(bc+ad) = y(0) + y(1)
@@ -56,7 +56,7 @@ Date: 	 	March 12, 1989
 </COMMENTS> 
 
 <DESC_SHORT>
-This star reads a file and computes its FFT during the initialization phase.  (This produces H(k)).  During execution, the star performs a complex multiplication of the FFT of the file with the input complex data blocks (The input fft, X(k)).  It then outputs the complex result.
+This block reads a file and computes its FFT during the initialization phase.  (This produces H(k)).  During execution, the block performs a complex multiplication of the FFT of the file with the input complex data blocks (The input fft, X(k)).  It then outputs the complex result.
 </DESC_SHORT>
 
 

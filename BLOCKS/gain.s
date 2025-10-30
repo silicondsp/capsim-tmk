@@ -35,14 +35,14 @@ gain
 /**********************************************************************
                           gain()
 ***********************************************************************
-This star multiplies the incoming data stream by the parameter
+This block multiplies the incoming data stream by the parameter
 coefficient, and outputs the resulting data values.
 Auto fanout is supported.
 <NAME>
 gain
 </NAME>
 <DESCRIPTION>
-This star multiplies the incoming data stream by the parameter
+This block multiplies the incoming data stream by the parameter
 coefficient, and outputs the resulting data values.
 Auto fanout is supported.
 </DESCRIPTION>
@@ -55,7 +55,7 @@ Auto fanout is supported.
 
    
 <DESC_SHORT>
-This star multiplies the incoming data stream by the parameter coefficient, and outputs the resulting data values.
+This block multiplies the incoming data stream by the parameter coefficient, and outputs the resulting data values.
 </DESC_SHORT>
 
 <STATES>

@@ -41,13 +41,13 @@ intcntrl
 			dump,
 				  positive edge to dump
 	outputs:	out, Integrated signal
-	description:	This star implements an integrator 
+	description:	This block implements an integrator 
 			that charges and discharges by control
 <NAME>
 Integrator
 </NAME>
 <DESCRIPTION>
-	This star implements an integrator 
+	This block implements an integrator 
 			that charges and discharges by control
 	inputs:		in, signal to integrate
 			int_hold, integrate or hold
@@ -66,7 +66,7 @@ Integrator
 
    
 <DESC_SHORT>
-This star implements an integrator  that charges and discharges by control
+This block implements an integrator  that charges and discharges by control
 </DESC_SHORT>
 
 <STATES>

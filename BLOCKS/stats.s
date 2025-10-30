@@ -41,13 +41,13 @@ stats
 			2: file stat_file, statistics file name
 				default => no file created.
 *******************************************************************
-This star calculates the statistics of the incoming signal.  
+This block calculates the statistics of the incoming signal.  
 The parameter is a filename for storage of the results.
 <NAME>
 stats
 </NAME>
 <DESCRIPTION>
-This star calculates the statistics of the incoming signal.  
+This block calculates the statistics of the incoming signal.  
 The parameter is a filename for storage of the results.
 	Input:		x, the signal of interest
 	Output:		optional:  terminate signal or flow through
@@ -70,7 +70,7 @@ Modified:	February 22, 1987
 </COMMENTS> 
 
 <DESC_SHORT>
-This star calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
+This block calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
 </DESC_SHORT>
 
 

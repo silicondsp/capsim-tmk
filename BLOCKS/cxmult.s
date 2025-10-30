@@ -40,9 +40,9 @@ cxmult
 	Outputs:	y, the complex output
 	Parameters:	none
 ****************************************************************
-This star multiplies two complex data streams.  Each complex 
+This block multiplies two complex data streams.  Each complex 
 sample is assumed to be composed of a real sample followed by 
-an imaginary sample.  This star operates like a "butterfly," i.e.
+an imaginary sample.  This block operates like a "butterfly," i.e.
 	c1 = a + jb = x1(0) + x1(1)
 	c2 = c + jd = x2(0) + x2(1)
 	r = c1 * c2 = (ac-bd) + j(bc+ad) = y(0) + y(1)
@@ -50,9 +50,9 @@ an imaginary sample.  This star operates like a "butterfly," i.e.
 cxmult
 </NAME>
 <DESCRIPTION>
-This star multiplies two complex data streams.  Each complex 
+This block multiplies two complex data streams.  Each complex 
 sample is assumed to be composed of a real sample followed by 
-an imaginary sample.  This star operates like a "butterfly," i.e.
+an imaginary sample.  This block operates like a "butterfly," i.e.
 	c1 = a + jb = x1(0) + x1(1)
 	c2 = c + jd = x2(0) + x2(1)
 	r = c1 * c2 = (ac-bd) + j(bc+ad) = y(0) + y(1)
@@ -68,7 +68,7 @@ Modified:	April, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star multiplies two complex data streams. 
+This block multiplies two complex data streams. 
 </DESC_SHORT>
 
 

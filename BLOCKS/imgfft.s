@@ -44,7 +44,7 @@ Complex images store real and imaginary parts as even and odd sample
 /***********************************************************************
                              imgfft()
 ************************************************************************
-This star inputs an image and computes its forward or inverse FFT.
+This block inputs an image and computes its forward or inverse FFT.
 For a forward FFT a real matrix is expected and a complex image is
 produced.
 For an inverse FFT a complex image is expected ( possible result of a 

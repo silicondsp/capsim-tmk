@@ -43,7 +43,7 @@ If more than one output buffer is connected, then the samples are
 routed to each buffer in sequence mod the number of buffers.
 Thus, if two column data is to be read and column one is to be placed on
 buffer 0 and coulmn two on buffer 1 then simpley connect two buffers to
-the star. This can also be used to read three or more columns. 
+the block. This can also be used to read three or more columns. 
 The data in the file does not need tb be in column format.
 An example use for this routine is to access a stored waveform
 as input to a simulation.
@@ -51,9 +51,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-star Reader read_file.s
+block Reader read_file.s
 param default
-star Reader read_file.s
+block Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 <NAME>
@@ -69,7 +69,7 @@ If more than one output buffer is connected, then the samples are
 routed to each buffer in sequence mod the number of buffers.
 Thus, if two column data is to be read and column one is to be placed on
 buffer 0 and coulmn two on buffer 1 then simpley connect two buffers to
-the star. This can also be used to read three or more columns. 
+the block. This can also be used to read three or more columns. 
 The data in the file does not need tb be in column format.
 An example use for this routine is to access a stored waveform
 as input to a simulation.
@@ -77,9 +77,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-star Reader read_file.s
+block Reader read_file.s
 param default
-star Reader read_file.s
+block Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 </DESCRIPTION>

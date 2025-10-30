@@ -35,12 +35,12 @@ imgserout
 /***********************************************************************
                              imgserout()
 ************************************************************************
-This star inputs an image and outputs it a row at a time. 
+This block inputs an image and outputs it a row at a time. 
 <NAME>
 imgserout
 </NAME>
 <DESCRIPTION>
-This star inputs an image and outputs it a row at a time. 
+This block inputs an image and outputs it a row at a time. 
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -52,7 +52,7 @@ Date: 		April 15, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and outputs it a row at a time. 
+This block inputs an image and outputs it a row at a time. 
 </DESC_SHORT>
 
 

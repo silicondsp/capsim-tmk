@@ -38,7 +38,7 @@ pump
 	inputs:		up, of phase detector
 			down, of phase detector
 	outputs:	out, the filtered signal
-	description:	This star implements a charge pump
+	description:	This block implements a charge pump
 			loop filter as a recursive equation:
 			y(n)=y(n-1)
 			     +g1*[x(n)-x(n-1)]	
@@ -53,7 +53,7 @@ pump
 	inputs:		up, of phase detector
 			down, of phase detector
 	outputs:	out, the filtered signal
-	description:	This star implements a charge pump
+	description:	This block implements a charge pump
 			loop filter as a recursive equation:
 			y(n)=y(n-1)
 			     +g1*[x(n)-x(n-1)]	

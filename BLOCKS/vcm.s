@@ -37,7 +37,7 @@ vcm
  			fo, center frequency
  	inputs:		lambda, phase update term
  	output:		square wave equivalent of cos(2*PI*fo*t+theta)
- 	description:	This star produces samples of the outputs
+ 	description:	This block produces samples of the outputs
  			every 1/fs seconds with frequency of fo.
  			The phase is updated
  			as theta=theta+lambda (integrates the input)
@@ -50,7 +50,7 @@ voltage-controlled multivibrator
  			fo, center frequency
  	inputs:		lambda, phase update term
  	output:		square wave equivalent of cos(2*PI*fo*t+theta)
- 	description:	This star produces samples of the outputs
+ 	description:	This block produces samples of the outputs
  			every 1/fs seconds with frequency of fo.
  			The phase is updated
  			as theta=theta+lambda (integrates the input)

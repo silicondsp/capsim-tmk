@@ -44,7 +44,7 @@ xdco
  *	outputs:	A*cos(2*PI*fo*t+theta)				*
  *			A*sin(2*PI*fo*t+theta)				*
  *									*
- *	description:	This star produces samples of the outputs	*
+ *	description:	This block produces samples of the outputs	*
  *			every 1/fs seconds.  The dco behaves just	*
  *			like an FM modulator.  The phase is updated	*
  *			as theta=theta+lambda (integrates the input)	*
@@ -67,7 +67,7 @@ digitally controlled oscillator 		*
  *	outputs:	A*cos(2*PI*fo*t+theta)				*
  *			A*sin(2*PI*fo*t+theta)				*
  *									*
- *	description:	This star produces samples of the outputs	*
+ *	description:	This block produces samples of the outputs	*
  *			every 1/fs seconds.  The dco behaves just	*
  *			like an FM modulator.  The phase is updated	*
  *			as theta=theta+lambda (integrates the input)	*
@@ -81,7 +81,7 @@ written by John T. Stonick
 </COMMENTS> 
 
 <DESC_SHORT>
-This star produces samples of the outputs every 1/fs seconds.  The dco behaves just	like an FM modulator.  The phase is updated	as theta=theta+lambda (integrates the input)	*
+This block produces samples of the outputs every 1/fs seconds.  The dco behaves just	like an FM modulator.  The phase is updated	as theta=theta+lambda (integrates the input)	*
 </DESC_SHORT>
 
 

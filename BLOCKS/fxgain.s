@@ -35,11 +35,11 @@ fxgain
 /**********************************************************************
                           fxgain()
 ***********************************************************************
-	This star multiplies the incoming data stream by the
+	This block multiplies the incoming data stream by the
 	parameter "Gain factor" in fixed-point arithmetic.The
-	star is capable of doing extended precision arithmetic
+	block is capable of doing extended precision arithmetic
 	upto 64 bits result which is to be rounded to at least   
-	32 bits after the fxadd.s star.
+	32 bits after the fxadd.s block.
 	Parameters :
 	1 - (float) factor : FIR tap coefficient   
 	2 - (int)   qbits  : Number of bits to represent the 
@@ -55,11 +55,11 @@ fxgain
 fxgain
 </NAME>
 <DESCRIPTION>
-This star multiplies the incoming data stream by the
+This block multiplies the incoming data stream by the
 	parameter "Gain factor" in fixed-point arithmetic.The
-	star is capable of doing extended precision arithmetic
+	block is capable of doing extended precision arithmetic
 	upto 64 bits result which is to be rounded to at least   
-	32 bits after the fxadd.s star.
+	32 bits after the fxadd.s block.
 	Parameters :
 	1 - (float) factor : FIR tap coefficient   
 	2 - (int)   qbits  : Number of bits to represent the 
@@ -81,7 +81,7 @@ This star multiplies the incoming data stream by the
 
           
 <DESC_SHORT>
-This star multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.
+This block multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.
 </DESC_SHORT>
 
 <STATES>

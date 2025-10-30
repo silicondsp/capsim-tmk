@@ -35,14 +35,14 @@ imgmanip
 /***********************************************************************
                              imgmanip()
 ************************************************************************
-This star inputs an image and transposes  or flips it.
+This block inputs an image and transposes  or flips it.
 For transposing,  a new image is generated.
 All other operations overwrite the input image
 <NAME>
 imgmanip
 </NAME>
 <DESCRIPTION>
-This star inputs an image and transposes  or flips it.
+This block inputs an image and transposes  or flips it.
 For transposing,  a new image is generated.
 All other operations overwrite the input image
 </DESCRIPTION>
@@ -56,7 +56,7 @@ Date: 		April 15, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This star inputs an image and transposes  or flips it.
+This block inputs an image and transposes  or flips it.
 </DESC_SHORT>
 
 

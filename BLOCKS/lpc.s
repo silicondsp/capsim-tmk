@@ -35,7 +35,7 @@ lpc
 /***********************************************************************
                              lpc()
 ************************************************************************
-This star computes the LPC parameters of the input samples.
+This block computes the LPC parameters of the input samples.
 The method is based on the routines of "Linear Prediction Analysis
 Programs (AUTO-COVAR)", by A. H. Gray and J.D. Markel in IEEE Press
 Programs for Digital Signal Processing.
@@ -43,7 +43,7 @@ Programs for Digital Signal Processing.
 lpc
 </NAME>
 <DESCRIPTION>
-This star computes the LPC parameters of the input samples.
+This block computes the LPC parameters of the input samples.
 The method is based on the routines of "Linear Prediction Analysis
 Programs (AUTO-COVAR)", by A. H. Gray and J.D. Markel in IEEE Press
 Programs for Digital Signal Processing.
@@ -58,7 +58,7 @@ Programmer: Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This star computes the LPC parameters of the input samples.
+This block computes the LPC parameters of the input samples.
 </DESC_SHORT>
 
 <INCLUDES>

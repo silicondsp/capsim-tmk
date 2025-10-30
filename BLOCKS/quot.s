@@ -37,7 +37,7 @@ quot
 	inputs:		x, numerator
 			y, denominator
 	outputs:	z, the quotient of x and y
-	description:	This star takes two inputs and produces
+	description:	This block takes two inputs and produces
 			their quotient
 <NAME>
 quot
@@ -46,7 +46,7 @@ quot
 	inputs:		x, numerator
 			y, denominator
 	outputs:	z, the quotient of x and y
-	description:	This star takes two inputs and produces
+	description:	This block takes two inputs and produces
 			their quotient
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -57,7 +57,7 @@ quot
 </COMMENTS> 
 
 <DESC_SHORT>
-This star takes two inputs and produces their quotient
+This block takes two inputs and produces their quotient
 </DESC_SHORT>
 
 

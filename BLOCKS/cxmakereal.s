@@ -39,7 +39,7 @@ cxmakereal
 	Outputs:	two real channels for the real and imaginary parts 	
 	Parameters: 	None
 ****************************************************************
-This star creates a two real  buffers from one complex input buffer. 
+This block creates a two real  buffers from one complex input buffer. 
 If one output buffer(buffer 0) is connected, only the  real part is output. 
 If two input channels exist then the second channel (buffer 1) is 
 the imaginary part of the complex input sample.
@@ -47,7 +47,7 @@ the imaginary part of the complex input sample.
 cxmakereal
 </NAME>
 <DESCRIPTION>
-This star creates a two real  buffers from one complex input buffer. 
+This block creates a two real  buffers from one complex input buffer. 
 If one output buffer(buffer 0) is connected, only the  real part is output. 
 If two input channels exist then the second channel (buffer 1) is 
 the imaginary part of the complex input sample.
@@ -62,7 +62,7 @@ Date:		September 4, 1991
 </COMMENTS> 
 
 <DESC_SHORT>
-This star creates a two real  buffers from one complex input buffer.
+This block creates a two real  buffers from one complex input buffer.
 </DESC_SHORT>
 
 
