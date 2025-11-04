@@ -15,7 +15,7 @@
 </div>
 
 
-<!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started.</a> -->
+<!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started </a> -->
 <h1>Documentation</h1>   
 </div>
  <ol type="1">
@@ -28,6 +28,7 @@
 <li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
 </ol> 
 
+<a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" > <strong>Getting Started</strong> </a> in Capsim&reg; Text Mode Kernel (TMK).
 
 CAPSIM&reg; Text Mode Kernel (TMK) is a hierarchical interactive block diagram simulation and design system for digital signal processing and communications. All Capsim TMK models are written in C with provisions for parameters, input /output buffers, internal state maintenance, and three phases of execution: initialization, run-time and wrap-up.
 Capsim&reg;  Blocks are written in C embedded in XML for modular/re-usable design. Capsim&reg; includes a built in TCL interpreter for support of iterative simulation and design optimization.
@@ -147,10 +148,10 @@ The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of bloc
 
 <div id="linux_tux">
 <strong>Linux Tux</strong> By <a rel="nofollow" class="external text" href="http://www.isc.tamu.edu/~lewing/">Larry Ewing</a>, <a rel="nofollow" class="external text" href="http://www.home.unix-ag.org/simon/">Simon Budig</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">Garrett LeSage</a> - <a rel="nofollow" class="external free" href="https://isc.tamu.edu/~lewing/linux/">https://isc.tamu.edu/~lewing/linux/</a>, <a rel="nofollow" class="external free" href="http://www.home.unix-ag.org/simon/penguin/">http://www.home.unix-ag.org/simon/penguin/</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">garrett/Tux</a> on GitHub, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=753970">Link</a>
-<BR> 
+<BR><p> 
 <p>Capsim® uses LAPACK via CLAPACK.</p>
 
-<p>Anderson, E. and Bai, Z. and Bischof, C. and Blackford, S. and Demmel, J. and Dongarra, J. and Du Croz, J. and Greenbaum, A. and Hammarling, S. and McKenney, A. and Sorensen, D., LAPACK Users' Guide,Third Edition,Society for Industrial and Applied Mathematics, Philadelphia, PA, ISBN = 0-89871-447-8, 1999	</p>
+<p>Anderson, E. and Bai, Z. and Bischof, C. and Blackford, S. and Demmel, J. and Dongarra, J. and Du Croz, J. and Greenbaum, A. and Hammarling, S. and McKenney, A. and Sorensen, D., <strong>LAPACK Users' Guide,</strong>Third Edition,Society for Industrial and Applied Mathematics, Philadelphia, PA, ISBN = 0-89871-447-8, 1999	</p>
 
 	
 <BR>
