@@ -242,10 +242,11 @@ int main(int argc,char **argv)
         int count;                   /* Counter*/
 #ifdef TCL_SUPPORT
         int tclSupport=1;
-//	Tcl_Interp *krn_TCL_Interp=NULL;
+	Tcl_Interp *krn_TCL_Interp=NULL;
 #else
         int tclSupport=0;
 #endif
+	char *krn_tclScriptFile;
 
 printf("Welcome to Capsim Text Mode Kernel (CapsimTMK)\n");
 printf("(c)1989-2017 Silicon DSP Corporation\n");

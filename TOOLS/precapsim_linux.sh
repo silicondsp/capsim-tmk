@@ -50,9 +50,9 @@ let genCodeOnlyFlag=0
 let addFlag=0
 #LOAD =  -m elf_i386 --libdir=/usr/lib -L/usr/lib  -L$(top_srcdir)/lib-linux   -lm /usr/lib/libm.a
 #LOAD = -L/usr/lib64 -lm .configure --prefix=/usr   --libdir=/usr/lib64    
-LOAD =  -L$CAPSIM/LIBS -lm     
+#LOAD =  -L$CAPSIM/LIBS -lm     
 
-LDX11_MOTIF= -dn   -L/usr/X11R6/lib64/  -lXm   -lXt -lXext -lX11  
+#LDX11_MOTIF= -dn   -L/usr/X11R6/lib64/  -lXm   -lXt -lXext -lX11  
 
 SUBS=  
 echo $CAPSIM
@@ -246,7 +246,7 @@ if [ $genCodeOnlyFlag -eq  0 ]; then
 	$CAPSIM/BLOCKS/libblock.a \
 	$LIBSTAR   SUBS/libsubs.a $SUBS    $CAPSIM/LIBS_LINUX/libsubs.a \
 	 $CAPSIM/LIBS_LINUX/lapack_LINUX.a $CAPSIM/LIBS_LINUX/blas_LINUX.a   $CAPSIM/LIBS_LINUX/libf2c.a   \
-	 $LOAD -L$CAPSIM/TCL_SUPPORT $CAPSIM/LIBS_LINUX/libtcl8.4.a -ltiff   -L$CAPSIM/LIBS_LINUX/ -ljpeg -ljbig -llzma -ldl  -lm -lz
+	 -L$CAPSIM/TCL_SUPPORT $CAPSIM/LIBS_LINUX/libtcl8.4.a -ltiff   -L$CAPSIM/LIBS_LINUX/ -ljpeg -ljbig -llzma   -lm -lz
 	chmod +x capsim
 
 fi
