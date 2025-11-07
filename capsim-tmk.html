@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>capsim.html</title>
+</head>
+
+<body>
+# capsim-tmk
+<h1>Capsim&reg;  DSP and Communications System Block Diagram Modeling and Simulation Text Mode Kernel (TMK) </h1>
+  
+<div style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+<table width="400px" border="1" cellpadding="2" cellspacing="2" style="background-color: #ffffff;">
+<tr valign="top">
+<td style="border-width : 0px;"><p style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><span style=" font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;"> <a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+</span></p>
+</td>
+<td style="border-width : 0px;"><p style=" text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><span style=" font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;"><a href="#linux_tux"><img src="Tux.svg.png" width="62" height="74" alt="Linux Tux" title="" /></a> <!-- width="250" height="297" -->Developed on Linux.
+</span></p>
+</td>
+</tr>
+</table>
+</div>
+
+
+<!-- Capsim&reg; TMK <a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" >Getting Started </a> -->
+<h1>Documentation</h1>   
+</div>
+<ol type="1">
+    <li>Capsim&reg; Text Mode Kernel (TMK)<a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" > <strong>Getting Started</strong>.</a></li>
+    <li>Capsim Text Mode User Guide <a href="Documentation/CapsimTextModeDoc.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Capsim Customization <a href="Documentation/CapsimCustomization.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li>Blocks Documentation <a href="Documentation/BlocksCapsimTMK.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></li>
+    <li> <a href="#c_development_linux" >Setup Linux for C/C++ Development and TIFF Image Support</a></li>
+<li><a href="https://www.ccdsp.org/IIPPlot/index.html">IIPPlot</a> Interactive Java Plotting Package</li>
+<li><a href="https://www.ccdsp.org/DrawTopology/">Java Program to Draw Topologies</a></li>
+</ol> 
+
+<p><a href="https://www.ccdsp.org/CapsimTMK/capsimtmk-docs/getting_started.html" > <strong>Getting Started</strong> </a> in Capsim&reg; Text Mode Kernel (TMK).
+   
+   CAPSIM&reg; Text Mode Kernel (TMK) is a hierarchical interactive block diagram simulation and design system for digital signal processing and communications. All Capsim TMK models are written in C with provisions for parameters, input /output buffers, internal state maintenance, and three phases of execution: initialization, run-time and wrap-up.
+   Capsim&reg;  Blocks are written in C embedded in XML for modular/re-usable design. Capsim&reg; includes a built in TCL interpreter for support of iterative simulation and design optimization.
+   
+   Capsim&reg;  TMK has been the basis for advanced research projects and undergraduate and graduate courses in communications and signal processing.
+   Capsim&reg; TMK based designs have resulted in the rapid introduction of new products into the market. Start your projects with Capsim TMK's built in models and extensive DSP and communications applications. Then easily incorporate your own custom C models into Capsim&reg; TMK . Capsim&reg; TMK is provided with extensive documentation.
+   
+   Capsim&reg; TMK has built in IIR and FIR filter design blocks. It also incorporates LMS and fast RLS adaptive filters and block LMS adaptive filters. More and more DSP and communication applications will be added to the Capsim&reg; TMK release. Capsim&reg; models end to end OFDM systems with acquistion, timing recovery, and  carrier offset estimation with channel modeling. Capsim&reg; also models MIMO OFDM systems for both closed loop and open loop systems.
+   
+   Capsim&reg; with its flexible buffer connection management can handle mixed synchronous and asynchronous simulations. One key advantage of Capsim&reg; is that the blocks run at their natural sampling rate using the unique buffer connection architecture.
+</p>
+<p><img src="images/ete_qpsk_set_snr_args_edit.png" width="1796" height="880" alt=""/></p>
+<p><img src="images/ber_tcl.png" width="551" height="716" alt=""/></p>
+<p><img src="images/2x3_mimo_ofdm.gif"   alt="Block XML" title="" />
+</p>
+<h2>Capsim&reg; Blocks </h2>
+The new model for block C code generation is illustrated below, Blocks are written in embedded C code in XML and transformed to C code and incorporated into Capsim&reg;. The XML code is transformed using XSLT (Extensible Stylesheet Language for Transformation) to C code and HTML for documentation. Tools are provided that automatically do the conversion from XML to C code when adding models to Capsim&reg;.
+
+<img src="images/capsim_block_xml.jpg"   alt="Block XML" title="" />
+
+
+
+<h2>Capsim&reg; TMK History</h2>
+Capsim&reg; was originaly developed by XCAD Corporation.  All XCAD Open Source projects have been transferred to and taken over by Silicon DSP Corporation. Silicon DSP Corporation has since 2006 added major enhancements to Capsim&reg; and Capsim&reg; TMK. The  predecessor and original model of CAPSIM&reg; was  BLOSIM.  BLOSIM is a block diagram signal processing simulation program, originally developed at the University of California, Berkeley, 1985. The primary authors were D. G. Messerschmitt and D. J. Hait. For papers on BLOSIM visit this <a href="#blosim">link</a>.  Since arrival at NCSU in November 1987, the program has been extensively debugged. Capsim&reg;  was completely remodeled, enhanced with new commands,  and improved by  XCAD Corporation and later by Silicon DSP Corporation. The person-hours spent on this task have made Capsim a vast improvement over the original in user convenience, capability and reliability and the complete elimimation of memory leaks allowing for unlimited simulation runs ( for example for BER in optical links). 
+
+The latest version changes the block models to full XML support with the capability to transform the C embedded in XML code to C/C++, SystemC, and HTML or stand alone C 
+subroutines. A major enhancement has been the integration of TCL scripting capability where TCL scripts control the blocks in a block diagram and can change parameters and retrieve results from the blocks after a simulation completes.
+
+The principal authors for the enhancements to BLOSIM are Professor Sasan Ardalan formerly with the Dept. of Electrical and Computer Engineering, North Carolina State Univertsity, Raleigh, NC and Jim Faber, Ph.D. 
+<div id="blosim">
+ <h3>Original IEEE Papers by Messerschmitt on BLOSIM</h3>
+    <p>David G. Messerschmitt, &quot;<a href="Blosim/MesserschmittJSAC.pdf">A Tool for Structured Functional Simulation</a>&quot;, <em>IEEE Journal on Selected Areas in Communications</em>, Vol. SAC-2, NO.1, January 1984, pp.137-147<img src="images/pdf.gif" width="22" height="21"><a href="Blosim/MesserschmittJSAC.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
+    <p>David G. Messerschmitt, &quot;<a href="Blosim/messerschmittBuffers.pdf">Structured Interconnection of Simulation Programs</a>&quot;,1984 <em>IEEE GlobeComm</em>. pp. 808-811 <img src="images/pdf.gif" width="22" height="21"><a href="Blosim/messerschmittBuffers.pdf"><img src="pdf.gif" width="22" height="21" alt="pdf" title="" /></a></p>
+
+<h2>Capsim&reg; TMK Licensing</h2>
+The Capsim&reg; Text Mode Kernel is written in C and along with hundreds of blocks and a subroutine DSP library is licensed under the GNU Lesser General Public License. Tools used to develop blocks including many Perl scripts are covered by the GNU General Public License. These tools are separate from the Capsim&reg; TMK library. The intention is to provide all of the source code of the Capsim&reg; kernel, blocks and subroutine libraries as open source code with freedom to modify and enhance the code. The GNU Lesser General Public License is intended to allow the linking in of blocks developed by the community without having to expose the code for the linked blocks. However, we encourage all developers to publish the code for their blocks and subroutines. All modifications and enhancements to the Kernel, any of the supplied blocks and subroutines with the Capsim&reg;TMK distribution must be published if distributed. Any distribution of the created Capsim&reg; executable must include a statement showing links to the original Capsim&reg;TMK source code.
+
+    
+
+<h2>Capsim&reg;TMK Capability Improvements over Blosim </h2>
+      <p>Many features have been added to improve simulation design and run-time efficiency.</p>
+      <ul>
+        <li>program re-organization, saving 20% on executable size</li>
+        <li>improved scheduling algorithm:Before a simulation is run, blocks are &quot;scheduled&quot; or put into an appropriate order of execution by the controller. The new algorithm selects a more efficient ordering.</li>
+        <li>improved run-time control of data buffer size. Previously, certain buffers could grow abnormally large,&nbsp; requiring excessive memory usage. Buffer size is now balanced throughout the topology via an improved visitation algorithm.</li>
+        <li>data buffer de-allocation, allowing multiple runs. Previously, multiple runs would overflow available memory.</li>
+        <li>internal block (both block and hierarchical block) parameter model storage,&nbsp; specification, and definition. This provides consistency checking and prevents run-time errors. Additionally, the block author now specifies parameter default values and definitions.</li>
+        <li>parameter broadcast (via &quot;args&quot;) is possible even from the highest topology level.</li>
+        <li>buffer signals can be named. These signal names are accessible by the block operational code,&nbsp; for printing, labeling, etc, and are displayed for reference.</li>
+        <li>Argument numbers&nbsp; may be noncontiguous. However, when stored they become contiguous.</li>
+        <li>Plugged all memory leaks so that unlimited size simulations can be run with bounded memory foot print.</li>
+      </ul>
+      <p><strong>CAPSIM&reg; Convenience Improvements</strong></p>
+      <p>Many features have been added or improved to aid the user in creating, editing and running simulations.</p>
+      <ul>
+        <li>on-line parameter changes with prompting; automatic type checking and compatibility enforcement for hierarchical block referenced parameters (args).</li>
+        <li>on-line help descriptions for all commands.</li>
+        <li>on-line review of block/hierarchical block source files.</li>
+        <li>command history: repeat/review of previous commands.</li>
+        <li>command alias mechanism allows shortened commands.</li>
+        <li>new movement command &quot;to&quot;: accepts full or partial name for a block  or hierarchical block</li>
+        <li>change checking: prevents inadvertent exit or re-loading before saving a modification.</li>
+        <li>run a simulation from any location in the topology</li>
+        <li>improved information display format:block modification status, parameter descriptions, signal names,/hierarchical block argument values and descriptions.</li>
+        <li>improved error reporting: full block path names used; complete messages from block errors.</li>
+        <li>simplified block creation: automatic instance name, default parameter creation.</li>
+        <li>simplified block connection/disconnection: automatic default port numbering.</li>
+        <li>re-loading of any sub-topology is possible.</li>
+        <li>Buffer growth monitoring. This facility allows the user to monitor the growth of buffers during simulations. </li>
+        <li>new command &quot;replace&quot;: pin-for-pin block substitution.</li>
+        <li>Galaxies(Hierarchical Blocks) can be substituted for blocks, etc. Connections are saved, and parameters are modified automatically.</li>
+        <li>new command &quot;insert&quot;: put a block into an existing connection.Useful for temporary measurement blocks, etc.</li>
+        <li>new command &quot;delete&quot;: remove a block, but restore connections.</li>
+        <li>Single command to make buffer numbers contiguous.</li>
+        <li>Incorporation of TCL interpreter for iterative simulation support and design optimization</li>
+      </ul>
+      <h4><strong>CAPSIM Development Improvements </strong></h4>
+      <ul><li>Conversion from AWK to PERL and XSLT. </li>
+        <li>Changed block code to embedded C in XML</li>
+        <li>Using XSLT to transform block XML to C code</li>
+        <li>Development and addition of Open Source Tools for Block Code Generation, and Block Database Maintenance.</li>
+        <li>Single make command to add new blocks to Capsim&reg; executable. </li>
+        <li></li>
+      </ul>
+<!- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div id="c_development_linux">
+<h1>Installing C/C++ Development Tools and Libraries for Capsim Build</h1>
+  
+
+<p>This document shows how to install C/C++ development Tools needed to build Capsim.</p>
+
+
+ Author: Sasan Ardalan<br>
+ Date: December 2018<br>
+
+<p><a href="https://www.silicondsp.com">Silicon DSP Corporation</a></p>
+  
+  
+<p>  You will need to be able to run 'sudo' in your Linux environemt.</p>
+  
+<p>  From a terminal run the following commands:</p>
+  
+  <b>
+  <p>sudo apt-get update</p>
+
+ <p> sudo apt-get install binutils-gold</p>
+  <p>sudo apt-get install g++ cmake</p>
+  <p>sudo apt-get install build-essential</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+
+
+  <p>sudo apt-get install freeglut3-dev</p>
+
+  
+ <p>sudo apt-get install glew1.5-dev libglm-dev</p>
+
+  <p>sudo apt-get install libtiff-dev</p>
+  <p>sudo apt-get install zlib1g-dev</p>
+  <p> sudo apt-get install lzma</p></b>
+
+<div id="linux_tux">
+<strong>Linux Tux</strong> By <a rel="nofollow" class="external text" href="http://www.isc.tamu.edu/~lewing/">Larry Ewing</a>, <a rel="nofollow" class="external text" href="http://www.home.unix-ag.org/simon/">Simon Budig</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">Garrett LeSage</a> - <a rel="nofollow" class="external free" href="https://isc.tamu.edu/~lewing/linux/">https://isc.tamu.edu/~lewing/linux/</a>, <a rel="nofollow" class="external free" href="http://www.home.unix-ag.org/simon/penguin/">http://www.home.unix-ag.org/simon/penguin/</a>, <a rel="nofollow" class="external text" href="https://github.com/garrett/Tux">garrett/Tux</a> on GitHub, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=753970">Link</a>
+<BR><p> 
+<p>Capsim® uses LAPACK via CLAPACK.</p>
+
+<p>Anderson, E. and Bai, Z. and Bischof, C. and Blackford, S. and Demmel, J. and Dongarra, J. and Du Croz, J. and Greenbaum, A. and Hammarling, S. and McKenney, A. and Sorensen, D., <strong>LAPACK Users' Guide,</strong>Third Edition,Society for Industrial and Applied Mathematics, Philadelphia, PA, ISBN = 0-89871-447-8, 1999	</p>
+
+	
+<BR>
+<a href="https://www.ccdsp.org/"><img src="sd-logo-tm_sm.png" width="104" height="109" alt="sdsp logo" title="" /></a>
+<p><strong>Silicon DSP Corporation</strong></p>
+<p>1988-2025</p>
+<p>https://www.ccdsp.org</p>
+
+
+
+
+
+
+
+	
+	
+	
+	
+</body>
+</html>
