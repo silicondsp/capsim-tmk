@@ -39,6 +39,12 @@ Capsim&reg; TMK based designs have resulted in the rapid introduction of new pro
 Capsim&reg; TMK has built in IIR and FIR filter design blocks. It also incorporates LMS and fast RLS adaptive filters and block LMS adaptive filters. More and more DSP and communication applications will be added to the Capsim&reg; TMK release. Capsim&reg; models end to end OFDM systems with acquistion, timing recovery, and  carrier offset estimation with channel modeling. Capsim&reg; also models MIMO OFDM systems for both closed loop and open loop systems.
 
 Capsim&reg; with its flexible buffer connection management can handle mixed synchronous and asynchronous simulations. One key advantage of Capsim&reg; is that the blocks run at their natural sampling rate using the unique buffer connection architecture.
+
+<strong>Note: </strong> This repository supports the Text Mode Kernel version of Capsim®. The graphical block diagram is from the soon to be released Capsim® Version 7 which uses Qt® for interactive graphical interface. However, the topology in this Repository are the same. You can use the block names in the screen shot and then use the Capsim® command "to blockname" to go the the block, change parameters and run the simulation. Or directly edit the topology.There is a lot of benefit to the non graphical mode in portability and flexibility. The graphical version also supports the text mode operation. 
+
+An updated link to Capsim® Version 7 using Qt® will be provided in the Repostory on GitHub. Stay tuned. 
+
+
 <p><img src="images/ete_qpsk_set_snr_args_edit.png" width="1796" height="880" alt=""/></p>
 <p><img src="images/qpsk_constllation_eye_diagram_noise.png" width="747" height="372" alt=""/></p>
 <p><img src="images/ber_tcl.png" width="551" height="716" alt=""/></p>
