@@ -61,6 +61,7 @@ Date: October, 1988
 #include <stdio.h>
 #include "capsim.h"
 
+#define  TCL_SUPPORT
 
 
 #ifdef TCL_SUPPORT
@@ -182,6 +183,13 @@ buffer_P=data;
   int     dsp_port;
   int     dsp_outputValue;
 
+	char *krn_tclScriptFile;
+#ifdef TCL_SUPPORT
+        int tclSupport=1;
+	Tcl_Interp *krn_TCL_Interp=NULL;
+#else
+        int tclSupport=0;
+#endif
 
 /*********************************************************************
 
@@ -240,13 +248,6 @@ int main(int argc,char **argv)
         char command[MAX_LINE];  /* a command sentence */
         char    strBuf[100];
         int count;                   /* Counter*/
-#ifdef TCL_SUPPORT
-        int tclSupport=1;
-	Tcl_Interp *krn_TCL_Interp=NULL;
-#else
-        int tclSupport=0;
-#endif
-	char *krn_tclScriptFile;
 
 printf("Welcome to Capsim Text Mode Kernel (CapsimTMK)\n");
 printf("(c)1989-2017 Silicon DSP Corporation\n");

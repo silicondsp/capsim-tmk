@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.
+This block multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.
 
 #endif
  

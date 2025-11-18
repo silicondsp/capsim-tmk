@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements a fixed point normalized lattice filter. 
+This block implements a fixed point normalized lattice filter. 
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star  encodes incoming data accoding to the first parameter:NRZ,Manchester,Diff Manchester,Partial Response,AMI,2B1Q,RZ
+This block  encodes incoming data accoding to the first parameter:NRZ,Manchester,Diff Manchester,Partial Response,AMI,2B1Q,RZ
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs an image and transposes it.
+This block inputs an image and transposes it.
 
 #endif
  

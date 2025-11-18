@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star generates a sinusoid ( cosine for zero phase). If a second buffer is connected, the quadrature signal is output.
+This block generates a sinusoid ( cosine for zero phase). If a second buffer is connected, the quadrature signal is output.
 
 #endif
  

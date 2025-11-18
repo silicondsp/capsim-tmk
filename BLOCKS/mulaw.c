@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements a mulaw quantizer
+This block implements a mulaw quantizer
 
 #endif
  

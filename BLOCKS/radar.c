@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements an alpha-beta tracking filter.
+This block implements an alpha-beta tracking filter.
 
 #endif
  
@@ -184,7 +184,7 @@ case SYSTEM_INIT:
             npts=0;
 
 
-  delay_max(star_P->inBuffer_P[0],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],1);
 
          
    if(NO_OUTPUT_BUFFERS() != 4 ){

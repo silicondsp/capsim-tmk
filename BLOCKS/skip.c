@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star devours the first N values,  useful for skipping transient periods
+This block devours the first N values,  useful for skipping transient periods
 
 #endif
  

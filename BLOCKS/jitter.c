@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star finds the relative phase of a signal to a reference. 
+This block finds the relative phase of a signal to a reference. 
 
 #endif
  

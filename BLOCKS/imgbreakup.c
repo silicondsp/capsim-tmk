@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs an image and creates sub images. The sub images are sequentially output.
+This block inputs an image and creates sub images. The sub images are sequentially output.
 
 #endif
  

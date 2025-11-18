@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star generates  gaussian samples. 
+This block generates  gaussian samples. 
 
 #endif
  

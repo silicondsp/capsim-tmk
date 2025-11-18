@@ -1,18 +1,18 @@
 all:libblock.a 
 
-add.c:add.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar add.s $(CAPSIM)/TOOLS/blockgen.xsl>add.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a add.s
-
-add.o:add.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include add.c
-
 addnoise.c:addnoise.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar addnoise.s $(CAPSIM)/TOOLS/blockgen.xsl>addnoise.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a addnoise.s
 
 addnoise.o:addnoise.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include addnoise.c
+
+add.c:add.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar add.s $(CAPSIM)/TOOLS/blockgen.xsl>add.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a add.s
+
+add.o:add.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include add.c
 
 and.c:and.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar and.s $(CAPSIM)/TOOLS/blockgen.xsl>and.c
@@ -133,19 +133,19 @@ cmux.c:cmux.s
 cmux.o:cmux.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cmux.c
 
-cmxfft.c:cmxfft.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar cmxfft.s $(CAPSIM)/TOOLS/blockgen.xsl>cmxfft.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a cmxfft.s
-
-cmxfft.o:cmxfft.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cmxfft.c
-
 cmxfftfile.c:cmxfftfile.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar cmxfftfile.s $(CAPSIM)/TOOLS/blockgen.xsl>cmxfftfile.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a cmxfftfile.s
 
 cmxfftfile.o:cmxfftfile.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cmxfftfile.c
+
+cmxfft.c:cmxfft.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar cmxfft.s $(CAPSIM)/TOOLS/blockgen.xsl>cmxfft.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a cmxfft.s
+
+cmxfft.o:cmxfft.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cmxfft.c
 
 cmxifft.c:cmxifft.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar cmxifft.s $(CAPSIM)/TOOLS/blockgen.xsl>cmxifft.c
@@ -175,19 +175,19 @@ cubepoly.c:cubepoly.s
 cubepoly.o:cubepoly.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cubepoly.c
 
-cxadd.c:cxadd.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar cxadd.s $(CAPSIM)/TOOLS/blockgen.xsl>cxadd.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a cxadd.s
-
-cxadd.o:cxadd.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cxadd.c
-
 cxaddnoise.c:cxaddnoise.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar cxaddnoise.s $(CAPSIM)/TOOLS/blockgen.xsl>cxaddnoise.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a cxaddnoise.s
 
 cxaddnoise.o:cxaddnoise.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cxaddnoise.c
+
+cxadd.c:cxadd.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar cxadd.s $(CAPSIM)/TOOLS/blockgen.xsl>cxadd.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a cxadd.s
+
+cxadd.o:cxadd.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include cxadd.c
 
 cxconj.c:cxconj.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar cxconj.s $(CAPSIM)/TOOLS/blockgen.xsl>cxconj.c
@@ -315,13 +315,6 @@ datagen.c:datagen.s
 datagen.o:datagen.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include datagen.c
 
-dco.c:dco.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar dco.s $(CAPSIM)/TOOLS/blockgen.xsl>dco.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a dco.s
-
-dco.o:dco.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dco.c
-
 dco2.c:dco2.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar dco2.s $(CAPSIM)/TOOLS/blockgen.xsl>dco2.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a dco2.s
@@ -329,12 +322,12 @@ dco2.c:dco2.s
 dco2.o:dco2.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dco2.c
 
-dec_qpsk.c:dec_qpsk.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar dec_qpsk.s $(CAPSIM)/TOOLS/blockgen.xsl>dec_qpsk.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a dec_qpsk.s
+dco.c:dco.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar dco.s $(CAPSIM)/TOOLS/blockgen.xsl>dco.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a dco.s
 
-dec_qpsk.o:dec_qpsk.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dec_qpsk.c
+dco.o:dco.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dco.c
 
 decbin.c:decbin.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar decbin.s $(CAPSIM)/TOOLS/blockgen.xsl>decbin.c
@@ -350,6 +343,13 @@ decimate.c:decimate.s
 decimate.o:decimate.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include decimate.c
 
+dec_qpsk.c:dec_qpsk.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar dec_qpsk.s $(CAPSIM)/TOOLS/blockgen.xsl>dec_qpsk.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a dec_qpsk.s
+
+dec_qpsk.o:dec_qpsk.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dec_qpsk.c
+
 delay.c:delay.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar delay.s $(CAPSIM)/TOOLS/blockgen.xsl>delay.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a delay.s
@@ -364,19 +364,19 @@ demux.c:demux.s
 demux.o:demux.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include demux.c
 
-dff.c:dff.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar dff.s $(CAPSIM)/TOOLS/blockgen.xsl>dff.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a dff.s
-
-dff.o:dff.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dff.c
-
 dffil.c:dffil.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar dffil.s $(CAPSIM)/TOOLS/blockgen.xsl>dffil.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a dffil.s
 
 dffil.o:dffil.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dffil.c
+
+dff.c:dff.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar dff.s $(CAPSIM)/TOOLS/blockgen.xsl>dff.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a dff.s
+
+dff.o:dff.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dff.c
 
 divby2.c:divby2.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar divby2.s $(CAPSIM)/TOOLS/blockgen.xsl>divby2.c
@@ -385,19 +385,19 @@ divby2.c:divby2.s
 divby2.o:divby2.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include divby2.c
 
-divider.c:divider.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar divider.s $(CAPSIM)/TOOLS/blockgen.xsl>divider.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a divider.s
-
-divider.o:divider.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include divider.c
-
 divider2.c:divider2.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar divider2.s $(CAPSIM)/TOOLS/blockgen.xsl>divider2.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a divider2.s
 
 divider2.o:divider2.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include divider2.c
+
+divider.c:divider.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar divider.s $(CAPSIM)/TOOLS/blockgen.xsl>divider.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a divider.s
+
+divider.o:divider.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include divider.c
 
 ds2.c:ds2.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar ds2.s $(CAPSIM)/TOOLS/blockgen.xsl>ds2.c
@@ -420,19 +420,19 @@ dtoa.c:dtoa.s
 dtoa.o:dtoa.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include dtoa.c
 
-ecount.c:ecount.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar ecount.s $(CAPSIM)/TOOLS/blockgen.xsl>ecount.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a ecount.s
-
-ecount.o:ecount.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include ecount.c
-
 ecountfap.c:ecountfap.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar ecountfap.s $(CAPSIM)/TOOLS/blockgen.xsl>ecountfap.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a ecountfap.s
 
 ecountfap.o:ecountfap.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include ecountfap.c
+
+ecount.c:ecount.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar ecount.s $(CAPSIM)/TOOLS/blockgen.xsl>ecount.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a ecount.s
+
+ecount.o:ecount.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include ecount.c
 
 encoder.c:encoder.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar encoder.s $(CAPSIM)/TOOLS/blockgen.xsl>encoder.c
@@ -476,19 +476,19 @@ filtnyq.c:filtnyq.s
 filtnyq.o:filtnyq.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include filtnyq.c
 
-fir.c:fir.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar fir.s $(CAPSIM)/TOOLS/blockgen.xsl>fir.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a fir.s
-
-fir.o:fir.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include fir.c
-
 firfil.c:firfil.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar firfil.s $(CAPSIM)/TOOLS/blockgen.xsl>firfil.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a firfil.s
 
 firfil.o:firfil.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include firfil.c
+
+fir.c:fir.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar fir.s $(CAPSIM)/TOOLS/blockgen.xsl>fir.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a fir.s
+
+fir.o:fir.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include fir.c
 
 fm.c:fm.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar fm.s $(CAPSIM)/TOOLS/blockgen.xsl>fm.c
@@ -497,19 +497,19 @@ fm.c:fm.s
 fm.o:fm.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include fm.c
 
-freq_meter.c:freq_meter.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar freq_meter.s $(CAPSIM)/TOOLS/blockgen.xsl>freq_meter.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a freq_meter.s
-
-freq_meter.o:freq_meter.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include freq_meter.c
-
 freqimp.c:freqimp.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar freqimp.s $(CAPSIM)/TOOLS/blockgen.xsl>freqimp.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a freqimp.s
 
 freqimp.o:freqimp.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include freqimp.c
+
+freq_meter.c:freq_meter.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar freq_meter.s $(CAPSIM)/TOOLS/blockgen.xsl>freq_meter.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a freq_meter.s
+
+freq_meter.o:freq_meter.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include freq_meter.c
 
 fti.c:fti.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar fti.s $(CAPSIM)/TOOLS/blockgen.xsl>fti.c
@@ -531,6 +531,13 @@ fxdelay.c:fxdelay.s
 
 fxdelay.o:fxdelay.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include fxdelay.c
+
+fxfirtaps.c:fxfirtaps.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar fxfirtaps.s $(CAPSIM)/TOOLS/blockgen.xsl>fxfirtaps.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a fxfirtaps.s
+
+fxfirtaps.o:fxfirtaps.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include fxfirtaps.c
 
 fxgain.c:fxgain.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar fxgain.s $(CAPSIM)/TOOLS/blockgen.xsl>fxgain.c
@@ -594,27 +601,6 @@ iirfil.c:iirfil.s
 
 iirfil.o:iirfil.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include iirfil.c
-
-img_sar_azimuth_compress.c:img_sar_azimuth_compress.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_azimuth_compress.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_azimuth_compress.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_azimuth_compress.s
-
-img_sar_azimuth_compress.o:img_sar_azimuth_compress.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_azimuth_compress.c
-
-img_sar_create.c:img_sar_create.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_create.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_create.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_create.s
-
-img_sar_create.o:img_sar_create.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_create.c
-
-img_sar_range_compress.c:img_sar_range_compress.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_range_compress.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_range_compress.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_range_compress.s
-
-img_sar_range_compress.o:img_sar_range_compress.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_range_compress.c
 
 imgaddnoise.c:imgaddnoise.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar imgaddnoise.s $(CAPSIM)/TOOLS/blockgen.xsl>imgaddnoise.c
@@ -783,6 +769,27 @@ imgrtcx.c:imgrtcx.s
 
 imgrtcx.o:imgrtcx.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include imgrtcx.c
+
+img_sar_azimuth_compress.c:img_sar_azimuth_compress.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_azimuth_compress.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_azimuth_compress.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_azimuth_compress.s
+
+img_sar_azimuth_compress.o:img_sar_azimuth_compress.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_azimuth_compress.c
+
+img_sar_create.c:img_sar_create.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_create.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_create.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_create.s
+
+img_sar_create.o:img_sar_create.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_create.c
+
+img_sar_range_compress.c:img_sar_range_compress.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar img_sar_range_compress.s $(CAPSIM)/TOOLS/blockgen.xsl>img_sar_range_compress.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a img_sar_range_compress.s
+
+img_sar_range_compress.o:img_sar_range_compress.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include img_sar_range_compress.c
 
 imgserin.c:imgserin.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar imgserin.s $(CAPSIM)/TOOLS/blockgen.xsl>imgserin.c
@@ -1085,19 +1092,19 @@ plottxt.c:plottxt.s
 plottxt.o:plottxt.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include plottxt.c
 
-pngen.c:pngen.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar pngen.s $(CAPSIM)/TOOLS/blockgen.xsl>pngen.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a pngen.s
-
-pngen.o:pngen.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include pngen.c
-
 pngen2.c:pngen2.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar pngen2.s $(CAPSIM)/TOOLS/blockgen.xsl>pngen2.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a pngen2.s
 
 pngen2.o:pngen2.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include pngen2.c
+
+pngen.c:pngen.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar pngen.s $(CAPSIM)/TOOLS/blockgen.xsl>pngen.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a pngen.s
+
+pngen.o:pngen.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include pngen.c
 
 powmeter.c:powmeter.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar powmeter.s $(CAPSIM)/TOOLS/blockgen.xsl>powmeter.c
@@ -1134,19 +1141,19 @@ prfile.c:prfile.s
 prfile.o:prfile.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include prfile.c
 
-pri.c:pri.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar pri.s $(CAPSIM)/TOOLS/blockgen.xsl>pri.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a pri.s
-
-pri.o:pri.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include pri.c
-
 primage.c:primage.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar primage.s $(CAPSIM)/TOOLS/blockgen.xsl>primage.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a primage.s
 
 primage.o:primage.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include primage.c
+
+pri.c:pri.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar pri.s $(CAPSIM)/TOOLS/blockgen.xsl>pri.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a pri.s
+
+pri.o:pri.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include pri.c
 
 pulse.c:pulse.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar pulse.s $(CAPSIM)/TOOLS/blockgen.xsl>pulse.c
@@ -1281,19 +1288,19 @@ sar_chirp.c:sar_chirp.s
 sar_chirp.o:sar_chirp.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include sar_chirp.c
 
-sar_range.c:sar_range.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar sar_range.s $(CAPSIM)/TOOLS/blockgen.xsl>sar_range.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a sar_range.s
-
-sar_range.o:sar_range.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include sar_range.c
-
 sar_range_compress.c:sar_range_compress.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar sar_range_compress.s $(CAPSIM)/TOOLS/blockgen.xsl>sar_range_compress.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a sar_range_compress.s
 
 sar_range_compress.o:sar_range_compress.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include sar_range_compress.c
+
+sar_range.c:sar_range.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar sar_range.s $(CAPSIM)/TOOLS/blockgen.xsl>sar_range.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a sar_range.s
+
+sar_range.o:sar_range.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include sar_range.c
 
 scattertxt.c:scattertxt.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar scattertxt.s $(CAPSIM)/TOOLS/blockgen.xsl>scattertxt.c
@@ -1365,19 +1372,19 @@ sink.c:sink.s
 sink.o:sink.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include sink.c
 
-skip.c:skip.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar skip.s $(CAPSIM)/TOOLS/blockgen.xsl>skip.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a skip.s
-
-skip.o:skip.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include skip.c
-
 skipold.c:skipold.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar skipold.s $(CAPSIM)/TOOLS/blockgen.xsl>skipold.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a skipold.s
 
 skipold.o:skipold.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include skipold.c
+
+skip.c:skip.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar skip.s $(CAPSIM)/TOOLS/blockgen.xsl>skip.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a skip.s
+
+skip.o:skip.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include skip.c
 
 slice.c:slice.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar slice.s $(CAPSIM)/TOOLS/blockgen.xsl>slice.c
@@ -1463,13 +1470,6 @@ stats.c:stats.s
 stats.o:stats.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include stats.c
 
-stc.c:stc.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar stc.s $(CAPSIM)/TOOLS/blockgen.xsl>stc.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a stc.s
-
-stc.o:stc.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include stc.c
-
 stcode.c:stcode.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar stcode.s $(CAPSIM)/TOOLS/blockgen.xsl>stcode.c
 	perl $(CAPSIM)/TOOLS/blockmaint.pl a stcode.s
@@ -1477,12 +1477,12 @@ stcode.c:stcode.s
 stcode.o:stcode.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include stcode.c
 
-str.c:str.s
-	java -jar $(CAPSIM)/TOOLS/saxon.jar str.s $(CAPSIM)/TOOLS/blockgen.xsl>str.c
-	perl $(CAPSIM)/TOOLS/blockmaint.pl a str.s
+stc.c:stc.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar stc.s $(CAPSIM)/TOOLS/blockgen.xsl>stc.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a stc.s
 
-str.o:str.c
-	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include str.c
+stc.o:stc.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include stc.c
 
 strch.c:strch.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar strch.s $(CAPSIM)/TOOLS/blockgen.xsl>strch.c
@@ -1497,6 +1497,13 @@ stretch.c:stretch.s
 
 stretch.o:stretch.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include stretch.c
+
+str.c:str.s
+	java -jar $(CAPSIM)/TOOLS/saxon.jar str.s $(CAPSIM)/TOOLS/blockgen.xsl>str.c
+	perl $(CAPSIM)/TOOLS/blockmaint.pl a str.s
+
+str.o:str.c
+	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include str.c
 
 sum.c:sum.s
 	java -jar $(CAPSIM)/TOOLS/saxon.jar sum.s $(CAPSIM)/TOOLS/blockgen.xsl>sum.c
@@ -1680,6 +1687,6 @@ zlpf.c:zlpf.s
 zlpf.o:zlpf.c
 	cc -c -g  -I$(CAPSIM)/include -I$(CAPSIM)/include/TCL -I../include zlpf.c
 
-libblock.a:add.o addnoise.o and.o ang.o arprocess.o atod.o autoxcorr.o avrow.o bdata.o bitmanip.o bitvec.o blindadapt.o bpf.o cable.o casfil.o clip.o clkdly.o cmplxfft.o cmux.o cmxfft.o cmxfftfile.o cmxifft.o convolve.o cstime.o cubepoly.o cxadd.o cxaddnoise.o cxconj.o cxcorr.o cxdelay.o cxgain.o cxmag.o cxmakecx.o cxmakereal.o cxmult.o cxnode.o cxphase.o cxrdfile.o cxreal.o cxreim.o cxsetsnr.o cxsink.o cxskip.o cxsum.o datagen.o dco.o dco2.o dec_qpsk.o decbin.o decimate.o delay.o demux.o dff.o dffil.o divby2.o divider.o divider2.o ds2.o ds3.o dtoa.o ecount.o ecountfap.o encoder.o ethline.o expr.o fade.o fconv.o filtnyq.o fir.o firfil.o fm.o freq_meter.o freqimp.o fti.o fxadd.o fxdelay.o fxgain.o fxnl.o fxnode.o gain.o gauss.o hilbert.o histtxt.o hold.o iirfil.o img_sar_azimuth_compress.o img_sar_create.o img_sar_range_compress.o imgaddnoise.o imgbreakup.o imgbuild.o imgcalc.o imgcxmag.o imgcxtrl.o imgfft.o imgfilter.o imggen.o imghisteq.o imginterp.o imgmanip.o imgmux.o imgnode.o imgnonlinfil.o imgnormalize.o imgprasc.o imgprbin.o imgproc.o imgrdasc.o imgrdbin.o imgrdfptiff.o imgrdtiff.o imgrtcx.o imgserin.o imgserout.o imgshrink.o imgsink.o imgsubimg.o imgwrfptiff.o imgwrtiff.o impulse.o intcntrl.o intdmp.o integrate.o invcust.o inventory.o inverse.o invert.o itf.o jitter.o jkfade.o jkff.o limiter.o linecode.o lms.o lpc.o lpf.o mau.o mbset.o mixer.o more.o mulaw.o multiply.o mux.o nand.o nl.o node.o nonlin.o nor.o null.o offset.o operate.o or.o phi_meter.o pllfilt.o plottxt.o pngen.o pngen2.o powmeter.o prbinimage.o predftf.o predlms.o prfile.o pri.o primage.o pulse.o pump.o qpsk.o quot.o radar.o rangen.o rdaiff.o rdbinimg.o rdfile.o rdimage.o rdmulti.o repeater.o replicate.o resmpl.o roundi.o rxhdlc.o sampler1.o sar_azimuth_ref.o sar_chirp.o sar_range.o sar_range_compress.o scattertxt.o scrambler.o sdet.o sdr.o secord.o seqgen.o server.o setsnr.o sine.o sink.o skip.o skipold.o slice.o slidefft.o sn74ls93.o spectrogramtxt.o spectrumtxt.o spiceprb.o spread.o sqr.o sqrtnyq.o srff.o srlatch.o stats.o stc.o stcode.o str.o strch.o stretch.o sum.o symimp.o target.o tee.o tff.o threshold.o toggle.o transpose.o trig.o txhdlc.o unitf.o v29decoder.o v29encoder.o v2b.o vcm.o vecbit.o wave.o wraiff.o xdco.o xnor.o xor.o xygen.o zc.o zdummy.o zero.o zlpf.o 
-	ar -r libblock.a add.o addnoise.o and.o ang.o arprocess.o atod.o autoxcorr.o avrow.o bdata.o bitmanip.o bitvec.o blindadapt.o bpf.o cable.o casfil.o clip.o clkdly.o cmplxfft.o cmux.o cmxfft.o cmxfftfile.o cmxifft.o convolve.o cstime.o cubepoly.o cxadd.o cxaddnoise.o cxconj.o cxcorr.o cxdelay.o cxgain.o cxmag.o cxmakecx.o cxmakereal.o cxmult.o cxnode.o cxphase.o cxrdfile.o cxreal.o cxreim.o cxsetsnr.o cxsink.o cxskip.o cxsum.o datagen.o dco.o dco2.o dec_qpsk.o decbin.o decimate.o delay.o demux.o dff.o dffil.o divby2.o divider.o divider2.o ds2.o ds3.o dtoa.o ecount.o ecountfap.o encoder.o ethline.o expr.o fade.o fconv.o filtnyq.o fir.o firfil.o fm.o freq_meter.o freqimp.o fti.o fxadd.o fxdelay.o fxgain.o fxnl.o fxnode.o gain.o gauss.o hilbert.o histtxt.o hold.o iirfil.o img_sar_azimuth_compress.o img_sar_create.o img_sar_range_compress.o imgaddnoise.o imgbreakup.o imgbuild.o imgcalc.o imgcxmag.o imgcxtrl.o imgfft.o imgfilter.o imggen.o imghisteq.o imginterp.o imgmanip.o imgmux.o imgnode.o imgnonlinfil.o imgnormalize.o imgprasc.o imgprbin.o imgproc.o imgrdasc.o imgrdbin.o imgrdfptiff.o imgrdtiff.o imgrtcx.o imgserin.o imgserout.o imgshrink.o imgsink.o imgsubimg.o imgwrfptiff.o imgwrtiff.o impulse.o intcntrl.o intdmp.o integrate.o invcust.o inventory.o inverse.o invert.o itf.o jitter.o jkfade.o jkff.o limiter.o linecode.o lms.o lpc.o lpf.o mau.o mbset.o mixer.o more.o mulaw.o multiply.o mux.o nand.o nl.o node.o nonlin.o nor.o null.o offset.o operate.o or.o phi_meter.o pllfilt.o plottxt.o pngen.o pngen2.o powmeter.o prbinimage.o predftf.o predlms.o prfile.o pri.o primage.o pulse.o pump.o qpsk.o quot.o radar.o rangen.o rdaiff.o rdbinimg.o rdfile.o rdimage.o rdmulti.o repeater.o replicate.o resmpl.o roundi.o rxhdlc.o sampler1.o sar_azimuth_ref.o sar_chirp.o sar_range.o sar_range_compress.o scattertxt.o scrambler.o sdet.o sdr.o secord.o seqgen.o server.o setsnr.o sine.o sink.o skip.o skipold.o slice.o slidefft.o sn74ls93.o spectrogramtxt.o spectrumtxt.o spiceprb.o spread.o sqr.o sqrtnyq.o srff.o srlatch.o stats.o stc.o stcode.o str.o strch.o stretch.o sum.o symimp.o target.o tee.o tff.o threshold.o toggle.o transpose.o trig.o txhdlc.o unitf.o v29decoder.o v29encoder.o v2b.o vcm.o vecbit.o wave.o wraiff.o xdco.o xnor.o xor.o xygen.o zc.o zdummy.o zero.o zlpf.o 
+libblock.a:addnoise.o add.o and.o ang.o arprocess.o atod.o autoxcorr.o avrow.o bdata.o bitmanip.o bitvec.o blindadapt.o bpf.o cable.o casfil.o clip.o clkdly.o cmplxfft.o cmux.o cmxfftfile.o cmxfft.o cmxifft.o convolve.o cstime.o cubepoly.o cxaddnoise.o cxadd.o cxconj.o cxcorr.o cxdelay.o cxgain.o cxmag.o cxmakecx.o cxmakereal.o cxmult.o cxnode.o cxphase.o cxrdfile.o cxreal.o cxreim.o cxsetsnr.o cxsink.o cxskip.o cxsum.o datagen.o dco2.o dco.o decbin.o decimate.o dec_qpsk.o delay.o demux.o dffil.o dff.o divby2.o divider2.o divider.o ds2.o ds3.o dtoa.o ecountfap.o ecount.o encoder.o ethline.o expr.o fade.o fconv.o filtnyq.o firfil.o fir.o fm.o freqimp.o freq_meter.o fti.o fxadd.o fxdelay.o fxfirtaps.o fxgain.o fxnl.o fxnode.o gain.o gauss.o hilbert.o histtxt.o hold.o iirfil.o imgaddnoise.o imgbreakup.o imgbuild.o imgcalc.o imgcxmag.o imgcxtrl.o imgfft.o imgfilter.o imggen.o imghisteq.o imginterp.o imgmanip.o imgmux.o imgnode.o imgnonlinfil.o imgnormalize.o imgprasc.o imgprbin.o imgproc.o imgrdasc.o imgrdbin.o imgrdfptiff.o imgrdtiff.o imgrtcx.o img_sar_azimuth_compress.o img_sar_create.o img_sar_range_compress.o imgserin.o imgserout.o imgshrink.o imgsink.o imgsubimg.o imgwrfptiff.o imgwrtiff.o impulse.o intcntrl.o intdmp.o integrate.o invcust.o inventory.o inverse.o invert.o itf.o jitter.o jkfade.o jkff.o limiter.o linecode.o lms.o lpc.o lpf.o mau.o mbset.o mixer.o more.o mulaw.o multiply.o mux.o nand.o nl.o node.o nonlin.o nor.o null.o offset.o operate.o or.o phi_meter.o pllfilt.o plottxt.o pngen2.o pngen.o powmeter.o prbinimage.o predftf.o predlms.o prfile.o primage.o pri.o pulse.o pump.o qpsk.o quot.o radar.o rangen.o rdaiff.o rdbinimg.o rdfile.o rdimage.o rdmulti.o repeater.o replicate.o resmpl.o roundi.o rxhdlc.o sampler1.o sar_azimuth_ref.o sar_chirp.o sar_range_compress.o sar_range.o scattertxt.o scrambler.o sdet.o sdr.o secord.o seqgen.o server.o setsnr.o sine.o sink.o skipold.o skip.o slice.o slidefft.o sn74ls93.o spectrogramtxt.o spectrumtxt.o spiceprb.o spread.o sqr.o sqrtnyq.o srff.o srlatch.o stats.o stcode.o stc.o strch.o stretch.o str.o sum.o symimp.o target.o tee.o tff.o threshold.o toggle.o transpose.o trig.o txhdlc.o unitf.o v29decoder.o v29encoder.o v2b.o vcm.o vecbit.o wave.o wraiff.o xdco.o xnor.o xor.o xygen.o zc.o zdummy.o zero.o zlpf.o 
+	ar -r libblock.a addnoise.o add.o and.o ang.o arprocess.o atod.o autoxcorr.o avrow.o bdata.o bitmanip.o bitvec.o blindadapt.o bpf.o cable.o casfil.o clip.o clkdly.o cmplxfft.o cmux.o cmxfftfile.o cmxfft.o cmxifft.o convolve.o cstime.o cubepoly.o cxaddnoise.o cxadd.o cxconj.o cxcorr.o cxdelay.o cxgain.o cxmag.o cxmakecx.o cxmakereal.o cxmult.o cxnode.o cxphase.o cxrdfile.o cxreal.o cxreim.o cxsetsnr.o cxsink.o cxskip.o cxsum.o datagen.o dco2.o dco.o decbin.o decimate.o dec_qpsk.o delay.o demux.o dffil.o dff.o divby2.o divider2.o divider.o ds2.o ds3.o dtoa.o ecountfap.o ecount.o encoder.o ethline.o expr.o fade.o fconv.o filtnyq.o firfil.o fir.o fm.o freqimp.o freq_meter.o fti.o fxadd.o fxdelay.o fxfirtaps.o fxgain.o fxnl.o fxnode.o gain.o gauss.o hilbert.o histtxt.o hold.o iirfil.o imgaddnoise.o imgbreakup.o imgbuild.o imgcalc.o imgcxmag.o imgcxtrl.o imgfft.o imgfilter.o imggen.o imghisteq.o imginterp.o imgmanip.o imgmux.o imgnode.o imgnonlinfil.o imgnormalize.o imgprasc.o imgprbin.o imgproc.o imgrdasc.o imgrdbin.o imgrdfptiff.o imgrdtiff.o imgrtcx.o img_sar_azimuth_compress.o img_sar_create.o img_sar_range_compress.o imgserin.o imgserout.o imgshrink.o imgsink.o imgsubimg.o imgwrfptiff.o imgwrtiff.o impulse.o intcntrl.o intdmp.o integrate.o invcust.o inventory.o inverse.o invert.o itf.o jitter.o jkfade.o jkff.o limiter.o linecode.o lms.o lpc.o lpf.o mau.o mbset.o mixer.o more.o mulaw.o multiply.o mux.o nand.o nl.o node.o nonlin.o nor.o null.o offset.o operate.o or.o phi_meter.o pllfilt.o plottxt.o pngen2.o pngen.o powmeter.o prbinimage.o predftf.o predlms.o prfile.o primage.o pri.o pulse.o pump.o qpsk.o quot.o radar.o rangen.o rdaiff.o rdbinimg.o rdfile.o rdimage.o rdmulti.o repeater.o replicate.o resmpl.o roundi.o rxhdlc.o sampler1.o sar_azimuth_ref.o sar_chirp.o sar_range_compress.o sar_range.o scattertxt.o scrambler.o sdet.o sdr.o secord.o seqgen.o server.o setsnr.o sine.o sink.o skipold.o skip.o slice.o slidefft.o sn74ls93.o spectrogramtxt.o spectrumtxt.o spiceprb.o spread.o sqr.o sqrtnyq.o srff.o srlatch.o stats.o stcode.o stc.o strch.o stretch.o str.o sum.o symimp.o target.o tee.o tff.o threshold.o toggle.o transpose.o trig.o txhdlc.o unitf.o v29decoder.o v29encoder.o v2b.o vcm.o vecbit.o wave.o wraiff.o xdco.o xnor.o xor.o xygen.o zc.o zdummy.o zero.o zlpf.o 
 	ranlib libblock.a

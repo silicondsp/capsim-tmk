@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star simulates an Ethernet transceiver cable by introducing a fixed delay
+This block simulates an Ethernet transceiver cable by introducing a fixed delay
 
 #endif
  

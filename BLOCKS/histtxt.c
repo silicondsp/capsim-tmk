@@ -90,7 +90,7 @@ typedef struct {
 /*         
  *    PARAMETER DEFINES 
  */ 
-#define start (param_P[0]->value.f)
+#define blockt (param_P[0]->value.f)
 #define stop (param_P[1]->value.f)
 #define numberOfBins (param_P[2]->value.d)
 #define file_spec (param_P[3]->value.s)
@@ -143,7 +143,7 @@ case PARAM_INIT:
      char   *pdef0 = "Starting point of left most bin";
      char   *ptype0 = "float";
      char   *pval0 = "-5.0";
-     char   *pname0 = "start";
+     char   *pname0 = "blockt";
      char   *pdef1 = "Ending point of right  most bin";
      char   *ptype1 = "float";
      char   *pval1 = "5.0";
@@ -236,7 +236,7 @@ if((obufs = NO_OUTPUT_BUFFERS()) > ibufs) {
         fprintf(stderr,"hist: too many outputs connected\n");
         return(3);
 }
-binWidth=(stop-start)/((float)numberOfBins);
+binWidth=(stop-blockt)/((float)numberOfBins);
 if(numberOfBins>512 || binWidth<0.)return(1);
 if(control) {
 	bin = (float *) malloc(numberOfBins * sizeof(float));  
@@ -249,7 +249,7 @@ if(control) {
 }
 for(i=0;i<numberOfBins;i++) {
 	bin[i]=0.;
-	xbin[i]= (float)i*binWidth + start + binWidth/2.;
+	xbin[i]= (float)i*binWidth + blockt + binWidth/2.;
 }
 numberOfSamples=0;
 switch(bufferType) {
@@ -302,7 +302,7 @@ for(ii=MIN_AVAIL();ii>0;--ii) {
                 for(i=0; i<heightImage; i++)
                    for(jj=0; jj<widthImage; jj++) {
 			x=img.image_PP[i][jj];
-			x=(x-start)/binWidth;
+			x=(x-blockt)/binWidth;
 		        j=(int)x;
                         if(j<0)
                             bin[0] = bin[0] +1.;
@@ -318,7 +318,7 @@ for(ii=MIN_AVAIL();ii>0;--ii) {
 	     if(++totalCount > skip && control ) {
 		if(total == npts) continue;
 		x=INF(0,0);
-		x=(x-start)/binWidth;
+		x=(x-blockt)/binWidth;
 		j=(int)x;
 		if(j<0)
 			bin[0] = bin[0] +1.;
@@ -362,7 +362,7 @@ sprintf(title,"Histogram %s",SNAME(0));
 if(strcmp(file_spec,"none")==0)return(0);
 histo_F = fopen(file_spec,"w");
 for(i=0;i<numberOfBins;i++)
-	fprintf(histo_F,"%f  %f\n",start+binWidth/2.+(float)i*binWidth,
+	fprintf(histo_F,"%f  %f\n",blockt+binWidth/2.+(float)i*binWidth,
 bin[i]/(float)total);
 fclose(histo_F);
 }

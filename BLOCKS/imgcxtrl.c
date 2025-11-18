@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
+This block inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
 
 #endif
  

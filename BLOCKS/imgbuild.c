@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs a sequence of images  and creates  a larger image with the inputted images forming subimages from left to right top to bottom. 
+This block inputs a sequence of images  and creates  a larger image with the inputted images forming subimages from left to right top to bottom. 
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements an integrator  that charges and discharges by control
+This block implements an integrator  that charges and discharges by control
 
 #endif
  
@@ -149,9 +149,9 @@ case SYSTEM_INIT:
 	state_P = (state_Pt)star_P->state_P;
      
 
-  delay_max(star_P->inBuffer_P[0],2);
-  delay_max(star_P->inBuffer_P[1],2);
-  delay_max(star_P->inBuffer_P[2],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[1],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[2],2);
 
          
    if(NO_OUTPUT_BUFFERS() != 1 ){

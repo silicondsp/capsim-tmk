@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star performs square root Nyquist pulse shaping for a baseband transmitter.
+This block performs square root Nyquist pulse shaping for a baseband transmitter.
 
 #endif
  

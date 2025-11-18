@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
+This block inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
 
 #endif
  
@@ -162,7 +162,7 @@ case SYSTEM_INIT:
             even=1;
        oneState=-1;
 
-  delay_max(star_P->inBuffer_P[0],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],1);
 
          
    if(NO_INPUT_BUFFERS() != 1 ){

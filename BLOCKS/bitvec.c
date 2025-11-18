@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star converts a bit stream to variable length vectors.
+This block converts a bit stream to variable length vectors.
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs constellation points and decods them into a bit stream. It is assumed that the constellation was produced by qpsk.s.
+This block inputs constellation points and decods them into a bit stream. It is assumed that the constellation was produced by qpsk.s.
 
 #endif
  

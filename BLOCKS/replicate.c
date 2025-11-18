@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs data  and stretches it.
+This block inputs data  and stretches it.
 
 #endif
  
@@ -135,7 +135,7 @@ case SYSTEM_INIT:
 	star_P->state_P = (char*)calloc(1,sizeof(state_t));
 	state_P = (state_Pt)star_P->state_P;
      
-  delay_max(star_P->inBuffer_P[0],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],1);
 
          
    if(NO_INPUT_BUFFERS() != 1 ){

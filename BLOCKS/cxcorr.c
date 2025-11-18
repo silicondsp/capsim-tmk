@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star correlates the input samples with the sequence given in a file.
+This block correlates the input samples with the sequence given in a file.
 
 #endif
  

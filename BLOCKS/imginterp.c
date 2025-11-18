@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs an image and interpolates it.
+This block inputs an image and interpolates it.
 
 #endif
  

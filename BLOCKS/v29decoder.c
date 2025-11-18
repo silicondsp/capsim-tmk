@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs inPhase and quadPhase of the CCITT v.29 coordinates and decodes the input into binary data.
+This block inputs inPhase and quadPhase of the CCITT v.29 coordinates and decodes the input into binary data.
 
 #endif
  

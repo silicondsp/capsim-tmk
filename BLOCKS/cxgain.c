@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star multiplies the incoming complex data stream by the complex parameter coefficient, and outputs the resulting complex data values.
+This block multiplies the incoming complex data stream by the complex parameter coefficient, and outputs the resulting complex data values.
 
 #endif
  

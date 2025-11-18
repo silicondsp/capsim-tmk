@@ -94,6 +94,7 @@ imgbuild imgbuild imgbuil
 imgcalc imgcalc imgcalc
 imgcxmag imgcxmag imgcxma
 imgcxtrl imgcxtrl imgcxtr
+imgfft imgfft imgfft
 imgfilter imgfilter imgfilt
 imggen imggen imggen
 imghisteq imghisteq imghist
@@ -102,6 +103,7 @@ imgmanip imgmanip imgmani
 imgmux imgmux imgmux
 imgnode imgnode imgnode
 imgnonlinfil imgnonlinfil imgnonl
+imgnormalize imgnormalize imgnorm
 imgprasc imgprasc imgpras
 imgprbin imgprbin imgprbi
 imgproc imgproc imgproc
@@ -115,7 +117,7 @@ imgserout imgserout imgsero
 imgshrink imgshrink imgshri
 imgsink imgsink imgsink
 imgsubimg imgsubimg imgsubi
-imgwrfptiff imgwrfptiff imgfpwr
+imgwrfptiff imgwrfptiff imgwrfp
 imgwrtiff imgwrtiff imgwrti
 impulse impulse impulse
 intcntrl intcntrl intcntr
@@ -198,6 +200,7 @@ skipold skipold skipold
 slice slice slice
 slidefft slidefft slideff
 sn74ls93 sn74ls93 sn74ls9
+spectrogramtxt spectrogramtxt spectro
 spectrumtxt spectrumtxt spectru
 spiceprb spiceprb spicepr
 spread spread spread
@@ -717,6 +720,8 @@ zlpf zlpf zlpf
 
 
 
+
+
 /* krn_blocklib.c */
 /****************************************************************************
 
@@ -736,6 +741,7 @@ also be updated, and the executable re-made.  Don't forget to set
 #include <capsim.h>
 
 /* Function declarations */
+
 
 
 

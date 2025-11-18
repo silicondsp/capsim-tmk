@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star compares two data streams for "equality" (use for BER). Appends to file.
+This block compares two data streams for "equality" (use for BER). Appends to file.
 
 #endif
  

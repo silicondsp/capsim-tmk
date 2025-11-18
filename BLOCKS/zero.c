@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star sends out a number of zero samples. The only parameter tells how many zero samples to send out.
+This block sends out a number of zero samples. The only parameter tells how many zero samples to send out.
 
 #endif
  

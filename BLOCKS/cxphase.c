@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star finds the phase of a complex data stream.  
+This block finds the phase of a complex data stream.  
 
 #endif
  

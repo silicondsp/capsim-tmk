@@ -76,6 +76,7 @@ freqimp freqimp freqimp
 fti fti fti
 fxadd fxadd fxadd
 fxdelay fxdelay fxdelay
+fxfirtaps fxfirtaps fxfirta
 fxgain fxgain fxgain
 fxnl fxnl fxnl
 fxnode fxnode fxnode
@@ -722,6 +723,8 @@ zlpf zlpf zlpf
 
 
 
+
+
 /* krn_blocklib.c */
 /****************************************************************************
 
@@ -741,6 +744,7 @@ also be updated, and the executable re-made.  Don't forget to set
 #include <capsim.h>
 
 /* Function declarations */
+
 
 
 

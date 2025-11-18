@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star actively selects one input data channel to send to its output.
+This block actively selects one input data channel to send to its output.
 
 #endif
  

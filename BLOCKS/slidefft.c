@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star computes the ONE-SIDED FFT of a complex stream which is overlapped by an amount of (fftl-M) samples for each FFT computation.  It outputs ((int)((totalNumberofPoints - fftl)/M)+1)*fftl/2 points. The totalNumberofPoints denotes the number of points in the complex input 
+This block computes the ONE-SIDED FFT of a complex stream which is overlapped by an amount of (fftl-M) samples for each FFT computation.  It outputs ((int)((totalNumberofPoints - fftl)/M)+1)*fftl/2 points. The totalNumberofPoints denotes the number of points in the complex input 
 
 #endif
  

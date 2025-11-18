@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star is a self-contained second order delta sigma modulator.
+This block is a self-contained second order delta sigma modulator.
 
 #endif
  

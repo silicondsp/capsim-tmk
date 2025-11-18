@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
+This block convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
 
 #endif
  

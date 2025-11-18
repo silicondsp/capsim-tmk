@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star finds the inverse tangent of x/y
+This block finds the inverse tangent of x/y
 
 #endif
  

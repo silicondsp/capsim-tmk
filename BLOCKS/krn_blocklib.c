@@ -480,6 +480,8 @@
 
 
 
+
+
 /* krn_blocklib.c */
 /****************************************************************************
 
@@ -499,6 +501,7 @@ also be updated, and the executable re-made.  Don't forget to set
 #include <capsim.h>
 
 /* Function declarations */
+
 
 
 
@@ -818,6 +821,7 @@ int freqimp(int  run_state,block_Pt  block_P);
 int fti(int  run_state,block_Pt  block_P);
 int fxadd(int  run_state,block_Pt  block_P);
 int fxdelay(int  run_state,block_Pt  block_P);
+int fxfirtaps(int  run_state,block_Pt  block_P);
 int fxgain(int  run_state,block_Pt  block_P);
 int fxnl(int  run_state,block_Pt  block_P);
 int fxnode(int  run_state,block_Pt  block_P);
@@ -845,6 +849,7 @@ int imgmanip(int  run_state,block_Pt  block_P);
 int imgmux(int  run_state,block_Pt  block_P);
 int imgnode(int  run_state,block_Pt  block_P);
 int imgnonlinfil(int  run_state,block_Pt  block_P);
+int imgnormalize(int  run_state,block_Pt  block_P);
 int imgprasc(int  run_state,block_Pt  block_P);
 int imgprbin(int  run_state,block_Pt  block_P);
 int imgproc(int  run_state,block_Pt  block_P);
@@ -983,7 +988,7 @@ int zero(int  run_state,block_Pt  block_P);
 int zlpf(int  run_state,block_Pt  block_P);
 
 /* model table Definition */
-int model_count = 239;
+int model_count = 241;
 modelEntry_t model[MAX_MODELS] = {
 
 /* function, name, icon_id */
@@ -1063,6 +1068,7 @@ modelEntry_t model[MAX_MODELS] = {
 { fti,"fti","fti"},
 { fxadd,"fxadd","fxadd"},
 { fxdelay,"fxdelay","fxdelay"},
+{ fxfirtaps,"fxfirtaps","fxfirta"},
 { fxgain,"fxgain","fxgain"},
 { fxnl,"fxnl","fxnl"},
 { fxnode,"fxnode","fxnode"},
@@ -1090,6 +1096,7 @@ modelEntry_t model[MAX_MODELS] = {
 { imgmux,"imgmux","imgmux"},
 { imgnode,"imgnode","imgnode"},
 { imgnonlinfil,"imgnonlinfil","imgnonl"},
+{ imgnormalize,"imgnormalize","imgnorm"},
 { imgprasc,"imgprasc","imgpras"},
 { imgprbin,"imgprbin","imgprbi"},
 { imgproc,"imgproc","imgproc"},

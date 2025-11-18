@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star is an averaging logarithmic power meter, which can be connected either in-line or terminating.
+This block is an averaging logarithmic power meter, which can be connected either in-line or terminating.
 
 #endif
  
