@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star selects one of two input data channels to output.
+This block selects one of two input data channels to output.
 
 #endif
  

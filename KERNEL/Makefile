@@ -84,6 +84,7 @@ libkrn.a:krn_arguments.o krn_block.o krn_buffer.o krn_command.o krn_connect.o kr
 	ar -r libkrn.a krn_arguments.o krn_block.o krn_buffer.o krn_command.o krn_connect.o krn_eqneval.o krn_eqninit.o krn_eqnmath.o krn_eqnsymbol.o krn_expeval.o krn_file.o krn_getfile.o krn_main.o krn_parameter.o krn_prinfo.o krn_run.o krn_star.o  krn_sys_calls.o krn_tclappinit.o krn_tcl.o krn_tclinvoke.o    krn_traverse.o  krn_list.o
 	ranlib  libkrn.a 
 	cp libkrn.a ../LIBS
+	cp libkrn.a ../LIBS_LINUX
 
 
 clean:

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star simulates a digital to analog converter.  
+This block simulates a digital to analog converter.  
 
 #endif
  

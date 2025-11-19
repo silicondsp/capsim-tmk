@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
+This block calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
 
 #endif
  

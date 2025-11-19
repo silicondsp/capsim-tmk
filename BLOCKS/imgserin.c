@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star inputs rows and creates an  image and outputs it to the image buffer
+This block inputs rows and creates an  image and outputs it to the image buffer
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star writes the input data on the screen in hex form
+This block writes the input data on the screen in hex form
 
 #endif
  

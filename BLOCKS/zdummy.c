@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star multiplies the incoming data stream by the parameter coefficient, and outputs the resulting data values.
+This block multiplies the incoming data stream by the parameter coefficient, and outputs the resulting data values.
 
 #endif
  

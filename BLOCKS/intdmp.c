@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements a matched filter 
+This block implements a matched filter 
 
 #endif
  

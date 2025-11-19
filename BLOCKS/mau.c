@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star simulates an Ethernet media access unit (MAU or transceiver)
+This block simulates an Ethernet media access unit (MAU or transceiver)
 
 #endif
  

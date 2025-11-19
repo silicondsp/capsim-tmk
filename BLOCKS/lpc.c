@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star computes the LPC parameters of the input samples.
+This block computes the LPC parameters of the input samples.
 
 #endif
  

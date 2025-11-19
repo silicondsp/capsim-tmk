@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star designs and implements a cascade form IIR digital filter.
+This block designs and implements a cascade form IIR digital filter.
 
 #endif
  

@@ -137,8 +137,8 @@ KrnModelConnectionInput(indexIC,1 ,pnameIn1,ptypeIn1);
  */
 case SYSTEM_INIT:
      
-  delay_max(star_P->inBuffer_P[0],2);
-  delay_max(star_P->inBuffer_P[1],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[1],2);
 
          
    if(NO_OUTPUT_BUFFERS() != 1 ){

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star simulates an Ethernet local repeater 
+This block simulates an Ethernet local repeater 
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star outputs the real part of the input complex stream. Buffer 0 contains the real part.
+This block outputs the real part of the input complex stream. Buffer 0 contains the real part.
 
 #endif
  

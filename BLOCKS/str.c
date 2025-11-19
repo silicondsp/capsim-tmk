@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star stretches the incoming data.
+This block stretches the incoming data.
 
 #endif
  

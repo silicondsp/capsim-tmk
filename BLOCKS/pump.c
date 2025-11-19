@@ -164,8 +164,8 @@ case SYSTEM_INIT:
             t_out=0.0;
 
 
-  delay_max(star_P->inBuffer_P[0],2);
-  delay_max(star_P->inBuffer_P[1],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],2);
+  delay_max((buffer_Pt)star_P->inBuffer_P[1],2);
 
          
    if(NO_OUTPUT_BUFFERS() != 1 ){

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star reads a file and computes its FFT during the initialization phase.  (This produces H(k)).  During execution, the star performs a complex multiplication of the FFT of the file with the input complex data blocks (The input fft, X(k)).  It then outputs the complex result.
+This block reads a file and computes its FFT during the initialization phase.  (This produces H(k)).  During execution, the block performs a complex multiplication of the FFT of the file with the input complex data blocks (The input fft, X(k)).  It then outputs the complex result.
 
 #endif
  

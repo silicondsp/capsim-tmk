@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements a loop filter as a recursive equation:  y(n)=2*y(n-1)-y(n-2) +g1*[x(n)-2*x(n-1)+x(n-2)] +g2*[x(n)-x(n-1)] +g3*x(n)
+This block implements a loop filter as a recursive equation:  y(n)=2*y(n-1)-y(n-2) +g1*[x(n)-2*x(n-1)+x(n-2)] +g2*[x(n)-x(n-1)] +g3*x(n)
 
 #endif
  

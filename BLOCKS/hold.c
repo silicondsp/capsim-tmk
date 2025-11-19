@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star simulates a sample and hold circuit.   
+This block simulates a sample and hold circuit.   
 
 #endif
  

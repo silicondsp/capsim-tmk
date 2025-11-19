@@ -200,7 +200,7 @@ case USER_INIT:
 	 */
 	freqRes_A= (float *)malloc(nfft*sizeof(float));
 	if(freqRes_A==NULL) {
-		fprintf(stderr,"Unable to allocate space in freqimp star \n");
+		fprintf(stderr,"Unable to allocate space in freqimp block \n");
 		return(1);
 	}
 	/*
@@ -208,7 +208,7 @@ case USER_INIT:
 	 */
 	impRes_A= (float *)malloc(2*nfft*sizeof(float));
 	if(impRes_A==NULL) {
-		fprintf(stderr,"Unable to allocate space in freqimp star \n");
+		fprintf(stderr,"Unable to allocate space in freqimp block \n");
 		return(2);
 	}
 	if (conjFlag) conj= -1.0;

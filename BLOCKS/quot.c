@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star takes two inputs and produces their quotient
+This block takes two inputs and produces their quotient
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star logically inverts incoming data stream
+This block logically inverts incoming data stream
 
 #endif
  

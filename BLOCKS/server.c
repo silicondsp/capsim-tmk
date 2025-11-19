@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star models an M/M/1 queue
+This block models an M/M/1 queue
 
 #endif
  

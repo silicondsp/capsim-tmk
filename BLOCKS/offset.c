@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-DC offset star	
+DC offset block	
 
 #endif
  

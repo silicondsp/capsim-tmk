@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star multiplies two complex data streams. 
+This block multiplies two complex data streams. 
 
 #endif
  

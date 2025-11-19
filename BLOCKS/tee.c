@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star is a programmable tap-off for data lines.
+This block is a programmable tap-off for data lines.
 
 #endif
  
@@ -118,7 +118,7 @@ case PARAM_INIT:
      char   *ptype0 = "int";
      char   *pval0 = "30000";
      char   *pname0 = "N";
-     char   *pdef1 = "First sample to start from";
+     char   *pdef1 = "First sample to blockt from";
      char   *ptype1 = "int";
      char   *pval1 = "0";
      char   *pname1 = "first";

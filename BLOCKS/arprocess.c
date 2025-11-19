@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star generates a selectable number of samples from an AR process represented as an IIR filter driven by Gaussian noise
+This block generates a selectable number of samples from an AR process represented as an IIR filter driven by Gaussian noise
 
 #endif
  

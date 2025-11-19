@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
- This star implements an IIR filter as a recursive equation:				y(n)=pole*y(n-1)+(1-pole)*x(n). This implementation produces unity gain at DC.	
+ This block implements an IIR filter as a recursive equation:				y(n)=pole*y(n-1)+(1-pole)*x(n). This implementation produces unity gain at DC.	
 
 #endif
  

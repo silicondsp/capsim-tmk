@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This star implements aleacky integrator recursive equation:	y(n)=factor*y(n-1)+x(n)
+This block implements aleacky integrator recursive equation:	y(n)=factor*y(n-1)+x(n)
 
 #endif
  
