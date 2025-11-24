@@ -52,9 +52,9 @@ An updated link to Capsim® Version 7 using Qt® will be provided in the Reposto
 <h2>Capsim&reg; QPSK Digital Communication Link</h2>
 <p><img src="images/qpsk_constllation_eye_diagram_noise.png" width="747" height="372" alt=""/></p>
 <p><img src="images/ber_tcl.png" width="551" height="716" alt=""/></p>
-<p><img src="images/OFDM_E2E_Aquisition_HBlock.png"</p>
+<p><img src="images/OFDM_E2E_Aquisition_HBlock.png"></p>
 	<h2>Capsim&reg; OFDM IEEE 802.11a With Acquisition</h2>
-<p><img src="images/svd_closed_loop_mimo_ofdm.png"</p>
+<p><img src="images/svd_closed_loop_mimo_ofdm.png"></p>
 	<h2>Capsim&reg; MIMO-OFDM Closed Loop Beam forming 4x2 SVD</h2>
 <p><img src="images/2x3_mimo_ofdm.gif"   alt="Block XML" title="" /></p>
 <h2>Capsim&reg; MIMO-OFDM 2x3  Open Loop Showing Hierarchical Blocks</h2>
