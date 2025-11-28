@@ -35,7 +35,7 @@ convolve
 /***********************************************************************
                              convolve()
 ************************************************************************
-This block convolves the input samples with the impulse response (finite
+This star convolves the input samples with the impulse response (finite
 duration, FIR ) given in a file. 
 Param:	1 - (file) File with the impulse response samples
 	2 - (int) N  number of samples in the impulse response.
@@ -43,7 +43,7 @@ Param:	1 - (file) File with the impulse response samples
 convolve
 </NAME>
 <DESCRIPTION>
-This block convolves the input samples with the impulse response (finite
+This star convolves the input samples with the impulse response (finite
 duration, FIR ) given in a file. 
 Param:	1 - (file) File with the impulse response samples
 	2 - (int) N  number of samples in the impulse response.
@@ -58,7 +58,7 @@ Programmer: Adali Tulay
 </COMMENTS> 
 
 <DESC_SHORT>
-This block convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
+This star convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
 </DESC_SHORT>
 
 <INCLUDES>
@@ -95,7 +95,6 @@ This block convolves the input samples with the impulse response (finite duratio
    	int j;
 	float tmp1,tmp2;
         float sum;
-	FILE *fopen();
 	FILE *imp_F;
 
 </DECLARATIONS> 

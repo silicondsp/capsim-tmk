@@ -55,6 +55,15 @@ Date: August 22,1987
 Normalized Lattice Filter
 </DESC_SHORT>
 
+<INCLUDES>
+<![CDATA[ 
+
+
+#include <string.h>
+
+]]>
+</INCLUDES> 
+
 <STATES>
 	<STATE>
 		<TYPE>FILE*</TYPE>
@@ -97,7 +106,6 @@ Normalized Lattice Filter
 <DECLARATIONS> 
 
 	int buffer_no;
-	FILE *fopen();
         float xf,ysum,sum,tmp;
         int n1,n2,i,j,m;
 	int	noSamples;

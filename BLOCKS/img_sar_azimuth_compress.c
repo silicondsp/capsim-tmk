@@ -33,8 +33,6 @@ Azimuth compression SAR Image Formation
  
 #ifdef PROGRAMMERS
 
-Sasan Ardalan 1990
-
 #endif
 
 
@@ -58,9 +56,8 @@ Sasan Ardalan 1990
 
  
 
-#define  PI  3.1415926535898
-#define C 299792458.00
-
+#define  PI  3.1415926
+#define C 300000000.0
 
 
 /*
@@ -165,6 +162,7 @@ typedef struct {
 	int order,pts;
 	cap_fft_cpx x,y;
 	float fmax,fmin;
+	int CsInfo(char *string);
 
 
 switch (run_state) {
@@ -433,8 +431,8 @@ for (no_samples = MIN_AVAIL(); no_samples > 0; --no_samples) {
 		 * Copy azimuth  column  into FFT buffer
 		 */
 		for(j=0; j<height; j++) {
-		   azimuth_P[j].r=img.image_PP[j][i];
-           azimuth_P[j].i=0.0;
+		   azimuth_P[j].r=img.image_PP[j][2*i];
+           azimuth_P[j].i=img.image_PP[j][2*i+1];
 		}
 		for(j=height; j<azimuthFFTLength; j++) {
 		   azimuth_P[j].r=0.0;

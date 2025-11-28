@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block generates a pulse train. 
+This star generates a pulse train. 
 
 #endif
  

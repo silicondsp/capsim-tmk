@@ -68,6 +68,12 @@ Modified:	Sasan Ardalan, June 3, 1993 Added Dynamic Display.
 Spectrum probe (plots both frequency and time domain). Float/Int/Complex input buffers.
 </DESC_SHORT>
 
+<INCLUDES>
+<![CDATA[ 
+#include <cap_fft.h>
+#include <string.h>
+]]>
+</INCLUDES>
 
 <DEFINES> 
 
@@ -171,6 +177,9 @@ Spectrum probe (plots both frequency and time domain). Float/Int/Complex input b
 	float* phase_P;
 	FILE *time_F;
 	FILE *freq_F;
+	void cxfft(float *x,int *mfft);
+	void cxifft(float *x,int *mfft);
+
 
 </DECLARATIONS> 
 

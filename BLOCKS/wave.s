@@ -35,7 +35,7 @@ wave
 /***************************************************************
 				wave.s 	
 ****************************************************************
-This block simulates a wave generator.  
+This star simulates a wave generator.  
 	waveType	wave description
 	---------------------------------------
 	0		sine
@@ -57,15 +57,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The numberOfSamples parameter sets the maximum number of samples
-	that the block will output. If numberOfSamples < 0, an indefinite
+	that the star will output. If numberOfSamples < 0, an indefinite
 	number of samples can be output.
-      The block will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
 If the pace input is connected:
       The numberOfSamples parameter sets the maximum number of samples
-        that the block will output. If num_samplesOutput < 0, an infinite
+        that the star will output. If num_samplesOutput < 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the block all samples are read from the pace input
+      At each call of the star all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An outputTarget  is computed at each pass = pace_input_total *
 	paceRate. If paceRate < 0, the absolute value is used.
@@ -82,7 +82,7 @@ If the pace input is connected:
 wave
 </NAME>
 <DESCRIPTION>
-This block simulates a wave generator.  
+This star simulates a wave generator.  
 	waveType	wave description
 	---------------------------------------
 	0		sine
@@ -104,15 +104,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The numberOfSamples parameter sets the maximum number of samples
-	that the block will output. If numberOfSamples < 0, an indefinite
+	that the star will output. If numberOfSamples < 0, an indefinite
 	number of samples can be output.
-      The block will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
 If the pace input is connected:
       The numberOfSamples parameter sets the maximum number of samples
-        that the block will output. If num_samplesOutput < 0, an infinite
+        that the star will output. If num_samplesOutput < 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the block all samples are read from the pace input
+      At each call of the star all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An outputTarget  is computed at each pass = pace_input_total *
 	paceRate. If paceRate < 0, the absolute value is used.
@@ -137,7 +137,7 @@ Modified: 	Sasan H. Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This block simulates a wave generator.  
+This star simulates a wave generator.  
 </DESC_SHORT>
 
 

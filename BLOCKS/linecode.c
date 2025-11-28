@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
+This star inputs 0/1 binary data and outputs various line codes (NRZ,Biphase Manchester,2B1Q,RZ-AMI).
 
 #endif
  

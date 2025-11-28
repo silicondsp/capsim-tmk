@@ -43,7 +43,7 @@ If more than one output buffer is connected, then the samples are
 routed to each buffer in sequence mod the number of buffers.
 Thus, if two column data is to be read and column one is to be placed on
 buffer 0 and coulmn two on buffer 1 then simpley connect two buffers to
-the block. This can also be used to read three or more columns. 
+the star. This can also be used to read three or more columns. 
 The data in the file does not need tb be in column format.
 An example use for this routine is to access a stored waveform
 as input to a simulation.
@@ -51,9 +51,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader read_file.s
+star Reader read_file.s
 param default
-block Reader read_file.s
+star Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 <NAME>
@@ -69,7 +69,7 @@ If more than one output buffer is connected, then the samples are
 routed to each buffer in sequence mod the number of buffers.
 Thus, if two column data is to be read and column one is to be placed on
 buffer 0 and coulmn two on buffer 1 then simpley connect two buffers to
-the block. This can also be used to read three or more columns. 
+the star. This can also be used to read three or more columns. 
 The data in the file does not need tb be in column format.
 An example use for this routine is to access a stored waveform
 as input to a simulation.
@@ -77,9 +77,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader read_file.s
+star Reader read_file.s
 param default
-block Reader read_file.s
+star Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 </DESCRIPTION>
@@ -101,6 +101,13 @@ Modified: April, 1991 S. H. Ardalan: Demux auto-fanout
 This function performs the simple task of reading sample values in from a file, and then placing them on its output buffer. The file may have multiple sample values per line, which can be integer or float. If more than one output buffer is connected, then the samples are routed to each buffer in sequence mod the number of buffers.
 </DESC_SHORT>
 
+
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
+
 <STATES>
 	<STATE>
 		<TYPE>int</TYPE>
@@ -121,7 +128,6 @@ This function performs the simple task of reading sample values in from a file, 
 
 	int i,k;
 	float x;
-	FILE *fopen();
 
 </DECLARATIONS> 
 

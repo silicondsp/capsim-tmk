@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block eats values that are outside a range that is specified by the first parameter
+This star eats values that are outside a range that is specified by the first parameter
 
 #endif
  

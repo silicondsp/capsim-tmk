@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block produces the fft of the input signal.  The points are output as complex numbers.  
+This star produces the fft of the input signal.  The points are output as complex numbers.  
 
 #endif
  

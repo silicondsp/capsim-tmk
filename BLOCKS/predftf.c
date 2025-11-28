@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements a multichannel input/output FIR predictor, which is adapted using the least squares Fast Transversal Filter algorithm.
+This star implements a multichannel input/output FIR predictor, which is adapted using the least squares Fast Transversal Filter algorithm.
 
 #endif
  
@@ -168,7 +168,7 @@ case PARAM_INIT:
      char   *ptype3 = "float";
      char   *pval3 = "1e-4";
      char   *pname3 = "delta";
-     char   *pdef4 = " Number of samples to skip before blockting adaptation";
+     char   *pdef4 = " Number of samples to skip before starting adaptation";
      char   *ptype4 = "int";
      char   *pval4 = "0";
      char   *pname4 = "wait";
@@ -419,7 +419,7 @@ for(j=0; j<p; j++)
 sum = 1. - sum * gmp;
 
 if(sum < 0 ) {
-        /* Rescue: reblockt algorithm kernel */
+        /* Rescue: restart algorithm kernel */
         fprintf(stderr,"predftf: rescue @%d\n",counter);
         gamma = 1.0;
         for (i=0; i<N; i++) {

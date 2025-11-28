@@ -49,6 +49,10 @@ Read an image from a file.
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 
@@ -94,7 +98,6 @@ rdimage
 
 	int i,j;
 	float x;
-	FILE *fopen();
 
 
 switch (run_state) {

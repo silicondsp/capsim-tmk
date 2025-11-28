@@ -41,13 +41,13 @@ stats
 			2: file stat_file, statistics file name
 				default => no file created.
 *******************************************************************
-This block calculates the statistics of the incoming signal.  
+This star calculates the statistics of the incoming signal.  
 The parameter is a filename for storage of the results.
 <NAME>
 stats
 </NAME>
 <DESCRIPTION>
-This block calculates the statistics of the incoming signal.  
+This star calculates the statistics of the incoming signal.  
 The parameter is a filename for storage of the results.
 	Input:		x, the signal of interest
 	Output:		optional:  terminate signal or flow through
@@ -70,13 +70,13 @@ Modified:	February 22, 1987
 </COMMENTS> 
 
 <DESC_SHORT>
-This block calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
+This star calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
 </DESC_SHORT>
 
 
 <INCLUDES>
 <![CDATA[ 
-
+#include <string.h>
 #include <math.h>
 #include <stdio.h>
 #include <TCL/tcl.h>
@@ -134,7 +134,6 @@ This block calculates the statistics of the incoming signal.  The parameter is a
 	float mu;	/* mean = sum_x/count			*/
 	float var;	/* variance = (sum_x2/count - mu**2)	*/
 	float sigma;	/* std dev  = square root of variance	*/
-	double sqrt();
 	char theVar[100];
 	char theName[100];
 #ifdef TCL_SUPPORT

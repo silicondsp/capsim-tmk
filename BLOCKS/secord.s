@@ -37,7 +37,7 @@ secord
 			leakage factor of the filter
 	inputs:		in, the signal to be filtered
 	outputs:	out, the filtered signal
-	description:	This block implements a second order filter
+	description:	This star implements a second order filter
 			with a leakage factor (beta)
  			as a recursive equation:
 			y(n)=beta*y(n-1)+g1*[x(n)-beta*x(n-1)]+g2*x(n)
@@ -51,7 +51,7 @@ secord.s:	second order filter
 			leakage factor of the filter
 	inputs:		in, the signal to be filtered
 	outputs:	out, the filtered signal
-	description:	This block implements a second order filter
+	description:	This star implements a second order filter
 			with a leakage factor (beta)
  			as a recursive equation:
 			y(n)=beta*y(n-1)+g1*[x(n)-beta*x(n-1)]+g2*x(n)

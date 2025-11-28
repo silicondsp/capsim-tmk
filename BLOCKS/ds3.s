@@ -34,7 +34,7 @@ ds3
 /***************************************************************************
 		ds3.s
 ****************************************************************************
-This block is a self-contained third order delta sigma modulator.  Ouput 0
+This star is a self-contained third order delta sigma modulator.  Ouput 0
 is the output of the circuit. Output 1 is the input to the comparator if
 an output is connected.
 -Parameter one: the gain of the first integrator
@@ -45,7 +45,7 @@ an output is connected.
 ds3
 </NAME>
 <DESCRIPTION>
-This block is a self-contained third order delta sigma modulator.  Ouput 0
+This star is a self-contained third order delta sigma modulator.  Ouput 0
 is the output of the circuit. Output 1 is the input to the comparator if
 an output is connected.
 -Parameter one: the gain of the first integrator
@@ -63,7 +63,7 @@ Date:		February 1989
 </COMMENTS> 
 
 <DESC_SHORT>
-This block is a self-contained third order delta sigma modulator. 
+This star is a self-contained third order delta sigma modulator. 
 </DESC_SHORT>
 
 

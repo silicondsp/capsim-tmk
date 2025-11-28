@@ -68,6 +68,8 @@ Input image and store in binary format in a file.
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+
 
 ]]>
 </INCLUDES>           

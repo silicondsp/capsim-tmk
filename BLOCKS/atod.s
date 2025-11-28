@@ -46,7 +46,7 @@ atod
 atod
 </NAME>
 <DESCRIPTION>
-This block simulates a uniform analog to digital converter.
+This star simulates a uniform analog to digital converter.
 	Outputs:	buffer 0: the quantized signal
 			buffer 1 (optional): the quantization error 
 	Parameters:	
@@ -64,7 +64,7 @@ Date: 		February 17, 1989
 
     
 <DESC_SHORT>
-This block simulates a uniform analog to digital converter.
+This star simulates a uniform analog to digital converter.
 </DESC_SHORT>
 
 <STATES>

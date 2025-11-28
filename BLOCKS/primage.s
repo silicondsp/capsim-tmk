@@ -53,6 +53,13 @@ Programmer:  Sasan Ardalan
 Stores image in a file.
 </DESC_SHORT>
 
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
+
+
 <STATES>
 	<STATE>
 		<TYPE>FILE*</TYPE>
@@ -81,7 +88,6 @@ Stores image in a file.
 <DECLARATIONS> 
 
 	int i,j,k;
-	FILE *fopen();
 
 </DECLARATIONS> 
 

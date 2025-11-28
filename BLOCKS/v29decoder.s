@@ -35,14 +35,14 @@ v29decoder
  			 	v29decoder()
 ***********************************************************************
 Description:
-This block inputs inPhase and quadPhase of the CCITT v.29 coordinates
+This star inputs inPhase and quadPhase of the CCITT v.29 coordinates
 and decodes the input into binary data.  Input buffer(0) is the inPhase
 and input buffer(1) is the quadPhase.
 <NAME>
 v29decoder
 </NAME>
 <DESCRIPTION>
-This block inputs inPhase and quadPhase of the CCITT v.29 coordinates
+This star inputs inPhase and quadPhase of the CCITT v.29 coordinates
 and decodes the input into binary data.  Input buffer(0) is the inPhase
 and input buffer(1) is the quadPhase.
 </DESCRIPTION>
@@ -57,7 +57,7 @@ Date: Aug. 3, 1990
 
      
 <DESC_SHORT>
-This block inputs inPhase and quadPhase of the CCITT v.29 coordinates and decodes the input into binary data.
+This star inputs inPhase and quadPhase of the CCITT v.29 coordinates and decodes the input into binary data.
 </DESC_SHORT>
 
 <STATES>

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block designs and implements a cascade form IIR digital filter.
+This star designs and implements a cascade form IIR digital filter.
 
 #endif
  
@@ -142,7 +142,6 @@ iirfil
 	int status;
 	int	no_samples;
 	char fname[100];
-        FILE *fopen();
         FILE *ird_F;
         int IIRCas(char* name11);
         void PzConv(char* name);

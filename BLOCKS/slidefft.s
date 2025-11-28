@@ -37,7 +37,7 @@
 			int M      	delay between windows 
 			int windowType  window type before fft
 ************************************************************************
-This block computes the ONE-SIDED FFT of a complex stream which is
+This star computes the ONE-SIDED FFT of a complex stream which is
 overlapped by an amount of (fftl-M) samples for each FFT computation. 
 It outputs ((int)((totalNumberofPoints - fftl)/M)+1)*fftl/2 points. The
 totalNumberofPoints denotes the number of points in the complex input
@@ -50,7 +50,7 @@ Date: 		June 5, 1992
 </COMMENTS> 
 
 <DESC_SHORT>
-This block computes the ONE-SIDED FFT of a complex stream which is overlapped by an amount of (fftl-M) samples for each FFT computation.  It outputs ((int)((totalNumberofPoints - fftl)/M)+1)*fftl/2 points. The totalNumberofPoints denotes the number of points in the complex input 
+This star computes the ONE-SIDED FFT of a complex stream which is overlapped by an amount of (fftl-M) samples for each FFT computation.  It outputs ((int)((totalNumberofPoints - fftl)/M)+1)*fftl/2 points. The totalNumberofPoints denotes the number of points in the complex input 
 </DESC_SHORT>
 
 <INCLUDES>

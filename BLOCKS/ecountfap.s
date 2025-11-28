@@ -31,34 +31,34 @@
                 ecountfap()
 ***********************************************************************
 "error counter"
-This block compares two data streams for "equality".  (Since the input
+This star compares two data streams for "equality".  (Since the input
 streams are floating point, a guard band is used.) An output stream
 is created, with 'zero' output for equality, and 'one' if there is a
-difference.  (Note: the output stream is optional--if no block is
+difference.  (Note: the output stream is optional--if no star is
 connected to the output, there is no output.)
 Param. 1 selects an initial number of samples to be ignored for
 the final error tally (used during training sequences); default zero.
 Param 2 sets an index, after which a message is printed to stderr for
 each error.  It defaults to "infinity", i.e. no error messages.
-This block prints a final message to stderr giving the error rate
+This star prints a final message to stderr giving the error rate
 (errors/smpl), disregarding the initial ignored samples.
 <NAME>
 ecountfap
 </NAME>
 <DESCRIPTION>
 "error counter"
-This block compares two data streams for "equality".  (Since the input
+This star compares two data streams for "equality".  (Since the input
 streams are floating point, a guard band is used.) An output stream
 is created, with 'zero' output for equality, and 'one' if there is a
-difference.  (Note: the output stream is optional--if no block is
+difference.  (Note: the output stream is optional--if no star is
 connected to the output, there is no output.)
 Param. 1 selects an initial number of samples to be ignored for
 the final error tally (used during training sequences); default zero.
 Param 2 sets an index, after which a message is printed to stderr for
 each error.  It defaults to "infinity", i.e. no error messages.
-This block prints a final message to stderr giving the error rate
+This star prints a final message to stderr giving the error rate
 (errors/smpl), disregarding the initial ignored samples.
-This block appends results to file. Useful for BER in batch mode.
+This star appends results to file. Useful for BER in batch mode.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: L.J. Faber 
@@ -73,7 +73,7 @@ Modified: June 1988--Fix report print
 </COMMENTS> 
 
 <DESC_SHORT>
-This block compares two data streams for "equality" (use for BER). Appends to file.
+This star compares two data streams for "equality" (use for BER). Appends to file.
 </DESC_SHORT>
 
 
@@ -82,6 +82,7 @@ This block compares two data streams for "equality" (use for BER). Appends to fi
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 #include <TCL/tcl.h>
 
 ]]>

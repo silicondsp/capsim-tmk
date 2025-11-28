@@ -32,7 +32,7 @@ offset
 <![CDATA[ 
 
 /*
-	offset.s:	DC offset block	
+	offset.s:	DC offset star	
 	parameters:	offset value
 	inputs:		in, the signal to be offset
 	outputs:	out, the offset signal
@@ -42,7 +42,7 @@ offset
 offset
 </NAME>
 <DESCRIPTION>
-offset.s:	DC offset block	
+offset.s:	DC offset star	
 	parameters:	offset value
 	inputs:		in, the signal to be offset
 	outputs:	out, the offset signal
@@ -57,7 +57,7 @@ offset.s:	DC offset block
 </COMMENTS> 
 
 <DESC_SHORT>
-DC offset block	
+DC offset star	
 </DESC_SHORT>
 
 

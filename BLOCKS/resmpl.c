@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block performs interpolation or decimation on an input data stream, in order to change the output data rate.  Polynomial or sinc interpol- ation is used to create output values that occur "between" input points.  An initial time offset between the input/output streams can be entered.
+This star performs interpolation or decimation on an input data stream, in order to change the output data rate.  Polynomial or sinc interpol- ation is used to create output values that occur "between" input points.  An initial time offset between the input/output streams can be entered.
 
 #endif
  
@@ -109,8 +109,9 @@ resmpl
 	int i,j;
 	float beta;	/* interpolation fraction */
 	float beta2;
-	float sinc ();	/* custom function in SUBS library */
+	float sinc(float x);	/* custom function in SUBS library */
 	int  no_samples;
+	
 
 
 switch (run_state) {

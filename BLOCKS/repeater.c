@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates an Ethernet local repeater 
+This star simulates an Ethernet local repeater 
 
 #endif
  
@@ -127,7 +127,6 @@ repeater
 
 	int	i;
 	int	numberSamples;
-	double fabs();
 
 
 switch (run_state) {

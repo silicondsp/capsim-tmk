@@ -35,9 +35,9 @@ fir
 /**********************************************************************
 			fir()
 ***********************************************************************
-This block outputs a weighted sum of delayed input data.
+This star outputs a weighted sum of delayed input data.
 Parameter one is an array for filter weights, 10 maximum.
-Any number of these blocks can be cascaded to implement longer filters.
+Any number of these stars can be cascaded to implement longer filters.
 Connect them like this:
         	CASCADE
         _________       _________ 
@@ -60,9 +60,9 @@ data-->0| sum |0>----------------------------------->output
 fir
 </NAME>
 <DESCRIPTION>
-This block outputs a weighted sum of delayed input data.
+This star outputs a weighted sum of delayed input data.
 Parameter one is an array for filter weights, 10 maximum.
-Any number of these blocks can be cascaded to implement longer filters.
+Any number of these stars can be cascaded to implement longer filters.
 Connect them like this:
         	CASCADE
         _________       _________ 
@@ -93,7 +93,7 @@ Date: April 21, 1988.
 
     
 <DESC_SHORT>
-This block outputs a weighted sum of delayed input data.
+This star outputs a weighted sum of delayed input data.
 </DESC_SHORT>
 
 <STATES>

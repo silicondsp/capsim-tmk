@@ -49,6 +49,10 @@ Input image and store as ASCII in a file
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 

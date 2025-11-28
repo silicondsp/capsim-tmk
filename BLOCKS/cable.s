@@ -42,7 +42,7 @@ cable
  *
  * Parameters:	SamplesDelay: The Delay of the cable
  *
- * This block simulates an Ethernet transceiver cable by introducing a
+ * This star simulates an Ethernet transceiver cable by introducing a
  * fixed delay
  *
  * Programmer: Prayson W. Pate
@@ -61,7 +61,7 @@ cable
  *
  * Parameters:	SamplesDelay: The Delay of the cable
  *
- * This block simulates an Ethernet transceiver cable by introducing a
+ * This star simulates an Ethernet transceiver cable by introducing a
  * fixed delay
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -75,7 +75,7 @@ Date: September 29, 1987
 
    
 <DESC_SHORT>
-This block simulates an Ethernet transceiver cable by introducing a fixed delay
+This star simulates an Ethernet transceiver cable by introducing a fixed delay
 </DESC_SHORT>
 
 <STATES>

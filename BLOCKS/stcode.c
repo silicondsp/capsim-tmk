@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 
 #endif
  

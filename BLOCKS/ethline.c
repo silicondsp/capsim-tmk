@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates an Ethernet cable.
+This star simulates an Ethernet cable.
 
 #endif
  

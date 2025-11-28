@@ -50,6 +50,11 @@ Date:	October 14, 1993
 Writes an input image to a TIFF file as 8 bit samples. Also store the current colormap.
 </DESC_SHORT>
 
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
 
 
 <DECLARATIONS> 

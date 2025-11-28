@@ -41,7 +41,7 @@ divby2.s:		divide frequency by two, produce sqaure
  	parameters:	none						
  	inputs:		in, the signal to be divided			
  	outputs:	out, square wave with half the frequency	
- 	description:	This block produces a square wave at half the    
+ 	description:	This star produces a square wave at half the    
  			frequency of the incomming wave			
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ written by Sasan Ardalan
 
     
 <DESC_SHORT>
-This block produces a square wave at half the frequency of the incomming wave	
+This star produces a square wave at half the frequency of the incomming wave	
 </DESC_SHORT>
 
 <STATES>

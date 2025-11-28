@@ -33,8 +33,6 @@ Generates azimuth reference for SAR image processing
  
 #ifdef PROGRAMMERS
 
-Sasan Ardalan 1990
-
 #endif
 
 
@@ -59,9 +57,8 @@ Sasan Ardalan 1990
 
  
 
-#define  PI  3.1415926535898
-#define C 299792458.00
-
+#define  PI  3.1415926
+#define C 300000000.0
 
 
 /*
@@ -155,6 +152,7 @@ typedef struct {
 	int order,pts;
 	cap_fft_cpx x,y;
 	float fmax,fmin;
+	int CsInfo(char *string);
 
 
 switch (run_state) {

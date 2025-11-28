@@ -33,7 +33,7 @@ resmpl
 /**********************************************************************
 			resmpl()
 ***********************************************************************
-This block performs interpolation or decimation on an input data stream,
+This star performs interpolation or decimation on an input data stream,
 in order to change the output data rate.  Polynomial or sinc interpol-
 ation is used to create output values that occur "between" input points.
 An initial time offset between the input/output streams can be entered.
@@ -60,7 +60,7 @@ Modified by Jie Gao on Oct 25,04
 </COMMENTS> 
 
 <DESC_SHORT>
-This block performs interpolation or decimation on an input data stream, in order to change the output data rate.  Polynomial or sinc interpol- ation is used to create output values that occur "between" input points.  An initial time offset between the input/output streams can be entered.
+This star performs interpolation or decimation on an input data stream, in order to change the output data rate.  Polynomial or sinc interpol- ation is used to create output values that occur "between" input points.  An initial time offset between the input/output streams can be entered.
 </DESC_SHORT>
 
 <DECLARATIONS> 
@@ -68,8 +68,9 @@ This block performs interpolation or decimation on an input data stream, in orde
 	int i,j;
 	float beta;	/* interpolation fraction */
 	float beta2;
-	float sinc ();	/* custom function in SUBS library */
+	float sinc(float x);	/* custom function in SUBS library */
 	int  no_samples;
+	
 
 </DECLARATIONS> 
 

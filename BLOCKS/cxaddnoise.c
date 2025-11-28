@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block adds white gaussian noise to the input complex data stream.
+This star adds white gaussian noise to the input complex data stream.
 
 #endif
  

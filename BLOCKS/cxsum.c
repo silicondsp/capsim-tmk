@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block is an extension of "cxadd".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
+This star is an extension of "cxadd".  It creates a Weighted Sum of all input channels and sends it to the output buffer(s).
 
 #endif
  

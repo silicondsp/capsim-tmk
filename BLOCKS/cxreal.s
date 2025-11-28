@@ -39,13 +39,13 @@ cxreal
 	Outputs:	y0, the real part
 	Parameters: 	None
 ****************************************************************
-This block outputs the real part of the input
+This star outputs the real part of the input
 complex stream. Buffer 0 contains the real part.
 <NAME>
 cxreal
 </NAME>
 <DESCRIPTION>
-This block outputs the real part of the input
+This star outputs the real part of the input
 complex stream. Buffer 0 contains the real part.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -58,7 +58,7 @@ Date:		March 12, 1989
 </COMMENTS> 
 
 <DESC_SHORT>
-This block outputs the real part of the inputcomplex stream. 
+This star outputs the real part of the inputcomplex stream. 
 </DESC_SHORT>
 
 

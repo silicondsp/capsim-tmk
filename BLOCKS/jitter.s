@@ -42,7 +42,7 @@ jitter
 			int sync, specifies if a value is to be
 				output for every input sample
 ****************************************************************
-This block finds the relative phase of a signal to a reference.  
+This star finds the relative phase of a signal to a reference.  
 One parameter specifies the trigger edge (true for rising, false 
 for falling).  The other specifies the output rate (synchronous 
 or one per cycle).  The output is the phase difference of the 
@@ -53,7 +53,7 @@ either side of a zero crossing.
 jitter
 </NAME>
 <DESCRIPTION>
-This block finds the relative phase of a signal to a reference.  
+This star finds the relative phase of a signal to a reference.  
 One parameter specifies the trigger edge (true for rising, false 
 for falling).  The other specifies the output rate (synchronous 
 or one per cycle).  The output is the phase difference of the 
@@ -72,7 +72,7 @@ Modified:	February 22, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This block finds the relative phase of a signal to a reference. 
+This star finds the relative phase of a signal to a reference. 
 </DESC_SHORT>
 
 <DEFINES> 

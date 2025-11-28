@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block provides periodic demultiplexing of an input data stream.
+This star provides periodic demultiplexing of an input data stream.
 
 #endif
  

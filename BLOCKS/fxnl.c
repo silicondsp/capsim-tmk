@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements a fixed point normalized lattice filter. 
+This star implements a fixed point normalized lattice filter. 
 
 #endif
  
@@ -46,6 +46,12 @@ This block implements a fixed point normalized lattice filter.
 /* Note: these paths are installation dependent! */
 #include <capsim.h>
 #include <stars.h>
+
+
+
+ 
+ 
+#include <string.h>
 
 
  

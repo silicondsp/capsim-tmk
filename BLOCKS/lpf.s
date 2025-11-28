@@ -41,7 +41,7 @@ lpf
  *									*
  *	outputs:	out, the filtered signal			*
  *									*
- *	description:	This block implements an IIR filter as a 	*
+ *	description:	This star implements an IIR filter as a 	*
  *			recursive equation:				*
  *			y(n)=pole*y(n-1)+(1-pole)*x(n)			*
  *			This implementation produces unity gain at DC.	*
@@ -58,7 +58,7 @@ lpf
  *									*
  *	outputs:	out, the filtered signal			*
  *									*
- *	description:	This block implements an IIR filter as a 	*
+ *	description:	This star implements an IIR filter as a 	*
  *			recursive equation:				*
  *			y(n)=pole*y(n-1)+(1-pole)*x(n)			*
  *			This implementation produces unity gain at DC.	*
@@ -73,7 +73,7 @@ John T. Stonick
 </COMMENTS> 
 
 <DESC_SHORT>
-This block implements an IIR filter as a recursive equation:	y(n)=pole*y(n-1)+(1-pole)*x(n). This implementation produces unity gain at DC.
+This star implements an IIR filter as a recursive equation:	y(n)=pole*y(n-1)+(1-pole)*x(n). This implementation produces unity gain at DC.
 </DESC_SHORT>
 
 

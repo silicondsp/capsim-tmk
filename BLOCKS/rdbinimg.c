@@ -49,6 +49,12 @@ Read a binary image.
 
 
 
+ 
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 

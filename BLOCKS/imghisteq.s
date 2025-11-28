@@ -35,7 +35,7 @@ imghisteq
 /***********************************************************************
                              imghisteq()
 ************************************************************************
-This block inputs an image and performes an histogram equalization on
+This star inputs an image and performes an histogram equalization on
 it.
 The original image is overwritten.
 Programmer:  	Sasan Ardalan	
@@ -44,7 +44,7 @@ Date: 		September 10, 1993
 imghisteq
 </NAME>
 <DESCRIPTION>
-This block inputs an image and performes an histogram equalization on
+This star inputs an image and performes an histogram equalization on
 it.
 The original image is overwritten.
 </DESCRIPTION>
@@ -58,7 +58,7 @@ Date: 		September 10, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This block inputs an image and performes an histogram equalization on it.
+This star inputs an image and performes an histogram equalization on it.
 </DESC_SHORT>
 
 

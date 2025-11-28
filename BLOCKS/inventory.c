@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block models an inventory system. 
+This star models an inventory system. 
 
 #endif
  

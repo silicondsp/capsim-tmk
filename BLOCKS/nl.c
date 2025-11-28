@@ -49,6 +49,13 @@ Normalized Lattice Filter
 
 
 
+ 
+
+
+#include <string.h>
+
+
+
 /*
  *           STATES STRUCTURE 
  */ 
@@ -111,7 +118,6 @@ nl
  
 
 	int buffer_no;
-	FILE *fopen();
         float xf,ysum,sum,tmp;
         int n1,n2,i,j,m;
 	int	noSamples;

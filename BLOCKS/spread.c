@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs data  and spreads it with a sequence from a file.
+This star inputs data  and spreads it with a sequence from a file.
 
 #endif
  

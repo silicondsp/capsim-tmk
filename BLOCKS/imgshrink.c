@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs an image and decimates it.
+This star inputs an image and decimates it.
 
 #endif
  

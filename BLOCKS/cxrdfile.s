@@ -44,9 +44,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader cxrdfile.s
+star Reader cxrdfile.s
 param default
-block Reader cxrdfile.s
+star Reader cxrdfile.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 <NAME>
@@ -63,9 +63,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader cxrdfile.s
+star Reader cxrdfile.s
 param default
-block Reader cxrdfile.s
+star Reader cxrdfile.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 </DESCRIPTION>
@@ -86,6 +86,15 @@ Modified: August 27, 2001 Sasan Ardalan converted to complex
 <DESC_SHORT>
 This function performs the simple task of reading sample values in from a file, and then placing them on its output buffer.
 </DESC_SHORT>
+
+<INCLUDES>
+<![CDATA[
+#include <string.h>
+]]>
+
+</INCLUDES>
+
+
 
 <STATES>
 	<STATE>

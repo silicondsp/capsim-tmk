@@ -34,26 +34,19 @@ sar_range
 /************************************************************************
  *									
  *
-  ************************************************************************/
-
-]]>
-</COMMENTS> 
-
-
-
  <NAME>
 sar_range
 </NAME>
-
 <DESCRIPTION>
 Generate SAR range reference
 </DESCRIPTION>
-
 <PROGRAMMERS>
 Sasan Ardalan
 </PROGRAMMERS>
+ ************************************************************************/
 
-
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Generate SAR range reference
@@ -70,7 +63,7 @@ Generate SAR range reference
 
 <DEFINES> 
 
-#define  PI  3.1415926535898
+#define  PI  3.1415926
 
 </DEFINES> 
 

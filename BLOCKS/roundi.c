@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.Theblock is capable of doing extended precision arithmetic upto 64 bits result which is to be rounded to at least 32 bits after the fxadd.s block.
+This star multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.Thestar is capable of doing extended precision arithmetic upto 64 bits result which is to be rounded to at least 32 bits after the fxadd.s star.
 
 #endif
  

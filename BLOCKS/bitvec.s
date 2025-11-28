@@ -39,7 +39,7 @@ bitvec
 bitvec
 </NAME>
 <DESCRIPTION>
-This block converts a bit stream to variable length vectors.
+This star converts a bit stream to variable length vectors.
 Note that the END of a stream segment is designated by an 0xff followed by
 a non zero byte. 
 Each segment is packed into bytes. A vector with a pointer to the
@@ -58,7 +58,7 @@ Date: 		Nov. 22, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This block converts a bit stream to variable length vectors.
+This star converts a bit stream to variable length vectors.
 </DESC_SHORT>
 
 

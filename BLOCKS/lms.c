@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements a simple LMS adaptive filter.
+This star implements a simple LMS adaptive filter.
 
 #endif
  

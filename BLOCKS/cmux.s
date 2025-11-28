@@ -35,7 +35,7 @@ cmux
 /**********************************************************************
 			cmux()
 ***********************************************************************
-This block ACTIVELY selects one input data channel to send to its output.
+This star ACTIVELY selects one input data channel to send to its output.
 Input channel 0 is always the control port;  its input stream of
 numbers selects which input data channel to route to the output.
 The number N of input data channels is arbitrary (>= 1).
@@ -51,7 +51,7 @@ There are no parameters.
 cmux
 </NAME>
 <DESCRIPTION>
-This block ACTIVELY selects one input data channel to send to its output.
+This star ACTIVELY selects one input data channel to send to its output.
 Input channel 0 is always the control port;  its input stream of
 numbers selects which input data channel to route to the output.
 The number N of input data channels is arbitrary (>= 1).
@@ -75,7 +75,7 @@ Date: April, 1988.
 
     
 <DESC_SHORT>
-This block ACTIVELY selects one input data channel to send to its output.
+This star ACTIVELY selects one input data channel to send to its output.
 </DESC_SHORT>
 
 <STATES>

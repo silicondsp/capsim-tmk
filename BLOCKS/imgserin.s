@@ -35,13 +35,13 @@ imgserin
 /***********************************************************************
                              imgserin()
 ************************************************************************
-This block inputs rows and creates an  image and
+This star inputs rows and creates an  image and
 outputs it to the image buffer
 <NAME>
 imgserin
 </NAME>
 <DESCRIPTION>
-This block inputs rows and creates an  image and
+This star inputs rows and creates an  image and
 outputs it to the image buffer
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date: 		April 15, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This block inputs rows and creates an  image and outputs it to the image buffer
+This star inputs rows and creates an  image and outputs it to the image buffer
 </DESC_SHORT>
 
 

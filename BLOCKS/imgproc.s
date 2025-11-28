@@ -35,14 +35,14 @@ imgproc
 /***********************************************************************
                              imgproc()
 ************************************************************************
-This block inputs an image and transposes  or flips it.
+This star inputs an image and transposes  or flips it.
 Programmer:  	Sasan Ardalan	
 Date: 		April 15, 1988
 <NAME>
 imgproc
 </NAME>
 <DESCRIPTION>
-This block inputs an image and transposes  or flips it.
+This star inputs an image and transposes  or flips it.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	

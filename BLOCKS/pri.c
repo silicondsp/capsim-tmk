@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block writes the input data on the screen in hex form
+This star writes the input data on the screen in hex form
 
 #endif
  
@@ -47,6 +47,10 @@ This block writes the input data on the screen in hex form
 #include <capsim.h>
 #include <stars.h>
 
+
+
+ 
+#include <string.h>
 
 
 /*

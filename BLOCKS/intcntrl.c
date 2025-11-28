@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements an integrator  that charges and discharges by control
+This star implements an integrator  that charges and discharges by control
 
 #endif
  

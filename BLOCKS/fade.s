@@ -35,9 +35,9 @@ fade
 /***********************************************************************
                              fade()
 ************************************************************************
-This block models multipath fading channels for mobile radio
+This star models multipath fading channels for mobile radio
 applications.
-The block accepts a complex baseband equivalent input and produces 
+The star accepts a complex baseband equivalent input and produces 
 complex baseband equivalent samples. 
 The method is based on William C. Jakes, "Microwave Mobile Communications," 
 John Wiley & Sons, 1974 in particular pp. 13-65.
@@ -47,7 +47,7 @@ July 1989. Nader Farahati is now with Scientific Generics, Cambridge
 U.K. Each multipath is associated with a time delay. The time
 delays are incorporated by transforming the problem into the frequency
 domain.
-This block first reads all samples, u(t), at its input. It then multiplies the
+This star first reads all samples, u(t), at its input. It then multiplies the
 complex input samples by the complex fading channel amplitude with
 doppler shift for path i,
 ri(t),  and transforms them into the frequency domain, Yi(f). 
@@ -57,18 +57,18 @@ exp{-2PIj(fc+f)ti} where fc is the carrier frequency, f is the
 frequency, and ti is the time delay of the ith multipath.
 The various multipaths with independent fading channel amplitudes are
 added in the frequency domain and transformed back into the time domain.
-The block then outputs the complex data as two channels ( in-phase and
+The star then outputs the complex data as two channels ( in-phase and
 quad-phase) in 128 sample chunks. This helps in limiting the size of
 buffers. 
 Note that other doppler spectrums and Rician distributions will be
-supported later. The block can easily be changed.
+supported later. The star can easily be changed.
 <NAME>
 fade
 </NAME>
 <DESCRIPTION>
-This block models multipath fading channels for mobile radio
+This star models multipath fading channels for mobile radio
 applications.
-The block accepts a complex baseband equivalent input and produces 
+The star accepts a complex baseband equivalent input and produces 
 complex baseband equivalent samples. 
 The method is based on William C. Jakes, "Microwave Mobile Communications," 
 John Wiley & Sons, 1974 in particular pp. 13-65.
@@ -78,7 +78,7 @@ July 1989. Nader Farahati is now with Scientific Generics, Cambridge
 U.K. Each multipath is associated with a time delay. The time
 delays are incorporated by transforming the problem into the frequency
 domain.
-This block first reads all samples, u(t), at its input. It then multiplies the
+This star first reads all samples, u(t), at its input. It then multiplies the
 complex input samples by the complex fading channel amplitude with
 doppler shift for path i,
 ri(t),  and transforms them into the frequency domain, Yi(f). 
@@ -88,11 +88,11 @@ exp{-2PIj(fc+f)ti} where fc is the carrier frequency, f is the
 frequency, and ti is the time delay of the ith multipath.
 The various multipaths with independent fading channel amplitudes are
 added in the frequency domain and transformed back into the time domain.
-The block then outputs the complex data as two channels ( in-phase and
+The star then outputs the complex data as two channels ( in-phase and
 quad-phase) in 128 sample chunks. This helps in limiting the size of
 buffers. 
 Note that other doppler spectrums and Rician distributions will be
-supported later. The block can easily be changed.
+supported later. The star can easily be changed.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: 	Sasan Ardalan	
@@ -104,7 +104,7 @@ Date: 		Dec. 27, 1990
 </COMMENTS> 
 
 <DESC_SHORT>
-This block models multipath fading channels for mobile radio applications.
+This star models multipath fading channels for mobile radio applications.
 </DESC_SHORT>
 
 
@@ -176,6 +176,8 @@ This block models multipath fading channels for mobile radio applications.
 	float env;
 	float tsin,tcos;
 	int	samples;
+	void cxfft(float *x,int *mfft);
+	void cxifft(float *x,int *mfft);
 
 </DECLARATIONS> 
 

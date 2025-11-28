@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block is an averaging logarithmic power meter, which can be connected either in-line or terminating.
+This star is an averaging logarithmic power meter, which can be connected either in-line or terminating.
 
 #endif
  
@@ -47,6 +47,10 @@ This block is an averaging logarithmic power meter, which can be connected eithe
 #include <capsim.h>
 #include <stars.h>
 
+
+
+ 
+#include <string.h>
 
 
 /*

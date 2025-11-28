@@ -40,7 +40,7 @@ stretch
 	Outputs:	y, the stretched data
 	Parameters:	s, the stretch factor
 **************************************************************************
-This block stretches the incoming data.  If the paramater s is 0 then the
+This star stretches the incoming data.  If the paramater s is 0 then the
 data is clocked by the rising edge of the second input.  Else, the data 
 is stretched by the fixed factor of s.  Each case is shown below.
 	s = 0:
@@ -54,7 +54,7 @@ is stretched by the fixed factor of s.  Each case is shown below.
 stretch
 </NAME>
 <DESCRIPTION>
-This block stretches the incoming data.  If the paramater s is 0 then the
+This star stretches the incoming data.  If the paramater s is 0 then the
 data is clocked by the rising edge of the second input.  Else, the data 
 is stretched by the fixed factor of s.  Each case is shown below.
 	s = 0:
@@ -80,7 +80,7 @@ Modified:	September 2, 1987
 
     
 <DESC_SHORT>
-This block stretches the incoming data.
+This star stretches the incoming data.
 </DESC_SHORT>
 
 <STATES>

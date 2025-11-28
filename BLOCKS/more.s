@@ -78,7 +78,6 @@ Function prints samples from an arbitrary number of input buffers to the termina
 <DECLARATIONS> 
 
 	int buffer_no,no_samples;
-	FILE *popen();
 
 </DECLARATIONS> 
 

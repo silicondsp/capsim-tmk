@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block produces samples of the output every 1/fs seconds.  The phase of an FM  signal is the integral of the input.  This is accomplished digitally as :	phase=phase+in		
+This star produces samples of the output every 1/fs seconds.  The phase of an FM  signal is the integral of the input.  This is accomplished digitally as :	phase=phase+in		
 
 #endif
  

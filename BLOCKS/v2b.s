@@ -35,13 +35,13 @@ v2b
 /***********************************************************************
                              v2b()
 ************************************************************************
-This block converts a byte input vector to a digital stream.
+This star converts a byte input vector to a digital stream.
 Note: The MSB of each byte is output first.
 <NAME>
 v2b
 </NAME>
 <DESCRIPTION>
-This block converts a byte input vector to a digital stream.
+This star converts a byte input vector to a digital stream.
 Note: The MSB of each byte is output first.
 </DESCRIPTION>
 <PROGRAMMERS>
@@ -54,7 +54,7 @@ Date: 		Nov. 22, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This block converts a byte input vector to a digital stream.
+This star converts a byte input vector to a digital stream.
 </DESC_SHORT>
 
 

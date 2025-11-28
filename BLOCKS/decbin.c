@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block converts the input stream into a binary stream of "1"s and "0". If the input is >0 a "1" is output.
+This star converts the input stream into a binary stream of "1"s and "0". If the input is >0 a "1" is output.
 
 #endif
  

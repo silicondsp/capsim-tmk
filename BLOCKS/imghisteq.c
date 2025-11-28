@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs an image and performes an histogram equalization on it.
+This star inputs an image and performes an histogram equalization on it.
 
 #endif
  

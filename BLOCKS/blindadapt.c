@@ -120,8 +120,7 @@ blindadapt
         float register2[2];
         float output[2];
         float lambda11=0.0, lambda21=0.0, lambda22=0.0, lambda12=0.0;
-        float xtemp=0.0, ytemp=0.0;
-	FILE *fopen();
+        float xtemp=0.0, ytemp=0.0;	 
 	FILE *imp_F;
 	FILE *imp;
 	FILE *imp_W;

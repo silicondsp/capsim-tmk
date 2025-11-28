@@ -31,7 +31,7 @@
 /***********************************************************************
                              filtnyq()
 ************************************************************************
-This block performs Nyquist pulse shaping for a baseband transmitter.
+This star performs Nyquist pulse shaping for a baseband transmitter.
 See Carlson, Communications Systems, page 381, equation 17b.
 The Nyquist criterion in the frequency domain is to have an amplitude
 rolloff which is symmetric about Fb/2 (half baud frequency).
@@ -56,7 +56,7 @@ each sample would go through the filter unchanged!
 filtnyq
 </NAME>
 <DESCRIPTION>
-This block performs Nyquist pulse shaping for a baseband transmitter.
+This star performs Nyquist pulse shaping for a baseband transmitter.
 See Carlson, Communications Systems, page 381, equation 17b.
 The Nyquist criterion in the frequency domain is to have an amplitude
 rolloff which is symmetric about Fb/2 (half baud frequency).
@@ -90,7 +90,7 @@ Modified: 6/89 S. H. Ardalan.
 </COMMENTS> 
 
 <DESC_SHORT>
-This block performs Nyquist pulse shaping for a baseband transmitter.
+This star performs Nyquist pulse shaping for a baseband transmitter.
 </DESC_SHORT>
 
 

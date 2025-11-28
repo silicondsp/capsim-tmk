@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements an alpha-beta tracking filter.
+This star implements an alpha-beta tracking filter.
 
 #endif
  

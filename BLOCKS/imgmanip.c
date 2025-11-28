@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs an image and transposes  or flips it.
+This star inputs an image and transposes  or flips it.
 
 #endif
  
@@ -97,7 +97,7 @@ imgmanip
 	int	pheight;
 	float**		mat_PP;
 	image_t	img;
-	dsp_floatMatrix_Pt Dsp_MatrixOperate();
+	//dsp_floatMatrix_Pt Dsp_MatrixOperate();
 
 
 switch (run_state) {

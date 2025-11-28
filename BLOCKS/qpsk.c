@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs data and ouputs the coordinates based on qpsk. It produces an in phase and quadrature component.
+This star inputs data and ouputs the coordinates based on qpsk. It produces an in phase and quadrature component.
 
 #endif
  

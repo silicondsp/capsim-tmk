@@ -35,13 +35,13 @@ imgbreakup
 /***********************************************************************
                              imgbreakup()
 ************************************************************************
-This block inputs an image and creates sub images.
+This star inputs an image and creates sub images.
 The sub images are sequentially output.
 <NAME>
 imgbreakup
 </NAME>
 <DESCRIPTION>
-This block inputs an image and creates sub images. The sub images are sequentially output.
+This star inputs an image and creates sub images. The sub images are sequentially output.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -53,7 +53,7 @@ Date: 		August 15, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This block inputs an image and creates sub images. The sub images are sequentially output.
+This star inputs an image and creates sub images. The sub images are sequentially output.
 </DESC_SHORT>
 
 
@@ -93,7 +93,7 @@ This block inputs an image and creates sub images. The sub images are sequential
 	int	pheight;
 	float**		mat_PP;
 	image_t	img;
-	dsp_floatMatrix_Pt Dsp_SubMatrix();
+	//dsp_floatMatrix_Pt Dsp_SubMatrix();
 	int	done;
 
 </DECLARATIONS> 

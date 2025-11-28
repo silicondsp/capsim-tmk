@@ -35,13 +35,13 @@ imgcxtrl
 /***********************************************************************
                              imgcxtrl()
 ************************************************************************
-This block inputs a complex image height*(2*width) and creates a new
+This star inputs a complex image height*(2*width) and creates a new
 real image height*width  of only the real part
 <NAME>
 imgcxtrl
 </NAME>
 <DESCRIPTION>
-This block inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
+This star inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:  	Sasan Ardalan	
@@ -53,7 +53,7 @@ Date: 		September 9, 1993
 </COMMENTS> 
 
 <DESC_SHORT>
-This block inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
+This star inputs a complex image height*(2*width) and creates a new real image height*width  of only the real part
 </DESC_SHORT>
 
 

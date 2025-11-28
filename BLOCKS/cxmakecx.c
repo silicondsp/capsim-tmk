@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block creates a complex buffer from one or two input buffers. 
+This star creates a complex buffer from one or two input buffers. 
 
 #endif
  

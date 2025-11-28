@@ -36,7 +36,7 @@ stc
                            stc()
 ***********************************************************************
 Description:
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 Programmer:  A. S. Sadri
@@ -45,7 +45,7 @@ Date: June 4, 1990
 stc
 </NAME>
 <DESCRIPTION>
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 </DESCRIPTION>
@@ -60,7 +60,7 @@ Date: June 4, 1990
 
     
 <DESC_SHORT>
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 </DESC_SHORT>
 
 <STATES>

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block correlates the input samples with the sequence given in a file.
+This star correlates the input samples with the sequence given in a file.
 
 #endif
  
@@ -115,7 +115,6 @@ cxcorr
 	complex tmp1,tmp2;
         complex  sum;
         complex tmp;
-	FILE *fopen();
 	FILE *imp_F;
 
 

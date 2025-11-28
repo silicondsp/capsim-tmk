@@ -48,6 +48,11 @@ Spectrum probe (plots both frequency and time domain). Float/Int/Complex input b
 #include <stars.h>
 
 
+
+ 
+#include <cap_fft.h>
+#include <string.h>
+
  
 
 #define BLOCK_SIZE 1024
@@ -144,6 +149,9 @@ typedef struct {
 	float* phase_P;
 	FILE *time_F;
 	FILE *freq_F;
+	void cxfft(float *x,int *mfft);
+	void cxifft(float *x,int *mfft);
+
 
 
 switch (run_state) {

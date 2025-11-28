@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block models multipath fading channels for mobile radio applications.
+This star models multipath fading channels for mobile radio applications.
 
 #endif
  

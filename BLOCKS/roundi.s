@@ -35,11 +35,11 @@ roundi
 /**********************************************************************
                           roundi()
 ***********************************************************************
-	This block multiplies the incoming data stream by the
+	This star multiplies the incoming data stream by the
 	parameter "Gain factor" in fixed-point arithmetic.The
-	block is capable of doing extended precision arithmetic
+	star is capable of doing extended precision arithmetic
 	upto 64 bits result which is to be rounded to at least   
-	32 bits after the fxadd.s block.
+	32 bits after the fxadd.s star.
 	Parameters :
 	1 - (float) factor : FIR tap coefficient   
 	2 - (int)   qbits  : Number of bits to represent the 
@@ -53,11 +53,11 @@ roundi
 roundi
 </NAME>
 <DESCRIPTION>
-This block multiplies the incoming data stream by the
+This star multiplies the incoming data stream by the
 	parameter "Gain factor" in fixed-point arithmetic.The
-	block is capable of doing extended precision arithmetic
+	star is capable of doing extended precision arithmetic
 	upto 64 bits result which is to be rounded to at least   
-	32 bits after the fxadd.s block.
+	32 bits after the fxadd.s star.
 	Parameters :
 	1 - (float) factor : FIR tap coefficient   
 	2 - (int)   qbits  : Number of bits to represent the 
@@ -79,7 +79,7 @@ This block multiplies the incoming data stream by the
 
    
 <DESC_SHORT>
-This block multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.Theblock is capable of doing extended precision arithmetic upto 64 bits result which is to be rounded to at least 32 bits after the fxadd.s block.
+This star multiplies the incoming data stream by the parameter "Gain factor" in fixed-point arithmetic.Thestar is capable of doing extended precision arithmetic upto 64 bits result which is to be rounded to at least 32 bits after the fxadd.s star.
 </DESC_SHORT>
 
 <STATES>

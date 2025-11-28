@@ -71,13 +71,13 @@ typedef struct {
       int  __numberInputBuffers;
       int  __numberOutputBuffers;
       int  __wordSize;
-      long  __totalSamples;
-      long  __numberFrames;
-      long  __formSizeOffset;
-      long  __formBaseSize;
-      long  __numberFramesOffset;
-      long  __sndSizeOffset;
-      long  __samplesOffset;
+      LONG  __totalSamples;
+      LONG  __numberFrames;
+      LONG  __formSizeOffset;
+      LONG  __formBaseSize;
+      LONG  __numberFramesOffset;
+      LONG  __sndSizeOffset;
+      LONG  __samplesOffset;
      } state_t,*state_Pt;
 
 /*
@@ -131,13 +131,10 @@ wraiff
         long int        j;
         char buffer[100];
         unsigned char   *samples_P;
-        int IIP_WriteAIFF(char *fileName1,float	*x1_P,float	*y1_P,int npts1,int bits1,
-			float samplingRate1,int numberChannelsIn1,
-			float scale1,float	constant1,float	 range1,int autoRange1,
-			iip_MarkerHdr_Pt	hdr1_P,int writeHeaderFlag1,
-			unsigned long *formSizeOffset1_P,unsigned long *formBaseSize1_P,
-			unsigned long *numberFramesOffset1_P,
-			unsigned long *sndSizeOffset1_P,unsigned long *samplesOffset1_P,float	**multiChannel1_PP);
+       
+			
+			
+			
 
 
 
@@ -248,7 +245,7 @@ wordSize <<= bits-1;
  +++++++++++++++++++++++++++++++++++++++++++++++++++++
  *  AIFC File Creation
  */
-if(IIP_WriteAIFF((char*)fileName,NULL,NULL,NULL,(int)bits,
+if(IIP_WriteAIFF((char*)fileName,NULL,NULL,(int)NULL,(int)bits,
                         samplingRate,(int)1,
                         scale,dcOffset,range,0,
                         NULL,1,

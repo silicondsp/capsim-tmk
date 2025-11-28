@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs data and ouputs the coordinates of the CCITT v.29 encoder constlations. 
+This star inputs data and ouputs the coordinates of the CCITT v.29 encoder constlations. 
 
 #endif
  

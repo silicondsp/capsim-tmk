@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements a multichannel input/output FIR predictor, which is adapted using the power normalized LMS algorithm.
+This star implements a multichannel input/output FIR predictor, which is adapted using the power normalized LMS algorithm.
 
 #endif
  
@@ -144,7 +144,7 @@ case PARAM_INIT:
      char   *ptype3 = "float";
      char   *pval3 = "1.0";
      char   *pname3 = "delta";
-     char   *pdef4 = " Number of samples to skip before blockting adaptation";
+     char   *pdef4 = " Number of samples to skip before starting adaptation";
      char   *ptype4 = "int";
      char   *pval4 = "0";
      char   *pname4 = "wait";

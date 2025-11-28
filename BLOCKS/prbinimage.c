@@ -53,7 +53,7 @@ Inputs image and stores as binary to file.
 
 #include <sys/file.h>
 #include <limits.h>     /* definition of OPEN_MAX */
-
+#include <unistd.h>
 
  
 

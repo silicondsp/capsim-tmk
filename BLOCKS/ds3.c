@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block is a self-contained third order delta sigma modulator. 
+This star is a self-contained third order delta sigma modulator. 
 
 #endif
  

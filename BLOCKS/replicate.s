@@ -36,12 +36,12 @@ replicate
                            kesh()
 ***********************************************************************
 Description:
-This block inputs data  and stretches it.
+This star inputs data  and stretches it.
 <NAME>
 kesh
 </NAME>
 <DESCRIPTION>
-This block inputs data  and stretches it.
+This star inputs data  and stretches it.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: Sasan Ardalan 
@@ -54,7 +54,7 @@ Date: June 4, 1992
 
    
 <DESC_SHORT>
-This block inputs data  and stretches it.
+This star inputs data  and stretches it.
 </DESC_SHORT>
 
 <STATES>

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block compares two data streams for "equality".
+This star compares two data streams for "equality".
 
 #endif
  

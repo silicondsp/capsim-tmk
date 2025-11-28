@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block computes the LPC parameters of the input samples.
+This star computes the LPC parameters of the input samples.
 
 #endif
  
@@ -53,6 +53,7 @@ This block computes the LPC parameters of the input samples.
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 
 
  
@@ -119,7 +120,7 @@ lpc
 	float a_A[21];
 	float rc_A[21];
 	float alpha;
-	float* vector();
+	float *vector(int nn);
 	int result;
 	float realAz,imgAz,Az;
 	float theta,dtheta;

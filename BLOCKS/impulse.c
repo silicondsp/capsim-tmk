@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block sends out a unit sample, then a number of zero samples.
+This star sends out a unit sample, then a number of zero samples.
 
 #endif
  

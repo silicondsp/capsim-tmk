@@ -35,7 +35,7 @@ lpc
 /***********************************************************************
                              lpc()
 ************************************************************************
-This block computes the LPC parameters of the input samples.
+This star computes the LPC parameters of the input samples.
 The method is based on the routines of "Linear Prediction Analysis
 Programs (AUTO-COVAR)", by A. H. Gray and J.D. Markel in IEEE Press
 Programs for Digital Signal Processing.
@@ -43,7 +43,7 @@ Programs for Digital Signal Processing.
 lpc
 </NAME>
 <DESCRIPTION>
-This block computes the LPC parameters of the input samples.
+This star computes the LPC parameters of the input samples.
 The method is based on the routines of "Linear Prediction Analysis
 Programs (AUTO-COVAR)", by A. H. Gray and J.D. Markel in IEEE Press
 Programs for Digital Signal Processing.
@@ -58,7 +58,7 @@ Programmer: Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This block computes the LPC parameters of the input samples.
+This star computes the LPC parameters of the input samples.
 </DESC_SHORT>
 
 <INCLUDES>
@@ -66,6 +66,7 @@ This block computes the LPC parameters of the input samples.
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 
 ]]>
 </INCLUDES> 
@@ -108,7 +109,7 @@ This block computes the LPC parameters of the input samples.
 	float a_A[21];
 	float rc_A[21];
 	float alpha;
-	float* vector();
+	float *vector(int nn);
 	int result;
 	float realAz,imgAz,Az;
 	float theta,dtheta;

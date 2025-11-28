@@ -33,8 +33,6 @@ Create SAR image from parameters.
  
 #ifdef PROGRAMMERS
 
-Sasan Ardalan 1990
-
 #endif
 
 
@@ -144,6 +142,7 @@ img_sar_create
 	float a,b,c;
 	float rx;
 	image_t		img;
+	int CsInfo(char *string);
 
 
 switch (run_state) {

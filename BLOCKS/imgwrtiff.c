@@ -50,6 +50,10 @@ Writes an input image to a TIFF file as 8 bit samples. Also store the current co
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 

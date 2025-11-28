@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block produces a square wave at half the frequency of the incomming wave	
+This star produces a square wave at half the frequency of the incomming wave	
 
 #endif
  

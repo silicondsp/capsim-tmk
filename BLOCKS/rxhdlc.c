@@ -86,7 +86,7 @@ typedef struct {
       int  __begFrame;
       int  __fcsReg;
       int  __fcsbit;
-      int  __blocktFCS;
+      int  __startFCS;
       int  __bit;
       int  __rxFrameFlag;
       int  __rxBitFlag;
@@ -123,7 +123,7 @@ typedef struct {
 #define begFrame (state_P->__begFrame)
 #define fcsReg (state_P->__fcsReg)
 #define fcsbit (state_P->__fcsbit)
-#define blocktFCS (state_P->__blocktFCS)
+#define startFCS (state_P->__startFCS)
 #define bit (state_P->__bit)
 #define rxFrameFlag (state_P->__rxFrameFlag)
 #define rxBitFlag (state_P->__rxBitFlag)
@@ -257,7 +257,7 @@ case SYSTEM_INIT:
        first2=1;
        begFrame=0;
        fcsReg=0;
-       blocktFCS=0;
+       startFCS=0;
        bit=0;
        rxFrameFlag=0;
        rxBitFlag=0;
@@ -338,7 +338,7 @@ while(IT_IN(0)) {
 		/*
 		 */ 
 		fcsshreg |= bit;
-		if(blocktFCS) {
+		if(startFCS) {
 			fcsbit = (0x100 & fcsshreg) ? 1:0;
 			{
 				carry=(acc&0x8000) ? 1:0;
@@ -380,7 +380,7 @@ if(debugFlag)
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -426,7 +426,7 @@ if(debugFlag)
 			fprintf(debug_F,"Abort condition\n");
 
 		/*
-		 * reset and blockt over. 
+		 * reset and start over. 
 		 * reject frame and request retransmission
 		 */
 			frameBits=0;
@@ -436,7 +436,7 @@ if(debugFlag)
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -461,7 +461,7 @@ if(debugFlag)
 	/*
 	 * Frame Check Sequence
 	 */
-	if(blocktFCS) {
+	if(startFCS) {
 	}
 	/*
 	 * check if FLAG (beginning or end)
@@ -558,7 +558,7 @@ fprintf(stderr,"Flushing fcsshreg=%4x acc=%4x \n",fcsshreg,acc);
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -602,15 +602,15 @@ fprintf(stderr,"Flushing fcsshreg=%4x acc=%4x \n",fcsshreg,acc);
 	shreg <<= 1;
 	if(begFrame ) {
 		/*
-		 * blockt FCS after first FLAG
+		 * start FCS after first FLAG
 		 * delay also allows time to check for end of frame flag
 		 * so that it is not used in computation of FCS
 		 */
 		if(count == 10) { 
-			blocktFCS=1;
+			startFCS=1;
 		
 			if(debugFlag)
-				   fprintf(debug_F,"Begin blocktFCS\n");
+				   fprintf(debug_F,"Begin startFCS\n");
 		}
 		count++;
 	} 
@@ -629,7 +629,7 @@ if(!rxFrameFlag && rxBitFlag) {
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 			/*

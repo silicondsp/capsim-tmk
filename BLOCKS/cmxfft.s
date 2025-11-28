@@ -35,7 +35,7 @@
 	Outputs:	y, the fft of the signal complex
 	Parameters:	int inpts  the fft length
 ************************************************************************
-This block produces the fft of the input signal.  The points are output
+This star produces the fft of the input signal.  The points are output
 as complex numbers.  The number of points input is npts and the number
 of points generated is npts;
 Programmer: 	Prayson Pate
@@ -48,7 +48,7 @@ Modified:	Sasan Ardalan to use cxfft() routine, use complex buffers.
 </COMMENTS> 
 
 <DESC_SHORT>
-This block produces the fft of the input signal.  The points are output
+This star produces the fft of the input signal.  The points are output
 as complex numbers.  
 </DESC_SHORT>
 

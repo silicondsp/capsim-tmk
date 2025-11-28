@@ -122,6 +122,7 @@ Compute signal to distortion ratio
   	float sdr,sdrdB;
         float norm;
 	char theName[100];
+	void calsdr(float xx_A[],float *sdr_P,int points,char* file);
 #ifdef TCL_SUPPORT
         Tcl_Obj *varNameObj_P;
         Tcl_Obj *objVar_P;

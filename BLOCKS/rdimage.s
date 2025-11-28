@@ -56,6 +56,13 @@ Date: November 4, 1990
 Read an image from a file.
 </DESC_SHORT>
 
+
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
+
 <STATES>
 	<STATE>
 		<TYPE>int</TYPE>
@@ -83,7 +90,6 @@ Read an image from a file.
 
 	int i,j;
 	float x;
-	FILE *fopen();
 
 </DECLARATIONS> 
 

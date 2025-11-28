@@ -68,7 +68,13 @@ Programmer: Sasan H. Ardalan
 <DESC_SHORT>
 Function evaluates all its input samples through an expression specified as a parameter.
 </DESC_SHORT>
+<INCLUDES>
+<![CDATA[ 
+#include <stdio.h>
+#include <string.h>
 
+]]>
+</INCLUDES> 
 <STATES>
 	<STATE>
 		<TYPE>int</TYPE>
@@ -107,11 +113,11 @@ Function evaluates all its input samples through an expression specified as a pa
 	 *  Store as state the number of input/output buffers 
 	 */
 	if((ibufs = NO_INPUT_BUFFERS()) < 1) {
-		sprintf(stderr,"expr: no input buffers\n");
+		fprintf(stderr,"expr: no input buffers\n");
 		return(2);
 	}
 	if((obufs = NO_OUTPUT_BUFFERS()) < 1) {
-		sprintf(stderr,"expr: no output buffers\n");
+		fprintf(stderr,"expr: no output buffers\n");
 		return(3);
 	}
 

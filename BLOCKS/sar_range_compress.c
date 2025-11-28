@@ -33,8 +33,6 @@ Compress SAR image in range
  
 #ifdef PROGRAMMERS
 
-Sasan Ardalan 1990
-
 #endif
 
 
@@ -60,7 +58,7 @@ Sasan Ardalan 1990
  
 
 #define  PI  3.1415926
-#define C 299792458.00
+#define C 300000000.0
 
 
 /*
@@ -159,6 +157,7 @@ typedef struct {
 	cap_fft_cpx x,y;
 	float fmax,fmin;
 	float sample;
+	int CsInfo(char *string);
 
 
 switch (run_state) {
@@ -419,7 +418,7 @@ range_P[j].im=ref_P[j].im;
 }
 #endif
        for( j=0; j<rangeFFTLength; j++) {
-          sample=-range_P[j].r;
+          sample=range_P[j].r;
           for(jj=0; jj<obufs; jj++) {
 			  if(IT_OUT(jj)){
 	

@@ -28,26 +28,21 @@
 <![CDATA[ 
 
 /************************************************************************
- *	For technical papers and updates visit http://www.ccdsp.org								
- *
-  ************************************************************************/
-
-]]>
-</COMMENTS> 
-
-	
+ *									
+ *	
 <NAME>
 sar_range_compress
 </NAME>
-
 <DESCRIPTION>
 Compress SAR image in range
 </DESCRIPTION>
-
 <PROGRAMMERS>
 Sasan Ardalan 1990
 </PROGRAMMERS>								
+ ************************************************************************/
 
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Compress SAR image in range
@@ -66,7 +61,7 @@ Compress SAR image in range
 <DEFINES> 
 
 #define  PI  3.1415926
-#define C 299792458.00
+#define C 300000000.0
 
 </DEFINES> 
 
@@ -164,6 +159,7 @@ Compress SAR image in range
 	cap_fft_cpx x,y;
 	float fmax,fmin;
 	float sample;
+	int CsInfo(char *string);
 
 </DECLARATIONS> 
 
@@ -396,7 +392,7 @@ range_P[j].im=ref_P[j].im;
 }
 #endif
        for( j=0; j<rangeFFTLength; j++) {
-          sample=-range_P[j].r;
+          sample=range_P[j].r;
           for(jj=0; jj<obufs; jj++) {
 			  if(IT_OUT(jj)){
 	

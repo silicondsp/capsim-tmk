@@ -34,13 +34,13 @@ skip
 /***************************************************************************
 		skip.s
 ****************************************************************************
-This block eats the first N values,  useful for skipping transient periods
+This star eats the first N values,  useful for skipping transient periods
 -Parameter one: the number of samples to skip
 <NAME>
 skip
 </NAME>
 <DESCRIPTION>
-This block devours the first N values,  useful for skipping transient periods
+This star devours the first N values,  useful for skipping transient periods
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer:	John T. Stonick
@@ -53,7 +53,7 @@ Date:		January 1988
 
    
 <DESC_SHORT>
-This block devours the first N values,  useful for skipping transient periods
+This star devours the first N values,  useful for skipping transient periods
 </DESC_SHORT>
 
 <STATES>

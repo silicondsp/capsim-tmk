@@ -49,6 +49,10 @@ This function performs the simple task of reading sample values in from a file, 
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 
@@ -90,7 +94,6 @@ rdfile
 
 	int i,j;
 	float x;
-	FILE *fopen();
 
 
 switch (run_state) {

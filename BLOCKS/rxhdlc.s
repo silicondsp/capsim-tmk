@@ -38,7 +38,7 @@ rxhdlc
  */
  /*
   * IMPORTANT:
-  *  This block assumes that an HDLC frame worth of bits is on its input buffer.
+  *  This star assumes that an HDLC frame worth of bits is on its input buffer.
   *  To guarantee this, make sure that the input is comming from a galaxy
   *  This way the galaxy (data pump) will consume all of its input bits
   * from the transmitter, and output them on its output terminal before
@@ -60,7 +60,7 @@ rxhdlc
 <DESCRIPTION>
 Process an HDLC frame and generate ACK and NACK. Use only in ARQ simulation
   * IMPORTANT:
-  *  This block assumes that an HDLC frame worth of bits is on its input buffer.
+  *  This star assumes that an HDLC frame worth of bits is on its input buffer.
   *  To guarantee this, make sure that the input is comming from a galaxy
   *  This way the galaxy (data pump) will consume all of its input bits
   * from the transmitter, and output them on its output terminal before
@@ -220,7 +220,7 @@ Process an HDLC frame and generate ACK and NACK. Use only in ARQ simulation
 	</STATE>
 	<STATE>
 		<TYPE>int</TYPE>
-		<NAME>blocktFCS</NAME>
+		<NAME>startFCS</NAME>
 		<VALUE>0</VALUE>
 	</STATE>
 	<STATE>
@@ -356,7 +356,7 @@ while(IT_IN(0)) {
 		/*
 		 */ 
 		fcsshreg |= bit;
-		if(blocktFCS) {
+		if(startFCS) {
 			fcsbit = (0x100 & fcsshreg) ? 1:0;
 			{
 				carry=(acc&0x8000) ? 1:0;
@@ -398,7 +398,7 @@ if(debugFlag)
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -444,7 +444,7 @@ if(debugFlag)
 			fprintf(debug_F,"Abort condition\n");
 
 		/*
-		 * reset and blockt over. 
+		 * reset and start over. 
 		 * reject frame and request retransmission
 		 */
 			frameBits=0;
@@ -454,7 +454,7 @@ if(debugFlag)
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -479,7 +479,7 @@ if(debugFlag)
 	/*
 	 * Frame Check Sequence
 	 */
-	if(blocktFCS) {
+	if(startFCS) {
 	}
 	/*
 	 * check if FLAG (beginning or end)
@@ -576,7 +576,7 @@ fprintf(stderr,"Flushing fcsshreg=%4x acc=%4x \n",fcsshreg,acc);
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 
@@ -620,15 +620,15 @@ fprintf(stderr,"Flushing fcsshreg=%4x acc=%4x \n",fcsshreg,acc);
 	shreg <<= 1;
 	if(begFrame ) {
 		/*
-		 * blockt FCS after first FLAG
+		 * start FCS after first FLAG
 		 * delay also allows time to check for end of frame flag
 		 * so that it is not used in computation of FCS
 		 */
 		if(count == 10) { 
-			blocktFCS=1;
+			startFCS=1;
 		
 			if(debugFlag)
-				   fprintf(debug_F,"Begin blocktFCS\n");
+				   fprintf(debug_F,"Begin startFCS\n");
 		}
 		count++;
 	} 
@@ -647,7 +647,7 @@ if(!rxFrameFlag && rxBitFlag) {
 			shreg=0;
 			fcsshreg=0;
 			acc=0;
-			blocktFCS=0;
+			startFCS=0;
 			bit=0;
 			count=0;
 			/*

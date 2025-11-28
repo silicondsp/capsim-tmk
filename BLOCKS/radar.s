@@ -39,13 +39,13 @@ radar
  			smoothed range
  			predicted velocity
 			smoothed velocity
- 	description:	This block implements an alpha-beta
+ 	description:	This star implements an alpha-beta
  			tracking filter.
 <NAME>
 radar
 </NAME>
 <DESCRIPTION>
-This block implements an alpha-beta tracking filter.
+This star implements an alpha-beta tracking filter.
 	parameters:	alpha, beta, scan time, initial velocity
  	inputs:		range measurements in nautical miles
  	outputs:	predicted range
@@ -64,7 +64,7 @@ This block implements an alpha-beta tracking filter.
 
    
 <DESC_SHORT>
-This block implements an alpha-beta tracking filter.
+This star implements an alpha-beta tracking filter.
 </DESC_SHORT>
 
 <STATES>

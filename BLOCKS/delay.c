@@ -134,8 +134,8 @@ case SYSTEM_INIT:
 	star_P->state_P = (char*)calloc(1,sizeof(state_t));
 	state_P = (state_Pt)star_P->state_P;
      
-  delay_max(star_P->inBuffer_P[0],samples_delay + 1);
-  delay_min(star_P->inBuffer_P[0],samples_delay);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],samples_delay + 1);
+  delay_min((buffer_Pt)star_P->inBuffer_P[0],samples_delay);
 
          
    if(NO_INPUT_BUFFERS() != 1 ){

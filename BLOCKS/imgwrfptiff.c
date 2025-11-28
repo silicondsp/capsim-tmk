@@ -49,6 +49,10 @@ Writes an input image to a TIFF file as floating point  samples. Also store the 
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 

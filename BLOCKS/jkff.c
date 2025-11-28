@@ -163,10 +163,10 @@ case SYSTEM_INIT:
        temp_qp=1.0;
 
 
-  delay_max(star_P->inBuffer_P[0],1);
-  delay_max(star_P->inBuffer_P[1],1);
-  delay_max(star_P->inBuffer_P[2],1);
-  delay_max(star_P->inBuffer_P[3],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[0],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[1],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[2],1);
+  delay_max((buffer_Pt)star_P->inBuffer_P[3],1);
 
          
    if(NO_OUTPUT_BUFFERS() != 2 ){

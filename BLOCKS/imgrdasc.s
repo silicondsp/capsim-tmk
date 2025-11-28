@@ -54,6 +54,12 @@ Date: November 4, 1990
 ]]>
 </COMMENTS> 
 
+
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
          
 <DESC_SHORT>
 Read a ASCII image. Read the image and output a single image sample.
@@ -98,6 +104,7 @@ Read a ASCII image. Read the image and output a single image sample.
 	float x;
 	int  n;
 	image_t	img;
+	int CsInfo(char *string);
 
 </DECLARATIONS> 
 

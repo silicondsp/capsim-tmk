@@ -35,7 +35,7 @@ invcust
 /***************************************************************************
                           invcust()
 *****************************************************************************
-This block generates  inventory customers. 
+This star generates  inventory customers. 
 The customers each have an inter arrival time and a product demand.
 The inter arrival time is packaged with the product demand into a complex
 data structure and output.
@@ -54,15 +54,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The num_of_samples parameter sets the maximum number of samples
-	that the block will output. If num_of_samples < 0, an indefinite
+	that the star will output. If num_of_samples < 0, an indefinite
 	number of samples can be output.
-      The block will output a maximum of NUMBER_SAMPLES on each call.
+      The star will output a maximum of NUMBER_SAMPLES on each call.
 If the pace input is connected:
       The num_of_samples parameter sets the maximum number of samples
-        that the block will output. If num_samples_out < 0, an infinite
+        that the star will output. If num_samples_out < 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the block all samples are read from the pace input
+      At each call of the star all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An output_target  is computed at each pass = pace_input_total *
 	pace_rate. If pace_rate < 0, the absolute value is used.
@@ -79,7 +79,7 @@ If the pace input is connected:
 invcust
 </NAME>
 <DESCRIPTION>
-This block generates  inventory customers. 
+This star generates  inventory customers. 
 The customers each have an inter arrival time and a product demand.
 The inter arrival time is packaged with the product demand into a complex
 data structure and output.
@@ -98,15 +98,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The num_of_samples parameter sets the maximum number of samples
-	that the block will output. If num_of_samples < 0, an indefinite
+	that the star will output. If num_of_samples < 0, an indefinite
 	number of samples can be output.
-      The block will output a maximum of NUMBER_SAMPLES on each call.
+      The star will output a maximum of NUMBER_SAMPLES on each call.
 If the pace input is connected:
       The num_of_samples parameter sets the maximum number of samples
-        that the block will output. If num_samples_out < 0, an infinite
+        that the star will output. If num_samples_out < 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the block all samples are read from the pace input
+      At each call of the star all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An output_target  is computed at each pass = pace_input_total *
 	pace_rate. If pace_rate < 0, the absolute value is used.
@@ -129,7 +129,7 @@ Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This block generates  inventory customers. 
+This star generates  inventory customers. 
 </DESC_SHORT>
 
 

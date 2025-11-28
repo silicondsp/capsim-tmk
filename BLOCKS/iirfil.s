@@ -35,7 +35,7 @@ iirfil
 /***********************************************************************
                              iirfil()
 ************************************************************************
-This block designs and implements a cascade form IIR digital filter.
+This star designs and implements a cascade form IIR digital filter.
 The specs and results of the design are stored in the file tmp.dat.
 The cascade filter coefficients are store in a file tmp.cas as:
            ns: Number of sections
@@ -46,7 +46,7 @@ The cascade filter coefficients are store in a file tmp.cas as:
 iirfil
 </NAME>
 <DESCRIPTION>
-This block designs and implements a cascade form IIR digital filter.
+This star designs and implements a cascade form IIR digital filter.
 The specs and results of the design are stored in the file tmp.dat.
 The cascade filter coefficients are store in a file tmp.cas as:
            ns: Number of sections
@@ -64,7 +64,7 @@ Programmer: Sasan Ardalan.
 </COMMENTS> 
 
 <DESC_SHORT>
-This block designs and implements a cascade form IIR digital filter.
+This star designs and implements a cascade form IIR digital filter.
 </DESC_SHORT>
 <INCLUDES>
 <![CDATA[ 
@@ -138,7 +138,6 @@ This block designs and implements a cascade form IIR digital filter.
 	int status;
 	int	no_samples;
 	char fname[100];
-        FILE *fopen();
         FILE *ird_F;
         int IIRCas(char* name11);
         void PzConv(char* name);

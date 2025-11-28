@@ -56,6 +56,13 @@ Date: May 31, 2002
 Input image and store as ASCII in a file
 </DESC_SHORT>
 
+
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
+
 <STATES>
 	<STATE>
 		<TYPE>FILE*</TYPE>

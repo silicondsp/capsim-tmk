@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs a sequence of images  and creates  a larger image with the inputted images forming subimages from left to right top to bottom. 
+This star inputs a sequence of images  and creates  a larger image with the inputted images forming subimages from left to right top to bottom. 
 
 #endif
  
@@ -117,7 +117,7 @@ imgbuild
 	int	pheight;
 	float**		mat_PP;
 	image_t	img;
-	dsp_floatMatrix_Pt Dsp_SubMatrix();
+	//dsp_floatMatrix_Pt Dsp_SubMatrix();
 
 
 switch (run_state) {

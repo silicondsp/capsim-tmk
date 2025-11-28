@@ -36,7 +36,7 @@ stcode
                            stcode()
 ***********************************************************************
 Description:
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 The original symbols are output at the symbol rate if output buffer 1 is
@@ -45,7 +45,7 @@ connected.
 stcode
 </NAME>
 <DESCRIPTION>
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 The code output oversampling rate (samples per baud interval) is
 selected by the  parameter `smplbd'. 
 The original symbols are output at the symbol rate if output buffer 1 is
@@ -62,7 +62,7 @@ Date: June 4, 1990
 
     
 <DESC_SHORT>
-This block inputs data  and stretches it with zeros.
+This star inputs data  and stretches it with zeros.
 </DESC_SHORT>
 
 <STATES>

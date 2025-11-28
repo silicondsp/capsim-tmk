@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block outputs the real part of the inputcomplex stream. 
+This star outputs the real part of the inputcomplex stream. 
 
 #endif
  

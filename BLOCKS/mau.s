@@ -43,14 +43,14 @@ mau
  *
  * Parameters:	bitTime: The width of a bit in samples 
  *
- * This block simulates an Ethernet media access unit (MAU or transceiver) 
+ * This star simulates an Ethernet media access unit (MAU or transceiver) 
  *
  *
  <NAME>
 mau
 </NAME>
 <DESCRIPTION>
- * This block simulates an Ethernet media access unit (MAU or transceiver) 
+ * This star simulates an Ethernet media access unit (MAU or transceiver) 
  * Inputs: 	in0:	The data from one direction 
  *		in1:	The data from the other direction	
  *		tx:	The data to be transmitted	
@@ -73,7 +73,7 @@ Date: September 18, 1987
 </COMMENTS> 
 
 <DESC_SHORT>
-This block simulates an Ethernet media access unit (MAU or transceiver)
+This star simulates an Ethernet media access unit (MAU or transceiver)
 </DESC_SHORT>
 
 
@@ -138,7 +138,6 @@ This block simulates an Ethernet media access unit (MAU or transceiver)
 	int	i;
 	int	numberSamples;
 	float	z;
-	double fabs();
 	float	txData;
 
 </DECLARATIONS> 

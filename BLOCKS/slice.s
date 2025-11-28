@@ -34,7 +34,7 @@ slice
 /*********************************************************************
                 slice()
 **********************************************************************
-This block simulates a decision element for a data receiver.
+This star simulates a decision element for a data receiver.
 It compares the incoming signal to a set of thresholds, which are
 COMPUTED from the user-specified set of output levels.
 Thresholds are always exactly HALF way between specified output levels.
@@ -51,7 +51,7 @@ The number of output channels is determined at run-time (auto-fanout).
 slice
 </NAME>
 <DESCRIPTION>
-This block simulates a decision element for a data receiver.
+This star simulates a decision element for a data receiver.
 It compares the incoming signal to a set of thresholds, which are
 COMPUTED from the user-specified set of output levels.
 Thresholds are always exactly HALF way between specified output levels.
@@ -77,7 +77,7 @@ Modified:
 
     
 <DESC_SHORT>
-This block simulates a decision element for a data receiver.
+This star simulates a decision element for a data receiver.
 </DESC_SHORT>
 
 <STATES>

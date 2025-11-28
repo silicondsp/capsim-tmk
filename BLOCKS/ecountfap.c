@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block compares two data streams for "equality" (use for BER). Appends to file.
+This star compares two data streams for "equality" (use for BER). Appends to file.
 
 #endif
  
@@ -53,6 +53,7 @@ This block compares two data streams for "equality" (use for BER). Appends to fi
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 #include <TCL/tcl.h>
 
 

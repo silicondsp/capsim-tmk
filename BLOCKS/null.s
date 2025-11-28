@@ -35,13 +35,13 @@ null
 /*********************************************************************
 			null()
 **********************************************************************
-This block does nothing, simply puts its input samples on its output
-buffer. It is useful as a temporary substitute for a block.
+This star does nothing, simply puts its input samples on its output
+buffer. It is useful as a temporary substitute for a star.
 <NAME>
 null
 </NAME>
 <DESCRIPTION>
-This block does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a block.
+This star does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a star.
 </DESCRIPTION>
 <PROGRAMMERS>
 </PROGRAMMERS>
@@ -51,7 +51,7 @@ This block does nothing, simply puts its input samples on its output buffer. It 
 </COMMENTS> 
 
 <DESC_SHORT>
-This block does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a block.
+This star does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a star.
 </DESC_SHORT>
 
 

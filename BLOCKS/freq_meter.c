@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates a frequency counter.  The single parameter determines if the output is relative or absolute.
+This star simulates a frequency counter.  The single parameter determines if the output is relative or absolute.
 
 #endif
  

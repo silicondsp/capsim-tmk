@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs an image and creates sub images. The sub images are sequentially output.
+This star inputs an image and creates sub images. The sub images are sequentially output.
 
 #endif
  
@@ -114,7 +114,7 @@ imgbreakup
 	int	pheight;
 	float**		mat_PP;
 	image_t	img;
-	dsp_floatMatrix_Pt Dsp_SubMatrix();
+	//dsp_floatMatrix_Pt Dsp_SubMatrix();
 	int	done;
 
 

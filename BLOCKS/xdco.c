@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block produces samples of the outputs every 1/fs seconds.  The dco behaves just	like an FM modulator.  The phase is updated	as theta=theta+lambda (integrates the input)	*
+This star produces samples of the outputs every 1/fs seconds.  The dco behaves just	like an FM modulator.  The phase is updated	as theta=theta+lambda (integrates the input)	*
 
 #endif
  

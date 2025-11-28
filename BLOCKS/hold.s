@@ -39,14 +39,14 @@ hold
 	Outputs:	y, the chosen samples of x
 	Parameters:     Number of samples to hold	
 ****************************************************************
-This block simulates a sample and hold circuit.  The lone parameter 
+This star simulates a sample and hold circuit.  The lone parameter 
 specifies the number of samples to hold the value. 
 Triggering is on the positive edge of the clock. 
 <NAME>
 hold
 </NAME>
 <DESCRIPTION>
-This block simulates a sample and hold circuit.  The lone parameter 
+This star simulates a sample and hold circuit.  The lone parameter 
 specifies the number of samples to hold the value. 
 Triggering is on the positive edge of the clock. 
 </DESCRIPTION>
@@ -65,7 +65,7 @@ Modified:		September 14, 1987
 
     
 <DESC_SHORT>
-This block simulates a sample and hold circuit.   
+This star simulates a sample and hold circuit.   
 </DESC_SHORT>
 
 <STATES>

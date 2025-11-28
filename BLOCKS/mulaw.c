@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block implements a mulaw quantizer
+This star implements a mulaw quantizer
 
 #endif
  
@@ -82,6 +82,7 @@ mulaw
 
 	int	quant;
 	float	tmp;
+	int mulawq(int xx,int flag);
 
 
 switch (run_state) {

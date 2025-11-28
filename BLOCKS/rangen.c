@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block generates  random samples. 
+This star generates  random samples. 
 
 #endif
  

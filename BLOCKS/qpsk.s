@@ -35,14 +35,14 @@ qpsk
 				qpsk
  *********************************************************************
 Description:
-This block inputs data and ouputs the coordinates based on qpsk.
+This star inputs data and ouputs the coordinates based on qpsk.
 It produces an in phase and quadrature component.
 Not very efficient but illustrative.
 <NAME>
 qpsk
 </NAME>
 <DESCRIPTION>
-This block inputs data and ouputs the coordinates based on qpsk.
+This star inputs data and ouputs the coordinates based on qpsk.
 It produces an in phase and quadrature component.
 Not very efficient but illustrative.
 </DESCRIPTION>
@@ -57,7 +57,7 @@ Date: Dec 14, 2000
 
    
 <DESC_SHORT>
-This block inputs data and ouputs the coordinates based on qpsk. It produces an in phase and quadrature component.
+This star inputs data and ouputs the coordinates based on qpsk. It produces an in phase and quadrature component.
 </DESC_SHORT>
 
 <STATES>

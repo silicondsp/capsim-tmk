@@ -41,7 +41,7 @@ mulaw
  *									*
  *	outputs:	out, the filtered signal			*
  *									*
- *	description:	This block implements a mulaw quantizer          *
+ *	description:	This star implements a mulaw quantizer          *
  *									*
  *									*
  *			written by Sasan Ardalan                        *
@@ -50,7 +50,7 @@ mulaw
 mulaw
 </NAME>
 <DESCRIPTION>
-This block implements a mulaw quantizer
+This star implements a mulaw quantizer
 </DESCRIPTION>
 <PROGRAMMERS>
 Sasan Ardalan 
@@ -61,7 +61,7 @@ Sasan Ardalan
 </COMMENTS> 
 
 <DESC_SHORT>
-This block implements a mulaw quantizer
+This star implements a mulaw quantizer
 </DESC_SHORT>
 
 
@@ -69,6 +69,7 @@ This block implements a mulaw quantizer
 
 	int	quant;
 	float	tmp;
+	int mulawq(int xx,int flag);
 
 </DECLARATIONS> 
 

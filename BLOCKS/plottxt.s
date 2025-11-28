@@ -42,7 +42,7 @@
 *************************************************************************
 This routine will produce a set of plots from an arbitrary number of input
 channels.  Optionally, the input channel data can 'flow through' to the
-correspondingly numbered output channel.  This is useful if this block is
+correspondingly numbered output channel.  This is useful if this star is
 to be placed in line in a simulation (e.g. probe).
 The first parameter represents the number of points plotted from each channel.
 EVERY TIME this number of points is input, a new set of plots will be generated.
@@ -69,6 +69,11 @@ Modified: Sasan Ardalan, Added Dynamic Capability
 Plot probe.
 </DESC_SHORT>
 
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
 
 <DEFINES> 
 

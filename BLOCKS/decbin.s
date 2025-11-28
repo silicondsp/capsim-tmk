@@ -39,7 +39,7 @@ decbin
 decbin
 </NAME>
 <DESCRIPTION>
-This block converts the input stream into a binary stream of
+This star converts the input stream into a binary stream of
 "1"s and "0". If the input is >0 a "1" is output.
 Auto fanout is supported.
 </DESCRIPTION>
@@ -51,7 +51,7 @@ Auto fanout is supported.
 </COMMENTS> 
 
 <DESC_SHORT>
-This block converts the input stream into a binary stream of "1"s and "0". If the input is >0 a "1" is output.
+This star converts the input stream into a binary stream of "1"s and "0". If the input is >0 a "1" is output.
 </DESC_SHORT>
    
 

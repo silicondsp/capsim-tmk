@@ -34,19 +34,19 @@ cxaddnoise
 /**********************************************************************
 		cxaddnoise.s 	
 ************************************************************************
-This block adds white gaussian noise to the input data stream.
+This star adds white gaussian noise to the input data stream.
 Param. 1 (float) sets the power of the added noise and should be >= 0. 
 Param. 2 (int) sets a seed for the random number generator.  Random
-sequences can be unique and repeatable for each instance of this block.
+sequences can be unique and repeatable for each instance of this star.
 Modified: August 30, 2001 Sasan Ardalan, Complex Add Noise
 <NAME>
 cxaddnoise
 </NAME>
 <DESCRIPTION>
-This block adds white gaussian noise to the input data stream.
+This star adds white gaussian noise to the input data stream.
 Param. 1 (float) sets the power of the added noise and should be >= 0. 
 Param. 2 (int) sets a seed for the random number generator.  Random
-sequences can be unique and repeatable for each instance of this block.
+sequences can be unique and repeatable for each instance of this star.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: 	L. James Faber
@@ -60,7 +60,7 @@ Mods:		ljfaber, 12/87
 </COMMENTS> 
 
 <DESC_SHORT>
-This block adds white gaussian noise to the input complex data stream.
+This star adds white gaussian noise to the input complex data stream.
 </DESC_SHORT>
 
 <INCLUDES>

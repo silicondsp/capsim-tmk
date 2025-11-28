@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a block.
+This star does nothing, simply puts its input samples on its output buffer. It is useful as a temporary substitute for a star.
 
 #endif
  

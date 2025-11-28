@@ -32,12 +32,8 @@ img_sar_create
 <![CDATA[ 
 
 /************************************************************************
- * For technical papers and updates visit http://www.ccdsp.org										
+ *									
  *	
- ************************************************************************/ 
- ]]>
-</COMMENTS> 
-
 <NAME>
 img_sar_create
 </NAME>
@@ -47,9 +43,10 @@ Create SAR image from parameters.
 <PROGRAMMERS>
 Sasan Ardalan 1990
 </PROGRAMMERS>
- 
+ ************************************************************************/
 
-
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Create SAR image from parameters.
@@ -141,6 +138,7 @@ Create SAR image from parameters.
 	float a,b,c;
 	float rx;
 	image_t		img;
+	int CsInfo(char *string);
 
 </DECLARATIONS> 
 

@@ -39,7 +39,7 @@ which is named as a parameter.  If the file name is set to "stdout",
 or "stderr" the output goes to the terminal.
 - A sample from each input is printed in columns on a single line.
 	If printing to stdout, these are labeled with signal names.
-- The printing function can be disabled without removing the block,
+- The printing function can be disabled without removing the star,
 	via a control parameter.
 - Data "flow-through" is implemented: if any outputs are connected,
 	their values come from the correspondingly numbered input.
@@ -54,7 +54,7 @@ which is named as a parameter.  If the file name is set to "stdout",
 or "stderr" the output goes to the terminal.
 - A sample from each input is printed in columns on a single line.
 	If printing to stdout, these are labeled with signal names.
-- The printing function can be disabled without removing the block,
+- The printing function can be disabled without removing the star,
 	via a control parameter.
 - Data "flow-through" is implemented: if any outputs are connected,
 	their values come from the correspondingly numbered input.
@@ -72,6 +72,13 @@ Programmer:  L.J.Faber
 <DESC_SHORT>
 Prints samples from an arbitrary number of input buffers to a file, which is named as a parameter.
 </DESC_SHORT>
+
+
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
 
 
 <DEFINES> 

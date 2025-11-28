@@ -49,6 +49,10 @@ Stores image in a file.
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 
@@ -95,7 +99,6 @@ primage
  
 
 	int i,j,k;
-	FILE *fopen();
 
 
 switch (run_state) {

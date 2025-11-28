@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block absorbs data from an arbitrary number of input buffers.
+This star absorbs data from an arbitrary number of input buffers.
 
 #endif
  

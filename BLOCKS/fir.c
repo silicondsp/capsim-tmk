@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block outputs a weighted sum of delayed input data.
+This star outputs a weighted sum of delayed input data.
 
 #endif
  

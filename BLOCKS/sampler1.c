@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates a sampler circuit.  Triggering is on the positive edge of the clock. 
+This star simulates a sampler circuit.  Triggering is on the positive edge of the clock. 
 
 #endif
  
@@ -47,6 +47,10 @@ This block simulates a sampler circuit.  Triggering is on the positive edge of t
 #include <capsim.h>
 #include <stars.h>
 
+
+
+ 
+#include <string.h>
 
 
 /*

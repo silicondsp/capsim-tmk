@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block finds the magnitude of a complex data stream.
+This star finds the magnitude of a complex data stream.
 
 #endif
  

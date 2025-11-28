@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block convolves its input signal with an impulse response (from file) to generate the output signal.
+This star convolves its input signal with an impulse response (from file) to generate the output signal.
 
 #endif
  

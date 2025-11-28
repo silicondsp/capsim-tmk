@@ -49,6 +49,10 @@ Read a ASCII image. Read the image and output a single image sample.
 
 
 
+ 
+#include <string.h>
+
+
 /*
  *           STATES STRUCTURE 
  */ 
@@ -100,6 +104,7 @@ imgrdasc
 	float x;
 	int  n;
 	image_t	img;
+	int CsInfo(char *string);
 
 
 switch (run_state) {

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
+This star convolves the input samples with the impulse response (finite duration, FIR ) given in a file. 
 
 #endif
  
@@ -112,7 +112,6 @@ convolve
    	int j;
 	float tmp1,tmp2;
         float sum;
-	FILE *fopen();
 	FILE *imp_F;
 
 

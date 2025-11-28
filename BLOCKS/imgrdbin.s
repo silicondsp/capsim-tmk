@@ -69,6 +69,7 @@ ead a binary image. On each visit a row is read from file. An image sample is ou
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 ]]>
 </INCLUDES> 

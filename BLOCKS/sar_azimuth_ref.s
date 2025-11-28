@@ -34,24 +34,19 @@
  * 
  *									
  *	
-  ************************************************************************/
-
-]]>
-</COMMENTS> 
-
-
  <NAME>
 sar_azimuth_ref
 </NAME>
-
 <DESCRIPTION>
 Generates azimuth reference for SAR image processing
 </DESCRIPTION>
-
 <PROGRAMMERS>
 Sasan Ardalan 1990
 </PROGRAMMERS>								
+ ************************************************************************/
 
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Generates azimuth reference for SAR image processing
@@ -69,9 +64,8 @@ Generates azimuth reference for SAR image processing
 
 <DEFINES> 
 
-#define  PI  3.1415926535898
-#define C 299792458.00
-
+#define  PI  3.1415926
+#define C 300000000.0
 
 </DEFINES> 
 
@@ -168,6 +162,7 @@ Generates azimuth reference for SAR image processing
 	int order,pts;
 	cap_fft_cpx x,y;
 	float fmax,fmin;
+	int CsInfo(char *string);
 
 </DECLARATIONS> 
 

@@ -102,32 +102,32 @@ Writes  samples from an arbitrary number of input buffers to an AIFF file, which
 		<NAME>wordSize</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>totalSamples</NAME>
 		<VALUE>0</VALUE>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>numberFrames</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>formSizeOffset</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>formBaseSize</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>numberFramesOffset</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>sndSizeOffset</NAME>
 	</STATE>
 	<STATE>
-		<TYPE>long</TYPE>
+		<TYPE>LONG</TYPE>
 		<NAME>samplesOffset</NAME>
 	</STATE>
 </STATES>
@@ -140,13 +140,10 @@ Writes  samples from an arbitrary number of input buffers to an AIFF file, which
         long int        j;
         char buffer[100];
         unsigned char   *samples_P;
-        int IIP_WriteAIFF(char *fileName1,float	*x1_P,float	*y1_P,int npts1,int bits1,
-			float samplingRate1,int numberChannelsIn1,
-			float scale1,float	constant1,float	 range1,int autoRange1,
-			iip_MarkerHdr_Pt	hdr1_P,int writeHeaderFlag1,
-			unsigned long *formSizeOffset1_P,unsigned long *formBaseSize1_P,
-			unsigned long *numberFramesOffset1_P,
-			unsigned long *sndSizeOffset1_P,unsigned long *samplesOffset1_P,float	**multiChannel1_PP);
+       
+			
+			
+			
 
 
 </DECLARATIONS> 
@@ -240,7 +237,7 @@ wordSize <<= bits-1;
  +++++++++++++++++++++++++++++++++++++++++++++++++++++
  *  AIFC File Creation
  */
-if(IIP_WriteAIFF((char*)fileName,NULL,NULL,NULL,(int)bits,
+if(IIP_WriteAIFF((char*)fileName,NULL,NULL,(int)NULL,(int)bits,
                         samplingRate,(int)1,
                         scale,dcOffset,range,0,
                         NULL,1,

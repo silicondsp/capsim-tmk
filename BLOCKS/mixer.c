@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-  This block takes two inputs and produces their product.	
+  This star takes two inputs and produces their product.	
 
 #endif
  

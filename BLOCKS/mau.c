@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates an Ethernet media access unit (MAU or transceiver)
+This star simulates an Ethernet media access unit (MAU or transceiver)
 
 #endif
  
@@ -129,7 +129,6 @@ mau
 	int	i;
 	int	numberSamples;
 	float	z;
-	double fabs();
 	float	txData;
 
 

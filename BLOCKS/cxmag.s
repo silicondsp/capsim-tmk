@@ -39,14 +39,14 @@ cxmag
 	Outputs:	y, the magnitude
 	Parameters:	none
 ****************************************************************
-This block finds the magnitude of a complex data stream.  Each complex 
+This star finds the magnitude of a complex data stream.  Each complex 
 sample is assumed to be composed of a real sample followed by 
 an imaginary sample.
 <NAME>
 cxmag
 </NAME>
 <DESCRIPTION>
-This block finds the magnitude of a complex data stream.  Each complex 
+This star finds the magnitude of a complex data stream.  Each complex 
 sample is assumed to be composed of a real sample followed by 
 an imaginary sample.
 </DESCRIPTION>
@@ -61,7 +61,7 @@ Modified:	April, 1988
 </COMMENTS> 
 
 <DESC_SHORT>
-This block finds the magnitude of a complex data stream.
+This star finds the magnitude of a complex data stream.
 </DESC_SHORT>
 
 <INCLUDES>

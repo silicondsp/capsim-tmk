@@ -35,7 +35,7 @@ lms
 /***********************************************************************
                              lms()
 ************************************************************************
-This block implements a simple LMS adaptive filter.
+This star implements a simple LMS adaptive filter.
 Param:	
 	1 - (int) N  filter order.
 	2 - (float) LMS gain constant.
@@ -44,7 +44,7 @@ Param:
 lms
 </NAME>
 <DESCRIPTION>
-This block implements a simple LMS adaptive filter.
+This star implements a simple LMS adaptive filter.
 Param:	
 	1 - (int) N  filter order.
 	2 - (float) LMS gain constant.
@@ -60,7 +60,7 @@ Programmer: Adali, Tulay
 </COMMENTS> 
 
 <DESC_SHORT>
-This block implements a simple LMS adaptive filter.
+This star implements a simple LMS adaptive filter.
 </DESC_SHORT>
 
 

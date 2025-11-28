@@ -48,6 +48,10 @@ Scatter Probe
 #include <stars.h>
 
 
+
+ 
+#include <string.h>
+
  
 
 #define BLOCK_SIZE 1024

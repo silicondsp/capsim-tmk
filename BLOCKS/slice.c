@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates a decision element for a data receiver.
+This star simulates a decision element for a data receiver.
 
 #endif
  

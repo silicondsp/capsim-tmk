@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block adds all of its input samples using fixed point arithmetic. 
+This star adds all of its input samples using fixed point arithmetic. 
 
 #endif
  

@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block designs FIR low pass, high pass, band pass, and band stop  filters using the windowing method.
+This star designs FIR low pass, high pass, band pass, and band stop  filters using the windowing method.
 
 #endif
  

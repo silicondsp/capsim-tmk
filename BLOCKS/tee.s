@@ -35,12 +35,12 @@ tee
 /******************************************************************
 			tee() 
 *******************************************************************
-This block is a programmable tap-off for data lines.  It can be used
-for example as a connector to print or plot blocks.  It is inserted
-into a connection line between two blocks; input data flows to Output 0
+This star is a programmable tap-off for data lines.  It can be used
+for example as a connector to print or plot stars.  It is inserted
+into a connection line between two stars; input data flows to Output 0
 unchanged.  Output 1 is a modified version of the input:
 	Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => blockt from first
+		2: (int) index first sample; default => start from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 Example:        to printfile
@@ -54,12 +54,12 @@ data line ---->0|  tee  |0-----> data line
 tee
 </NAME>
 <DESCRIPTION>
-This block is a programmable tap-off for data lines.  It can be used
-for example as a connector to print or plot blocks.  It is inserted
-into a connection line between two blocks; input data flows to Output 0
+This star is a programmable tap-off for data lines.  It can be used
+for example as a connector to print or plot stars.  It is inserted
+into a connection line between two stars; input data flows to Output 0
 unchanged.  Output 1 is a modified version of the input:
 	Parameter 1: (int) number samples to output; default => all
-		2: (int) index first sample; default => blockt from first
+		2: (int) index first sample; default => start from first
 		3: (float) gain; default => unity gain
 		4: (float) dc offset; default => no offset
 Example:        to printfile
@@ -82,7 +82,7 @@ Modified:
 
     
 <DESC_SHORT>
-This block is a programmable tap-off for data lines.
+This star is a programmable tap-off for data lines.
 </DESC_SHORT>
 
 <STATES>
@@ -115,7 +115,7 @@ This block is a programmable tap-off for data lines.
 	<VALUE>30000</VALUE>
 </PARAM>
 <PARAM>
-	<DEF>First sample to blockt from</DEF>
+	<DEF>First sample to start from</DEF>
 	<TYPE>int</TYPE>
 	<NAME>first</NAME>
 	<VALUE>0</VALUE>

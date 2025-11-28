@@ -54,6 +54,14 @@ Date: November 4, 1990
 ]]>
 </COMMENTS> 
 
+<INCLUDES>
+<![CDATA[ 
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+]]>
+</INCLUDES> 
+
       
 <DESC_SHORT>
 Read a binary image.

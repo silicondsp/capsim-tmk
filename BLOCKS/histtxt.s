@@ -33,7 +33,7 @@
 ***********************************************************************
 	inputs:		in, the signal of interest
 	outputs:	none
-	parameters:	float blockt, the blockt of the leftmost bin
+	parameters:	float start, the start of the leftmost bin
 			float stop, the end of the rightmost bin
 			int numberOfBins
 			file file_spec, the name of the output file
@@ -48,7 +48,7 @@ This program computes a histogram of the received data.  For a large no.
 of data points this distribution should approach the probability dist. of
 the signal . Any samples outside the range are put in the appropriate outer-
 most bin.
--Parameter one is the blockting point for the leftmost bin
+-Parameter one is the starting point for the leftmost bin
 -Parameter two is the ending point for the rightmost bin
 -Parameter three is the number of bins (less than 2048)
 -Parameter four is the filename for the output
@@ -64,8 +64,7 @@ Modified:	June 18, 1990 Sasan H. Ardalan
 
 <INCLUDES>
 <![CDATA[ 
-
-
+#include <string.h>
 ]]>
 </INCLUDES> 
 
@@ -145,7 +144,7 @@ Modified:	June 18, 1990 Sasan H. Ardalan
 <PARAM>
 	<DEF>Starting point of left most bin</DEF>
 	<TYPE>float</TYPE>
-	<NAME>blockt</NAME>
+	<NAME>start</NAME>
 	<VALUE>-5.0</VALUE>
 </PARAM>
 <PARAM>
@@ -230,7 +229,7 @@ if((obufs = NO_OUTPUT_BUFFERS()) > ibufs) {
         fprintf(stderr,"hist: too many outputs connected\n");
         return(3);
 }
-binWidth=(stop-blockt)/((float)numberOfBins);
+binWidth=(stop-start)/((float)numberOfBins);
 if(numberOfBins>512 || binWidth<0.)return(1);
 if(control) {
 	bin = (float *) malloc(numberOfBins * sizeof(float));  
@@ -243,7 +242,7 @@ if(control) {
 }
 for(i=0;i<numberOfBins;i++) {
 	bin[i]=0.;
-	xbin[i]= (float)i*binWidth + blockt + binWidth/2.;
+	xbin[i]= (float)i*binWidth + start + binWidth/2.;
 }
 numberOfSamples=0;
 switch(bufferType) {
@@ -293,7 +292,7 @@ for(ii=MIN_AVAIL();ii>0;--ii) {
                 for(i=0; i<heightImage; i++)
                    for(jj=0; jj<widthImage; jj++) {
 			x=img.image_PP[i][jj];
-			x=(x-blockt)/binWidth;
+			x=(x-start)/binWidth;
 		        j=(int)x;
                         if(j<0)
                             bin[0] = bin[0] +1.;
@@ -309,7 +308,7 @@ for(ii=MIN_AVAIL();ii>0;--ii) {
 	     if(++totalCount > skip && control ) {
 		if(total == npts) continue;
 		x=INF(0,0);
-		x=(x-blockt)/binWidth;
+		x=(x-start)/binWidth;
 		j=(int)x;
 		if(j<0)
 			bin[0] = bin[0] +1.;
@@ -349,7 +348,7 @@ sprintf(title,"Histogram %s",SNAME(0));
 if(strcmp(file_spec,"none")==0)return(0);
 histo_F = fopen(file_spec,"w");
 for(i=0;i<numberOfBins;i++)
-	fprintf(histo_F,"%f  %f\n",blockt+binWidth/2.+(float)i*binWidth,
+	fprintf(histo_F,"%f  %f\n",start+binWidth/2.+(float)i*binWidth,
 bin[i]/(float)total);
 fclose(histo_F);
 }

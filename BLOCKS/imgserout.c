@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inputs an image and outputs it a row at a time. 
+This star inputs an image and outputs it a row at a time. 
 
 #endif
  

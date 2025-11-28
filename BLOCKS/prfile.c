@@ -48,6 +48,10 @@ Prints samples from an arbitrary number of input buffers to a file, which is nam
 #include <stars.h>
 
 
+
+ 
+#include <string.h>
+
  
 
 #define FLOAT_BUFFER 0

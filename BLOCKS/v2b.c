@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block converts a byte input vector to a digital stream.
+This star converts a byte input vector to a digital stream.
 
 #endif
  

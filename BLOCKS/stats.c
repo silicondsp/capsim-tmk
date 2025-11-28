@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
+This star calculates the statistics of the incoming signal.  The parameter is a filename for storage of the results.
 
 #endif
  
@@ -50,7 +50,7 @@ This block calculates the statistics of the incoming signal.  The parameter is a
 
 
  
-
+#include <string.h>
 #include <math.h>
 #include <stdio.h>
 #include <TCL/tcl.h>
@@ -117,7 +117,6 @@ stats
 	float mu;	/* mean = sum_x/count			*/
 	float var;	/* variance = (sum_x2/count - mu**2)	*/
 	float sigma;	/* std dev  = square root of variance	*/
-	double sqrt();
 	char theVar[100];
 	char theName[100];
 #ifdef TCL_SUPPORT

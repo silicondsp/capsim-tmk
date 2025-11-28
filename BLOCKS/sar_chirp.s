@@ -33,26 +33,20 @@ sar_chirp
 
 /************************************************************************
  *									
- *
- 
-  ************************************************************************/
-
-]]>
-</COMMENTS> 
-
-	
-<NAME>
+ *	
+ <NAME>
 sar_chirp
 </NAME>
-
 <DESCRIPTION>
 Generate chirp for SAR
 </DESCRIPTION>
-
 <PROGRAMMERS>
 Sasan Ardalan 1990
 </PROGRAMMERS>								
+ ************************************************************************/
 
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Generate chirp for SAR
@@ -70,7 +64,7 @@ Generate chirp for SAR
 <DEFINES> 
 
 #define  PI  3.1415926
-#define C 299792458.00
+#define C 300000000.0
 
 </DEFINES> 
 

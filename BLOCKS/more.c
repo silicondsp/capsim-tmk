@@ -82,7 +82,6 @@ more
  
 
 	int buffer_no,no_samples;
-	FILE *popen();
 
 
 switch (run_state) {

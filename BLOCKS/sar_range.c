@@ -33,8 +33,6 @@ Generate SAR range reference
  
 #ifdef PROGRAMMERS
 
-Sasan Ardalan
-
 #endif
 
 
@@ -58,7 +56,7 @@ Sasan Ardalan
 
  
 
-#define  PI  3.1415926535898
+#define  PI  3.1415926
 
 
 /*

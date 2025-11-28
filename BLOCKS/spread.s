@@ -36,18 +36,18 @@ spread
                            spread()
 ***********************************************************************
 Description:
-This block inputs data  and spreads it with a sequence from a file.
+This star inputs data  and spreads it with a sequence from a file.
 The parameters are the file containing the spreading values and the number of
 chips per bit.
-This block expects the input data to be in the form of "1"s and "0".
+This star expects the input data to be in the form of "1"s and "0".
 <NAME>
 spread
 </NAME>
 <DESCRIPTION>
-This block inputs data  and spreads it with a sequence from a file.
+This star inputs data  and spreads it with a sequence from a file.
 The parameters are the file containing the spreading values and the number of
 chips per bit.
-This block expects the input data to be in the form of "1"s and "0".
+This star expects the input data to be in the form of "1"s and "0".
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: Sasan Ardalan, Ali Sadri 
@@ -59,7 +59,7 @@ Date: March 20, 2002 SHA
 </COMMENTS> 
 
 <DESC_SHORT>
-This block inputs data  and spreads it with a sequence from a file.
+This star inputs data  and spreads it with a sequence from a file.
 </DESC_SHORT>
 
 

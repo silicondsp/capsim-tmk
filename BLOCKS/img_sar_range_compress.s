@@ -28,27 +28,19 @@
 <![CDATA[ 
 
 /************************************************************************
-
-For technical papers and updates visit http://www.ccdsp.org
- ************************************************************************/
-]]>
-</COMMENTS> 
-
-
 <NAME>
 img_sar_range_compress
 </NAME>
-
 <DESCRIPTION>
 Compress SAR image in range
 </DESCRIPTION>
-
 <PROGRAMMERS>
 Sasan Ardalan 1990
 </PROGRAMMERS> 
+ ************************************************************************/
 
-
-
+]]>
+</COMMENTS> 
 
 <DESC_SHORT>
 Compress SAR image in range
@@ -67,7 +59,7 @@ Compress SAR image in range
 <DEFINES> 
 
 #define  PI  3.1415926535898
-#define C 299792458.00
+#define C 300000000.0
 
 </DEFINES> 
 
@@ -173,6 +165,7 @@ Compress SAR image in range
 	int order,pts;
 	cap_fft_cpx x,y;
 	float fmax,fmin;
+	int CsInfo(char *string);
 
 </DECLARATIONS> 
 
@@ -496,7 +489,7 @@ range_P[j].im=ref_P[j].im;
 	      * Copy into output matrix and prescale to 0--255
 		  */
          for(j=0; j<rangeFFTLength; j++) {
-		    a=-range_P[j].r;
+		    a=range_P[j].r;
 			if(fmax < a) fmax=a;
 			if(fmin >a ) fmin=a;
 	        mat_PP[i][j]=a;
@@ -508,10 +501,10 @@ range_P[j].im=ref_P[j].im;
 	  
          for(j=0; j<rangeFFTLength/2; j++) {
 		    
-	        mat_PP[i][2*j]=-range_P[j].r;
+	        mat_PP[i][2*j]=range_P[j].r;
 			mat_PP[i][2*j+1]=range_P[j].i;	
 
-		    a= -range_P[j].r;
+		    a=range_P[j].r;
 			if(fmax < a) fmax=a;
 			if(fmin >a ) fmin=a;
 

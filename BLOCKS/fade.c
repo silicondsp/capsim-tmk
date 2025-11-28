@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block models multipath fading channels for mobile radio applications.
+This star models multipath fading channels for mobile radio applications.
 
 #endif
  
@@ -135,6 +135,8 @@ fade
 	float env;
 	float tsin,tcos;
 	int	samples;
+	void cxfft(float *x,int *mfft);
+	void cxifft(float *x,int *mfft);
 
 
 switch (run_state) {

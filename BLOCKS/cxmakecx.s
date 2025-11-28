@@ -39,7 +39,7 @@ cxmakecx
 	Outputs:	the complex channel	
 	Parameters: 	None
 ****************************************************************
-This block creates a complex buffer from one or two input buffers. 
+This star creates a complex buffer from one or two input buffers. 
 If one input buffer(buffer 0) is connected, it is assumed to be the real part. 
 The imaginary part of the complex output is set to zero.
 If two input channels exist then the second channel (buffer 1) is assumed to be
@@ -48,7 +48,7 @@ the imaginary part of the complex output sample.
 cxmakecx
 </NAME>
 <DESCRIPTION>
-This block creates a complex buffer from one or two input buffers. 
+This star creates a complex buffer from one or two input buffers. 
 If one input buffer(buffer 0) is connected, it is assumed to be the real part. 
 The imaginary part of the complex output is set to zero.
 If two input channels exist then the second channel (buffer 1) is assumed to be
@@ -64,7 +64,7 @@ Date:		September 4, 1991
 </COMMENTS> 
 
 <DESC_SHORT>
-This block creates a complex buffer from one or two input buffers. 
+This star creates a complex buffer from one or two input buffers. 
 </DESC_SHORT>
 
 

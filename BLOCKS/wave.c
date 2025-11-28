@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block simulates a wave generator.  
+This star simulates a wave generator.  
 
 #endif
  

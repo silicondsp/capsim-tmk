@@ -35,13 +35,13 @@ arprocess
 /**********************************************************************
 			arprocess()
 ***********************************************************************
-This block generates a selectable number of samples from an AR process,
+This star generates a selectable number of samples from an AR process,
 represented as an IIR filter driven by Gaussian noise.
 The order of the process, and the weighting values can be selected,
 via array parameter 2.
 Maximum order is 10 (since this is max array size).
 Parameter 3 selects the variance of the gaussian driving noise.
-This block supports auto-fanout.
+This star supports auto-fanout.
 CONTROL PARAMETERS:
 	num_of_samples     = total number of samples to output.
 	pace_rate          = multiplies the number of samples received 
@@ -53,15 +53,15 @@ CONTROL PARAMETERS:
 CONTROL DESCRIPTION:
 If the pace input is not connected:
       The num_of_samples parameter sets the maximum number of samples
-	that the block will output. If num_of_samples < 0, an indefinite
+	that the star will output. If num_of_samples < 0, an indefinite
 	number of samples can be output.
-      The block will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
+      The star will output a maximum of NUMBER_SAMPLES_PER_VISIT on each call.
 If the pace input is connected:
       The num_of_samples parameter sets the maximum number of samples
-        that the block will output. If num_samples_out < 0, an infinite
+        that the star will output. If num_samples_out < 0, an infinite
 	number of samples can be output.
       The pace input paces the number of output samples on each call.
-      At each call of the block all samples are read from the pace input
+      At each call of the star all samples are read from the pace input
 	and a running total of how many there have been is kept.
       An output_target  is computed at each pass = pace_input_total *
 	pace_rate. If pace_rate < 0, the absolute value is used.
@@ -81,13 +81,13 @@ arprocess
 /**********************************************************************
 			arprocess()
 ***********************************************************************
-This block generates a selectable number of samples from an AR process,
+This star generates a selectable number of samples from an AR process,
 represented as an IIR filter driven by Gaussian noise.
 The order of the process, and the weighting values can be selected,
 via array parameter 2.
 Maximum order is 10 (since this is max array size).
 Parameter 3 selects the variance of the gaussian driving noise.
-This block supports auto-fanout.
+This star supports auto-fanout.
 </DESCRIPTION>
 <PROGRAMMERS>
 Programmer: L.J. Faber
@@ -98,7 +98,7 @@ Date: April, 1988.
 ]]>
 </COMMENTS> 
 <DESC_SHORT>
-This block generates a selectable number of samples from an AR process represented as an IIR filter driven by Gaussian noise
+This star generates a selectable number of samples from an AR process represented as an IIR filter driven by Gaussian noise
 </DESC_SHORT>
 
 <INCLUDES>

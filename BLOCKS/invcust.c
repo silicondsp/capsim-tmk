@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block generates  inventory customers. 
+This star generates  inventory customers. 
 
 #endif
  

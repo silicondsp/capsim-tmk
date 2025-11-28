@@ -27,7 +27,7 @@
  
 #ifdef SHORT_DESCRIPTION
 
-This block inverts  the incoming data stream and multiplies by  the parameter coefficient after inversion , and outputs the resulting data values.
+This star inverts  the incoming data stream and multiplies by  the parameter coefficient after inversion , and outputs the resulting data values.
 
 #endif
  

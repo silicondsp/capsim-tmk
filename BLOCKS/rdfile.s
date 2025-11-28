@@ -44,9 +44,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader read_file.s
+star Reader read_file.s
 param default
-block Reader read_file.s
+star Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 <NAME>
@@ -63,9 +63,9 @@ The parameters are:
 	file_name = name of file to read from, defaults to "stdin"
 Typical usage:
 param file input_file
-block Reader read_file.s
+star Reader read_file.s
 param default
-block Reader read_file.s
+star Reader read_file.s
 (The first version will read from the file with name input_file,
 	while the second version will read from standard input)
 </DESCRIPTION>
@@ -81,10 +81,17 @@ Modified: April, 1988 L.J.Faber: add "auto-fanout"
 ]]>
 </COMMENTS> 
 
+<INCLUDES>
+<![CDATA[ 
+#include <string.h>
+]]>
+</INCLUDES> 
      
 <DESC_SHORT>
 This function performs the simple task of reading sample values in from a file, and then placing them on its output buffer. The file may have multiple sample values per line, which can be integer or float.
 </DESC_SHORT>
+
+
 
 <STATES>
 	<STATE>
@@ -106,7 +113,6 @@ This function performs the simple task of reading sample values in from a file, 
 
 	int i,j;
 	float x;
-	FILE *fopen();
 
 </DECLARATIONS> 
 
