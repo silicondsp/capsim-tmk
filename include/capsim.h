@@ -66,15 +66,6 @@
 #endif
 
 
-/*
- * type specifications
- */
-typedef char *STRING, *POINTER;
-
-typedef int (*PFI)();	/* PFI is pointer to function returning int */
-
-
-
 
 #ifndef FALSE
 #define FALSE 0
@@ -84,6 +75,16 @@ typedef int (*PFI)();	/* PFI is pointer to function returning int */
 #ifndef TRUE
 #define TRUE 1
 #endif
+
+/*
+ * type specifications
+ */
+typedef char *STRING, *POINTER;
+
+//typedef int (*PFI)();	/* PFI is pointer to function returning int */
+typedef int (*PFI)(int,char*);	/* PFI is pointer to function returning */
+typedef int (*PFI2)(int,char*);	/* PFI is pointer to function returning */
+typedef int (*PFI3)( char*);	/* PFI is pointer to function returning */
 
 
 /*
@@ -557,7 +558,7 @@ typedef struct block {
     /*
 	 * a pointer to the user STAR function code
 	 */
-        PFI function;
+        PFI2 function;
 
     /*
 	 * the name of the block (instance name)
@@ -730,7 +731,6 @@ KrnListElmt           *tail;
 
 extern char *krn_tclScriptFile;
 
-
 /*****************************************************************************
 *                                                                            *
 *  --------------------------- Public Interface ---------------------------  *
@@ -767,7 +767,6 @@ extern KrnList *krn_bufferPointerMemory;
 extern void KrnDestroy(void *data);
 extern void KrnDestroyBuffer(void *data);
 
-char *NameTree( block_Pt );
 
 
 
@@ -809,6 +808,84 @@ int KrnToplologyFileReader(char *filename);
 int KrnGetLine(char *line, int max, char *buffer, int *ptr_P,int bufferLength);
 void KrnModelConnectionOutput(int mt_index,int connectionIndex,char* name,char* type);
 void KrnModelConnectionInput(int mt_index,int connectionIndex,char* name,char* type);
+
+void KrnFreeParam(param_Pt *pp);
+float	KrnEvalParamExp(char	*expression);
+
+void PrInfoConnections(FILE *fp, block_Pt  pgalaxy);
+void PrInfoParams(FILE *fp, param_Pt param_AP[]);
+void PrInfoArgs(FILE *fp, block_Pt pgalaxy);
+void PrInfoList(FILE *fp, int mtype);
+
+
+void ErrorAlloc(char *string);
+int InitOne(block_Pt pblock);
+int MoveBlock(block_Pt pfirst,block_Pt psecond);
+void RemoveChildren(block_Pt pblock);
+int ApproveChanges(block_Pt pgalaxy, int print_flag);
+int DeleteBlock(block_Pt blk_P);
+void prinfo(FILE *fp, char *string);
+char *NameTree(block_Pt blk_P);
+int ClearChanges(block_Pt pgalaxy, int propagate_flag);
+void ErrorPrint(char *line, int code);
+ int LineParam(char *line);
+int LineChp(char*);
+int LineArg(char *line);
+int LineConnect(char *line);
+int LineDisConnect(char *line);
+int LineName(char *line);
+int LineInsert(char *line);
+int LineStar(char *line);
+int LineGalaxy(char *line);
+int LineReplace(char *line);
+int LineLoad(char *line);
+int LineStore(char *line);
+char *file_root(char *filename);
+void RemoveChildren(block_Pt pblock);
+void RemoveBlock(block_Pt pblock);
+int DeleteBlock(block_Pt blk_P);
+int LineRun(void);
+int BlockRename(block_Pt pgalaxy,block_Pt blk_P,char block_name[]);
+void prinfo(FILE *fp, char *string);
+void PrInfoAll(FILE *fp, block_Pt pgalaxy);
+void PrInfoBlock(FILE *fp, block_Pt pb);
+void PrInfoBlockCurrent();
+void PrInfoParams(FILE *fp, param_Pt param_AP[]);
+int LineParamName(char *line);
+int CsFileReader(char *filename);
+ void KrnStoreStack(block_Pt pblock);
+int strdex(char *string,char match);
+int StripSuffix(char *filename);
+void file_path(char *result, char *filename, int mode, char *path[]);
+int galaxy_define(int index);
+int KrnMakeContiguous(void );
+ void Krn_GetState(int	*numberBlks_P,int	*numberGalaxies_P,int	*maxBlkLevel_P,int	*depth_P);
+block_Pt FindBlock(block_Pt pgalaxy,char block_name[]);
+int FindOutput(block_Pt *p,int *o);
+void SetStarIn(star_Pt pstar,int input_no,POINTER pbuffer,POINTER signal_name);
+void SetStarOut(star_Pt  pstar,int output_no,POINTER  pbuffer);
+int CsCallUp(char	string[]);
+void yyerror(char *s);
+void execerror(char *s,char *t);
+ int KrnParamCount(param_Pt pp[]);
+int yyparse (void);
+int mtable_index(char *name, int type);
+int KrnVerifyParams(block_Pt pblock);
+ int KrnCreateModel(char *fileName );
+ int KrnParamCheck(param_Pt *pp1,param_Pt *pp2);
+int galaxy_define(int index);
+int string_com(char *string);
+block_Pt CreateUniverse();
+block_Pt CreateBlock(block_Pt pgalaxy);
+star_Pt CreateStar();
+void SysCalls();
+void KrnEqnInit(void);
+float    KrnEvalParamExp(char    *expression);
+int ConnectAllStars(block_Pt pgalaxy);
+int BufferActive();
+int BufferLength(buffer_Pt pbuffer);
+int CapsimInit(Tcl_Interp *interp) ;
+int Tcl_Invoke TCL_VARARGS_DEF(Tcl_Interp *, arg1);
 
 
 

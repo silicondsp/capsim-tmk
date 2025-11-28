@@ -56,7 +56,8 @@ typedef struct {
 	float** 	image_PP;
 } image_t, *image_Pt;
 
-POINTER BufferAdd(),BufferAccess();
+POINTER BufferAdd();
+POINTER BufferAccess(buffer_Pt pbuffer, int rd_flag, int delay);
 
 #define AVAIL(BUFFER_NO) \
 	BufferLength((buffer_Pt)star_P->inBuffer_P[BUFFER_NO])

@@ -3,7 +3,7 @@
 
 	Contains:	Definition of AIFF file format componentes
 
-	Copyright © Apple Computer, Inc. 1989-1991 
+	Copyright © Apple Computer, Inc. 1989-1991
 	All rights reserved
 
 	Additions by XCAD Corp.
@@ -19,6 +19,7 @@
 #define __AIFF__
 
 #define LONG_TYPE int
+#define LONG  int
 
 #define FVER	0x56465245
 #define SSND	0x5353444e
@@ -62,7 +63,7 @@
 #define	MACE3Type					'MAC3'
 #define	MACE6Type					'MAC6'
 
-typedef  unsigned LONG_TYPE				ID; 	 
+typedef  unsigned LONG_TYPE				ID;
 typedef	 short						MarkerIdType;
 
 typedef struct
@@ -223,4 +224,16 @@ typedef struct {
 
 
 extern iip_MarkerHdr_Pt IIPCreateMarkerHeader();
-extern  iip_Marker_Pt IIPMarkerGet();
+extern iip_Marker_t *IIPMarkerGet( MarkerIdType id, iip_MarkerHdr_t *hdr_P);
+extern  void IIPMarkerArrayFromList(iip_MarkerHdr_t *hdr_P,  int *numberMarkers_P,  Marker  **marker_PP);
+
+extern void IIPMarkerArrayFromList(iip_MarkerHdr_t *hdr_P,  int	*numberMarkers_P,  Marker	**marker_PP);
+extern void WriteSample( FILE	*fp, short bits, float	sample);
+extern int IIP_UpdateNumberFramesAIFF(FILE*	fp,int	bits,LONG	numberChannels,unsigned LONG numberFrames,unsigned LONG formSizeOffset,unsigned LONG formBaseSize,LONG numberFramesOffset,unsigned LONG sndSizeOffset,unsigned LONG samplesOffset);
+extern  int IIP_WriteAIFF(char *fileName,float	*x_P,float	*y_P,int npts,int bits,
+			float samplingRate,int numberChannelsIn,
+			float scale,float	constant,float	 range,int autoRange,
+			iip_MarkerHdr_Pt	hdr_P,int writeHeaderFlag,
+			unsigned LONG *formSizeOffset_P,unsigned LONG *formBaseSize_P,
+			unsigned LONG *numberFramesOffset_P,
+			unsigned LONG *sndSizeOffset_P,unsigned LONG *samplesOffset_P,float	**multiChannel_PP);

@@ -33,7 +33,7 @@
  */
 
  #include "cap_fft.h"
- 
+
  #define PI 3.14159265358979323846
 
 #define DSP_LPC_ORDER 256
@@ -111,7 +111,7 @@ typedef struct {
 //                double   re, im;
 //} complex;
 
- 
+
 
 typedef struct short_type {
         short   type;
@@ -267,11 +267,11 @@ void ccoef(float zzr[],float zzi[],float pzr[],float pzi[],int nz,int np,float z
 dsp_floatMatrix_Pt IIP_ReadTIFFMatrixText(char *tiffFile);
 int FIRDesign(float fc,float fl,float fh,float alphag,float dbripple,float twidth,float att,
  int ntapin,int windType,int filterType, char *fileNamePrefix);
- 
+
  doubleVector_t* Dsp_AllocateVector(int length);
- 
- 
- dsp_floatMatrix_Pt *Dsp_Spectrogram(doubleVector_t *vec_P,int windowLength,int overlap,int zeropad,float samplingRate,
+
+
+ dsp_floatMatrix_t   *Dsp_Spectrogram(doubleVector_t *vec_P,int windowLength,int overlap,int zeropad,float samplingRate,
 	int windowType,float threshold,int surfaceFlag,int imageFlag,int indBFlag,int fileFlag,char *fileName);
 
 

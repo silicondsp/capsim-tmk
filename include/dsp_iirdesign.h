@@ -44,7 +44,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define   PI   3.14159265
+//#define   PI   3.14159265
 #define   MTYPE     1                     /* Vertical menu            */
 #define   M_ROW     5                     /* Menu begins at 5th row   */
 #define   M_COL     15                    /* and 15th column          */
