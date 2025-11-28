@@ -1,4 +1,4 @@
 
-dummy2() { }
+void dummy2() { }
 
 
