@@ -24,12 +24,23 @@
 */
 
 
-
 #include  <math.h>
 #include "krn_eqn.h"
 #include "y.tab.h"
 
-extern double Log(),Log10(),Exp(),Sqrt(), Integer();
+
+
+Symbol *KrnEqnInstall( char *s, int     t, double       d);
+Symbol *KrnEqnLookup( char      *s);
+
+
+//extern double Log(),Log10(),Exp(),Sqrt(), Integer();
+double Log(double);
+double Log10(double);
+double Exp(double);
+double Sqrt(double);
+double Integer(double);
+
 
 static struct {
 	char *name;
@@ -45,7 +56,7 @@ static struct {
 
 static struct {
 	char 	*name;
-	double (*func)();
+	double (*func)(double);
 } builtins[]= {
 	"sin",	sin,
 	"cos",	cos,
@@ -59,7 +70,7 @@ static struct {
 	0,	0
 };
 
-KrnEqnInit()
+void KrnEqnInit(void)
 {
 
 	int i;
@@ -69,6 +80,6 @@ KrnEqnInit()
 		KrnEqnInstall(consts[i].name,VAR,consts[i].cval);
 	for(i=0; builtins[i].name; i++) {
 		s=KrnEqnInstall(builtins[i].name,BLTIN,0.0);
-		s->u.ptr = builtins[i].func;
+		s->u.ptr =(double (*)(void)) builtins[i].func;
 	}
 }

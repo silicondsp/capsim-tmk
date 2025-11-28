@@ -59,9 +59,9 @@ Date: October, 1988
 
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include "capsim.h"
 
-#define  TCL_SUPPORT
 
 
 #ifdef TCL_SUPPORT
@@ -132,22 +132,26 @@ extern int history_count;/* number of valid commands entered */
 
 /* External Function Declarations */
 /* command.c */
-extern string_com();
+//extern string_com();
 
 /* block.c */
-extern block_Pt CreateUniverse();
-extern block_Pt CreateBlock();
+//extern block_Pt CreateUniverse();
+//extern block_Pt CreateBlock();
 
 /* star.c */
-extern star_Pt CreateStar();
+//extern star_Pt CreateStar();
 
 /* prinfo.c */
-extern prinfo();
-extern ErrorPrint();
+//extern prinfo();
+//extern ErrorPrint();
 
 /* file.c */
-extern char *file_root();
-extern GalaxyDefine();
+//extern char *file_root();
+//extern GalaxyDefine();
+
+int sys_init();
+void line_reader();
+int KrnToplologyFileReader(char *fileName);
 
 /*
  * Buffer maximum segments and cell increment
@@ -183,13 +187,6 @@ buffer_P=data;
   int     dsp_port;
   int     dsp_outputValue;
 
-	char *krn_tclScriptFile;
-#ifdef TCL_SUPPORT
-        int tclSupport=1;
-	Tcl_Interp *krn_TCL_Interp=NULL;
-#else
-        int tclSupport=0;
-#endif
 
 /*********************************************************************
 
@@ -225,6 +222,13 @@ which don't change from run to run.  For example, it could contain
 aliases of common commands, or "path" statements to tell capsim where
 to look for stars and galaxies.
 */
+#ifdef TCL_SUPPORT
+
+ 	Tcl_Interp *krn_TCL_Interp=NULL;
+
+#endif
+char *krn_tclScriptFile;
+
 #if 1
 #ifdef EMBEDDED_ECOS
 int main(void)
@@ -248,6 +252,12 @@ int main(int argc,char **argv)
         char command[MAX_LINE];  /* a command sentence */
         char    strBuf[100];
         int count;                   /* Counter*/
+#ifdef TCL_SUPPORT
+        int tclSupport=1;
+//	Tcl_Interp *krn_TCL_Interp=NULL;
+#else
+        int tclSupport=0;
+#endif
 
 printf("Welcome to Capsim Text Mode Kernel (CapsimTMK)\n");
 printf("(c)1989-2017 Silicon DSP Corporation\n");
@@ -457,7 +467,7 @@ if (argc < 0) {
 
 
 /* initiallize all data structures */
-sys_init();
+ sys_init();
 
 /* print welcome message if in line mode */
 if(line_mode) {
@@ -553,7 +563,7 @@ Function inputs commands from standard input.
 A prompt is printed at each line.
 */
 
-line_reader()
+void line_reader()
 
 {
         int err;
@@ -588,7 +598,7 @@ while(fgets(line,MAX_LINE,stdin) != NULL) {
 Function defines the topology of a GALAXY read from a file.
 */
 
-KrnToplologyFileReader(char *fileName)
+int KrnToplologyFileReader(char *fileName)
 
 {
 
@@ -659,13 +669,13 @@ return(0);
 Function defines the topology of a GALAXY read from a file.
 */
 
-KrnToplologyFileReader(filename)
+int KrnToplologyFileReader(filename)
 
 	char *filename;
 {
 	int err;
 	int line_no = 0;
-	FILE *fp,*fopen();
+	FILE *fp ;
 	char line[MAX_LINE];
 	char string[MAX_LINE];
 	int lmode_save, gmode_save;
@@ -783,15 +793,14 @@ return(0);
 /*
  * These functions are used by the equation parser and evaluator
  */
-yyerror(s)
-char *s;
+void yyerror(char *s)
+
 {
         puts(s);
 }
 
-execerror(s,t)
-char *s;
-char *t;
+void execerror(char *s,char *t)
+
 {
         puts(s);
         puts(t);

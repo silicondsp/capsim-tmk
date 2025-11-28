@@ -30,6 +30,7 @@
 
 ***********************************************************************
 */
+#include <string.h>
 #include "capsim.h"
 
 /**********************************************************************
@@ -39,41 +40,42 @@
 ***********************************************************************
 */
 
-static alias_look(char *word);
+static int alias_look(char *word);
 
+int CsInfo(char *string);
 
 /* parameter.c */
-extern KrnStoreStack();
-extern LineParam();
-extern LineChp();
-extern LineArg();
+//extern KrnStoreStack();
+
+//extern LineChp();
+//extern LineArg();
 
 /* connect.c */
-extern LineConnect();
-extern LineDisConnect();
-extern LineName();
-extern LineInsert();
+//extern LineConnect();
+//extern LineDisConnect();
+//extern LineName();
+//extern LineInsert();
 
 
 
 /* star.c */
-extern LineStar();
-extern LineGalaxy();
-extern LineReplace();
+//extern LineStar();
+//extern LineGalaxy();
+//extern LineReplace();
 
 /* file.c */
-extern LineLoad();
-extern LineStore();
-extern char *file_root();
+//extern LineLoad();
+//extern LineStore();
+//xtern char *file_root();
 
 /* block.c */
-extern RemoveChildren();
-extern RemoveBlock();
-extern DeleteBlock();
-extern BlockRename();
+//extern RemoveChildren();
+//extern RemoveBlock();
+//extern DeleteBlock();
+//extern BlockRename();
 
 /* run.c */
-extern LineRun();
+//extern LineRun();
 #ifndef EMBEDDED_ECOS
 FILE *krn_bufferGrowth_F;
 #endif
@@ -94,11 +96,11 @@ extern int cs_arrow;
 #endif
 
 /* prinfo.c */
-extern prinfo();
-extern PrInfoAll();
-extern PrInfoBlock();
-extern PrInfoBlockCurrent();
-extern PrInfoParams();
+//extern prinfo();
+//extern PrInfoAll();
+//extern PrInfoBlock();
+//extern PrInfoBlockCurrent();
+//extern PrInfoParams();
 
 
 
@@ -135,17 +137,96 @@ extern char *pic_paths[];       /* graphics file paths */
 static char comm_history[MAX_HIST][MAX_LINE];		/* command history */
 int history_count = 0;
 
-extern	L_alias(), L_unalias(), L_path(), L_sh(),
-	L_exit(), L_quit(), L_run(),
-	L_star(), L_galaxy(), L_replace(), L_delete(), L_insert(),
-	L_connect(), L_disconnect(), L_name(),
-	L_load(), L_store(), L_remove(), L_new(),
-	L_param(), L_chp(), L_arg(),
-	L_up(), L_down(), L_back(), L_forward(), L_to(),
-	L_info(), L_display(), L_man(),L_fcommand(),L_rename(),L_inform(),
-	L_makecontig(),L_graphic(),L_setMaxSeg(),L_setCellInc(),L_state(),L_paramName()
-	;
+int L_state(char* );
+int L_makecontig(char * );
+int L_graphic(char* line);
+int L_inform(char* line);
+int L_sh(char *line);
+int L_path(char* line);
+int L_unalias(char* line);
+int L_alias( char *line);
+int L_man(char* line);
+int L_display(char* line);
+int L_info(char* );
+int L_rename(char* line);
 
+int L_disconnect(char* line);
+
+int L_exit(char* );
+
+int L_name(char* line);
+int L_connect(char* line);
+int L_insert(char* line);
+int L_replace(char* line);
+int L_galaxy(char* line);
+int L_star(char* line);
+int L_back(char* );
+int L_forward(char*  );
+int L_to(char* line);
+int L_up(char* );
+int L_down(char* );
+int L_new(char*  );
+int L_delete(char* );
+int L_remove(char*  );
+int L_store(char* line);
+int L_setCellInc(char *line);
+int  L_setMaxSeg(char* line);
+int L_fcommand(char* line);
+int L_load(char *line);
+int L_arg(char *line);
+int L_chp(char* param);
+int L_paramName(char *line);
+int L_param( char *line);
+int  L_run(char*);
+int  L_quit(char* );
+int string_com( char *string);
+int L_comm_lookup( char *string);
+
+
+#if 000
+int L_alias();
+int L_unalias();
+int L_path();
+int L_sh();
+int L_exit();
+int L_quit();
+int L_run();
+int L_star();
+int L_galaxy();
+int L_replace();
+int L_delete();
+int L_insert();
+int L_connect();
+int L_disconnect();
+int L_name();
+int L_load();
+int L_store();
+int L_remove();
+int L_new();
+int L_param();
+int L_chp();
+int L_arg();
+int L_up();
+int L_down();
+int L_back();
+int L_forward();
+int L_to();
+int L_info();
+int L_display();
+int L_man();
+int L_fcommand();
+int L_rename();
+int L_inform();
+int L_makecontig();
+int L_graphic();
+int L_setMaxSeg();
+int L_setCellInc();
+int L_state();
+int L_paramName();
+#endif
+
+
+#if 000
 static char *L_char_arr[] = {
 	/* This array MUST be in alphabetical order */
 	"<","alias","arg","back","block","chp","connect","delete",
@@ -169,6 +250,63 @@ static PFI L_comm_arr[] = {
 	L_replace, L_run, L_setCellInc,L_setMaxSeg,L_sh, L_state,L_store,
 	L_to, L_unalias, L_up,L_paramName
 	};
+#endif
+
+
+static char *L_char_arr[] = {
+	/* This array MUST be in alphabetical order */
+	"<","alias","arg","back","block","chp","connect","delete",
+	"disconnect","display","down","exit","forward",
+	"graphic","hblock","info","inform","insert","load",
+	"makecontig","man","name",
+	"new","param","path","quit","remove","rename","replace",
+	"run","setcellinc","setmaxseg","sh","state","store",
+	"to","unalias","up","parambyname",
+	""	/* final NULL needed! */
+	};
+
+static PFI3 L_comm_arr[] = {
+	/* This array MUST match the previous array ordering */
+	L_fcommand,
+        L_alias,
+        L_arg,
+        L_back,
+        L_star,
+        L_chp,
+        L_connect,
+	L_delete,
+	L_disconnect,
+        L_display,
+        L_down,
+        L_exit,
+        L_forward,
+	L_graphic,
+        L_galaxy,
+        L_info,
+        L_inform,
+        L_insert,
+        L_load,
+	L_makecontig,
+        L_man,
+        L_name,
+	L_new,
+        L_param,
+        L_path,
+        L_quit,
+        L_remove,
+        L_rename,
+	L_replace,
+        L_run,
+        L_setCellInc,
+        L_setMaxSeg,
+        L_sh,
+        L_state,
+        L_store,
+	L_to,
+        L_unalias,
+        L_up,
+        L_paramName
+	};
 
 
 /**********************************************************************
@@ -180,7 +318,7 @@ This function searches the command table to find the string.
 If it is not found, -1 is returned.
 */
 
-L_comm_lookup(string)
+int L_comm_lookup(string)
 	char *string;
 {
 	int index;
@@ -205,8 +343,8 @@ This command executes the command represented by specified string.
 The FIRST word is checked for an alias and expanded if necessary.
 */
 
-string_com(string)
-	char *string;
+int string_com(char *string)
+
 {
 	int i, index;
 	char *t;
@@ -296,7 +434,7 @@ This routine looks for an alias on the alias lists.
 It starts from the most recent alias.
 */
 
-static alias_look(char *word)
+static int alias_look(char *word)
 {
 	int i = 0;
 
@@ -322,7 +460,7 @@ return(-1);
 'exit' leaves unconditionally.
 */
 
-L_quit()
+int L_quit(char* x)
 {
 	block_Pt pgalaxy, ptemp;
 
@@ -335,7 +473,7 @@ if(!ApproveChanges(pgalaxy,line_mode))
 exit(0);
 }
 
-L_exit()
+int L_exit(char* x)
 {
 	exit(0);
 }
@@ -348,7 +486,7 @@ L_exit()
 ***********************************************************************
 This command runs a simulation.
 */
-L_run()
+int L_run(char* x)
 {
 int	status;
 /*
@@ -373,8 +511,8 @@ return(status);
 ***********************************************************************
 Set the parameters of the param stack.
 */
-L_param(line)
-	char *line;
+int L_param(char *line)
+
 {
 return(LineParam(line));
 }
@@ -387,8 +525,8 @@ return(LineParam(line));
 ***********************************************************************
 Set the parameters of the param stack.
 */
-L_paramName(line)
-	char *line;
+int L_paramName(char *line)
+
 {
 return(LineParamName(line));
 }
@@ -399,7 +537,7 @@ return(LineParamName(line));
 ***********************************************************************
 Change the parameters of the current block.
 */
-L_chp(param)
+int L_chp(param)
 	char *param;
 {
 return(LineChp(param));
@@ -414,7 +552,7 @@ return(LineChp(param));
 Enter a parameter spec for the current galaxy model.
 */
 
-L_arg(line)
+int L_arg(line)
 	char *line;
 {
 return(LineArg(line));
@@ -428,7 +566,7 @@ return(LineArg(line));
 ***********************************************************************
 This functions loads a topology file into the current galaxy
 */
-L_load(line)
+int L_load(line)
 	char *line;
 {
 
@@ -444,7 +582,7 @@ L_load(line)
 ***********************************************************************
 This functions reads capsim commands from a file
 */
-L_fcommand(line)
+int L_fcommand(line)
 	char *line;
 {
 char filename[100];
@@ -459,7 +597,7 @@ return(CsFileReader(filename));
 ***********************************************************************
 This functions sets the maximum segments
 */
-L_setMaxSeg(line)
+int L_setMaxSeg(line)
 	char *line;
 {
 sscanf(line,"%*s %d",&krn_maxMemSegments);
@@ -473,7 +611,7 @@ fprintf(stderr,"The maximum number of segments are now %d\n",krn_maxMemSegments)
 ***********************************************************************
 This functions sets the maximum segments
 */
-L_setCellInc(line)
+int L_setCellInc(line)
 	char *line;
 {
 sscanf(line,"%*s %d",&krn_numberSamples);
@@ -489,7 +627,7 @@ fprintf(stderr,"The cell increment is now  %d\n",krn_numberSamples);
 Writes the current galaxy topology to a topology file.
 Use either model table file, or user entered file name.
 */
-L_store(line)
+int L_store(line)
 	char *line;
 {
 return(LineStore(line));
@@ -503,7 +641,7 @@ return(LineStore(line));
 ***********************************************************************
 Remove the current block from the universe.
 */
-L_remove()
+int L_remove(char *x)
 {
 
 if(pb_current == NULL)
@@ -533,7 +671,7 @@ return(0);
 ***********************************************************************
 Remove the current block, but repair any connections.
 */
-L_delete()
+int L_delete(char *x)
 {
 
 if(pb_current == NULL)
@@ -563,7 +701,7 @@ return(0);
 ***********************************************************************
 Clear out the current galaxy (remove all its children)
 */
-L_new()
+int L_new(char *x)
 {
 	int i;
 
@@ -612,7 +750,7 @@ return(0);
 Move down one level.
 */
 
-L_down()
+int L_down(char *x)
 {
 
 if(pb_current == NULL) {
@@ -645,7 +783,7 @@ return(0);
 Move up one level.
 */
 
-L_up()
+int L_up(char *x)
 {
 
 if(pg_current->type == UTYPE)
@@ -683,8 +821,8 @@ For such compound patterns, interpretation is implemented until a
 conflict or non-match occurs.
 */
 
-L_to(line)
-	char *line;
+int L_to(char *line)
+
 {
 	block_Pt psave;
 	char string[MAX_LINE];
@@ -773,7 +911,7 @@ return(0);
 This routine moves the selected block forward one.
 */
 
-L_forward()
+int L_forward(char *x)
 {
 
 if(pb_current == NULL)
@@ -795,7 +933,7 @@ return(0);
 This routine moves the selected block back one.
 */
 
-L_back()
+int L_back(char *x)
 {
 
 if(pb_current == NULL)
@@ -817,7 +955,7 @@ return(0);
 Create a new star in the current galaxy.
 */
 
-L_star(line)
+int L_star(line)
 	char *line;
 {
 return(LineStar(line));
@@ -832,7 +970,7 @@ return(LineStar(line));
 Create a new galaxy at the current galaxy.
 */
 
-L_galaxy(line)
+int L_galaxy(line)
 	char *line;
 {
 return(LineGalaxy(line));
@@ -848,7 +986,7 @@ Directly replace current block with new model.
 Maintain all connections, parameters, etc.
 */
 
-L_replace(line)
+int L_replace(line)
 	char *line;
 {
 return(LineReplace(line));
@@ -863,7 +1001,7 @@ return(LineReplace(line));
 Insert current block before or after a specified block.
 */
 
-L_insert(line)
+int L_insert(line)
 	char *line;
 {
 return(LineInsert(line));
@@ -877,13 +1015,13 @@ return(LineInsert(line));
 ***********************************************************************
 Connect or disconnect two blocks.
 */
-L_connect(line)
+int L_connect(line)
 	char *line;
 {
 return(LineConnect(line));
 }
 
-L_disconnect(line)
+int L_disconnect(line)
 	char *line;
 {
 return(LineDisConnect(line));
@@ -898,7 +1036,7 @@ return(LineDisConnect(line));
 Name (or re-name) the connection signal between two blocks.
 */
 
-L_name(line)
+int L_name(line)
 	char *line;
 {
 return(LineName(line));
@@ -916,7 +1054,7 @@ return(LineName(line));
 Name (or re-name) the block.
 */
 
-L_rename(line)
+int L_rename(line)
 	char *line;
 {
 char blkName[NAME_LENGTH];
@@ -940,7 +1078,7 @@ This routine prints info about the selected block.
 It is the same as 'display' with no arguments.
 */
 
-L_info()
+int L_info(char *x)
 {
 	if(!line_mode) {
 		PrInfoBlock(NULL, pb_current);
@@ -963,7 +1101,7 @@ This routine displays information about the current block,
 or other options.
 */
 
-L_display(line)
+int  L_display(line)
 	char *line;
 {
 	char string[MAX_LINE];
@@ -1056,7 +1194,7 @@ Lets user review .s, .c, or .t files for either:
 If the files cannot be located, an error message is printed.
 */
 
-L_man(line)
+int L_man(line)
 	char *line;
 {
 	char string[MAX_LINE], result[MAX_LINE], command[MAX_LINE];
@@ -1158,7 +1296,7 @@ Note:	only first word(s) of a command can be aliased.
 	only one alias per shortword allowed.
 */
 
-L_alias(line)
+int L_alias(line)
 	char *line;
 {
 	char shortcomm[MAX_LINE], scratch[MAX_LINE];
@@ -1218,7 +1356,7 @@ return(0);
 Remove the alias for the specified command.
 */
 
-L_unalias(line)
+int L_unalias(line)
 	char *line;
 {
 	char word[MAX_LINE];
@@ -1251,7 +1389,7 @@ This routine adds a path to various path lists.
 If no new path is provided, the present paths are displayed.
 */
 
-L_path(line)
+int L_path(line)
 	char *line;
 {
 	char type[MAX_LINE], pathname[MAX_LINE];
@@ -1362,7 +1500,7 @@ return(0);
 Pass a command to the shell.
 */
 
-L_sh(line)
+int L_sh(line)
 	char *line;
 {
 	char string[MAX_LINE];
@@ -1387,7 +1525,7 @@ return(0);
 Display/Modify information about universe/galaxy
 */
 
-L_inform(line)
+int L_inform(line)
 	char *line;
 {
 char infoText[200];
@@ -1427,7 +1565,7 @@ return(0);
 Display/Modify  graphic options
 */
 
-L_graphic(line)
+int L_graphic(line)
 	char *line;
 {
 char graphicText[200];
@@ -1513,7 +1651,7 @@ return(0);
 ***********************************************************************
 Make all input and output buffers contiguous
 */
-L_makecontig()
+int L_makecontig(char *x)
 {
 return(KrnMakeContiguous());
 }
@@ -1525,7 +1663,7 @@ return(KrnMakeContiguous());
 ***********************************************************************
 Make all input and output buffers contiguous
 */
-L_state()
+int L_state(char *x)
 {
 int	numberBlks;
 int	numberGalaxies;
@@ -1553,9 +1691,9 @@ return(0);
  *
  *********************************************************************
  */
- int CsCallUp(string)
+ int CsCallUp(char	string[])
 
-char	string[];
+
 
 {
 

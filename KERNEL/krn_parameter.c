@@ -30,12 +30,14 @@
 
 *********************************************************************
 */
-
+#include <string.h>
 #include "capsim.h"
 
-
+int param_type(char *stype);
 void propagate_arg(block_Pt pg,int  index);
-extern float KrnEvalParamExp();
+int LineCharg(char *line);
+int KrnModelParam(int mt_index,int pp_index,char *def,char *stype,char *sval,char *sname);
+//extern float KrnEvalParamExp();
 
 /* an array of parameter pointers */
 param_Pt  param_stack[MAX_PARAM];
@@ -46,7 +48,7 @@ param_Pt  param_stack[MAX_PARAM];
 
 **********************************************************************
 */
-extern void KrnFreeParam();
+//void KrnFreeParam(param_Pt *pp);
 
 /**********************************************************************
 
@@ -72,8 +74,8 @@ Function accepts a single line in the file which defines a parameter
 and adds the parameter to the paramstack
 */
 
-LineParam(line)
-	char *line;
+int LineParam(char *line)
+
 {
 	param_Pt p1;
 	int error = 0;
@@ -202,7 +204,7 @@ switch(p1->type) {
 	/*
    	 * confirm a .c suffix and strip it off
 	 */
-	if(strcmp(".c",sval[strlen(sval)-2]) != 0) {
+	if(strcmp(".c",&sval[strlen(sval)-2]) != 0) {
 		error = 73;
 		break;
 	}
@@ -283,8 +285,8 @@ Function accepts a single line in the file which defines a parameter
 by name and changes that parametr
 */
 
-LineParamName(line)
-	char *line;
+int LineParamName(char *line)
+
 {
 	char sval[2*MAX_LINE], command[MAX_LINE];
 	char sprompt[MAX_LINE];
@@ -619,8 +621,8 @@ The line 'arg -1' is interpreted as 'no args for this galaxy'.
 The line 'arg 2 NULL' (e.g.) means 'eliminate arg #2'.
 */
 
-LineArg(line)
-	char *line;
+int LineArg(char *line)
+
 {
 	param_Pt pp;
 	param_Pt *paramGal_AP, *paramGalModel_AP;	/* parameters: galaxy, galaxy model */
@@ -802,8 +804,8 @@ return(0);
 ***********************************************************************
 */
 
-LineCharg(line)
-	char *line;
+int LineCharg(char *line)
+
 {
 	param_Pt pp;
 	param_Pt *paramGal_AP, *paramGalModel_AP;	/* parameters: galaxy, galaxy model */
@@ -1226,8 +1228,8 @@ Function copies paramstack pointers into a block param array.
 If the block pointer is NULL, the stack is cleared.
 */
 
- void KrnStoreStack(pblock)
-	block_Pt pblock;
+ void KrnStoreStack(block_Pt pblock)
+
 {
 	param_Pt *paramBlk_AP, *paramBlkModel_AP;	/* block, block model param array */
 	param_Pt *paramGal_AP, *paramGalModel_AP;	/* gal, gal model param array */
@@ -1283,8 +1285,8 @@ Compares block parameters array to block model parameter array.
 Block values are overwritten as necessary.
  */
 
- int KrnVerifyParams(pblock)
-	block_Pt pblock;
+ int KrnVerifyParams(block_Pt pblock)
+
 {
 	param_Pt *paramBlk_AP, *paramBlkModel_AP;	/* block, block model params */
 	param_Pt *paramGal_AP, *paramGalModel_AP;	/* gal, gal model params */
@@ -1494,9 +1496,9 @@ Else, if there is type disagreement, param #1 is freed, allocated
 Else, if types agree, nothing happens (except definition copy).
 */
 
- int KrnParamCheck(pp1,pp2)
+ int KrnParamCheck(param_Pt *pp1,param_Pt *pp2)
 
-	param_Pt *pp1, *pp2;
+
 {
 	param_Pt p1, p2;
 	int i;
@@ -1545,8 +1547,8 @@ return(0);
 Returns the number of parameters in a parameter pointer array
 */
 
- int KrnParamCount(pp)
-	param_Pt pp[];
+ int KrnParamCount(param_Pt pp[])
+
 {
 	int	i;
 	int numberParams = 0;
@@ -1572,9 +1574,9 @@ return(numberParams);
 Function interprets a word representing a parameter type.
 */
 
-int param_type(stype)
+int param_type(char *stype)
 
-	char *stype;
+
 {
 
 if(strcmp(stype,"float") == 0) return(PARAM_FLOAT);
@@ -1600,9 +1602,7 @@ else return(-2); /* error */
 Function frees parameter storage
 */
 
-void KrnFreeParam(pp)
-
-	param_Pt *pp;  /* pointer to parameter storage pointer */
+void KrnFreeParam(param_Pt *pp)
 {
 	int type;
 
@@ -1732,7 +1732,7 @@ return;
  ******************************************************************
  * Function is called by stars to create a model parameter entry.
  */
-KrnModelParam(int mt_index,int pp_index,char *def,char *stype,char *sval,char *sname)
+int KrnModelParam(int mt_index,int pp_index,char *def,char *stype,char *sval,char *sname)
 
 
 {

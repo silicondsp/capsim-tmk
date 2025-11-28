@@ -35,23 +35,28 @@ This file contains all the routines necessary for connection
 and disconnection of blocks.
 It also contains the buffer (star) connection routines.
 */
-
+#include <string.h>
 #include "capsim.h"
 buffer_Pt CreateBuffer();
+int FindInput(block_Pt *p,int *i);
+int WriteSignalName(block_Pt inBlk_P, int inNum, char *sigName);
+int ConnectAllStars(block_Pt pgalaxy);
+int ConnectTwoStars(block_Pt inBlk_P,int inNum);
+
 /**********************************************************************
 
 		External Function Declarations
 
 ***********************************************************************
 */
-extern char *NameTree();	/* prinfo.c */
+//extern char *NameTree();	/* prinfo.c */
 
 extern int set_star_out();	/* star.c */
 extern int set_star_in(); 	/* star.c */
 
 extern POINTER create_buffer();	/* buffer.c */
 
-extern block_Pt FindBlock();	/* block.c */
+//extern block_Pt FindBlock();	/* block.c */
 
 /*********************************************************************
 
@@ -77,8 +82,8 @@ Auto-i/o number assignment is implemented, if a complete specification
 is not provided.
 */
 
-LineConnect(line)
-	char *line;
+int LineConnect(char *line)
+
 {
 	char name_from[NAME_LENGTH];
 	char name_to[NAME_LENGTH];
@@ -268,8 +273,8 @@ If specific port numbers are not given, they are interpolated:
 else, the given port numbers are used if valid.
 */
 
-LineDisConnect(line)
-	char *line;
+int LineDisConnect(char *line)
+
 {
 	char st[NAME_LENGTH];
 	char name_from[NAME_LENGTH];
@@ -446,8 +451,8 @@ It is allowed to name galaxy inputs but they will be overwritten
 by higher level galaxy signal names.
 */
 
-LineName(line)
-	char *line;
+int LineName(char *line)
+
 {
 	char name_to[NAME_LENGTH];
 	int inNum;	/* input number of input connection */
@@ -495,8 +500,8 @@ name (and the } block is not a terminal);
 else, a default name is generated.
 */
 
-LineInsert(line)
-	char *line;
+int LineInsert(char *line)
+
 {
 	block_Pt outBlk_P, inBlk_P;
 	int	outNum, inNum, connNum;
@@ -662,11 +667,9 @@ If the given name is "" (empty string), a default name is created.
 Function returns a non-zero value if an error occurs.
 */
 
-WriteSignalName(inBlk_P, inNum, sigName)
+int WriteSignalName(block_Pt inBlk_P, int inNum, char *sigName)
 
-	block_Pt inBlk_P;
-	int inNum;
-	char *sigName;
+
 {
 	block_Pt outBlk_P;
 	int outNum;
@@ -711,9 +714,9 @@ connections, for execution efficiency.
 Function returns a non-zero value if an error occurs.
 */
 
-ConnectAllStars(pgalaxy)
+int ConnectAllStars(block_Pt pgalaxy)
 
-	block_Pt pgalaxy;
+
 {
 	block_Pt outBlk_P, inBlk_P;
 	int inNum;
@@ -780,10 +783,10 @@ If one or both of the connected blocks is a GALAXY, the galaxy is
 searched to find the actual STAR block(s) for connection.
 */
 
-ConnectTwoStars(inBlk_P,inNum)
+int ConnectTwoStars(block_Pt inBlk_P,int inNum)
 
-	block_Pt inBlk_P;	/* block for input connection */
-	int inNum;		/* input number to be connected */
+	 	/* block for input connection */
+	 		/* input number to be connected */
 {
 //	POINTER pbuffer;
     buffer_Pt pbuffer;
@@ -817,8 +820,8 @@ KrnListInsNext(krn_bufferPointerMemory,NULL,pbuffer);
 
 
 /* now connect directly between STAR blocks */
-SetStarOut(outBlk_P->star_P,outNum,pbuffer);
-SetStarIn(inBlk_P->star_P,inNum,pbuffer,inBlk_P->signalName[inNum]);
+SetStarOut(outBlk_P->star_P,outNum,(POINTER)pbuffer);
+SetStarIn(inBlk_P->star_P,inNum,(POINTER)pbuffer,inBlk_P->signalName[inNum]);
 
 return(0);
 
@@ -834,10 +837,10 @@ The block pointer and the input number overwrite the arguments,
 and a zero is returned.  If block is not found, non-zero is returned.
 */
 
-FindInput(p,i)
+int FindInput(block_Pt *p,int *i)
 
-	block_Pt *p;	/* pointer to the GALAXY pointer */
-	int *i;		/* pointer to the input number */
+		/* pointer to the GALAXY pointer */
+			/* pointer to the input number */
 {
 	block_Pt pblock;
 	int inNum;
@@ -880,10 +883,10 @@ finds the corresponding output of an internal block.
 Returns non-zero value if connecting block cannot be found.
 */
 
-FindOutput(p,o)
+int FindOutput(block_Pt *p,int *o)
 
-	block_Pt *p;	/* pointer to the GALAXY pointer */
-	int *o;		/* pointer to the output number */
+	 	/* pointer to the GALAXY pointer */
+	 		/* pointer to the output number */
 {
 	block_Pt pblock;
 	int outNum;
@@ -1015,7 +1018,7 @@ return(0);
 /*
  * make all buffers contigous
  */
- int KrnMakeContiguous()
+ int KrnMakeContiguous(void )
 {
 
 while(KrnCheckContiguous())

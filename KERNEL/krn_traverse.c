@@ -44,6 +44,8 @@ extern block_Pt pb_error;
 extern block_Pt pb_current;
 extern block_Pt pg_current;
 
+void Krn_DrawTopology(char	*fileName,int	starFlag);
+void KrnDrawTopology(block_Pt blk_P,FILE *fp,float x,float y,int galNumber,int starFlag);
 
 /********************************************************************
  *
@@ -130,17 +132,13 @@ return;;
 }
 
 
- void Krn_GetState(numberBlks_P,numberGalaxies_P,maxBlkLevel_P,depth_P)
-int	*numberBlks_P;
-int	*numberGalaxies_P;
-int	*maxBlkLevel_P;
-int	*depth_P;
+ void Krn_GetState(int	*numberBlks_P,int	*numberGalaxies_P,int	*maxBlkLevel_P,int	*depth_P)
 
 
 {
 block_Pt blkGal_P;
 block_Pt blk_P;
-void Krn_DrawTopology();
+///void Krn_DrawTopology();
 
 /*
  * Go to the top and get the universe
@@ -176,15 +174,13 @@ return;
 
 
 #else
- void Krn_DrawTopology(fileName,starFlag)
-char	*fileName;
-int	starFlag;
+ void Krn_DrawTopology(char	*fileName,int	starFlag)
 
 {
 block_Pt blkGal_P;
 block_Pt blk_P;
 FILE	*fp;
-void KrnDrawTopology();
+
 
 fp=fopen(fileName,"w");
 if(fp == NULL) {
@@ -219,13 +215,8 @@ return;;
 
 
 
- void KrnDrawTopology(blk_P,fp,x,y,galNumber,starFlag)
+void KrnDrawTopology(block_Pt blk_P,FILE *fp,float x,float y,int galNumber,int starFlag)
 
-block_Pt blk_P;
-FILE *fp;
-float	x,y;
-int	galNumber;	/* galNumber is the i'th  galaxy within a galaxy */
-int	starFlag;
 
 {
 block_Pt blkSave_P;

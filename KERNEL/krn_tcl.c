@@ -61,10 +61,13 @@ int L_name(char *);
 int L_inform(char *);
 int L_man(char *);
 
+int L_remove(char*  );
+
+
 
 int
 UpCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_up();
@@ -74,7 +77,7 @@ UpCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 StateCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_state();
@@ -83,7 +86,7 @@ StateCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 InfoCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_info();
@@ -94,7 +97,7 @@ InfoCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 DownCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_down();
@@ -104,16 +107,16 @@ DownCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 RemoveCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
-	L_remove();
+	L_remove("x");
 	return TCL_OK;
 }
 
 int
 DeleteCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_delete();
@@ -122,7 +125,7 @@ DeleteCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ForwardCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_forward();
@@ -131,7 +134,7 @@ ForwardCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 BackCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_back();
@@ -140,7 +143,7 @@ BackCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 MakeContigCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_makecontig();
@@ -148,7 +151,7 @@ MakeContigCmd(ClientData clientData, Tcl_Interp *interp,
 }
 int
 RunCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_run();
@@ -158,7 +161,7 @@ RunCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 NewCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 
 	L_new();
@@ -168,7 +171,7 @@ NewCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 PathCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -192,7 +195,7 @@ PathCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 SetMaxSegCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -216,7 +219,7 @@ SetMaxSegCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 SetCellIncCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -238,7 +241,7 @@ SetCellIncCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ManCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int  error;
 
@@ -260,7 +263,7 @@ ManCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 BlockCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -284,7 +287,7 @@ BlockCmd(ClientData clientData, Tcl_Interp *interp,
 }
 int
 ReplaceCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -309,7 +312,7 @@ ReplaceCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 HBlockCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -337,7 +340,7 @@ HBlockCmd(ClientData clientData, Tcl_Interp *interp,
  */
 int
 InsertCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -363,7 +366,7 @@ InsertCmd(ClientData clientData, Tcl_Interp *interp,
  */
 int
 SigNameCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -389,7 +392,7 @@ SigNameCmd(ClientData clientData, Tcl_Interp *interp,
  */
 int
 InformCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -416,7 +419,7 @@ InformCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 StoreCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -440,7 +443,7 @@ StoreCmd(ClientData clientData, Tcl_Interp *interp,
 }
 int
 LoadCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -479,7 +482,7 @@ LoadCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ArgCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int error;
 	char command[200];
@@ -518,7 +521,7 @@ ArgCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ChpCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc,const  char *argv[])
 {
 	int error;
 
@@ -559,7 +562,7 @@ ChpCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ParamByNameCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int error;
 
@@ -593,7 +596,7 @@ ParamByNameCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 DisplayCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -618,7 +621,7 @@ DisplayCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ToCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int  error;
 
@@ -642,7 +645,7 @@ ToCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 ConnectCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -675,7 +678,7 @@ ConnectCmd(ClientData clientData, Tcl_Interp *interp,
 
 int
 DisConnectCmd(ClientData clientData, Tcl_Interp *interp,
-		int argc, char *argv[])
+		int argc, const char *argv[])
 {
 	int rand, error;
 	int range = 0;
@@ -726,7 +729,7 @@ int CapsimInit(Tcl_Interp *interp) {
 	 * The orandom command uses the object interface.
 	 */
 
-	Tcl_CreateCommand(interp, "display", DisplayCmd,
+	Tcl_CreateCommand(interp, "display",  DisplayCmd,
 			(ClientData)NULL, (Tcl_CmdDeleteProc *)NULL);
 
 	Tcl_CreateCommand(interp, "block", BlockCmd,

@@ -32,7 +32,8 @@ This file contains the routines necessary for reordering the blocks
 for efficient execution;
 and the routines necessary to run a BLOSIM simulation.
 */
-
+#include <string.h>
+#include <stdio.h>
 #include "capsim.h"
 
 /**********************************************************************
@@ -44,13 +45,23 @@ and the routines necessary to run a BLOSIM simulation.
 
 /* buffer.c */
 extern int BufferActive();
+
+
+
 int FreeBuffer(buffer_Pt pbuf);
+int InitAll(block_Pt pgalaxy);
+int Schedule(block_Pt pgalaxy);
+int MultiRun(int status,block_Pt pgalaxy);
+int Ready0(block_Pt pb_unsched,block_Pt pblock);
+int Ready1(block_Pt pb_unsched,block_Pt pblock);
+int SingleRun(int status,block_Pt pgalaxy);
+
 
 /* block.c */
-extern int MoveBlock();
+//extern int MoveBlock();
 
 /* connect.c */
-extern int ConnectAllStars();
+//extern int ConnectAllStars();
 
 /**********************************************************************
 
@@ -171,7 +182,7 @@ return(err);
 This is the simulation run command.
 */
 
-LineRun()
+int LineRun(void)
 {
 block_Pt pgalaxy, pblock;
 block_Pt galaxy_P;
@@ -217,9 +228,9 @@ If no blocks can be scheduled at a particular level, it is increased.
 
 */
 
-Schedule(pgalaxy)
+int Schedule(block_Pt pgalaxy)
 
-	block_Pt pgalaxy;  /* pointer to the GALAXY to be scheduled  */
+	  /* pointer to the GALAXY to be scheduled  */
 {
 	block_Pt pblock;
 	block_Pt pb_unsched;	/* first unscheduled block in galaxy */
@@ -282,10 +293,10 @@ Returns a one if all block's input have been scheduled,
 or the block has no inputs.  Otherwise returns a zero.
 */
 
-Ready0(pb_unsched,pblock)
+int Ready0(block_Pt pb_unsched,block_Pt pblock)
 
-	block_Pt pb_unsched;	/* first unscheduled GALAXY block */
-	block_Pt pblock;	/* candidate block */
+	 	/* first unscheduled GALAXY block */
+	 	/* candidate block */
 {
 	block_Pt pblock_from;  /* pointer to block connected to input */
 	block_Pt ptemp;
@@ -324,10 +335,10 @@ Returns a one if at least one input block has been scheduled, or is a
 galaxy input.  Otherwise returns a zero.
 */
 
-Ready1(pb_unsched,pblock)
+int Ready1(block_Pt pb_unsched,block_Pt pblock)
 
-	block_Pt pb_unsched; /* first block in GALAXY not scheduled */
-	block_Pt pblock;	/* block pointer */
+	 /* first block in GALAXY not scheduled */
+	 	/* block pointer */
 {
 	block_Pt pblock_from;  /* pointer to block connected to input */
 	block_Pt ptemp;
@@ -374,10 +385,10 @@ run the blocks within that GALAXY
 Each block is executed precisely once
 */
 
-SingleRun(status,pgalaxy)
+int SingleRun(int status,block_Pt pgalaxy)
 
-	block_Pt pgalaxy;  /* GALAXY to be executed */
-	int status;	/* status code to pass to the star code */
+	  /* GALAXY to be executed */
+	 	/* status code to pass to the star code */
 {
 	block_Pt pblock;
 	int star_return;
@@ -401,8 +412,11 @@ do {
 		pb_error = pblock;
 
 		/* now call the STAR function */
-		star_return =
-			(*(pblock->function))(status,pblock);
+	 	star_return =
+	 		(*(pblock->function))(status,pblock);
+	 	//	(*(pblock->function))(status,(char *)pblock);
+
+
 
 		/* error if STAR returns non-zero */
 		if(star_return != 0)
@@ -439,10 +453,10 @@ If a called star function returns an error, the function returns
 (1000 + error value).
 */
 
-MultiRun(status,pgalaxy)
+int MultiRun(int status,block_Pt pgalaxy)
 
-	block_Pt pgalaxy;	/* GALAXY which is to be executed */
-	int status;	/* status to pass to the user star code */
+	 	/* GALAXY which is to be executed */
+	 	/* status to pass to the user star code */
 {
 	block_Pt pblock;
 	star_Pt star_P;
@@ -472,8 +486,11 @@ do {
 				continue;
 
 			star_P = pblock->star_P;
-			star_return =
-				(*(pblock->function))(status,pblock);
+			 star_return =
+			 	(*(pblock->function))(status,(char *)pblock);
+			 // 	(*(pblock->function))(status,pblock);
+
+
 
 			/* save block pointer for any error message */
 			pb_error = pblock;
@@ -509,9 +526,9 @@ retrieve their values from the galaxy parameters.
 Any connected data buffers are freed.
 */
 
-InitAll(pgalaxy)
+int InitAll(block_Pt pgalaxy)
 
-	block_Pt pgalaxy;
+
 {
 	block_Pt pblock;
 	int err;
@@ -546,8 +563,8 @@ Written: 7/88 ljfaber
 Modified: 10/88 ljfaber.  only input buffers are freed.
 */
 
-InitOne(pblock)
-	block_Pt pblock;
+int InitOne(block_Pt pblock)
+
 {
 	int i;
 
@@ -558,7 +575,7 @@ if(pblock->star_P->state_P != NULL) {
 
 for(i=0; i<IO_BUFFERS; i++) {
 	if(pblock->star_P->inBuffer_P[i] != NULL) {
-		FreeBuffer(pblock->star_P->inBuffer_P[i]);
+		FreeBuffer((buffer_Pt)pblock->star_P->inBuffer_P[i]);
 		pblock->star_P->inBuffer_P[i] = NULL;
 	}
 

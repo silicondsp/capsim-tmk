@@ -52,7 +52,7 @@ Mods: 1/89 L.J. Faber  clean up, bug correction
 */
 
 
-extern void ErrorAlloc();
+
 extern block_Pt pb_error;
 extern block_Pt pg_current;
 #ifndef EMBEDDED_ECOS
@@ -60,7 +60,11 @@ extern	FILE *krn_bufferGrowth_F;
 #endif
 
 void add_cells(cell_t * pcell_ins,int cellsize,int no_cells);
-
+void CellSize(buffer_Pt  pbuffer,int cellsize);
+ char *FindSignalNameFromBuffer(POINTER		pbuffer,block_Pt 	pgalaxy);
+int BufferActive();
+void examine_buffer(buffer_Pt pbuffer);
+int KrnFreeBuffer(buffer_Pt pbuffer);
 
 /********************************************************************
 
@@ -243,7 +247,7 @@ an arbitrary data structure such as a union or structure)
 
 */
 
-CellSize(buffer_Pt  pbuffer,int cellsize)
+void CellSize(buffer_Pt  pbuffer,int cellsize)
 
 
 {
@@ -423,7 +427,7 @@ active = 1;
 }
 
 
-extern char *FindSignalNameFromBuffer();
+
 
 /**********************************************************************
 
@@ -507,7 +511,7 @@ if(pbuffer->cells_alloc <=
 #ifndef EMBEDDED_ECOS
 	if(krn_bufferGrowth_F)
 	       fprintf(krn_bufferGrowth_F,"%s %d\n",
-			FindSignalNameFromBuffer(pbuffer,pgalaxy),i-1);
+			FindSignalNameFromBuffer((POINTER)pbuffer,pgalaxy),i-1);
 #endif
 #endif
 	if(i > krn_maxMemSegments - 2) {
@@ -628,11 +632,9 @@ Arguments:
 	delay: delay of the sample requested
 */
 
-POINTER BufferAccess(pbuffer, rd_flag, delay)
+POINTER BufferAccess(buffer_Pt pbuffer, int rd_flag, int delay)
 
-	buffer_Pt pbuffer;
-	int rd_flag;
-	int delay;
+
 {
 	cell_t *pcell;
 	int i,dinc;
@@ -801,7 +803,7 @@ Returns:
 	0 otherwise
 */
 
-BufferActive()
+int BufferActive()
 
 {
 
@@ -829,8 +831,8 @@ This routine is meant to aid in debugging and is not used under
 normal circumstances.
 */
 
-examine_buffer(pbuffer)
-	buffer_Pt pbuffer;
+void examine_buffer(buffer_Pt pbuffer)
+
 {
 	int i;
 	cell_t *pcell;
@@ -889,7 +891,7 @@ fprintf(stdout,"\n");
 
 */
 
-KrnFreeBuffer(buffer_Pt pbuffer)
+int KrnFreeBuffer(buffer_Pt pbuffer)
 
 {
 	int i;
@@ -934,9 +936,9 @@ fprintf(stdout,"\n");
  * written by Sasan H. Ardalan
  * July 29, 1990
  */
- char *FindSignalNameFromBuffer(pbuffer,pgalaxy)
-POINTER		pbuffer;
-block_Pt 	pgalaxy;
+ char *FindSignalNameFromBuffer(POINTER		pbuffer,block_Pt 	pgalaxy)
+
+
 
 
 {

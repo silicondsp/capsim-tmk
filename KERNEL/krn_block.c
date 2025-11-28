@@ -31,6 +31,8 @@
 
 **********************************************************************
 */
+
+#include <string.h>
 #include "capsim.h"
 
 /**********************************************************************
@@ -39,8 +41,7 @@
 
 ***********************************************************************
 */
-extern void ErrorAlloc();
-extern int InitOne();
+
 extern int graphics_mode;
 
 
@@ -51,7 +52,7 @@ extern int graphics_mode;
 **********************************************************************
 */
 extern int model_count;
-
+int CheckChanges(block_Pt pgalaxy, int print_flag);
 
 /**********************************************************************
 
@@ -62,6 +63,8 @@ extern int model_count;
 Function initializes the data structure by establishing the root node
 of the tree, which corresponds to the UNIVERSE block
 */
+
+
 
 block_Pt CreateUniverse()
 
@@ -107,8 +110,8 @@ This routine is called to create a block instance of the specified
 star or galaxy, and link it into the current galaxy.
 */
 
-block_Pt CreateBlock(pgalaxy)
-	block_Pt pgalaxy;  /* parent galaxy */
+block_Pt CreateBlock(block_Pt pgalaxy)
+	   /* parent galaxy */
 {
 	block_Pt pblock;
 	int i;
@@ -176,10 +179,10 @@ Looks for a block with a particular name in a given GALAXY.
 It returns a pointer to the block, or NULL if block has not been created
 */
 
-block_Pt FindBlock(pgalaxy,block_name)
+block_Pt FindBlock(block_Pt pgalaxy,char block_name[])
 
-	block_Pt pgalaxy; /* GALAXY in which to search for block */
-	char block_name[];	/* name of the block */
+	  /* GALAXY in which to search for block */
+	 	/* name of the block */
 {
 	block_Pt pblock;
 
@@ -207,10 +210,10 @@ return(NULL);
 Moves a block from one position in the linked list to another.
 */
 
-MoveBlock(pfirst,psecond)
+int MoveBlock(block_Pt pfirst,block_Pt psecond)
 
-	block_Pt psecond;	/* block to be moved */
-	block_Pt pfirst;	/* block to move psecond in front of */
+	 	/* psecond block to be moved */
+	 	/* pfirst block to move psecond in front of */
 {
 
 /* first remove psecond from list */
@@ -240,8 +243,8 @@ return(0);
 Removes the specified block from the current galaxy, and de-allocates.
 */
 
-void RemoveBlock(pblock)
-	block_Pt pblock;
+void RemoveBlock(block_Pt pblock)
+
 {
 	int i;
 	int ionum;
@@ -307,8 +310,8 @@ free(pblock);
 Removes all children blocks of a galaxy.
 */
 
-RemoveChildren(pblock)
-	block_Pt pblock;
+void RemoveChildren(block_Pt pblock)
+
 {
 
 while(pblock->pchild != NULL)
@@ -329,8 +332,8 @@ input-output connections are not made.
 The "incoming" signal name is written to the "output" block.
 */
 
-DeleteBlock(blk_P)
-	block_Pt blk_P;
+int DeleteBlock(block_Pt blk_P)
+
 {
 	int i;
 	int outNum, inNum;
@@ -394,9 +397,9 @@ This function seeks user approval if there were unresolved changes
 made within the input galaxy or below.  A 1 is returned if action
 is approved by user, a 0 else.
 */
-ApproveChanges(pgalaxy, print_flag)
-	block_Pt pgalaxy;
-	int print_flag;
+int ApproveChanges(block_Pt pgalaxy, int print_flag)
+
+
 {
 	char response[NAME_LENGTH];
 
@@ -431,9 +434,9 @@ This function checks for the change flag for all blocks in a
 galaxy.  It optionally prints the name of a galaxy with changes.
 It returns a 0 if no changes found, a 1 else.
 */
-CheckChanges(pgalaxy, print_flag)
-	block_Pt pgalaxy;
-	int print_flag;
+int CheckChanges(block_Pt pgalaxy, int print_flag)
+
+
 {
 	block_Pt pblock;
 	int galaxy_change_flag = 0;
@@ -476,9 +479,9 @@ return(0);
 This function clears the change flag for all blocks in a
 galaxy.  It optionally propagates through subgalaxies.
 */
-ClearChanges(pgalaxy, propagate_flag)
-	block_Pt pgalaxy;
-	int propagate_flag;
+int ClearChanges(block_Pt pgalaxy, int propagate_flag)
+
+
 {
 	block_Pt pblock;
 
@@ -506,11 +509,11 @@ It then changes the current block's name if no conflict.
 It returns a 1 if a conflict exists otherwise it returns a zero
 */
 
-int BlockRename(pgalaxy,blk_P,block_name)
+int BlockRename(block_Pt pgalaxy,block_Pt blk_P,char block_name[])
 
-	block_Pt pgalaxy; /* GALAXY in which to search for block */
-	block_Pt blk_P;
-	char block_name[];	/* name of the block */
+	  /* GALAXY in which to search for block */
+
+	 	/* name of the block */
 {
 	block_Pt pblock;
 

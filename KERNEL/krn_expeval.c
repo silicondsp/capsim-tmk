@@ -22,7 +22,7 @@
     Silicon DSP  Corporation
     Las Vegas, Nevada
 */
-
+#include <string.h>
 #include "capsim.h"
 
 
@@ -41,7 +41,7 @@
 
 **********************************************************************
 */
-extern void KrnFreeParam();
+//extern void KrnFreeParam();
 
 
 /**********************************************************************
@@ -63,8 +63,8 @@ extern char    *krn_buffer;
 extern float   krn_eqnResult;
 
 
- float	KrnEvalParamExp(expression)
-char	*expression;
+ float	KrnEvalParamExp(char	*expression)
+
 {
 char argAssignment[80];
 modelEntry_t *gmodel;

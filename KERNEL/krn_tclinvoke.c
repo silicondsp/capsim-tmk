@@ -9,6 +9,7 @@
  * Practical Programming in TCL and TK
  *
  */
+#include <string.h>
 #include <tcl.h>
 
 #if defined(__STDC__) || defined(HAS_STDARG)
@@ -47,7 +48,7 @@ Tcl_Invoke TCL_VARARGS_DEF(Tcl_Interp *, arg1)
 	 */
 	cmd = va_arg(argList, char *);
 	if (! Tcl_GetCommandInfo(interp, cmd, &info)) {
-		Tcl_AppendResult(interp, "unknown command \"", 
+		Tcl_AppendResult(interp, "unknown command \"",
 			cmd, "\"", NULL);
 		va_end(argList);
 		return TCL_ERROR;
@@ -147,7 +148,7 @@ Tcl_Invoke TCL_VARARGS_DEF(Tcl_Interp *, arg1)
 	/*
 	 * Invoke the C procedure
 	 */
-	result = (*info.proc)(info.clientData, interp, argc, argv);
+	result = (*info.proc)(info.clientData, interp, argc, (const char **)argv);
 
 	/*
 	 * Release the arguments

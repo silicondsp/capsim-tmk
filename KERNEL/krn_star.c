@@ -32,28 +32,29 @@
 
 ********************************************************************
 */
-
+#include <string.h>
 #include "capsim.h"
 
 void SetStarOut(star_Pt  pstar,int output_no,POINTER  pbuffer);
 void SetStarIn(star_Pt pstar,int input_no,POINTER pbuffer,POINTER signal_name);
 star_Pt CreateStar();
+int MinimumSamples(star_Pt pstar);
 
 
 /* prinfo.c */
-extern void ErrorAlloc();
+//extern void ErrorAlloc();
 
 /* parameter.c */
-extern int KrnVerifyParams();
+//extern int KrnVerifyParams();
 
 /* block.c */
-extern block_Pt CreateBlock();
-extern block_Pt FindBlock();
-extern int BufferLength();
+//extern block_Pt CreateBlock();
+//extern block_Pt FindBlock();
+//extern int BufferLength();
 
 /* file.c */
-extern char *file_root();
-extern int StripSuffix();
+//extern char *file_root();
+//extern int StripSuffix();
 
 
 extern block_Pt pb_error;
@@ -72,8 +73,8 @@ extern int graphics_mode;
 Function reads input line and creates a STAR instance.
 */
 
-LineStar(line)
-	char *line;
+int LineStar(char *line)
+
 {
 	char starname[NAME_LENGTH];
 	char modelname[NAME_LENGTH];
@@ -194,7 +195,7 @@ pblock->star_P = CreateStar();
 if(model[index].param_model_flag != 1) {
 
 	/* Call star function to initialize parameters */
-	(*(pblock->function)) (PARAM_INIT,pblock);
+	(*(pblock->function)) (PARAM_INIT,(char*)pblock);
 	if(model[index].param_model_flag != 1)
 		return(102);
 }
@@ -204,7 +205,7 @@ if(model[index].param_model_flag != 1) {
 {
 
         /* Call star function to initialize input buffers */
-        (*(pblock->function)) (INPUT_BUFFER_INIT,pblock);
+        (*(pblock->function)) (INPUT_BUFFER_INIT,(char*)pblock);
 
 }
 
@@ -212,7 +213,7 @@ if(model[index].param_model_flag != 1) {
 {
 
         /* Call star function to initialize input buffers */
-        (*(pblock->function)) (OUTPUT_BUFFER_INIT,pblock);
+        (*(pblock->function)) (OUTPUT_BUFFER_INIT,(char*)pblock);
 
 }
 
@@ -238,8 +239,8 @@ return(0);
 Creates a GALAXY instance.
 */
 
-LineGalaxy(line)
-	char *line;
+int LineGalaxy(char *line)
+
 {
 	char galaxy_name[NAME_LENGTH];
 	char modelname[NAME_LENGTH];
@@ -317,8 +318,8 @@ Function replaces the current block function with a new model.
 All connections are left in place.  Parameters are rechecked.
 */
 
-LineReplace(line)
-	char *line;
+int LineReplace(char *line)
+
 {
 	char blkname[NAME_LENGTH];
 	char modelname[NAME_LENGTH];
@@ -364,7 +365,7 @@ if((index = mtable_index(modelname, LIBRARY)) >= 0) {
 	pblock->type = STYPE;
 	pblock->function = model[index].function;
 	if(model[index].param_model_flag != 1)
-		(*(pblock->function)) (PARAM_INIT,pblock);
+		(*(pblock->function)) (PARAM_INIT,(char*)pblock);
 
 	for(i=0; i< MAX_PARAM; i++)
 		KrnFreeParam(&pblock->param_AP[i]);
@@ -480,7 +481,7 @@ Function returns the minimum number of available samples in all input
 buffers of a STAR
 */
 
-MinimumSamples(star_Pt pstar)
+int MinimumSamples(star_Pt pstar)
 
 
 {
@@ -491,10 +492,10 @@ MinimumSamples(star_Pt pstar)
 if((no_buffers = pstar->numberInBuffers) == 0)
 	 return(0);
 
-min = BufferLength(pstar->inBuffer_P[0]);
+min = BufferLength((buffer_Pt)pstar->inBuffer_P[0]);
 
 for(i=1; i<no_buffers; i++) {
-	if(min > (len = BufferLength(pstar->inBuffer_P[i])))
+	if(min > (len = BufferLength((buffer_Pt)pstar->inBuffer_P[i])))
 		min = len;
 }
 

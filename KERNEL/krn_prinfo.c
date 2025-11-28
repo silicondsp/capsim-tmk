@@ -34,6 +34,8 @@
 **********************************************************************
 
 */
+#include <stdio.h>
+#include <string.h>
 #include "capsim.h"
 
 /*********************************************************************
@@ -42,10 +44,6 @@
 
 **********************************************************************
 */
-void PrInfoConnections(FILE *fp, block_Pt  pgalaxy);
-void PrInfoParams(FILE *fp, param_Pt param_AP[]);
-void PrInfoArgs(FILE *fp, block_Pt pgalaxy);
-void PrInfoList(FILE *fp, int mtype);
 
 
 
@@ -63,6 +61,8 @@ extern char*GetMsg(int);
  * or in printing to terminal
  */
 int	krn_argAssoc_A[MAX_PARAM];
+
+int CsMessageAddLine(char *buffer);
 
 /***********************************************************************
 
@@ -93,9 +93,9 @@ prinfo(int fp, char *string)
 
 
 
-prinfo(fp, string)
-	FILE *fp;
-	char *string;
+void prinfo(FILE *fp, char *string)
+
+
 {
 		if(fp == NULL) {
 			printf("%s", string);
@@ -120,6 +120,7 @@ Prints out current block prompt.
 
 void PrInfoBlockCurrent()
 {
+	//char *NameTree();
 	char string[MAX_LINE];
 
 sprintf(string," Current Block:  %s", NameTree(pb_current));
@@ -162,8 +163,8 @@ prinfo(stdout,string);
 This function constructs a block name with fully expanded hierarchy.
 */
 
-char *NameTree(blk_P)
-	block_Pt blk_P;
+char *NameTree(block_Pt blk_P)
+
 {
 	static char tree_string[MAX_LINE];
 	char string[MAX_LINE];
@@ -203,18 +204,18 @@ return(tree_string);
 Function prints out information about a galaxy.
 */
 
-void PrInfoAll(fp, pgalaxy)
+void PrInfoAll(FILE *fp, block_Pt pgalaxy)
 #ifdef EMBEDDED_ECOS
 int fp;
 #else
-FILE *fp;
+
 #endif
-block_Pt pgalaxy;
+
 {
 int displayFlag = 0;
 char string[MAX_LINE];
 block_Pt blk_P;
-char *NameTree();
+//char *NameTree();
 modelEntry_t modelTableEntry;	/* model table entry */
 char strBuf[1024];
 
@@ -326,13 +327,13 @@ if(displayFlag) {
 Function prints out information about a given block.
 */
 
-void PrInfoBlock(fp, pb)
+void PrInfoBlock(FILE *fp, block_Pt pb)
 #ifdef EMBEDDED_ECOS
 	int fp;
 #else
-	FILE *fp;
+
 #endif
-	block_Pt pb;  /* block whose name is to be printed */
+	  /* block whose name is to be printed */
 {
 	int  i,j,k;
 	char string[MAX_LINE];
@@ -891,16 +892,16 @@ If code == 0, suppress canned message from array.
 Note that pb_error is referenced for some error messages.
 */
 
-ErrorPrint(line, code)
+void ErrorPrint(char *line, int code)
 
-	char *line;	/* custom error message */
-	int code;	/* index into error array */
+	/* char *line 	 custom error message */
+	/* int code 	  index into error array */
 {
 	char string[MAX_LINE];
 	char buffer[MAX_LINE];
 	char *t;
-	char *get_msg();
-	char *NameTree();
+	//char *get_msg();
+
 
 if(code >= 1000) {
 	/* star error */
@@ -1137,8 +1138,8 @@ Function prints error message and exits in response to failure
 to allocate memory
 */
 
-ErrorAlloc(string)
-char *string;
+void ErrorAlloc(char *string)
+
 
 {
 	printf("capsim: OS unable to allocate more memory\nFrom:%s\n",string);
@@ -1147,8 +1148,8 @@ char *string;
 
 
 #ifndef GRAPHICS
-int CsMessageAddLine(buffer)
-char *buffer;
+int CsMessageAddLine(char *buffer)
+
 {
 return(0);
 }
@@ -1313,7 +1314,7 @@ Date: June 16, 1991
 int displayFlag = 0;
 char string[MAX_LINE];
 block_Pt blk_P;
-char *NameTree();
+//char *NameTree();
 char	strBuf[100];
 modelEntry_t modelTableEntry;	/* model table entry */
 

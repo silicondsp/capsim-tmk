@@ -22,8 +22,9 @@
     Las Vegas, Nevada
 */
 
-
+#include <string.h>
 #include <tcl.h>
+
 #include "capsim.h"
 
 
@@ -66,7 +67,7 @@ char command[1024];
         if(krn_tclScriptFile) {
                    printf("Script File %s\n",krn_tclScriptFile);
                    sprintf(command,"source %s",krn_tclScriptFile);
-                   Tcl_EvalEx(interp,command,strlen(command),NULL );
+                   Tcl_EvalEx(interp,command,strlen(command),(int)NULL );
         }
         else
 		   printf("No Script file\n");

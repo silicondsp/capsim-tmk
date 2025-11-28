@@ -42,6 +42,7 @@
 #include "capsim.h"
 
 
+void KrnAppendArg( krn_ArgHdr_Pt hdr_P, krn_ArgObj_Pt newArgObj_P);
 
 
 
@@ -119,7 +120,6 @@ krn_ArgHdr_Pt    hdr_P;
 
 
 
-extern void KrnAppendArg();
 /*
  */
 
@@ -149,9 +149,7 @@ extern void KrnAppendArg();
  *	Appends a new (or unlinked) Object record to the given Object list.
  * Calls the fixup routine to straighten out counts, etc.
  */
- void KrnAppendArg(hdr_P, newArgObj_P)
-krn_ArgHdr_Pt    hdr_P;
-krn_ArgObj_Pt	newArgObj_P;
+ void KrnAppendArg( krn_ArgHdr_Pt hdr_P, krn_ArgObj_Pt newArgObj_P)
 
 {
 

@@ -22,17 +22,22 @@
     Las Vegas, Nevada
 */
 
+#include  <string.h>
+#include <stdlib.h>
 
 #include "krn_eqn.h"
 #include "y.tab.h"
 
 #define NULL 0
 
+void yyerror(char *s);
+void execerror(char *s,char *t);
+
 /*
  * symbol table: linked list
  */
 static	Symbol *symlist=0;
-static char *emalloc();
+static char *emalloc(unsigned n);
 
 Symbol *KrnEqnLookup(s)
 	char	*s;
@@ -45,13 +50,11 @@ Symbol *KrnEqnLookup(s)
 	return 0;
 }
 
-Symbol *KrnEqnInstall(s,t,d)
-	char *s;
-	int	t;
-	double	d;
+Symbol *KrnEqnInstall(char *s,int	t,double	d)
+
 {
 	Symbol	*sp;
-	char	*emalloc();
+
 
 	sp=(Symbol *) emalloc(sizeof(Symbol));
 	sp->name=emalloc(strlen(s) +1); /* +1 for '\0' */
@@ -63,13 +66,14 @@ Symbol *KrnEqnInstall(s,t,d)
 	return sp;
 }
 
-static char *emalloc(n)
-	unsigned n;
+static char *emalloc(unsigned n)
+
 {
-	char	*p,*malloc();
+	char	*p;
+
 
 	p=malloc(n);
 	if(p== NULL)
-		execerror("Out of memory");
+		execerror("Out of memory","error");
 	return p;
 }

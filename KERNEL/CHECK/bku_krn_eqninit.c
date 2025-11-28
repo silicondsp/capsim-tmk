@@ -24,67 +24,51 @@
 */
 
 
-#include <math.h>
 
-#define EMBEDDED_ECOS
+#include  <math.h>
+#include "krn_eqn.h"
+#include "y.tab.h"
 
+extern double Log(),Log10(),Exp(),Sqrt(), Integer();
 
-#ifndef EMBEDDED_ECOS
-#include <errno.h>
-#endif
+static struct {
+	char *name;
+	double cval;
+} consts[]= {
+	"PI",	3.14159265358979,
+	"E",	2.7182818284590,
+	"GAMMA",	0.57721755490153,
+	"DEG",	57.29577951308,
+	"PHI",	1.61803398874989,
+	0,	0
+};
 
-extern	int	errno;
-double errcheck(double d,char	*s);
+static struct {
+	char 	*name;
+	double (*func)();
+} builtins[]= {
+	"sin",	sin,
+	"cos",	cos,
+	"atan",	atan,
+	"log",	Log,
+	"log10",	Log10,
+	"exp",	Exp,
+	"sqrt", Sqrt,
+	"int",	Integer,
+	"abs",	fabs,
+	0,	0
+};
 
-double Log(x)
-	double x;
+KrnEqnInit()
 {
-	return errcheck(log(x),"log");
-}
 
-double Log10(x)
-	double x;
-{
-	return errcheck(log10(x),"log10");
-}
-double Exp(x)
-	double x;
-{
-	return	errcheck(exp(x),"exp");
-}
+	int i;
+	Symbol *s;
 
-double Sqrt(x)
-	double x;
-{
-	return	errcheck(sqrt(x),"sqrt");
-}
-
-double Pow(x,y)
-	double x,y;
-{
-	return errcheck(pow(x,y),"exponentiation");
-}
-
-double Integer(x)
-	double x;
-{
-	return(double)(long)x;
-}
-
-double errcheck(double d,char	*s)
-
-{
-#ifndef EMBEDDED_ECOS
-	if	(errno == EDOM) {
-		errno=0;
-		execerror(s,"argument out of domain");
-	} else if (errno == ERANGE) {
-		errno =0;
-		execerror(s,"result out of range");
+	for (i=0; consts[i].name; i++)
+		KrnEqnInstall(consts[i].name,VAR,consts[i].cval);
+	for(i=0; builtins[i].name; i++) {
+		s=KrnEqnInstall(builtins[i].name,BLTIN,0.0);
+		s->u.ptr = builtins[i].func;
 	}
-#else
-        d=0;
-#endif
-	return d;
-
 }

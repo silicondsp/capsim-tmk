@@ -32,11 +32,12 @@
 ***********************************************************************
 Routines which load and store files, modify file names, etc.
 */
-
+#include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <dirent.h>
-
+#include <string.h>
+#include  <unistd.h>
 #include "capsim.h"
 
 
@@ -49,9 +50,10 @@ extern char *gal_paths[];
 extern block_Pt pg_current;
 extern block_Pt pb_current;
 extern block_Pt pb_error;
-char *file_root();
+//char *file_root();
 
-
+void ToLowerCase(char *string);
+void ToUpperCase(char *string);
 /**********************************************************************
 
 			LineLoad()
@@ -62,8 +64,8 @@ an input argument or is derived from the galaxy name.
 The topology is always established in the current galaxy!
 */
 
-LineLoad(line)
-	char *line;
+int LineLoad(char *line)
+
 {
 	int error;
 	int i, index;
@@ -174,8 +176,8 @@ return(0);
  * note if a galaxy with the same name existed it will be overwritten
  */
 
- int KrnCreateModel(fileName)
-char *fileName;
+ int KrnCreateModel(char *fileName)
+
 {
 int index, i;
 int nameFlag = 0;
@@ -213,8 +215,8 @@ The galaxy model reference is changed to the new entry.
 At the top (universe) level only, the galaxy instance name is also changed.
 */
 
-LineStore(line)
-	char *line;
+int LineStore(char *line)
+
 {
 #ifndef EMBEDDED_ECOS
 	FILE *fp;
@@ -288,9 +290,9 @@ Returns the index into the model table of the given name and
 a given type.  Returns -1 if name not found.
 */
 
-mtable_index(name, type)
-	char *name;	/* name of desired block */
-	int type;	/* type of desired block */
+int mtable_index(char *name, int type)
+ 	/* name of desired block */
+	 	/* type of desired block */
 {
 	int index;
 
@@ -323,7 +325,7 @@ Modified: 8/88 ljfaber...add vms file recognition, form, comments
 */
 
 void file_path(char *result, char *filename, int mode, char *path[])
-	
+
 {
 	char c1;
 	int i;
@@ -388,8 +390,8 @@ Removes any suffix (.c, etc) by overwriting a NULL on the dot.
 Returns pointer to first character of root name.
 */
 
-char *file_root(filename)
-	char *filename;
+char *file_root(char *filename)
+
 {
 	char *s, *t;
 	static char rootname[MAX_LINE];
@@ -417,8 +419,8 @@ If there is a suffix on a filename, the denoting '.' is overwritten
 with a null, and a one is returned; else a zero is returned.
 */
 
-StripSuffix(filename)
-	char *filename;
+int StripSuffix(char *filename)
+
 {
 	int len;
 	char *s;
@@ -450,8 +452,8 @@ return(0);
  * Modified: November 23, 2017 Sasan Ardalan Use GNU CLIB opendir to get topology list
  */
 #ifndef EMBEDDED_ECOS
-galaxy_define(index)
-	int index;	/* new gal_path */
+int galaxy_define(int index)
+	 /* new gal_path */
 {
 	FILE *fp;
 	int err;
@@ -556,7 +558,7 @@ if((fp = fopen(tmpFileName, "r")) == NULL)
 #endif
 
 #ifdef DOS
-#if 00000 
+#if 00000
 strcpy(tmpFileName,"zz6543");
 sprintf(command,"dir /b  %s*.t > %s",
 		gpath,tmpFileName);
@@ -684,9 +686,9 @@ This subroutine will return an integer representing the index of the
 first occurence of a character within a string.
 A (-1) is returned if the character is not found.
 */
-int strdex(string,match)
-	char *string;
-	char match;
+int strdex(char *string,char match)
+
+
 {
 	int i,limit;
 
@@ -702,8 +704,8 @@ return(-1);
 
 
 /****************************************************************/
-ToLowerCase(string)
-	char *string;
+void ToLowerCase(char *string)
+
 {
 	char *c;
 	int offset = 'A' - 'a';
@@ -719,8 +721,8 @@ while(*c) {
 
 
 /****************************************************************/
-ToUpperCase(string)
-	char *string;
+void ToUpperCase(char *string)
+
 {
 	char *c;
 	int offset = 'A' - 'a';
@@ -745,13 +747,13 @@ while(*c) {
 Function reads commandS from a file.
 */
 
-CsFileReader(filename)
+int CsFileReader(char *filename)
 
-char *filename;
+
 {
 int err;
 int line_no = 0;
-FILE *fp,*fopen();
+FILE *fp;
 char line[MAX_LINE];
 char string[MAX_LINE];
 if((fp = fopen(filename,"r")) == NULL)
