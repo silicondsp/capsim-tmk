@@ -95,7 +95,8 @@ int	desType;
 	float  c1r,c1i,zunr,zuni,tpdf,dfpl,dfpu,dfsl,dfsu,dfsb,fasb1,fasb2;
 	float  k,dfpb,flpb,zc[2][100],pc[2][100],sub,x[250];
 	char   ans,atype[2],ftype[32];
-	int    iatype,iftype,ns,np,nzi,select,fc,nz,i,ik,j;
+	float fc;
+	int    iatype,iftype,ns,np,nzi,select,nz,i,ik,j;
 	char fname[200];
 	FILE *iirPZ_F;
 

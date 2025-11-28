@@ -13,6 +13,7 @@ libsubs.a : *.c
 	ar rv libsubs.a  *.o
 	ranlib libsubs.a
 	cp libsubs.a ../LIBS/
+	cp libsubs.a ../LIBS_LINUX/
 
 	
 clean:

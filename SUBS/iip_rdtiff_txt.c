@@ -254,7 +254,7 @@ static int OpenTIFFFile(char *fileName)
 static int PrintTIFF()
 {
 
-TIFFPrintDirectory(tfFile, stdout, NULL);
+TIFFPrintDirectory(tfFile, stdout, (int)NULL);
 
 return(0);
 }

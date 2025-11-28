@@ -46,6 +46,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "types.h"
 
 #include "aiff.h"
@@ -212,9 +213,8 @@ iip_MarkerHdr_t *hdr_P;
  *		hdr_P	pointer to the header for the list.
  */
 
-iip_Marker_t *IIPMarkerGet( id, hdr_P)
-MarkerIdType id;
-iip_MarkerHdr_t *hdr_P;
+iip_Marker_t *IIPMarkerGet( MarkerIdType id, iip_MarkerHdr_t *hdr_P)
+
 
 {
 
@@ -240,8 +240,8 @@ iip_MarkerHdr_t *hdr_P;
  *
  */
 
-void IIPMarkerDelList(hdr_P)
-iip_MarkerHdr_t *hdr_P;
+void IIPMarkerDelList(iip_MarkerHdr_t *hdr_P)
+
 
 {
 
@@ -279,11 +279,7 @@ iip_MarkerHdr_t *hdr_P;
  *
  */
 
-void IIPMarkerArrayFromList(hdr_P,  numberMarkers_P,  marker_PP)
-
-iip_MarkerHdr_t *hdr_P;
-int	*numberMarkers_P;
-Marker	**marker_PP;
+void IIPMarkerArrayFromList(iip_MarkerHdr_t *hdr_P,  int	*numberMarkers_P,  Marker	**marker_PP)
 
 {
 

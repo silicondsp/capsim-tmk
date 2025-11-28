@@ -25,7 +25,7 @@
  * The Integrated Interactive Plotting Package
  *
  * Author: Sasan H. Ardalan
- * 
+ *
  */
 
 
@@ -42,14 +42,14 @@ Date: August 4, 1993
 
 This function performs the  task of reading
 sample values in from an aiff file, and then placing them on
-it's output buffer. 
+it's output buffer.
 
 
 
 */
 
 
-#define LONG int  
+#define LONG int
 #define LONG_INT   int
 
 #include <stdio.h>
@@ -70,7 +70,7 @@ it's output buffer.
 #define NUMBER_SAMPLES 128
 
 static  double ReadExtended(FILE *fp)
- 
+
 {
 static unsigned char    exph,expl;
 static unsigned char    man_A[8];
@@ -103,7 +103,7 @@ for(j=0; j<8; j++) {
 			mantissa += x;
 
 		}
-	
+
 	}
 	byteBoundry= byteBoundry/256.0;
 }
@@ -144,7 +144,7 @@ xc1= (unsigned LONG)x1;
 xc2= (unsigned LONG)x2;
 xc3= (unsigned LONG)x3;
 
-	
+
 x=(unsigned LONG)(xc0 +(xc1<<8 )+ (xc2 << 16) +(xc3<<24));
 
 #if 0
@@ -176,14 +176,14 @@ return(x);
 
 
 static void Align(unsigned LONG *id_P)
- 
+
 {
 unsigned short a;
 unsigned short b;
 unsigned LONG	id;
 
 id= *id_P;
-#ifdef DEC 
+#ifdef DEC
 
 a= id >> 16;
 b= id & 0x0000ffff;
@@ -198,7 +198,7 @@ return;
 }
 
 static void Align2(unsigned LONG *id_P)
- 
+
 {
 unsigned short a;
 unsigned short b;
@@ -264,14 +264,14 @@ LONG_INT offset;
 short int  numberChannels;
 float	**multiChannel_PP;
 
-			
+
 float	sampf;
 char buffer[100];
 unsigned char	*samples_P;
 LONG_INT	bytesRead;
 
-OSErr	errorFlag;	
-int	getOut;	
+OSErr	errorFlag;
+int	getOut;
 
 float	*y_P;
 float	*x_P;
@@ -290,7 +290,7 @@ unsigned char	c;
  */
 
 
-/* 
+/*
  * setup ID's
  */
 sscanf(formID,"%4c",&formCkID);
@@ -354,7 +354,7 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 	 */
 	fread(&chunkID,sizeof(ID),1,fp);
 	bytesRead += sizeof(ID);
-	
+
 	if(chunkID == formatCkID ) {
 			printf("Found a format chunk\n");
 			ckSize=ReadLong(fp);
@@ -363,22 +363,22 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 			timestamp=ReadLong(fp);
 			bytesRead += sizeof(LONG_INT);
 			printf("Format time stamp  is: %lx\n",timeStamp);
-			
+
 	} else if(chunkID == soundCkID) {
 			printf("Found a sound chunk\n");
 			ckSize=ReadLong(fp);
 			printf("Chunk size is %ld\n",ckSize);
 			offsetSound=ReadLong(fp);
-			
+
 			blockSize=ReadLong(fp);
-			bytesRead += ckSize;			
+			bytesRead += ckSize;
 			/*
 			 * Read samples during run time
 			 * We are right at where samples are.
 			 * So get the hell out of the loop!
 			 */
 			getOut=1;
-	} else if(chunkID == commonCkID) { 
+	} else if(chunkID == commonCkID) {
 			printf("Found a common chunk\n");
 #if 0
 			fread(&ckSize,sizeof(long int),1,fp);
@@ -409,8 +409,8 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 			 */
 			offset=ckSize-(bytesRead-offset);
 			fseek(fp,offset,SEEK_CUR);
-			
-	} else if(chunkID == markerCkID) { 
+
+	} else if(chunkID == markerCkID) {
 			printf("Found a marker chunk\n");
 			ckSize=ReadLong(fp);
 			bytesRead += sizeof(LONG_INT);
@@ -429,7 +429,7 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 					fread(&c,sizeof(unsigned char),1,fp);
 					markerName[j]=c;
 				}
-				markerName[n]=NULL;
+				markerName[n]=(char )NULL;
 				bytesRead += n;
 				if(!(n%2)) {
 					/*
@@ -444,9 +444,9 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 //xxxxx				if(hdr_P)
 //xxxxx					IIPMarkerPrint(hdr_P);
 
-	
-	
-	} else {			
+
+
+	} else {
 			printf("Could not understand chunk ID\n");
 	}
 }
@@ -458,7 +458,7 @@ while(bytesRead <formChunk_P->ckSize && !feof(fp)  && !getOut) {
 *bits_P = bitsSample;
 *channels_P=numberChannels;
 /*
- * We are ready to read samples now that all chunks have been 
+ * We are ready to read samples now that all chunks have been
  * processed and we are right at the Sound Chunk
  *
  * First check if we want this routine to read the samples or
@@ -480,7 +480,7 @@ if(fileName==NULL) {
 if(numberChannels >1 && multiChannel_PPP) {
 	multiChannel_PP=(float**)calloc(numberChannels,sizeof(float*));
 	for(i=0; i<numberChannels; i++) {
-		multiChannel_PP[i]=(float*)calloc(numberSampleFrames,	
+		multiChannel_PP[i]=(float*)calloc(numberSampleFrames,
 						sizeof(float));
 	}
 	/*
@@ -495,22 +495,22 @@ if(numberChannels >1 && multiChannel_PPP) {
 	*multiChannel_PPP=multiChannel_PP;
 	fclose(fp);
 	return(0);
-	
 
 
-} 
+
+}
 
 y_P=(float*)calloc(numberSampleFrames,sizeof(float));
 if(y_P == NULL) {
 	fprintf(stderr,"AIFF read could not allocate floating point array\n");
-	return(NULL);
+	return((int)NULL);
 }
 x_P=NULL;
 if(numberChannels == 2) {
 	x_P=(float*)calloc(numberSampleFrames,sizeof(float));
 	if(x_P == NULL) {
 		fprintf(stderr,"AIFF read could not allocate floating point array\n");
-		return(NULL);
+		return((int)NULL);
 	}
 }
 
@@ -526,12 +526,12 @@ if( bitsSample <= 8) {
 	/*
 	 * Read numberSampleFrames into sample_P
 	 */
-#if 0	 
+#if 0
 	if(fread(sample_P,sizeof(char),numberChannels*numberSampleFrames,fp)==(int)NULL)
 					return(5);
 #endif
-	for(i=0; i< numberSampleFrames; i++) { 
-		if(numberChannels == 1) { 
+	for(i=0; i< numberSampleFrames; i++) {
+		if(numberChannels == 1) {
 			if(fread(&samp8,sizeof(signed char),1,fp)==(int)NULL)
 					return(5);
 			y_P[i]=(float)samp8;
@@ -545,7 +545,7 @@ if( bitsSample <= 8) {
 			x_P[i]=(float)samp8;
 
 		}
-			
+
 
 	}
 	free(sample_P);
@@ -555,7 +555,7 @@ if( bitsSample <= 8) {
 	 * reads Motorola format then the following way is very
 	 * inefficient. Use the method for 8 bits but with short instead.
 	 * The method below is for portability
-	 */	
+	 */
 	for(i=0; i< numberSampleFrames; i++) {
 		sample=ReadShort(fp);
 		y_P[i]=(float)sample;
@@ -589,7 +589,7 @@ if( bitsSample <= 8) {
 
 *y_PP= y_P;
 *x_PP= x_P;
-	
+
 fclose(fp);
 
 return(0);
@@ -603,7 +603,7 @@ float *y_P;
 float *x_P;
 int	points;
 int	bits;
-float	samplingRate;	
+float	samplingRate;
 //char 	strBuf[80];
 int	i;
 float	dx;
@@ -622,12 +622,12 @@ x_P=NULL;
 
 if(IIP_ReadAIFF(fileName,&x_P,&y_P,&points,&samplingRate,&bits,hdr_P,
 		&numberChannels,NULL,NULL)) {
-	fprintf(stdout,"Could not read AIFF file\n"); 
-	return(NULL);
+	fprintf(stdout,"Could not read AIFF file\n");
+	return((int)NULL);
 
 }
 
-if(x_P) 
+if(x_P)
 	numberChannels=2;
 else
 	numberChannels=1;
@@ -636,11 +636,11 @@ if(numberChannels==1) {
 	x_P = (float*)calloc(points,sizeof(float));
 
 	if(x_P == NULL) {
-		IIPInfo("Could not allocate memory in Open AIFF file"); 
+		IIPInfo("Could not allocate memory in Open AIFF file");
 		return(NULL);
 	}
 }
-if(samplingRate==0.0) 
+if(samplingRate==0.0)
 	dx=1.0;
 else
 	dx=1.0/samplingRate;
@@ -650,7 +650,7 @@ if(numberChannels == 2)
 
 #endif
 
-if(info) 
+if(info)
      sprintf(info,"Bits:%d Sampling Rate:%f Samples:%d",bits,samplingRate,points);
 #if 000
 if(numberChannels==1)
@@ -673,13 +673,13 @@ if (hdr_P->head_P != NULL) {
                                 current_P = current_P->next_P) {
 		xb=current_P->position*dx+x_P[0];
 		xe=xb;
-#if 0000		
+#if 0000
 		yb=curve_P->minMax_A[3]*0.9;
 		ye=curve_P->minMax_A[3]*0.8;
 #endif
-		
+
 		fprintf(stdout,"%s \n",current_P->name);
-		
+
 //		IIP_SetInfoItem(curve_P,current_P->name,TRUE,
 //				xb,yb,xe,ye);
      }

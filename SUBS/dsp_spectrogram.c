@@ -1,6 +1,6 @@
 
-/*  Capsim (r) Text Mode Kernel (TMK) DSP Library  
- *    Copyright (C) 1989-2017  Silicon DSP Corporation 
+/*  Capsim (r) Text Mode Kernel (TMK) DSP Library
+ *    Copyright (C) 1989-2017  Silicon DSP Corporation
  *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Lesser General Public
@@ -20,7 +20,7 @@
  *    Las Vegas, Nevada
  */
 /*
- * This routine produces the spectrogram 
+ * This routine produces the spectrogram
  * of the input buffer.
  * Programmer: 	Sasan Ardalan
  * Date: 		Dec. 4, 1993
@@ -31,7 +31,7 @@
 #include "dsp.h"
 #include "cap_fft.h"
 #include "cap_fftr.h"
- 
+
 #define RESULTS_SURFACE_PLOT 1
 #define RESULTS_SPECTROGRAM 2
 #define RESULTS_DB 4
@@ -47,7 +47,7 @@
 
 
 
-dsp_floatMatrix_Pt *Dsp_Spectrogram(doubleVector_t *vec_P,int windowLength,int overlap,int zeropad,float samplingRate,
+dsp_floatMatrix_t    *Dsp_Spectrogram(doubleVector_t *vec_P,int windowLength,int overlap,int zeropad,float samplingRate,
 	int windowType,float threshold,int surfaceFlag,int imageFlag,int indBFlag,int fileFlag,char *fileName)
 {
 
@@ -276,19 +276,19 @@ for(ii=0; ii<vec_P->length; ii++) {
 				w=1.0;
 				break;
 			}
-		 
+
 			temp[i]=w*dataBuffer[i];
 			printf("SPECTROGRAM ii=%d j=%d i=%d  temp=    %f \n",ii,j,i,temp[i]);
 
 		}
-		
+
 		/*
  		* perform fft calculation
  		*/
  		printf("SPECTROGRAM 11111 windowNumber=%d\n",windowNumber);
  		cap_fftr(pforward, temp,fftBuffer);
  		printf("SPECTROGRAM 22222 fftld2=%d\n",fftld2);
- 		
+
 	//	rfft(fftBuffer,fftl);
 
 
@@ -331,12 +331,12 @@ for(ii=0; ii<vec_P->length; ii++) {
                           temp[i] = w*tempBuffer[i];
  //                         printf("SPECTROGRAM2 ii=%d j=%d i=%d  temp=    %f \n",ii,j,i,temp[i]);
 			}
-			
+
 		                  /*
                          * perform fft calculation
                          */
-                         
-                        cap_fftr(pforward, temp,fftBuffer); 
+
+                        cap_fftr(pforward, temp,fftBuffer);
                        // rfft(fftBuffer,fftl);
 
 //for (i=0; i<fftld2; i++){

@@ -31,7 +31,7 @@
  * 1993
  */
 
-#define LONG  int
+
 
 #define SUN
 #include <math.h>
@@ -55,7 +55,8 @@
 #define INTEGER_BUFFER 1
 
 
-extern void IIP_WriteMultichannel();
+//extern void IIP_WriteMultichannel();
+void 	IIP_WriteMultichannel(FILE	*fp,float	**multiChannel_PP, int	numberChannels,int	frames,int	bits);
 
 
 
@@ -192,9 +193,7 @@ fwrite(&x0,sizeof(unsigned char),1,fp);
 return;
 }
 
-static void WriteShort(fp,x)
-FILE	*fp;
-unsigned LONG x;
+static void WriteShort(FILE* fp, unsigned LONG x)
 {
 unsigned char x0;
 unsigned char x1;
@@ -206,10 +205,7 @@ fwrite(&x0,sizeof(unsigned char),1,fp);
 return;
 }
 
-void WriteSample(fp,bits,sample)
-FILE	*fp;
-short bits;
-float	sample;
+void WriteSample( FILE	*fp, short bits, float	sample)
 {
 unsigned char x0;
 unsigned char x1;
@@ -269,7 +265,7 @@ for(i=0; i<n; i++) {
 	fwrite(&x0,sizeof(unsigned char),1,fp);
 }
 if(!(n%2)) {
-	x0=NULL;
+	x0=(unsigned char)NULL;
 	fwrite(&x0,sizeof(unsigned char),1,fp);
 
 }
@@ -756,21 +752,8 @@ return(0);
 
 
 
-int IIP_UpdateNumberFramesAIFF(fp,
-			bits,numberChannels,
-			numberFrames,
-			formSizeOffset,formBaseSize,
-			numberFramesOffset,
-			sndSizeOffset,samplesOffset)
-FILE*	fp;
-LONG	numberChannels;
-int	bits;
-unsigned LONG numberFrames;
-unsigned LONG formSizeOffset;
-unsigned LONG formBaseSize;
-unsigned LONG numberFramesOffset;
-unsigned LONG sndSizeOffset;
-unsigned LONG samplesOffset;
+int IIP_UpdateNumberFramesAIFF(FILE*	fp,int	bits,LONG	numberChannels,unsigned LONG numberFrames,unsigned LONG formSizeOffset,unsigned LONG formBaseSize,LONG numberFramesOffset,unsigned LONG sndSizeOffset,unsigned LONG samplesOffset)
+
 
 {
 
@@ -805,12 +788,8 @@ fclose(fp);
 return(0);
 }
 
-void 	IIP_WriteMultichannel(fp,multiChannel_PP, numberChannels,frames,bits)
-FILE	*fp;
-float	**multiChannel_PP;
-int	numberChannels;
-int	frames;
-int	bits;
+void 	IIP_WriteMultichannel(FILE	*fp,float	**multiChannel_PP, int	numberChannels,int	frames,int	bits)
+
 {
 int	i,j;
 float	sampf;
