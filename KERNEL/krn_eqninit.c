@@ -80,6 +80,6 @@ void KrnEqnInit(void)
 		KrnEqnInstall(consts[i].name,VAR,consts[i].cval);
 	for(i=0; builtins[i].name; i++) {
 		s=KrnEqnInstall(builtins[i].name,BLTIN,0.0);
-		s->u.ptr =(double (*)(void)) builtins[i].func;
+		s->u.ptr =(double (*)(double)) builtins[i].func;
 	}
 }

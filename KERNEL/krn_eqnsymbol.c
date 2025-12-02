@@ -39,8 +39,8 @@ void execerror(char *s,char *t);
 static	Symbol *symlist=0;
 static char *emalloc(unsigned n);
 
-Symbol *KrnEqnLookup(s)
-	char	*s;
+Symbol *KrnEqnLookup(char	*s)
+	
 {
 	Symbol	*sp;
 

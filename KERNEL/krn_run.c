@@ -413,8 +413,8 @@ do {
 
 		/* now call the STAR function */
 	 	star_return =
-	 		(*(pblock->function))(status,pblock);
-	 	//	(*(pblock->function))(status,(char *)pblock);
+	 	//	(*(pblock->function))(status,pblock);
+	 	 	(*(pblock->function))(status,(char *)pblock);
 
 
 

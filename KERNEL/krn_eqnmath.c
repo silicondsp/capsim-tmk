@@ -36,37 +36,37 @@
 extern	int	errno;
 double errcheck(double d,char	*s);
 
-double Log(x)
-	double x;
+double Log(double x)
+	
 {
 	return errcheck(log(x),"log");
 }
 
-double Log10(x)
-	double x;
+double Log10(double x)
+	 
 {
 	return errcheck(log10(x),"log10");
 }
-double Exp(x)
-	double x;
+double Exp(double x)
+	 
 {
 	return	errcheck(exp(x),"exp");
 }
 
-double Sqrt(x)
-	double x;
+double Sqrt(double x)
+	
 {
 	return	errcheck(sqrt(x),"sqrt");
 }
 
-double Pow(x,y)
-	double x,y;
+double Pow(double x,double y)
+	
 {
 	return errcheck(pow(x,y),"exponentiation");
 }
 
-double Integer(x)
-	double x;
+double Integer(double x)
+	 
 {
 	return(double)(long)x;
 }

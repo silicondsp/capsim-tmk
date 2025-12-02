@@ -21,6 +21,7 @@
     Las Vegas, Nevada
 */
 
+#include <ctype.h>
 
 typedef struct Symbol {
 	/*
@@ -30,10 +31,29 @@ typedef struct Symbol {
 	short	type;
 	union {
 		float	val;
-		double 	(*ptr)();
+		double 	(*ptr)(double);
 	} u;
 	struct	Symbol	*next;
 } Symbol;
 
-Symbol	*KrnEqnInstall(),*KrnEqnLookup();
+
+Symbol *KrnEqnInstall( char *s, int     t, double       d);
+Symbol *KrnEqnLookup(char	*s);
+int yylex(void);
+void execerror(char *s,char *t);
+int yyparse (void);
+
+
+double Log10(double x);
+double Log10(double x);
+double Exp(double x);
+double Sqrt(double x);
+double Pow(double x,double y);
+double Integer(double x);
+double errcheck(double d,char	*s);
+void yyerror(char *s);
+
+
+
+
 

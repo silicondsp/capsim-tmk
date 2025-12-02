@@ -72,7 +72,9 @@
 #include <stdio.h>
 #include <math.h>
 #include "krn_eqn.h"
-extern	double Pow();
+int yylex(void);
+void execerror(char *s,char *t);
+
 extern int krn_lineno;
 extern float krn_eqnResult;
 extern int krn_bufferPtr;
@@ -917,8 +919,7 @@ int yynerrs;
 | yyparse.  |
 `----------*/
 
-int
-yyparse (void)
+int yyparse (void)
 {
     yy_state_fast_t yystate = 0;
     /* Number of tokens to shift before error messages enabled.  */
@@ -1443,7 +1444,7 @@ yyreturnlab:
 	 */
 
 
-yylex()
+int yylex(void)
 {
 	int	c;
 	while((c=krn_buffer[krn_bufferPtr]) == ' ' || c == '\t')
