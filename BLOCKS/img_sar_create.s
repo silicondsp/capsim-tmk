@@ -24,7 +24,7 @@
 </LICENSE>
 <BLOCK_NAME>
 
-img_sar_create 
+img_sar_create
 
 </BLOCK_NAME> 
 
@@ -241,6 +241,12 @@ Create SAR image from parameters.
 	<NAME>tpi</NAME>
 	<VALUE>1000</VALUE>
 </PARAM>
+<PARAM>
+	<DEF>Range Time usec</DEF>
+	<TYPE>float</TYPE>
+	<NAME>rangeTime</NAME>
+	<VALUE>67.6</VALUE>
+</PARAM>
 </PARAMETERS>
 
 <INIT_CODE>
@@ -252,7 +258,7 @@ Create SAR image from parameters.
 		return(2);
 	}
     dt=1.0/(fs*1000000.0);
-    maxRangeIndex=(int)tau*0.000001/dt;
+    maxRangeIndex=(int)(rangeTime*0.000001/dt);
 	dtaz=(1.0/prf);
     tp=tpi*(1.0/prf);
     done=0;

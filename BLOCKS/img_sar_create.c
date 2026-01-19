@@ -115,10 +115,11 @@ typedef struct {
 #define rpRef (param_P[13]->value.f)
 #define rp (param_P[14]->value.f)
 #define tpi (param_P[15]->value.d)
+#define rangeTime (param_P[16]->value.f)
 /*-------------- BLOCK CODE ---------------*/
  int  
 
-img_sar_create 
+img_sar_create
 
 (int run_state,block_Pt block_P)
 
@@ -219,6 +220,10 @@ case PARAM_INIT:
      char   *ptype15 = "int";
      char   *pval15 = "1000";
      char   *pname15 = "tpi";
+     char   *pdef16 = "Range Time usec";
+     char   *ptype16 = "float";
+     char   *pval16 = "67.6";
+     char   *pname16 = "rangeTime";
 KrnModelParam(indexModel88,0 ,pdef0,ptype0,pval0,pname0);
 KrnModelParam(indexModel88,1 ,pdef1,ptype1,pval1,pname1);
 KrnModelParam(indexModel88,2 ,pdef2,ptype2,pval2,pname2);
@@ -235,6 +240,7 @@ KrnModelParam(indexModel88,12 ,pdef12,ptype12,pval12,pname12);
 KrnModelParam(indexModel88,13 ,pdef13,ptype13,pval13,pname13);
 KrnModelParam(indexModel88,14 ,pdef14,ptype14,pval14,pname14);
 KrnModelParam(indexModel88,15 ,pdef15,ptype15,pval15,pname15);
+KrnModelParam(indexModel88,16 ,pdef16,ptype16,pval16,pname16);
 
       }
 break;
@@ -267,7 +273,7 @@ case USER_INIT:
 		return(2);
 	}
     dt=1.0/(fs*1000000.0);
-    maxRangeIndex=(int)tau*0.000001/dt;
+    maxRangeIndex=(int)(rangeTime*0.000001/dt);
 	dtaz=(1.0/prf);
     tp=tpi*(1.0/prf);
     done=0;
