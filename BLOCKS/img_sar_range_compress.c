@@ -401,8 +401,8 @@ for (no_samples = MIN_AVAIL(); no_samples > 0; --no_samples) {
 	/*
 	 * generate reference
 	 */
-//    for(j=0; j<maxRangeIndex; j++) {
-    for(j=0; j<width; j++) {
+    for(j=0; j<maxRangeIndex; j++) {
+//    for(j=0; j<width; j++) {
         
 #if 000
 		c=(fIF*t);
